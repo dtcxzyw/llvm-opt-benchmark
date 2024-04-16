@@ -300,7 +300,7 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   %38 = add i64 %29, -21
   %39 = tail call i64 @llvm.smax.i64(i64 %38, i64 -2147483648)
   %40 = tail call i64 @llvm.smin.i64(i64 %39, i64 2147483647)
-  %41 = trunc i64 %40 to i32
+  %41 = trunc nsw i64 %40 to i32
   br label %42
 
 42:                                               ; preds = %37, %31
@@ -335,7 +335,7 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   %63 = sub i64 21, %54
   %64 = tail call i64 @llvm.smax.i64(i64 %63, i64 -2147483648)
   %65 = tail call i64 @llvm.smin.i64(i64 %64, i64 2147483647)
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nsw i64 %65 to i32
   br label %67
 
 67:                                               ; preds = %62, %56
@@ -351,7 +351,7 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   %74 = icmp ult i64 %16, 86016
   %75 = select i1 %74, i64 86016, i64 94208
   %76 = select i1 %73, i64 %16, i64 %75
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   %78 = getelementptr inbounds i8, ptr %0, i64 40
   %79 = load i32, ptr %78, align 8, !tbaa !31
   %80 = icmp ult i32 %79, %77
@@ -1482,7 +1482,7 @@ define hidden void @_ZN8rawspeed10KdcDecoder22decodeMetaDataInternalEPKNS_14Came
   %182 = call noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef nonnull align 8 dereferenceable(52) %173, i32 noundef 149)
   %183 = zext i8 %182 to i32
   %184 = or disjoint i32 %181, %183
-  %185 = sitofp i32 %184 to float
+  %185 = uitofp nneg i32 %184 to float
   %186 = fmul float %185, 3.906250e-03
   %187 = getelementptr inbounds i8, ptr %0, i64 8
   %188 = load ptr, ptr %187, align 8, !tbaa !42
@@ -1496,7 +1496,7 @@ define hidden void @_ZN8rawspeed10KdcDecoder22decodeMetaDataInternalEPKNS_14Came
   %194 = call noundef zeroext i8 @_ZNK8rawspeed9TiffEntry7getByteEj(ptr noundef nonnull align 8 dereferenceable(52) %173, i32 noundef 151)
   %195 = zext i8 %194 to i32
   %196 = or disjoint i32 %193, %195
-  %197 = sitofp i32 %196 to float
+  %197 = uitofp nneg i32 %196 to float
   %198 = fmul float %197, 3.906250e-03
   %199 = load ptr, ptr %187, align 8, !tbaa !42
   %200 = getelementptr inbounds i8, ptr %199, i64 264

@@ -61,7 +61,7 @@ define noalias noundef ptr @Extra_bddImageStart(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next.i, %.lr.ph35.i ]
   %26 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
-  %28 = trunc i64 %indvars.iv.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %0, ptr noundef %27, ptr noundef %13, ptr noundef %14, i32 noundef %28)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -469,7 +469,7 @@ Extra_CreateNodes.exit:                           ; preds = %._crit_edge, %.preh
   %208 = getelementptr inbounds i8, ptr %207, i64 16
   %209 = load i32, ptr %208, align 8
   %210 = mul nsw i32 %209, %209
-  %211 = sitofp i32 %210 to double
+  %211 = uitofp nneg i32 %210 to double
   %212 = fadd double %.028.i.i, %211
   %213 = getelementptr inbounds i8, ptr %.02329.i.i, i64 16
   %.023.i.i = load ptr, ptr %213, align 8
@@ -482,7 +482,7 @@ Extra_CreateNodes.exit:                           ; preds = %._crit_edge, %.preh
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %._crit_edge.i.i
-  %216 = trunc i64 %indvars.iv.i.i to i32
+  %216 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %217
 
 217:                                              ; preds = %215, %._crit_edge.i.i, %196
@@ -730,7 +730,7 @@ Extra_BuildTreeNode.exit:                         ; preds = %329, %301
 
 338:                                              ; preds = %.lr.ph.i94.us
   %339 = icmp eq i32 %.02732.i.us, -1
-  %340 = trunc i64 %indvars.iv.i95.us to i32
+  %340 = trunc nuw nsw i64 %indvars.iv.i95.us to i32
   br i1 %339, label %350, label %341
 
 341:                                              ; preds = %338

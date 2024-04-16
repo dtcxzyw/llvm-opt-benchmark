@@ -2886,7 +2886,7 @@ for.inc237:                                       ; preds = %if.then226.for.inc2
 
 if.end241.sink.split:                             ; preds = %if.then84, %if.then166, %if.then226
   %indvars.iv169.lcssa.sink = phi i64 [ %indvars.iv169, %if.then226 ], [ %indvars.iv161, %if.then166 ], [ %indvars.iv, %if.then84 ]
-  %93 = trunc i64 %indvars.iv169.lcssa.sink to i32
+  %93 = trunc nsw i64 %indvars.iv169.lcssa.sink to i32
   %cur_z234 = getelementptr inbounds i8, ptr %mm, i64 352
   store i32 %93, ptr %cur_z234, align 8
   br label %if.end241
@@ -3274,17 +3274,17 @@ entry:
   store float %conv11, ptr %arrayidx13, align 4
   %3 = load i32, ptr %pos_x, align 8
   %and = and i32 %3, 255
-  %conv15 = sitofp i32 %and to float
+  %conv15 = uitofp nneg i32 %and to float
   %arrayidx16 = getelementptr inbounds i8, ptr %transform, i64 24
   store float %conv15, ptr %arrayidx16, align 4
   %4 = load i32, ptr %pos_y, align 4
   %and19 = and i32 %4, 255
-  %conv20 = sitofp i32 %and19 to float
+  %conv20 = uitofp nneg i32 %and19 to float
   %arrayidx22 = getelementptr inbounds i8, ptr %transform, i64 28
   store float %conv20, ptr %arrayidx22, align 4
   %5 = load i32, ptr %pos_z, align 8
   %and24 = and i32 %5, 255
-  %conv25 = sitofp i32 %and24 to float
+  %conv25 = uitofp nneg i32 %and24 to float
   %arrayidx27 = getelementptr inbounds i8, ptr %transform, i64 32
   store float %conv25, ptr %arrayidx27, align 4
   ret void

@@ -1923,7 +1923,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.thread141
   %.021.i = phi i64 [ %64, %.lr.ph.split.i ], [ 0, %.thread141 ]
-  %61 = uitofp i64 %.021.i to float
+  %61 = uitofp nneg i64 %.021.i to float
   %62 = call contract noundef float @llvm.fma.f32(float %61, float 0x3F90410420000000, float 0.000000e+00)
   %63 = getelementptr inbounds float, ptr %59, i64 %.021.i
   store float %62, ptr %63, align 4, !noalias !10
@@ -2055,7 +2055,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit98:            ; preds = %105, %108, %111
 
 .noexc.i.i:                                       ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit98
   %115 = icmp ugt i64 %.fr.i, 4611686018427387903
-  %116 = shl i64 %.fr.i, 2
+  %116 = shl nuw i64 %.fr.i, 2
   %117 = select i1 %115, i64 -1, i64 %116
   %118 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %117) #29
           to label %.noexc unwind label %282
@@ -2742,7 +2742,7 @@ define linkonce_odr hidden void @_ZN7mitsuba18eval_transmittanceIN5drjit12Dynami
 
 .lr.ph.i:                                         ; preds = %36
   %40 = icmp ugt i64 %spec.select, 4611686018427387903
-  %41 = shl i64 %spec.select, 2
+  %41 = shl nuw i64 %spec.select, 2
   %42 = select i1 %40, i64 -1, i64 %41
   %43 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %42) #29
           to label %.noexc unwind label %266
@@ -3407,7 +3407,7 @@ define linkonce_odr hidden void @_ZN7mitsuba16eval_reflectanceIN5drjit12DynamicA
 
 .lr.ph.i:                                         ; preds = %33
   %37 = icmp ugt i64 %spec.select, 4611686018427387903
-  %38 = shl i64 %spec.select, 2
+  %38 = shl nuw i64 %spec.select, 2
   %39 = select i1 %37, i64 -1, i64 %38
   %40 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %39) #29
           to label %.noexc unwind label %253
@@ -4112,7 +4112,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %spec.store.select.i.i = select i1 %71, i64 0, i64 %78
   %79 = getelementptr inbounds float, ptr %68, i64 %spec.store.select.i.i
   %80 = load float, ptr %79, align 4
-  %81 = uitofp i32 %..i.i to float
+  %81 = uitofp nneg i32 %..i.i to float
   %82 = fsub contract float %72, %81
   %83 = fneg contract float %80
   %84 = tail call contract noundef float @llvm.fma.f32(float %83, float %82, float %80)
@@ -4905,7 +4905,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %spec.store.select.i.i = select i1 %36, i64 0, i64 %43
   %44 = getelementptr inbounds float, ptr %33, i64 %spec.store.select.i.i
   %45 = load float, ptr %44, align 4
-  %46 = uitofp i32 %..i.i to float
+  %46 = uitofp nneg i32 %..i.i to float
   %47 = fsub contract float %37, %46
   %48 = fneg contract float %45
   %49 = tail call contract noundef float @llvm.fma.f32(float %48, float %47, float %45)
@@ -5346,7 +5346,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %spec.store.select.i.i = select i1 %179, i64 0, i64 %184
   %185 = getelementptr inbounds float, ptr %176, i64 %spec.store.select.i.i
   %186 = load float, ptr %185, align 4
-  %187 = uitofp i32 %..i.i223 to float
+  %187 = uitofp nneg i32 %..i.i223 to float
   %188 = fsub contract float %174, %187
   %189 = fneg contract float %186
   %190 = call contract noundef float @llvm.fma.f32(float %189, float %188, float %186)
@@ -5367,7 +5367,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %spec.store.select.i.i225 = select i1 %197, i64 0, i64 %202
   %203 = getelementptr inbounds float, ptr %194, i64 %spec.store.select.i.i225
   %204 = load float, ptr %203, align 4
-  %205 = uitofp i32 %..i.i224 to float
+  %205 = uitofp nneg i32 %..i.i224 to float
   %206 = fsub contract float %192, %205
   %207 = fneg contract float %204
   %208 = call contract noundef float @llvm.fma.f32(float %207, float %206, float %204)
@@ -5856,7 +5856,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %spec.store.select.i.i = select i1 %60, i64 0, i64 %65
   %66 = getelementptr inbounds float, ptr %57, i64 %spec.store.select.i.i
   %67 = load float, ptr %66, align 4
-  %68 = uitofp i32 %..i.i to float
+  %68 = uitofp nneg i32 %..i.i to float
   %69 = fsub contract float %55, %68
   %70 = fneg contract float %67
   %71 = tail call contract noundef float @llvm.fma.f32(float %70, float %69, float %67)
@@ -6176,7 +6176,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %spec.store.select.i.i242 = select i1 %313, i64 0, i64 %318
   %319 = getelementptr inbounds float, ptr %310, i64 %spec.store.select.i.i242
   %320 = load float, ptr %319, align 4
-  %321 = uitofp i32 %..i.i241 to float
+  %321 = uitofp nneg i32 %..i.i241 to float
   %322 = fsub contract float %308, %321
   %323 = fneg contract float %320
   %324 = call contract noundef float @llvm.fma.f32(float %323, float %322, float %320)
@@ -8939,7 +8939,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit48.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -9089,7 +9089,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -9226,7 +9226,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -10288,7 +10288,7 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destro
   %23 = lshr i32 %1, 1
   %24 = shl nuw nsw i32 %19, 1
   %25 = add nuw nsw i32 %24, 2
-  %26 = sitofp i32 %25 to double
+  %26 = uitofp nneg i32 %25 to double
   %27 = zext nneg i32 %19 to i64
   %wide.trip.count = zext nneg i32 %23 to i64
   br label %.split.preheader
@@ -10298,7 +10298,7 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destro
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %28 = shl i32 %indvars.iv.tr, 1
   %29 = or disjoint i32 %28, 1
-  %30 = sitofp i32 %29 to double
+  %30 = uitofp nneg i32 %29 to double
   %31 = fdiv contract double %30, %26
   %32 = fmul contract double %31, 0x400921FB54442D18
   %33 = tail call contract noundef double @llvm.fabs.f64(double %32)
@@ -10311,7 +10311,7 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destro
   %39 = and i64 %36, 2
   %40 = icmp eq i64 %39, 0
   %41 = fcmp contract oeq double %33, 0x7FF0000000000000
-  %42 = sitofp i64 %37 to double
+  %42 = uitofp nneg i64 %37 to double
   %43 = fmul contract double %42, 0x3FE921FB40000000
   %44 = fsub contract double %33, %43
   %45 = fmul contract double %42, 0x3E64442D00000000
@@ -10722,7 +10722,7 @@ _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit118:       ; preds = %_ZN5drjit12DynamicA
 
 _ZN5drjit12DynamicArrayIjE7arange_Elll.exit:      ; preds = %.lr.ph.split.i, %.lr.ph.split.us.preheader.i, %71
   %83 = tail call i32 @llvm.ctlz.i32(i32 %65, i1 false), !range !183
-  %84 = trunc i32 %83 to i8
+  %84 = trunc nuw nsw i32 %83 to i8
   %85 = sub nsw i8 31, %84
   %86 = tail call i32 @llvm.ctpop.i32(i32 %65), !range !183
   %87 = icmp ult i32 %86, 2
@@ -10741,7 +10741,7 @@ _ZN5drjit7divisorIjiEC2Ej.exit.thread:            ; preds = %_ZN5drjit12DynamicA
   %95 = udiv i64 %93, %94
   %96 = urem i64 %93, %94
   %.sroa.0.0.extract.trunc.i = trunc i64 %95 to i32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %96 to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %96 to i32
   %97 = shl i32 %.sroa.0.0.extract.trunc.i, 1
   %98 = or disjoint i32 %97, 1
   %99 = shl i32 %.sroa.2.0.extract.trunc.i, 1
@@ -10872,7 +10872,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit.thread.i:     ; preds = %144
 
 .noexc.i.i:                                       ; preds = %144
   %149 = icmp ugt i64 %.fr.i, 4611686018427387903
-  %150 = shl i64 %.fr.i, 2
+  %150 = shl nuw i64 %.fr.i, 2
   %151 = select i1 %149, i64 -1, i64 %150
   %152 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %151) #29
           to label %.noexc131 unwind label %212
@@ -12580,7 +12580,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -12717,7 +12717,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -12741,7 +12741,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
   %32 = zext i32 %30 to i64
   %33 = mul nuw i64 %32, %31
   %34 = lshr i64 %33, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   store i32 %35, ptr %22, align 4
   br label %._crit_edge
 
@@ -12757,7 +12757,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
   %40 = zext i32 %38 to i64
   %41 = mul nuw i64 %40, %39
   %42 = lshr i64 %41, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = getelementptr inbounds i32, ptr %22, i64 %.053.us
   store i32 %43, ptr %44, align 4
   %45 = add nuw i64 %.053.us, 1
@@ -12779,7 +12779,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
   %50 = zext i32 %48 to i64
   %51 = mul nuw i64 %50, %49
   %52 = lshr i64 %51, 32
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw i64 %52 to i32
   %54 = getelementptr inbounds i32, ptr %22, i64 %.053.us54
   store i32 %53, ptr %54, align 4
   %55 = add nuw i64 %.053.us54, 1
@@ -12799,7 +12799,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
   %61 = zext i32 %59 to i64
   %62 = mul nuw i64 %61, %60
   %63 = lshr i64 %62, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   %65 = getelementptr inbounds i32, ptr %22, i64 %.053
   store i32 %64, ptr %65, align 4
   %66 = add nuw i64 %.053, 1
@@ -12813,7 +12813,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
   %70 = zext i32 %68 to i64
   %71 = mul nuw i64 %70, %69
   %72 = lshr i64 %71, 32
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw i64 %72 to i32
   store i32 %73, ptr %22, align 4
   br label %._crit_edge
 
@@ -12824,7 +12824,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
   %77 = zext i32 %75 to i64
   %78 = mul nuw i64 %77, %76
   %79 = lshr i64 %78, 32
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw i64 %79 to i32
   store i32 %80, ptr %22, align 4
   br label %._crit_edge
 
@@ -12835,7 +12835,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit50.thread:     ; preds = %16
   %84 = zext i32 %82 to i64
   %85 = mul nuw i64 %84, %83
   %86 = lshr i64 %85, 32
-  %87 = trunc i64 %86 to i32
+  %87 = trunc nuw i64 %86 to i32
   store i32 %87, ptr %22, align 4
   br label %._crit_edge
 
@@ -12882,7 +12882,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -13019,7 +13019,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -13156,7 +13156,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -13293,7 +13293,7 @@ _ZN5drjit12DynamicArrayIjED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #29
   store ptr %22, ptr %0, align 8
@@ -13433,7 +13433,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit40.thread:     ; preds = %17
 
 .noexc.i:                                         ; preds = %17
   %20 = icmp ugt i64 %10, 4611686018427387903
-  %21 = shl i64 %10, 2
+  %21 = shl nuw i64 %10, 2
   %22 = select i1 %20, i64 -1, i64 %21
   %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #29
   store ptr %23, ptr %0, align 8
@@ -14828,11 +14828,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba6VectorIiLm2EEEE4and_IS3_EES3_RKT_.exit.crite
   %.0.copyload.i.i = load i64, ptr %0, align 4
   %.sroa.0270.0.extract.trunc = trunc i64 %.0.copyload.i.i to i32
   %.sroa.2271.0.extract.shift = lshr i64 %.0.copyload.i.i, 32
-  %.sroa.2271.0.extract.trunc = trunc i64 %.sroa.2271.0.extract.shift to i32
+  %.sroa.2271.0.extract.trunc = trunc nuw i64 %.sroa.2271.0.extract.shift to i32
   %1 = trunc i64 %.0.copyload.i.i to i32
   %2 = and i32 %1, 2139095040
   %3 = lshr i64 %.0.copyload.i.i, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = and i32 %4, 2139095040
   %.sroa.0268.0.vec.insert = insertelement <2 x i32> poison, i32 %2, i64 0
   %.sroa.0268.4.vec.insert = insertelement <2 x i32> %.sroa.0268.0.vec.insert, i32 %5, i64 1

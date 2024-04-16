@@ -2980,7 +2980,7 @@ _ZNK4Json5Value5isIntEv.exit21.thread:            ; preds = %25
   br label %68
 
 36:                                               ; preds = %25
-  %37 = trunc i64 %26 to i32
+  %37 = trunc nuw i64 %26 to i32
   br label %67
 
 38:                                               ; preds = %1
@@ -3161,7 +3161,7 @@ _ZNK4Json5Value6isUIntEv.exit.thread:             ; preds = %12
   br label %68
 
 23:                                               ; preds = %12
-  %24 = trunc i64 %13 to i32
+  %24 = trunc nuw i64 %13 to i32
   br label %67
 
 25:                                               ; preds = %1
@@ -3197,7 +3197,7 @@ _ZNK4Json5Value6isUIntEv.exit20.thread:           ; preds = %25
   br label %68
 
 36:                                               ; preds = %25
-  %37 = trunc i64 %26 to i32
+  %37 = trunc nuw i64 %26 to i32
   br label %67
 
 38:                                               ; preds = %1
@@ -3709,9 +3709,9 @@ define dso_local noundef double @_ZNK4Json5Value8asDoubleEv(ptr nocapture nounde
 9:                                                ; preds = %1
   %10 = load i64, ptr %0, align 8
   %11 = lshr i64 %10, 1
-  %12 = sitofp i64 %11 to double
+  %12 = uitofp nneg i64 %11 to double
   %13 = and i64 %10, 1
-  %14 = sitofp i64 %13 to double
+  %14 = uitofp nneg i64 %13 to double
   %15 = tail call noundef double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %14)
   br label %32
 
@@ -3785,9 +3785,9 @@ define dso_local noundef float @_ZNK4Json5Value7asFloatEv(ptr nocapture noundef 
 9:                                                ; preds = %1
   %10 = load i64, ptr %0, align 8
   %11 = lshr i64 %10, 1
-  %12 = sitofp i64 %11 to double
+  %12 = uitofp nneg i64 %11 to double
   %13 = and i64 %10, 1
-  %14 = sitofp i64 %13 to double
+  %14 = uitofp nneg i64 %13 to double
   %15 = tail call noundef double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %14)
   %16 = fptrunc double %15 to float
   br label %34

@@ -2578,7 +2578,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %i_step.021 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %_Z18ImLineClosestPointRK6ImVec2S1_S1_.exit ]
   %retval.sroa.0.020 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %retval.sroa.0.1, %_Z18ImLineClosestPointRK6ImVec2S1_S1_.exit ]
   %p_last.sroa.0.019 = phi <2 x float> [ %0, %for.body.lr.ph ], [ %call, %_Z18ImLineClosestPointRK6ImVec2S1_S1_.exit ]
-  %conv1 = sitofp i32 %i_step.021 to float
+  %conv1 = uitofp nneg i32 %i_step.021 to float
   %mul = fmul float %div, %conv1
   %call = tail call <2 x float> @_Z17ImBezierCubicCalcRK6ImVec2S1_S1_S1_f(ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(8) %p3, ptr noundef nonnull align 4 dereferenceable(8) %p4, float noundef %mul)
   %p.val.i = load float, ptr %p, align 4
@@ -4952,11 +4952,11 @@ return:                                           ; preds = %while.cond, %while.
 define noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef %col_a, i32 noundef %col_b) local_unnamed_addr #23 {
 entry:
   %shr = lshr i32 %col_b, 24
-  %conv = uitofp i32 %shr to float
+  %conv = uitofp nneg i32 %shr to float
   %div = fdiv float %conv, 2.550000e+02
   %and2 = and i32 %col_a, 255
   %and4 = and i32 %col_b, 255
-  %conv.i = sitofp i32 %and2 to float
+  %conv.i = uitofp nneg i32 %and2 to float
   %sub.i = sub nsw i32 %and4, %and2
   %conv1.i = sitofp i32 %sub.i to float
   %0 = tail call float @llvm.fmuladd.f32(float %conv1.i, float %div, float %conv.i)
@@ -4965,7 +4965,7 @@ entry:
   %and6 = and i32 %shr5, 255
   %shr7 = lshr i32 %col_b, 8
   %and8 = and i32 %shr7, 255
-  %conv.i8 = sitofp i32 %and6 to float
+  %conv.i8 = uitofp nneg i32 %and6 to float
   %sub.i9 = sub nsw i32 %and8, %and6
   %conv1.i10 = sitofp i32 %sub.i9 to float
   %1 = tail call float @llvm.fmuladd.f32(float %conv1.i10, float %div, float %conv.i8)
@@ -4974,7 +4974,7 @@ entry:
   %and11 = and i32 %shr10, 255
   %shr12 = lshr i32 %col_b, 16
   %and13 = and i32 %shr12, 255
-  %conv.i12 = sitofp i32 %and11 to float
+  %conv.i12 = uitofp nneg i32 %and11 to float
   %sub.i13 = sub nsw i32 %and13, %and11
   %conv1.i14 = sitofp i32 %sub.i13 to float
   %2 = tail call float @llvm.fmuladd.f32(float %conv1.i14, float %div, float %conv.i12)
@@ -4991,18 +4991,18 @@ entry:
 define { <2 x float>, <2 x float> } @_ZN5ImGui23ColorConvertU32ToFloat4Ej(i32 noundef %in) local_unnamed_addr #23 {
 entry:
   %and = and i32 %in, 255
-  %conv = uitofp i32 %and to float
+  %conv = uitofp nneg i32 %and to float
   %mul = fmul float %conv, 0x3F70101020000000
   %shr1 = lshr i32 %in, 8
   %and2 = and i32 %shr1, 255
-  %conv3 = uitofp i32 %and2 to float
+  %conv3 = uitofp nneg i32 %and2 to float
   %mul4 = fmul float %conv3, 0x3F70101020000000
   %shr5 = lshr i32 %in, 16
   %and6 = and i32 %shr5, 255
-  %conv7 = uitofp i32 %and6 to float
+  %conv7 = uitofp nneg i32 %and6 to float
   %mul8 = fmul float %conv7, 0x3F70101020000000
   %shr9 = lshr i32 %in, 24
-  %conv11 = uitofp i32 %shr9 to float
+  %conv11 = uitofp nneg i32 %shr9 to float
   %mul12 = fmul float %conv11, 0x3F70101020000000
   %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %mul, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %mul4, i64 1
@@ -8775,7 +8775,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %shr = lshr i32 %col, 24
-  %conv = uitofp i32 %shr to float
+  %conv = uitofp nneg i32 %shr to float
   %mul = fmul float %1, %conv
   %conv2 = fptoui float %mul to i32
   %and3 = and i32 %col, 16777215
@@ -8840,18 +8840,18 @@ _ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit: ; preds = %entry, %_ZNK8ImVe
 
 if.then:                                          ; preds = %_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_.exit
   %and.i = and i32 %col, 255
-  %conv.i = uitofp i32 %and.i to float
+  %conv.i = uitofp nneg i32 %and.i to float
   %mul.i = fmul float %conv.i, 0x3F70101020000000
   %shr1.i = lshr i32 %col, 8
   %and2.i = and i32 %shr1.i, 255
-  %conv3.i = uitofp i32 %and2.i to float
+  %conv3.i = uitofp nneg i32 %and2.i to float
   %mul4.i = fmul float %conv3.i, 0x3F70101020000000
   %shr5.i = lshr i32 %col, 16
   %and6.i = and i32 %shr5.i, 255
-  %conv7.i = uitofp i32 %and6.i to float
+  %conv7.i = uitofp nneg i32 %and6.i to float
   %mul8.i = fmul float %conv7.i, 0x3F70101020000000
   %shr9.i = lshr i32 %col, 24
-  %conv11.i = uitofp i32 %shr9.i to float
+  %conv11.i = uitofp nneg i32 %shr9.i to float
   %mul12.i = fmul float %conv11.i, 0x3F70101020000000
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul4.i, i64 1
@@ -60715,10 +60715,10 @@ if.end87:                                         ; preds = %if.end80
 for.body92:                                       ; preds = %if.end87, %for.inc120
   %n89.0137 = phi i32 [ 0, %if.end87 ], [ %inc121, %for.inc120 ]
   %rem = and i32 %n89.0137, 15
-  %conv94 = uitofp i32 %rem to float
+  %conv94 = uitofp nneg i32 %rem to float
   %98 = call float @llvm.fmuladd.f32(float %conv94, float %add95, float %base_pos.sroa.0.0.vec.extract)
   %div73 = lshr i32 %n89.0137, 4
-  %conv98 = uitofp i32 %div73 to float
+  %conv98 = uitofp nneg i32 %div73 to float
   %99 = call float @llvm.fmuladd.f32(float %conv98, float %add95, float %base_pos.sroa.0.4.vec.extract)
   store float %98, ptr %cell_p1, align 8
   store float %99, ptr %y.i, align 4

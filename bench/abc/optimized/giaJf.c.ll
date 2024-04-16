@@ -976,7 +976,7 @@ define noalias noundef ptr @Jf_ManCreateCnf(ptr noundef %0, ptr nocapture nounde
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %39
-  %49 = trunc i64 %indvars.iv57 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %49, ptr %45, align 4
   %50 = getelementptr inbounds i32, ptr %36, i64 %44
   store i32 1, ptr %50, align 4
@@ -1350,7 +1350,7 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %215 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv125
   %216 = load i32, ptr %215, align 4
   %217 = call noundef i32 @llvm.smax.i32(i32 %216, i32 1)
-  %218 = sitofp i32 %217 to float
+  %218 = uitofp nneg i32 %217 to float
   %219 = getelementptr inbounds float, ptr %211, i64 %indvars.iv125
   store float %218, ptr %219, align 4
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
@@ -1494,9 +1494,9 @@ define void @Jf_ManProfileClasses(ptr nocapture noundef readonly %0) local_unnam
   %.049.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.2, %66 ]
   %67 = tail call noundef i32 @llvm.smax.i32(i32 %.049.lcssa, i32 1)
   %68 = tail call noundef i32 @llvm.smax.i32(i32 %.051.lcssa, i32 1)
-  %69 = sitofp i32 %68 to double
+  %69 = uitofp nneg i32 %68 to double
   %70 = getelementptr inbounds i8, ptr %0, i64 16
-  %71 = sitofp i32 %67 to double
+  %71 = uitofp nneg i32 %67 to double
   br label %72
 
 72:                                               ; preds = %.critedge, %105
@@ -1521,7 +1521,7 @@ define void @Jf_ManProfileClasses(ptr nocapture noundef readonly %0) local_unnam
   br i1 %84, label %100, label %85
 
 85:                                               ; preds = %75
-  %86 = trunc i64 %indvars.iv84 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv84 to i32
   %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %86)
   %88 = load ptr, ptr %70, align 8
   %89 = tail call ptr @Sdm_ManReadDsdStr(ptr noundef %88, i32 noundef %86) #29
@@ -2492,7 +2492,7 @@ Jf_CutIsContained1.exit.thread93.us:              ; preds = %27, %.lr.ph.split.u
   br i1 %exitcond.not.i.i, label %Jf_CutFindLeaf1.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 ._crit_edge.loopexit.split.loop.exit15.i.i:       ; preds = %.lr.ph.i.i
-  %53 = trunc i64 %indvars.iv.i.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %Jf_CutFindLeaf1.exit.i
 
 Jf_CutFindLeaf1.exit.i:                           ; preds = %52, %._crit_edge.loopexit.split.loop.exit15.i.i
@@ -2571,7 +2571,7 @@ Jf_CutIsContained1.exit.thread93:                 ; preds = %Jf_CutFindLeaf1.exi
   br i1 %exitcond.not.i.i81, label %Jf_CutFindLeaf1.exit.i82, label %.lr.ph.i.i77, !llvm.loop !27
 
 ._crit_edge.loopexit.split.loop.exit15.i.i87:     ; preds = %.lr.ph.i.i77
-  %81 = trunc i64 %indvars.iv.i.i78 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv.i.i78 to i32
   br label %Jf_CutFindLeaf1.exit.i82
 
 Jf_CutFindLeaf1.exit.i82:                         ; preds = %80, %._crit_edge.loopexit.split.loop.exit15.i.i87
@@ -2765,7 +2765,7 @@ Jf_CutIsContained1.exit.thread50.us:              ; preds = %31, %.lr.ph.split.u
   br i1 %exitcond.not.i.i, label %Jf_CutFindLeaf1.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 ._crit_edge.loopexit.split.loop.exit15.i.i:       ; preds = %.lr.ph.i.i
-  %62 = trunc i64 %indvars.iv.i.i to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %Jf_CutFindLeaf1.exit.i
 
 Jf_CutFindLeaf1.exit.i:                           ; preds = %61, %._crit_edge.loopexit.split.loop.exit15.i.i
@@ -3750,7 +3750,7 @@ Abc_TtCopy.exit48:                                ; preds = %.lr.ph.i37, %.lr.ph
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
-  %79 = trunc i64 %indvars.iv.next.i52 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv.next.i52 to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %8, i32 noundef %12, i32 noundef %.017.i, i32 noundef %79)
   br label %80
 
@@ -3802,7 +3802,7 @@ Abc_TtExpand.exit:                                ; preds = %Abc_TtExpand.exit.l
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %99
-  %102 = trunc i64 %indvars.iv.next.i57 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv.next.i57 to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %9, i32 noundef %12, i32 noundef %.017.i56, i32 noundef %102)
   br label %103
 
@@ -3887,7 +3887,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.t
   %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %Abc_TtHasVar.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.038.us.i = phi i32 [ %.1.us.i, %Abc_TtHasVar.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
   %131 = load i64, ptr %7, align 16
-  %132 = trunc i64 %indvars.iv74.i to i32
+  %132 = trunc nuw nsw i64 %indvars.iv74.i to i32
   %133 = shl nuw i32 1, %132
   %134 = zext nneg i32 %133 to i64
   %135 = lshr i64 %131, %134
@@ -3936,7 +3936,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %146, %Abc_TtHasVar.
   br i1 %148, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.split.i
-  %149 = trunc nuw i64 %indvars.iv.i70 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv.i70 to i32
   %150 = shl nuw nsw i32 1, %149
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i70
@@ -3961,7 +3961,7 @@ Abc_TtHasVar.exit.thread.us.i:                    ; preds = %146, %Abc_TtHasVar.
 .preheader.lr.ph.i.i:                             ; preds = %.lr.ph.split.split.split.i
   %161 = add nsw i64 %indvars.iv.i70, -6
   %162 = icmp eq i64 %161, 31
-  %163 = trunc i64 %161 to i32
+  %163 = trunc nsw i64 %161 to i32
   %164 = shl i32 2, %163
   %165 = sext i32 %164 to i64
   br i1 %162, label %Abc_TtHasVar.exit.thread.i, label %.preheader.us.preheader.i.i
@@ -4007,7 +4007,7 @@ Abc_TtHasVar.exit.thread30.i:                     ; preds = %155, %169
   %181 = load i32, ptr %180, align 4
   %182 = getelementptr inbounds i32, ptr %63, i64 %177
   store i32 %181, ptr %182, align 4
-  %183 = trunc i64 %indvars.iv.i70 to i32
+  %183 = trunc nuw nsw i64 %indvars.iv.i70 to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %7, i32 noundef %12, i32 noundef %.038.i, i32 noundef %183)
   br label %184
 
@@ -4917,7 +4917,7 @@ Jf_CutGetSign.exit248:                            ; preds = %.lr.ph.i242, %.lr.p
 
 .loopexit110.i.loopexit:                          ; preds = %153, %158
   %.387.i.ph = phi i32 [ %.185111.i, %153 ], [ %156, %158 ]
-  %161 = trunc i64 %indvars.iv.next561 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv.next561 to i32
   br label %.loopexit110.i
 
 .loopexit110.i:                                   ; preds = %.loopexit110.i.loopexit, %139
@@ -4951,12 +4951,12 @@ Jf_CutGetSign.exit248:                            ; preds = %.lr.ph.i242, %.lr.p
   br i1 %exitcond.not.i254, label %._crit_edge.loopexit.i, label %.lr.ph116.i, !llvm.loop !59
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph116.i
-  %171 = trunc i64 %indvars.iv.next.i253 to i32
+  %171 = trunc nsw i64 %indvars.iv.next.i253 to i32
   br label %.loopexit440
 
 .loopexit109.i.loopexit:                          ; preds = %149, %155
   %.282.i.ph = phi i32 [ %.080112.i, %149 ], [ %157, %155 ]
-  %172 = trunc i64 %indvars.iv.next561 to i32
+  %172 = trunc nuw nsw i64 %indvars.iv.next561 to i32
   br label %.loopexit109.i
 
 .loopexit109.i:                                   ; preds = %.loopexit109.i.loopexit, %137
@@ -4990,7 +4990,7 @@ Jf_CutGetSign.exit248:                            ; preds = %.lr.ph.i242, %.lr.p
   br i1 %exitcond143.not.i, label %._crit_edge120.loopexit.i, label %.lr.ph119.i, !llvm.loop !60
 
 ._crit_edge120.loopexit.i:                        ; preds = %.lr.ph119.i
-  %182 = trunc i64 %indvars.iv.next136.i to i32
+  %182 = trunc nsw i64 %indvars.iv.next136.i to i32
   br label %.loopexit440
 
 .loopexit440:                                     ; preds = %135, %._crit_edge120.loopexit.i, %.preheader105.i, %._crit_edge.loopexit.i, %.preheader106.i, %.preheader.i
@@ -5059,7 +5059,7 @@ Jf_CutMerge2.exit.thread413:                      ; preds = %192
   br i1 %exitcond.not.i.i, label %Jf_CutFindLeaf1.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 ._crit_edge.loopexit.split.loop.exit15.i.i:       ; preds = %.lr.ph.i.i
-  %205 = trunc i64 %indvars.iv.i.i to i32
+  %205 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %Jf_CutFindLeaf1.exit.i
 
 Jf_CutFindLeaf1.exit.i:                           ; preds = %204, %._crit_edge.loopexit.split.loop.exit15.i.i, %.lr.ph.i258
@@ -5283,7 +5283,7 @@ Jf_CutGetSign.exit275:                            ; preds = %.lr.ph.i268, %263
 
 .loopexit110.i302.loopexit:                       ; preds = %300, %305
   %.387.i303.ph = phi i32 [ %.185111.i283, %300 ], [ %303, %305 ]
-  %308 = trunc i64 %indvars.iv.next552 to i32
+  %308 = trunc nuw nsw i64 %indvars.iv.next552 to i32
   br label %.loopexit110.i302
 
 .loopexit110.i302:                                ; preds = %.loopexit110.i302.loopexit, %286
@@ -5317,12 +5317,12 @@ Jf_CutGetSign.exit275:                            ; preds = %.lr.ph.i268, %263
   br i1 %exitcond.not.i313, label %._crit_edge.loopexit.i314, label %.lr.ph116.i308, !llvm.loop !59
 
 ._crit_edge.loopexit.i314:                        ; preds = %.lr.ph116.i308
-  %318 = trunc i64 %indvars.iv.next.i312 to i32
+  %318 = trunc nsw i64 %indvars.iv.next.i312 to i32
   br label %.loopexit443
 
 .loopexit109.i285.loopexit:                       ; preds = %296, %302
   %.282.i286.ph = phi i32 [ %.080112.i282, %296 ], [ %304, %302 ]
-  %319 = trunc i64 %indvars.iv.next552 to i32
+  %319 = trunc nuw nsw i64 %indvars.iv.next552 to i32
   br label %.loopexit109.i285
 
 .loopexit109.i285:                                ; preds = %.loopexit109.i285.loopexit, %284
@@ -5356,7 +5356,7 @@ Jf_CutGetSign.exit275:                            ; preds = %.lr.ph.i268, %263
   br i1 %exitcond143.not.i299, label %._crit_edge120.loopexit.i300, label %.lr.ph119.i294, !llvm.loop !60
 
 ._crit_edge120.loopexit.i300:                     ; preds = %.lr.ph119.i294
-  %329 = trunc i64 %indvars.iv.next136.i298 to i32
+  %329 = trunc nsw i64 %indvars.iv.next136.i298 to i32
   br label %.loopexit443
 
 .loopexit443:                                     ; preds = %282, %._crit_edge120.loopexit.i300, %.preheader105.i288, %._crit_edge.loopexit.i314, %.preheader106.i305, %.preheader.i319
@@ -5525,7 +5525,7 @@ Jf_CutFlow.exit:                                  ; preds = %382, %Jf_CutArr.exi
 
 402:                                              ; preds = %405, %._crit_edge303.i
   %indvars.iv.i358 = phi i64 [ %406, %405 ], [ %401, %._crit_edge303.i ]
-  %403 = trunc i64 %indvars.iv.i358 to i32
+  %403 = trunc nuw i64 %indvars.iv.i358 to i32
   %404 = icmp sgt i32 %403, 0
   br i1 %404, label %405, label %412
 
@@ -5678,7 +5678,7 @@ Jf_CutIsContained1.exit.thread208.us.i:           ; preds = %435, %.lr.ph.split.
   br i1 %exitcond.not.i.i.i, label %Jf_CutFindLeaf1.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
 
 ._crit_edge.loopexit.split.loop.exit15.i.i.i:     ; preds = %.lr.ph.i.i.i
-  %463 = trunc i64 %indvars.iv.i.i.i to i32
+  %463 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %Jf_CutFindLeaf1.exit.i.i
 
 Jf_CutFindLeaf1.exit.i.i:                         ; preds = %462, %._crit_edge.loopexit.split.loop.exit15.i.i.i
@@ -5854,7 +5854,7 @@ Jf_CutIsContainedOrder.exit.thread.i:             ; preds = %494, %.lr.ph.i156.i
   br i1 %exitcond.not.i.i174.i, label %Jf_CutFindLeaf1.exit.i175.i, label %.lr.ph.i.i170.i, !llvm.loop !27
 
 ._crit_edge.loopexit.split.loop.exit15.i.i180.i:  ; preds = %.lr.ph.i.i170.i
-  %531 = trunc i64 %indvars.iv.i.i171.i to i32
+  %531 = trunc nuw nsw i64 %indvars.iv.i.i171.i to i32
   br label %Jf_CutFindLeaf1.exit.i175.i
 
 Jf_CutFindLeaf1.exit.i175.i:                      ; preds = %530, %._crit_edge.loopexit.split.loop.exit15.i.i180.i
@@ -5868,7 +5868,7 @@ Jf_CutIsContained1.exit183.i:                     ; preds = %.lr.ph.i162.i
 
 Jf_CutIsContained1.exit183.thread215.i:           ; preds = %Jf_CutFindLeaf1.exit.i175.i, %Jf_CutIsContained1.exit183.i, %514, %.lr.ph245.i
   %534 = add nsw i32 %.0133243.i, 1
-  %535 = trunc i64 %indvars.iv293.i to i32
+  %535 = trunc nsw i64 %indvars.iv293.i to i32
   %536 = icmp eq i32 %.0133243.i, %535
   br i1 %536, label %Jf_CutIsContained1.exit183.thread.i, label %537
 
@@ -5972,7 +5972,7 @@ Jf_CutIsContained1.exit183.thread.i:              ; preds = %524, %537, %Jf_CutI
 
 Jf_CutIsContainedOrder.exit205.thread.i:          ; preds = %575, %.lr.ph.i190.i, %.lr.ph47.i200.i, %.preheader35.i187.i, %548, %.lr.ph251.i
   %576 = add nsw i32 %.2248.i, 1
-  %577 = trunc i64 %indvars.iv297.i to i32
+  %577 = trunc nsw i64 %indvars.iv297.i to i32
   %578 = icmp eq i32 %.2248.i, %577
   br i1 %578, label %Jf_CutIsContainedOrder.exit205.i, label %579
 
@@ -6950,7 +6950,7 @@ define noundef i32 @Jf_ManComputeDelay(ptr nocapture noundef readonly %0, i32 no
   br i1 %narrow.i, label %24, label %34
 
 24:                                               ; preds = %15
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = sub nsw i32 %25, %18
   %.val19.i = load ptr, ptr %10, align 8
   %27 = sext i32 %26 to i64
@@ -7496,7 +7496,7 @@ Jf_CutFlow.exit:                                  ; preds = %71, %69
   %.07.lcssa.i = phi float [ 0.000000e+00, %69 ], [ %78, %71 ]
   %79 = lshr i32 %.val.i67, 4
   %80 = and i32 %79, 15
-  %81 = sitofp i32 %80 to float
+  %81 = uitofp nneg i32 %80 to float
   %82 = fadd float %.07.lcssa.i, %81
   br label %83
 
@@ -7719,7 +7719,7 @@ define void @Jf_ManPropagateFlow(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %narrow.i, label %21, label %31
 
 21:                                               ; preds = %13
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = sub nsw i32 %22, %15
   %.val19.i = load ptr, ptr %7, align 8
   %24 = sext i32 %23 to i64
@@ -9809,7 +9809,7 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %171, ptr %17, align 4
   %172 = sext i32 %170 to i64
   %173 = getelementptr inbounds i32, ptr %169, i64 %172
-  %174 = trunc i64 %indvars.iv82 to i32
+  %174 = trunc nuw nsw i64 %indvars.iv82 to i32
   store i32 %174, ptr %173, align 4
   %.pre = load ptr, ptr %0, align 8
   br label %175
@@ -10711,7 +10711,7 @@ define ptr @Jf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %narrow.i.i, label %50, label %60
 
 50:                                               ; preds = %42
-  %51 = trunc i64 %indvars.iv.i to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.i to i32
   %52 = sub nsw i32 %51, %44
   %.val19.i.i = load ptr, ptr %29, align 8
   %53 = sext i32 %52 to i64
@@ -11164,7 +11164,7 @@ define void @Jf_ManTestCnf(ptr noundef %0) local_unnamed_addr #0 {
   %27 = load ptr, ptr %22, align 8
   %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %30, i32 noundef %26, i32 noundef %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %18, align 8

@@ -656,7 +656,7 @@ define void @Sdm_ManPrintDsdStats(ptr nocapture noundef readonly %0, i32 noundef
   br label %22
 
 13:                                               ; preds = %.split
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds %struct.Sdm_Dsd_t_, ptr %16, i64 %indvars.iv, i32 4
@@ -686,7 +686,7 @@ define void @Sdm_ManPrintDsdStats(ptr nocapture noundef readonly %0, i32 noundef
   %31 = getelementptr inbounds i8, ptr %0, i64 6744
   %32 = load i32, ptr %31, align 8
   %33 = tail call noundef i32 @llvm.smax.i32(i32 %32, i32 1)
-  %34 = sitofp i32 %33 to double
+  %34 = uitofp nneg i32 %33 to double
   %35 = fdiv double %30, %34
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %28, double noundef %35)
   %putchar = tail call i32 @putchar(i32 10)
@@ -995,7 +995,7 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr inbounds i8, ptr %102, i64 4
   store i32 %121, ptr %122, align 4
-  %123 = trunc i64 %indvars.iv.i.i to i32
+  %123 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %123, ptr %120, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.val34.i.i = load i32, ptr %65, align 4
@@ -1009,7 +1009,7 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %.val33.i.i = phi i32 [ %.val3457.i.i, %Vec_IntFill.exit.i.i ], [ %.val35.i.i, %.lr.ph..loopexit.i_crit_edge.i ], [ %.val34.i.i, %Hsh_IntManHash.exit.i.i ]
   %126 = getelementptr i8, ptr %.val43.i.i, i64 8
   %.val43.val.i.i = load ptr, ptr %126, align 8
-  %127 = trunc i64 %indvars.iv.i to i32
+  %127 = trunc nuw nsw i64 %indvars.iv.i to i32
   %128 = mul nsw i32 %.val42.i.i, %127
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %.val43.val.i.i, i64 %129
@@ -1254,7 +1254,7 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_Clock.exit, %17
   %.val156 = load ptr, ptr %56, align 8
   %57 = sext i32 %54 to i64
   %58 = getelementptr inbounds i32, ptr %.val156, i64 %57
-  %59 = trunc i64 %indvars.iv212 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv212 to i32
   store i32 %59, ptr %58, align 4
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count
@@ -1275,7 +1275,7 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_Clock.exit, %17
 Vec_IntGrow.exit.i:                               ; preds = %.loopexit, %.lr.ph192
   %indvars.iv222 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next223, %.loopexit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %62, i8 0, i64 24, i1 false)
-  %63 = trunc i64 %indvars.iv222 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv222 to i32
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i, %74
@@ -1328,7 +1328,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %80 = add nsw i32 %.2140183, 1
   %81 = sext i32 %.2140183 to i64
   %82 = getelementptr inbounds i32, ptr %62, i64 %81
-  %83 = trunc i64 %indvars.iv217 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv217 to i32
   store i32 %83, ptr %82, align 4
   br label %84
 
@@ -1774,7 +1774,7 @@ define i32 @Sdm_ManComputeFunc(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 .preheader77:                                     ; preds = %6, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %6 ]
   %.06379 = phi i64 [ %.164, %46 ], [ %33, %6 ]
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = shl nuw nsw i32 1, %34
   %36 = and i32 %35, %10
   %.not74 = icmp eq i32 %36, 0
@@ -1878,7 +1878,7 @@ Sdm_ManCheckDsd6.exit:                            ; preds = %.loopexit78
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %87 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next86
   %88 = load i32, ptr %87, align 4
-  %89 = trunc i64 %indvars.iv85 to i32
+  %89 = trunc nuw nsw i64 %indvars.iv85 to i32
   %90 = lshr i32 %77, %89
   %91 = and i32 %90, 1
   %92 = xor i32 %88, %91
@@ -2195,7 +2195,7 @@ Sdm_ManCheckDsd6.exit:                            ; preds = %2
 .preheader:                                       ; preds = %.preheader.preheader, %40
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %40 ]
   %.028 = phi i32 [ 0, %.preheader.preheader ], [ %.1, %40 ]
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = shl nuw nsw i32 1, %22
   %24 = zext nneg i32 %23 to i64
   %25 = lshr i64 %0, %24

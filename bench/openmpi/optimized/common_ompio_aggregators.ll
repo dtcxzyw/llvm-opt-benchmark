@@ -164,9 +164,9 @@ cost_calc.exit:                                   ; preds = %27, %29, %40, %46
 
 79:                                               ; preds = %cost_calc.exit62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %78
-  %80 = trunc i64 %indvars.iv.next to i32
+  %80 = trunc nuw i64 %indvars.iv.next to i32
   %.not = icmp slt i32 %.pre.pre, %80
-  %81 = trunc i64 %indvars.iv to i32
+  %81 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not, label %cost_calc.exit62._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
@@ -196,8 +196,8 @@ cost_calc.exit:                                   ; preds = %27, %29, %40, %46
   %94 = sitofp i32 %82 to double
   %95 = tail call double @sqrt(double noundef %94) #10
   %96 = fptosi double %95 to i32
-  %97 = trunc i64 %indvars.iv to i32
-  %98 = sitofp i32 %97 to double
+  %97 = trunc nuw nsw i64 %indvars.iv to i32
+  %98 = uitofp nneg i32 %97 to double
   %99 = sitofp i32 %96 to double
   %100 = fdiv double %98, %99
   %101 = mul nsw i64 %indvars.iv, %85
@@ -773,7 +773,7 @@ define i32 @mca_common_ompio_cart_based_grouping(ptr nocapture noundef readonly 
   %53 = getelementptr inbounds %struct.mca_common_ompio_contg, ptr %2, i64 %indvars.iv88
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   store i32 %52, ptr %54, align 8
-  %55 = trunc i64 %indvars.iv88 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv88 to i32
   store i32 %55, ptr %31, align 4
   %56 = load ptr, ptr %6, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 280
@@ -1317,7 +1317,7 @@ mca_common_ompio_retain_initial_groups.exit.thread: ; preds = %36, %.preheader.i
   br i1 %.not61, label %.thread, label %95
 
 .thread:                                          ; preds = %88
-  %91 = trunc i64 %indvars.iv to i32
+  %91 = trunc nsw i64 %indvars.iv to i32
   %92 = load ptr, ptr %83, align 8
   %93 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv79
   store i32 %91, ptr %93, align 4
@@ -2047,7 +2047,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 .critedge.loopexit.split.loop.exit297:            ; preds = %.critedge.loopexit.split.loop.exit297.loopexit, %.lr.ph231.preheader
   %indvars.iv.lcssa = phi i64 [ %55, %.lr.ph231.preheader ], [ %indvars.iv.next312, %.critedge.loopexit.split.loop.exit297.loopexit ]
   %.1151229.lcssa = phi i32 [ %.0150245, %.lr.ph231.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit297.loopexit ]
-  %69 = trunc i64 %indvars.iv.lcssa to i32
+  %69 = trunc nsw i64 %indvars.iv.lcssa to i32
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %.lr.ph313
@@ -2744,7 +2744,7 @@ define noundef i32 @mca_common_ompio_finalize_split(ptr nocapture noundef %0, i3
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph68 ], [ 0, %.preheader62 ]
   %44 = load ptr, ptr %27, align 8
   %45 = load i32, ptr %4, align 4
-  %46 = trunc i64 %indvars.iv78 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv78 to i32
   %47 = sub i32 %46, %2
   %48 = add i32 %47, %45
   %49 = sext i32 %48 to i64

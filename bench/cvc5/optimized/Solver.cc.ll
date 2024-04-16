@@ -9385,7 +9385,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %for.
   %cond13.in.i = select i1 %cmp6.i, ptr %sz.i.i390, ptr %arrayidx.i11.i
   %cond13.i = load i32, ptr %cond13.in.i, align 4
   %113 = trunc nuw nsw i64 %indvars.iv.i333 to i32
-  %conv.i.i336 = sitofp i32 %113 to double
+  %conv.i.i336 = uitofp nneg i32 %113 to double
   %call.i.i337 = call noundef double @pow(double noundef %div.i329, double noundef %conv.i.i336) #28
   %sub15.i = sub nsw i32 %cond13.i, %cond.i
   %conv16.i = sitofp i32 %sub15.i to double
@@ -9509,7 +9509,7 @@ cond.end.i368:                                    ; preds = %cond.false.i366, %f
   %cond13.in.i372 = select i1 %cmp6.i370, ptr %sz.i.i390, ptr %arrayidx.i11.i371
   %cond13.i373 = load i32, ptr %cond13.in.i372, align 4
   %136 = trunc nuw nsw i64 %indvars.iv.i362 to i32
-  %conv.i.i374 = sitofp i32 %136 to double
+  %conv.i.i374 = uitofp nneg i32 %136 to double
   %call.i.i375 = call noundef double @pow(double noundef %div.i355, double noundef %conv.i.i374) #28
   %sub15.i376 = sub nsw i32 %cond13.i373, %cond.i369
   %conv16.i377 = sitofp i32 %sub15.i376 to double
@@ -9852,7 +9852,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %cond13.in = select i1 %cmp6, ptr %sz.i, ptr %arrayidx.i11
   %cond13 = load i32, ptr %cond13.in, align 4
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  %conv.i = sitofp i32 %6 to double
+  %conv.i = uitofp nneg i32 %6 to double
   %call.i = tail call noundef double @pow(double noundef %div, double noundef %conv.i) #28
   %sub15 = sub nsw i32 %cond13, %cond
   %conv16 = sitofp i32 %sub15 to double
@@ -10113,7 +10113,7 @@ while.body:                                       ; preds = %if.end26, %while.co
   %9 = load i8, ptr %luby_restart, align 8
   %tobool30 = trunc i8 %9 to i1
   %10 = load double, ptr %restart_inc35, align 8
-  br i1 %tobool30, label %cond.true31, label %cond.end38
+  br i1 %tobool30, label %cond.true31, label %cond.false34
 
 cond.true31:                                      ; preds = %while.body
   %cmp.not9.i = icmp eq i32 %curr_restarts.0184, 0
@@ -10123,7 +10123,7 @@ while.cond.preheader.i:                           ; preds = %for.inc.i, %cond.tr
   %size.0.lcssa.i = phi i32 [ 0, %cond.true31 ], [ %mul.i, %for.inc.i ]
   %seq.0.lcssa.i = phi i32 [ 0, %cond.true31 ], [ %inc.i48, %for.inc.i ]
   %cmp2.not14.i = icmp eq i32 %size.0.lcssa.i, %curr_restarts.0184
-  br i1 %cmp2.not14.i, label %cond.end38, label %while.body.i
+  br i1 %cmp2.not14.i, label %_ZN4cvc58internal7MinisatL4lubyEdi.exit, label %while.body.i
 
 for.inc.i:                                        ; preds = %cond.true31, %for.inc.i
   %seq.011.i = phi i32 [ %inc.i48, %for.inc.i ], [ 0, %cond.true31 ]
@@ -10143,12 +10143,20 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %rem.i = srem i32 %x.addr.015.i, %shr.i
   %sub.i = add nsw i32 %shr.i, -1
   %cmp2.not.i = icmp eq i32 %sub.i, %rem.i
-  br i1 %cmp2.not.i, label %cond.end38, label %while.body.i, !llvm.loop !61
+  br i1 %cmp2.not.i, label %_ZN4cvc58internal7MinisatL4lubyEdi.exit, label %while.body.i, !llvm.loop !61
 
-cond.end38:                                       ; preds = %while.body.i, %while.body, %while.cond.preheader.i
-  %curr_restarts.0184.sink = phi i32 [ %seq.0.lcssa.i, %while.cond.preheader.i ], [ %curr_restarts.0184, %while.body ], [ %dec.i, %while.body.i ]
-  %conv.i = sitofp i32 %curr_restarts.0184.sink to double
-  %call.i50 = tail call noundef double @pow(double noundef %10, double noundef %conv.i) #28
+_ZN4cvc58internal7MinisatL4lubyEdi.exit:          ; preds = %while.body.i, %while.cond.preheader.i
+  %seq.1.lcssa.i = phi i32 [ %seq.0.lcssa.i, %while.cond.preheader.i ], [ %dec.i, %while.body.i ]
+  %conv.i.i = sitofp i32 %seq.1.lcssa.i to double
+  br label %cond.end38
+
+cond.false34:                                     ; preds = %while.body
+  %conv.i = uitofp nneg i32 %curr_restarts.0184 to double
+  br label %cond.end38
+
+cond.end38:                                       ; preds = %cond.false34, %_ZN4cvc58internal7MinisatL4lubyEdi.exit
+  %conv.i.sink = phi double [ %conv.i, %cond.false34 ], [ %conv.i.i, %_ZN4cvc58internal7MinisatL4lubyEdi.exit ]
+  %call.i50 = tail call noundef double @pow(double noundef %10, double noundef %conv.i.sink) #28
   %11 = load i32, ptr %restart_first, align 8
   %conv40 = sitofp i32 %11 to double
   %mul41 = fmul double %call.i50, %conv40

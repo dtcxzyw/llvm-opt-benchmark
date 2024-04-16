@@ -1545,7 +1545,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnul
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.1.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %4 = sitofp i32 %.sroa.1.0.extract.trunc to double
   %5 = fdiv double %4, 1.200000e+02
   %6 = fcmp une double %5, 0.000000e+00
@@ -2446,7 +2446,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %313
   %389 = and i32 %388, 62
   %390 = fdiv float %356, %33
   %391 = fpext float %390 to double
-  %392 = sitofp i32 %389 to double
+  %392 = uitofp nneg i32 %389 to double
   %393 = sitofp i32 %383 to float
   %394 = fdiv float %393, %33
   %395 = fpext float %394 to double
@@ -2585,13 +2585,13 @@ _ZL14accumulate_rgbPA3_fiiffff.exit198:           ; preds = %.lr.ph.i193
   %467 = sitofp i32 %463 to float
   %468 = fdiv float %467, %33
   %469 = fpext float %468 to double
-  %470 = uitofp i32 %narrow to double
+  %470 = uitofp nneg i32 %narrow to double
   %471 = sitofp i32 %464 to float
   %472 = fdiv float %471, %33
   %473 = fpext float %472 to double
   %474 = zext nneg i16 %466 to i32
   %475 = shl nuw nsw i32 %spec.store.select4, %474
-  %476 = uitofp i32 %475 to double
+  %476 = uitofp nneg i32 %475 to double
   store double %469, ptr %3, align 8
   store double %470, ptr %303, align 8
   store double %473, ptr %304, align 8
@@ -2771,7 +2771,7 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef no
 ._crit_edge:                                      ; preds = %19, %30, %24, %20
   %36 = getelementptr [3 x float], ptr %2, i64 %.phi.trans.insert
   %37 = fcmp une float %.pre, 1.000000e+00
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   %.phi.trans.insert42 = getelementptr i8, ptr %36, i64 4
   %.pre43 = load float, ptr %.phi.trans.insert42, align 4
   %39 = fcmp une float %.pre43, 1.000000e+00

@@ -3154,7 +3154,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp6, label %if.then7, label %for.inc20
 
 if.then7:                                         ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw i64 %indvars.iv to i32
   %dec = add i32 %2, -1
   store i32 %dec, ptr %mNumChildren5, align 8
   %cmp1123 = icmp ugt i32 %dec, %5
@@ -3783,7 +3783,7 @@ for.body.i:                                       ; preds = %for.inc20.i, %for.b
   br i1 %cmp6.i, label %if.then7.i, label %for.inc20.i
 
 if.then7.i:                                       ; preds = %for.body.i
-  %41 = trunc i64 %indvars.iv.i to i32
+  %41 = trunc nuw i64 %indvars.iv.i to i32
   %dec.i = add i32 %38, -1
   store i32 %dec.i, ptr %mNumChildren5.i, align 8
   %cmp1123.i = icmp ugt i32 %dec.i, %41
@@ -3853,7 +3853,7 @@ for.body.i182:                                    ; preds = %for.inc20.i186, %fo
   br i1 %cmp6.i185, label %if.then7.i189, label %for.inc20.i186
 
 if.then7.i189:                                    ; preds = %for.body.i182
-  %52 = trunc i64 %indvars.iv.i183 to i32
+  %52 = trunc nuw i64 %indvars.iv.i183 to i32
   %dec.i190 = add i32 %49, -1
   store i32 %dec.i190, ptr %mNumChildren5.i177, align 8
   %cmp1123.i191 = icmp ugt i32 %dec.i190, %52
@@ -5331,9 +5331,9 @@ invoke.cont446:                                   ; preds = %for.body406
   %100 = load i16, ptr %NORMAL, align 2
   %conv.i241 = zext i16 %100 to i32
   %shr.i = lshr i32 %conv.i241, 8
-  %conv1.i = sitofp i32 %shr.i to float
+  %conv1.i = uitofp nneg i32 %shr.i to float
   %and3.i = and i32 %conv.i241, 255
-  %conv4.i = sitofp i32 %and3.i to float
+  %conv4.i = uitofp nneg i32 %and3.i to float
   %mul.i = fmul float %conv1.i, 0x3F9922AA20000000
   %mul5.i = fmul float %conv4.i, 0x3F9922AA20000000
   %call.i.i242 = call noundef float @cosf(float noundef %mul.i) #17
@@ -5591,7 +5591,7 @@ if.end.i263:                                      ; preds = %for.cond589.prehead
   %indvars.iv448 = phi i64 [ 0, %for.cond589.preheader ], [ %indvars.iv.next449, %_ZN12aiMatrix4x4tIfEixEj.exit ]
   %arrayidx595 = getelementptr inbounds [3 x [3 x float]], ptr %orientation, i64 0, i64 %indvars.iv452, i64 %indvars.iv448
   %136 = load float, ptr %arrayidx595, align 4
-  %137 = trunc i64 %indvars.iv448 to i32
+  %137 = trunc nuw nsw i64 %indvars.iv448 to i32
   switch i32 %137, label %default.unreachable.i [
     i32 0, label %_ZN12aiMatrix4x4tIfEixEj.exit
     i32 1, label %sw.bb2.i
@@ -5664,7 +5664,7 @@ for.body616:                                      ; preds = %if.end611, %for.bod
   %mMeshes618 = getelementptr inbounds i8, ptr %145, i64 1128
   %146 = load ptr, ptr %mMeshes618, align 8
   %arrayidx620 = getelementptr inbounds i32, ptr %146, i64 %indvars.iv459
-  %147 = trunc i64 %indvars.iv459 to i32
+  %147 = trunc nuw i64 %indvars.iv459 to i32
   store i32 %147, ptr %arrayidx620, align 4
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
   %148 = load i32, ptr %mNumMeshes, align 8

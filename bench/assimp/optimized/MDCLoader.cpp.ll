@@ -1378,9 +1378,9 @@ if.end228.us:                                     ; preds = %invoke.cont226.us, 
   %91 = load i16, ptr %normal.us, align 1
   %conv.i193.us = zext i16 %91 to i32
   %shr.i.us = lshr i32 %conv.i193.us, 8
-  %conv1.i.us = sitofp i32 %shr.i.us to float
+  %conv1.i.us = uitofp nneg i32 %shr.i.us to float
   %and3.i.us = and i32 %conv.i193.us, 255
-  %conv4.i.us = sitofp i32 %and3.i.us to float
+  %conv4.i.us = uitofp nneg i32 %and3.i.us to float
   %mul.i194.us = fmul float %conv1.i.us, 0x3F9922AA20000000
   %mul5.i.us = fmul float %conv4.i.us, 0x3F9922AA20000000
   %call.i.i195.us = call noundef float @cosf(float noundef %mul.i194.us) #18
@@ -1717,7 +1717,7 @@ _ZN8aiStringaSERKS_.exit217:                      ; preds = %invoke.cont367, %if
 invoke.cont382:                                   ; preds = %_ZN8aiStringaSERKS_.exit217
   %mMeshes384 = getelementptr inbounds i8, ptr %call365, i64 1128
   store ptr %call383, ptr %mMeshes384, align 8
-  %139 = trunc i64 %indvars.iv338 to i32
+  %139 = trunc nuw i64 %indvars.iv338 to i32
   store i32 %139, ptr %call383, align 4
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %140 = load i32, ptr %mNumMeshes59, align 8

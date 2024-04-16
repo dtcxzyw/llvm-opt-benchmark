@@ -2180,7 +2180,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   br i1 %241, label %244, label %249
 
 244:                                              ; preds = %238
-  %245 = trunc i64 %243 to i32
+  %245 = trunc nuw nsw i64 %243 to i32
   %246 = getelementptr inbounds float, ptr %24, i64 %243
   %247 = load float, ptr %246, align 4
   %248 = fdiv contract float %242, %247
@@ -2489,7 +2489,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
 
 483:                                              ; preds = %395
   %484 = shl nuw nsw i32 %.11130, 1
-  %485 = uitofp i32 %484 to float
+  %485 = uitofp nneg i32 %484 to float
   %486 = fmul contract float %485, %478
   %487 = fmul contract float %100, 2.000000e+00
   %488 = fsub contract float %486, %487
@@ -3345,7 +3345,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i.i.i:   ; preds = %308, %305, %_ZN7mit
   br i1 %309, label %_ZN7mitsuba9luminanceINS_8SpectrumIfLm4EEEEEN5drjit6detail5valueIT_iE4typeERKS6_RKNS_6detail15spectrum_traitsIS6_E10WavelengthENS4_4maskIS6_iE4typeE.exit, label %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EED2Ev.exit.i.i.i
 
 _ZN7mitsuba9luminanceINS_8SpectrumIfLm4EEEEEN5drjit6detail5valueIT_iE4typeERKS6_RKNS_6detail15spectrum_traitsIS6_E10WavelengthENS4_4maskIS6_iE4typeE.exit: ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i.i.i
-  %310 = uitofp <4 x i32> %282 to <4 x float>
+  %310 = uitofp nneg <4 x i32> %282 to <4 x float>
   %311 = fsub contract <4 x float> %277, %310
   %312 = fsub contract <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %311
   %313 = fmul contract <4 x float> %311, %286
@@ -4140,7 +4140,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 435:                                              ; preds = %352, %464
   %indvars.iv = phi i64 [ 0, %352 ], [ %indvars.iv.next, %464 ]
   %.sroa.0407.0475 = phi <4 x float> [ zeroinitializer, %352 ], [ %486, %464 ]
-  %436 = trunc i64 %indvars.iv to i32
+  %436 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %436, label %464 [
     i32 0, label %437
     i32 1, label %446
@@ -4733,7 +4733,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
 241:                                              ; preds = %17, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit ]
   %.0205207 = phi float [ 0.000000e+00, %17 ], [ %287, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit ]
-  %242 = trunc i64 %indvars.iv to i32
+  %242 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %242, label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit [
     i32 0, label %243
     i32 1, label %252
@@ -5331,7 +5331,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %indvars.iv = phi i64 [ 0, %355 ], [ %indvars.iv.next, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit ]
   %.sroa.0419.0501 = phi <4 x float> [ zeroinitializer, %355 ], [ %495, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit ]
   %.0498500 = phi float [ 0.000000e+00, %355 ], [ %486, %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit ]
-  %441 = trunc i64 %indvars.iv to i32
+  %441 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %441, label %_ZNK7mitsuba4HairIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE23longitudinal_scatteringERKNS_6VectorIfLm3EEESA_SA_f.exit [
     i32 0, label %442
     i32 1, label %451
@@ -5755,7 +5755,7 @@ define linkonce_odr hidden noundef float @_ZN7mitsuba4warp25square_to_rough_fibe
   %.01420.i = phi float [ 4.000000e+00, %4 ], [ %29, %21 ]
   %.01519.i = phi float [ %20, %4 ], [ %26, %21 ]
   %.01618.i = phi float [ 1.000000e+00, %4 ], [ %25, %21 ]
-  %22 = sitofp i32 %.021.i to float
+  %22 = uitofp nneg i32 %.021.i to float
   %23 = fadd contract float %22, 1.000000e+00
   %24 = fdiv contract float %.01519.i, %.01420.i
   %25 = fadd contract float %.01618.i, %24
@@ -8485,7 +8485,7 @@ define linkonce_odr hidden noundef float @_ZN7mitsuba4warp6detail6log_i0IfEET_S3
   %.01420.i = phi float [ 4.000000e+00, %1 ], [ %11, %3 ]
   %.01519.i = phi float [ %2, %1 ], [ %8, %3 ]
   %.01618.i = phi float [ 1.000000e+00, %1 ], [ %7, %3 ]
-  %4 = sitofp i32 %.021.i to float
+  %4 = uitofp nneg i32 %.021.i to float
   %5 = fadd contract float %4, 1.000000e+00
   %6 = fdiv contract float %.01519.i, %.01420.i
   %7 = fadd contract float %.01618.i, %6

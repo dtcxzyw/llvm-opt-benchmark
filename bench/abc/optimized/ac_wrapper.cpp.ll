@@ -381,7 +381,7 @@ define linkonce_odr noundef i32 @_ZN3acd21ac_decomposition_impl3runEPmj(ptr noun
   %26 = getelementptr inbounds [16 x i64], ptr %22, i64 0, i64 %indvars.iv.i
   store i64 %25, ptr %26, align 8
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
-  %27 = trunc i64 %indvars.iv.next.i to i32
+  %27 = trunc nuw i64 %indvars.iv.next.i to i32
   %.highbits.i = lshr i32 %27, %21
   %28 = icmp eq i32 %.highbits.i, 0
   br i1 %28, label %.split, label %.split11.loopexit, !llvm.loop !8
@@ -831,9 +831,9 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl17get_decompositionEPh(p
   %41 = icmp ugt i32 %.fr48.i, 3
   %42 = add i32 %.fr48.i, -3
   %43 = icmp ugt i32 %42, 3
-  %44 = shl nuw i32 1, %42
+  %44 = shl nuw nsw i32 1, %42
   %spec.select.i = select i1 %43, i32 8, i32 %44
-  %45 = zext i32 %spec.select.i to i64
+  %45 = zext nneg i32 %spec.select.i to i64
   br i1 %41, label %.preheader.i.us.preheader, label %.preheader.i
 
 .preheader.i.us.preheader:                        ; preds = %.preheader.preheader.i
@@ -1507,7 +1507,7 @@ _ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit: ; preds = 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %26 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %indvars.iv
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw i64 %indvars.iv to i32
   store i32 %27, ptr %26, align 4
   %28 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %indvars.iv
   store i32 %27, ptr %28, align 4
@@ -1860,7 +1860,7 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFjRKN5kitty18static_tr
 
 _ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %18
   %21 = tail call i64 @llvm.ctpop.i64(i64 %15), !range !34
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   ret i32 %22
 }
@@ -1935,7 +1935,7 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFjRKN5kitty18static_tr
 
 _ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE0_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %18
   %21 = tail call i64 @llvm.ctpop.i64(i64 %15), !range !34
-  %22 = trunc i64 %21 to i32
+  %22 = trunc nuw nsw i64 %21 to i32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   ret i32 %22
 }
@@ -2080,7 +2080,7 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFjRKN5kitty18static_tr
   br i1 %.not31.i.i.i.i, label %20, label %15
 
 15:                                               ; preds = %12
-  %16 = trunc i64 %14 to i32
+  %16 = trunc nuw nsw i64 %14 to i32
   %17 = add i32 %.12732.i.i.i.i, 1
   %18 = zext i32 %.12732.i.i.i.i to i64
   %19 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %18
@@ -3437,7 +3437,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl39generate_support_minim
 .preheader:                                       ; preds = %1, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
   %.01549 = phi i32 [ %.1, %13 ], [ 2, %1 ]
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = lshr i32 %3, %7
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %13
@@ -3697,7 +3697,7 @@ _ZN3acd21ac_decomposition_impl20covering_solve_exactERSt6vectorINS0_15encoding_c
   %54 = getelementptr inbounds %"struct.acd::ac_decomposition_impl::encoding_column", ptr %46, i64 %indvars.iv.i
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8, !noalias !66
-  %57 = trunc i64 %indvars.iv.i to i32
+  %57 = trunc nuw i64 %indvars.iv.i to i32
   br label %58
 
 58:                                               ; preds = %74, %.preheader.us.i
@@ -3718,7 +3718,7 @@ _ZN3acd21ac_decomposition_impl20covering_solve_exactERSt6vectorINS0_15encoding_c
   %66 = load <2 x i64>, ptr %60, align 8, !noalias !66
   %67 = or <2 x i64> %66, %65
   %68 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %67), !range !34
-  %69 = trunc <2 x i64> %68 to <2 x i32>
+  %69 = trunc nuw nsw <2 x i64> %68 to <2 x i32>
   %shift = shufflevector <2 x i32> %69, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %70 = add nuw nsw <2 x i32> %shift, %69
   %71 = extractelement <2 x i32> %70, i64 0
@@ -3832,7 +3832,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %_ZNSt6vectorIN5kitt
 
 126:                                              ; preds = %.lr.ph, %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit41 ]
-  %127 = trunc i64 %indvars.iv to i32
+  %127 = trunc nuw i64 %indvars.iv to i32
   %128 = shl nuw i32 1, %127
   %129 = and i32 %128, %121
   %.not28 = icmp eq i32 %129, 0
@@ -4395,7 +4395,7 @@ _ZNSt6vectorIN3acd21ac_decomposition_impl15encoding_columnESaIS2_EED2Ev.exit: ; 
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %81
-  %87 = trunc i64 %indvars.iv to i32
+  %87 = trunc nuw i64 %indvars.iv to i32
   store i32 %87, ptr %57, align 4
   %88 = getelementptr inbounds %"struct.acd::ac_decomposition_impl::encoding_column", ptr %41, i64 %indvars.iv, i32 1
   %89 = load i32, ptr %88, align 8
@@ -4509,7 +4509,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit35:              ; preds = %_ZNSt6vectorImSaImE
 
 139:                                              ; preds = %.lr.ph, %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit42
   %indvars.iv112 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next113, %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit42 ]
-  %140 = trunc i64 %indvars.iv112 to i32
+  %140 = trunc nuw i64 %indvars.iv112 to i32
   %141 = shl nuw i32 1, %140
   %142 = and i32 %141, %134
   %.not28 = icmp eq i32 %142, 0
@@ -5178,7 +5178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 12:                                               ; preds = %.lr.ph
   %13 = and i64 %.015, 15
   %14 = icmp ult i64 %13, 10
-  %15 = trunc i64 %13 to i8
+  %15 = trunc nuw nsw i64 %13 to i8
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 -1
   %17 = add nuw nsw i8 %15, 87
   %18 = or disjoint i8 %15, 48
@@ -5432,7 +5432,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl22create_c
   %indvars.iv.in = phi i32 [ %43, %.lr.ph96 ], [ %indvars.iv, %.loopexit ]
   %.05595 = phi i32 [ 0, %.lr.ph96 ], [ %.1.lcssa, %.loopexit ]
   %indvars.iv = add i32 %indvars.iv.in, -1
-  %50 = trunc i64 %indvars.iv109 to i32
+  %50 = trunc nuw i64 %indvars.iv109 to i32
   %51 = lshr i32 %35, %50
   %52 = lshr i32 %37, %50
   %53 = and i32 %51, 1
@@ -5483,7 +5483,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit70: ; preds = %65, 
 
 .lr.ph.preheader:                                 ; preds = %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit70
   %72 = add i32 %.05595, %indvars.iv
-  %73 = trunc i64 %indvars.iv.next110 to i32
+  %73 = trunc nuw i64 %indvars.iv.next110 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %89
@@ -5588,7 +5588,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit74.preheader: ; pre
 
 119:                                              ; preds = %118, %.preheader50.us.i
   %indvars.iv.i75 = phi i64 [ 0, %.preheader50.us.i ], [ %indvars.iv.next.i76, %118 ]
-  %120 = trunc i64 %indvars.iv.i75 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv.i75 to i32
   %121 = add i32 %.04254.us.i, %120
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %122
@@ -5637,7 +5637,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit74._crit_edge: ; pr
   %148 = call i64 @llvm.ctpop.i64(i64 %147), !range !34
   %149 = add i64 %148, %146
   %150 = call i64 @llvm.ctpop.i64(i64 %149), !range !34
-  %151 = trunc i64 %150 to i32
+  %151 = trunc nuw nsw i64 %150 to i32
   %152 = sub nsw i32 %11, %151
   %153 = load i32, ptr %12, align 8
   %154 = shl i32 %152, %153
@@ -6487,7 +6487,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl22create_c
   %indvars.iv.in = phi i32 [ %39, %.lr.ph94 ], [ %indvars.iv, %.loopexit ]
   %.05393 = phi i32 [ 0, %.lr.ph94 ], [ %.1.lcssa, %.loopexit ]
   %indvars.iv = add i32 %indvars.iv.in, -1
-  %46 = trunc i64 %indvars.iv107 to i32
+  %46 = trunc nuw i64 %indvars.iv107 to i32
   %47 = lshr i32 %31, %46
   %48 = lshr i32 %33, %46
   %49 = and i32 %47, 1
@@ -6538,7 +6538,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit68: ; preds = %61, 
 
 .lr.ph.preheader:                                 ; preds = %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit68
   %68 = add i32 %.05393, %indvars.iv
-  %69 = trunc i64 %indvars.iv.next108 to i32
+  %69 = trunc nuw i64 %indvars.iv.next108 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
@@ -6643,7 +6643,7 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit72.preheader: ; pre
 
 115:                                              ; preds = %114, %.preheader50.us.i
   %indvars.iv.i73 = phi i64 [ 0, %.preheader50.us.i ], [ %indvars.iv.next.i74, %114 ]
-  %116 = trunc i64 %indvars.iv.i73 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv.i73 to i32
   %117 = add i32 %.04254.us.i, %116
   %118 = zext i32 %117 to i64
   %119 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %118
@@ -6689,12 +6689,12 @@ _ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit72._crit_edge: ; pr
   %141 = phi i32 [ 0, %_ZN5kittyoRILj10EEEvRNS_18static_truth_tableIXT_EEERKS2_.exit72.preheader ], [ %spec.select, %139 ]
   %142 = load i64, ptr %5, align 16
   %143 = call i64 @llvm.ctpop.i64(i64 %142), !range !34
-  %144 = trunc i64 %143 to i32
+  %144 = trunc nuw nsw i64 %143 to i32
   %145 = load i64, ptr %24, align 8
   %146 = call i64 @llvm.ctpop.i64(i64 %145), !range !34
-  %147 = trunc i64 %146 to i32
+  %147 = trunc nuw nsw i64 %146 to i32
   %148 = add nuw nsw i32 %147, %144
-  %149 = sitofp i32 %148 to float
+  %149 = uitofp nneg i32 %148 to float
   %150 = fdiv float 1.000000e+00, %149
   %151 = load ptr, ptr %25, align 8
   %152 = load ptr, ptr %26, align 8
@@ -6877,12 +6877,12 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge78 ], [ 1, %._crit_edge ]
   %34 = phi <2 x i64> [ %66, %._crit_edge78 ], [ %26, %._crit_edge ]
   %35 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %34), !range !34
-  %36 = trunc <2 x i64> %35 to <2 x i32>
+  %36 = trunc nuw nsw <2 x i64> %35 to <2 x i32>
   %shift = shufflevector <2 x i32> %36, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %37 = add nuw nsw <2 x i32> %shift, %36
   %38 = extractelement <2 x i32> %37, i64 0
   %.not = icmp eq i32 %38, %9
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw i64 %indvars.iv to i32
   br i1 %.not, label %.critedge, label %.preheader67
 
 .preheader67:                                     ; preds = %.lr.ph85
@@ -6908,11 +6908,11 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %51 = load <2 x i64>, ptr %50, align 8
   %52 = and <2 x i64> %51, %47
   %53 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %52), !range !34
-  %54 = trunc <2 x i64> %53 to <2 x i32>
+  %54 = trunc nuw nsw <2 x i64> %53 to <2 x i32>
   %shift112 = shufflevector <2 x i32> %54, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %55 = add nuw nsw <2 x i32> %shift112, %54
   %56 = extractelement <2 x i32> %55, i64 0
-  %57 = sitofp i32 %56 to float
+  %57 = uitofp nneg i32 %56 to float
   %58 = fdiv float 1.000000e+00, %57
   %59 = fcmp olt float %58, %.275
   %.362 = select i1 %59, i32 %.05576, i32 %.26174
@@ -6951,7 +6951,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %.056.lcssa = phi i32 [ 1, %._crit_edge ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ %39, %.lr.ph85 ]
   %74 = phi <2 x i64> [ %26, %._crit_edge ], [ %66, %.critedge.loopexit.split.loop.exit ], [ %34, %.lr.ph85 ]
   %75 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %74), !range !34
-  %76 = trunc <2 x i64> %75 to <2 x i32>
+  %76 = trunc nuw nsw <2 x i64> %75 to <2 x i32>
   %shift113 = shufflevector <2 x i32> %76, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %77 = add nuw nsw <2 x i32> %shift113, %76
   %78 = extractelement <2 x i32> %77, i64 0
@@ -6969,7 +6969,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
   %indvars.iv99 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next100, %.lr.ph94 ]
   %80 = getelementptr inbounds [6 x i32], ptr %0, i64 0, i64 %indvars.iv99
-  %81 = trunc i64 %indvars.iv99 to i32
+  %81 = trunc nuw i64 %indvars.iv99 to i32
   store i32 %81, ptr %80, align 4
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
@@ -7638,7 +7638,7 @@ _ZNSt6vectorIN3acd23ac_decomposition_resultESaIS1_EE5clearEv.exit: ; preds = %1,
   %40 = phi ptr [ %354, %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit ], [ null, %30 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit ], [ 0, %30 ]
   %.023135 = phi i32 [ %.1, %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit ], [ 0, %30 ]
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw i64 %indvars.iv to i32
   %42 = trunc i64 %indvars.iv to i8
   %43 = icmp ult i8 %42, 6
   br i1 %43, label %44, label %.preheader.us.preheader.i
@@ -7723,7 +7723,7 @@ _ZNSt6vectorIN3acd23ac_decomposition_resultESaIS1_EE5clearEv.exit: ; preds = %1,
   %78 = add nuw i64 %indvars.iv.i, %indvars.iv32.i
   %79 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %78
   %80 = load i64, ptr %79, align 8
-  %81 = trunc i64 %78 to i32
+  %81 = trunc nuw i64 %78 to i32
   %82 = add i32 %73, %81
   %83 = zext i32 %82 to i64
   %84 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %83
@@ -7817,7 +7817,7 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_h.exit.thread: ; preds =
   %108 = add nuw i64 %indvars.iv.i28, %indvars.iv58.i
   %109 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %108
   %110 = load i64, ptr %109, align 8
-  %111 = trunc i64 %108 to i32
+  %111 = trunc nuw i64 %108 to i32
   %112 = add i32 %103, %111
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %113
@@ -7897,7 +7897,7 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit: ; preds = %._
   %153 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %150
   %154 = load i64, ptr %153, align 8
   %155 = and i64 %154, %152
-  %156 = trunc i64 %150 to i32
+  %156 = trunc nuw i64 %150 to i32
   %157 = add i32 %146, %156
   %158 = zext i32 %157 to i64
   %159 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %158

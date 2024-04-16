@@ -306,7 +306,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %26 = sitofp i32 %23 to double
   %27 = fmul double %26, 1.000000e+02
   %28 = tail call noundef i32 @llvm.smax.i32(i32 %25, i32 1)
-  %29 = sitofp i32 %28 to double
+  %29 = uitofp nneg i32 %28 to double
   %30 = fdiv double %27, %29
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %23, i32 noundef %25, double noundef %30)
   %32 = getelementptr inbounds i8, ptr %0, i64 760
@@ -316,7 +316,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %36 = sitofp i32 %33 to double
   %37 = fmul double %36, 1.000000e+02
   %38 = tail call noundef i32 @llvm.smax.i32(i32 %35, i32 1)
-  %39 = sitofp i32 %38 to double
+  %39 = uitofp nneg i32 %38 to double
   %40 = fdiv double %37, %39
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %33, i32 noundef %35, double noundef %40)
   %putchar = tail call i32 @putchar(i32 10)
@@ -328,7 +328,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %47 = sitofp i32 %46 to double
   %48 = fmul double %47, 1.000000e+02
   %49 = tail call noundef i32 @llvm.smax.i32(i32 %43, i32 1)
-  %50 = sitofp i32 %49 to double
+  %50 = uitofp nneg i32 %49 to double
   %51 = fdiv double %48, %50
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %46, i32 noundef %43, double noundef %51)
   %53 = getelementptr inbounds i8, ptr %0, i64 824
@@ -339,7 +339,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %58 = sitofp i32 %57 to double
   %59 = fmul double %58, 1.000000e+02
   %60 = tail call noundef i32 @llvm.smax.i32(i32 %54, i32 1)
-  %61 = sitofp i32 %60 to double
+  %61 = uitofp nneg i32 %60 to double
   %62 = fdiv double %59, %61
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %57, i32 noundef %54, double noundef %62)
   %putchar93 = tail call i32 @putchar(i32 10)
@@ -521,7 +521,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #12
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #12
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -540,7 +540,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -832,19 +832,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #6
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #6
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
@@ -861,8 +861,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

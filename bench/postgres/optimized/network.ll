@@ -160,7 +160,7 @@ addressOK.exit:                                   ; preds = %.lr.ph.i
   br label %62
 
 addressOK.exit.thread:                            ; preds = %44, %38, %35, %34
-  %54 = trunc i32 %18 to i8
+  %54 = trunc nuw i32 %18 to i8
   %55 = getelementptr inbounds i8, ptr %23, i64 1
   store i8 %54, ptr %55, align 1
   %56 = load i8, ptr %4, align 1
@@ -329,7 +329,7 @@ define internal fastcc ptr @network_recv(ptr noundef %0, i1 noundef zeroext %1) 
   unreachable
 
 33:                                               ; preds = %20
-  %34 = trunc i32 %18 to i8
+  %34 = trunc nuw i32 %18 to i8
   %35 = getelementptr inbounds i8, ptr %23, i64 1
   store i8 %34, ptr %35, align 1
   %36 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #13
@@ -504,7 +504,7 @@ define internal fastcc ptr @network_send(ptr nocapture noundef readonly %0, i1 n
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 2
   %37 = select i1 %36, i32 4, i32 16
-  %38 = trunc i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef 1) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %39 = load ptr, ptr %3, align 8, !alias.scope !17
@@ -858,7 +858,7 @@ define dso_local i64 @inet_set_masklen(ptr nocapture noundef readonly %0) #0 {
 76:                                               ; preds = %73, %58
   %77 = phi i64 [ %65, %58 ], [ %75, %73 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 1 %5, i64 %77, i1 false)
-  %78 = trunc i32 %.045 to i8
+  %78 = trunc nuw i32 %.045 to i8
   %79 = load i8, ptr %54, align 1
   %80 = and i8 %79, 1
   %.not39 = icmp eq i8 %80, 0
@@ -2344,7 +2344,7 @@ define dso_local noundef i64 @network_broadcast(ptr nocapture noundef readonly %
   %25 = icmp sgt i32 %.04149, 7
   %26 = add nsw i32 %.04149, -8
   %27 = lshr i32 255, %.04149
-  %28 = trunc i32 %27 to i8
+  %28 = trunc nuw i32 %27 to i8
   %.1 = select i1 %25, i32 %26, i32 0
   %29 = getelementptr i8, ptr %17, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1
@@ -2597,7 +2597,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %27 = add nsw i32 %.03948, -8
   %28 = sub nsw i32 8, %.03948
   %29 = lshr i32 255, %28
-  %30 = trunc i32 %29 to i8
+  %30 = trunc nuw i32 %29 to i8
   %.038 = select i1 %26, i8 -1, i8 %30
   %31 = sext i32 %.049 to i64
   %32 = getelementptr i8, ptr %24, i64 %31
@@ -2743,7 +2743,7 @@ define dso_local noundef i64 @inet_merge(ptr nocapture noundef readonly %0) loca
   br i1 %.not18.i, label %bitncommon.exit, label %.thread.i
 
 .thread.loopexit.i:                               ; preds = %.lr.ph.i
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.loopexit.i, %._crit_edge.i
@@ -2871,7 +2871,7 @@ define dso_local i32 @bitncommon(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not18, label %.loopexit, label %.thread
 
 .thread.loopexit:                                 ; preds = %.lr.ph
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %._crit_edge
@@ -2952,7 +2952,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = or disjoint i32 %29, %32
-  %34 = sitofp i32 %33 to double
+  %34 = uitofp nneg i32 %33 to double
   %35 = fmul double %34, 0x4170000000000000
   %36 = getelementptr inbounds i8, ptr %21, i64 3
   %37 = load i8, ptr %36, align 1
@@ -2967,7 +2967,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
-  %49 = sitofp i32 %48 to double
+  %49 = uitofp nneg i32 %48 to double
   %50 = fadd double %35, %49
   br label %.loopexit
 

@@ -1038,7 +1038,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   %127 = phi i32 [ 0, %49 ], [ 1, %77 ], [ 2, %85 ], [ 3, %93 ], [ 4, %101 ], [ 5, %109 ], [ 6, %117 ], [ 7, %125 ]
   %128 = shl nuw nsw i32 1, %127
   store float 5.000000e+00, ptr %4, align 4, !tbaa !100
-  %129 = sitofp i32 %127 to float
+  %129 = uitofp nneg i32 %127 to float
   %130 = fadd reassoc nsz arcp contract afn float %129, 3.500000e+00
   %131 = getelementptr inbounds i8, ptr %4, i64 4
   store float %130, ptr %131, align 4, !tbaa !101
@@ -1228,7 +1228,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %139 = shl nsw i32 %55, 1
   %140 = or disjoint i32 %139, 1
   %141 = mul nsw i32 %140, %140
-  %142 = sitofp i32 %141 to float
+  %142 = uitofp nneg i32 %141 to float
   %143 = fdiv reassoc nsz arcp contract afn float 0x3FA70A3D80000000, %142
   %144 = icmp eq i32 %138, 0
   %145 = sitofp i32 %140 to float
@@ -3432,7 +3432,7 @@ define void @reload_defaults(ptr nocapture noundef readonly %0) local_unnamed_ad
   %62 = fadd reassoc nsz arcp contract afn float %61, 1.000000e+00
   %63 = fptoui float %62 to i32
   %64 = call i32 @llvm.umin.i32(i32 %63, i32 8)
-  %65 = uitofp i32 %64 to float
+  %65 = uitofp nneg i32 %64 to float
   store float %65, ptr %7, align 4, !tbaa !90
   %66 = fmul reassoc nsz arcp contract afn float %58, 3.000000e+03
   %67 = fcmp reassoc nsz arcp contract afn olt float %66, 1.000000e+00
@@ -3836,7 +3836,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
   %98 = fadd reassoc nsz arcp contract afn float %97, 1.000000e+00
   %99 = fptoui float %98 to i32
   %100 = call i32 @llvm.umin.i32(i32 %99, i32 8)
-  %101 = uitofp i32 %100 to float
+  %101 = uitofp nneg i32 %100 to float
   %102 = fmul reassoc nsz arcp contract afn float %94, 3.000000e+03
   %103 = fcmp reassoc nsz arcp contract afn olt float %102, 1.000000e+00
   %104 = select reassoc nsz arcp contract afn i1 %103, float %102, float 1.000000e+00
@@ -4395,7 +4395,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
   %157 = fadd reassoc nsz arcp contract afn float %156, 1.000000e+00
   %158 = fptoui float %157 to i32
   %159 = call i32 @llvm.umin.i32(i32 %158, i32 8)
-  %160 = uitofp i32 %159 to float
+  %160 = uitofp nneg i32 %159 to float
   call void @dt_bauhaus_slider_set(ptr noundef %152, float noundef %160) #21
   %161 = getelementptr inbounds i8, ptr %8, i64 56
   %162 = load ptr, ptr %161, align 8, !tbaa !229

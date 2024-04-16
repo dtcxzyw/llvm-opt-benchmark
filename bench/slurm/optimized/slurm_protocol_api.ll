@@ -332,7 +332,7 @@ define i32 @revert_num_unit(ptr noundef readonly %0) #1 {
 
 ..split.loop.exit_crit_edge:                      ; preds = %11
   %.not19.le = icmp eq i8 %15, 0
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.next to i32
   %17 = shl nsw i32 %16, 10
   br label %.split.loop.exit23
 
@@ -961,7 +961,7 @@ define i32 @slurm_init_msg_engine_port(i16 noundef zeroext %0) local_unnamed_add
 
 .preheader:                                       ; preds = %6, %10
   %.019 = phi i32 [ %11, %10 ], [ 10001, %6 ]
-  %12 = trunc i32 %.019 to i16
+  %12 = trunc nuw i32 %.019 to i16
   call void @slurm_set_port(ptr noundef nonnull %2, i16 noundef zeroext %12) #21
   %13 = call i32 @slurm_init_msg_engine(ptr noundef nonnull %2, i1 noundef zeroext true) #21
   %14 = icmp sgt i32 %13, -1
@@ -1706,7 +1706,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
   %.sroa.2.0.extract.shift = lshr i16 %45, 8
   %.sroa.2.0.extract.trunc = zext nneg i16 %.sroa.2.0.extract.shift to i32
   %46 = load i8, ptr @_check_hash.block_zero_hash, align 1
-  %47 = trunc i8 %46 to i1
+  %47 = trunc nuw i8 %46 to i1
   %48 = load i32, ptr %6, align 4
   %49 = icmp ne i32 %48, 3
   %or.cond = select i1 %47, i1 true, i1 %49
@@ -1786,7 +1786,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
 
 92:                                               ; preds = %29
   %93 = load i8, ptr @_check_hash.block_null_hash, align 1
-  %94 = trunc i8 %93 to i1
+  %94 = trunc nuw i8 %93 to i1
   %spec.select = select i1 %94, i32 -1, i32 %30
   br label %95
 
@@ -4432,7 +4432,7 @@ define noundef i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef %
   %30 = zext i16 %27 to i32
   %31 = lshr i32 %30, 1
   %32 = add nuw nsw i32 %31, %30
-  %33 = sitofp i32 %32 to double
+  %33 = uitofp nneg i32 %32 to double
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph

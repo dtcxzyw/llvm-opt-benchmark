@@ -53,7 +53,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %16, ptr %15, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -62,7 +62,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
 .lr.ph30.i:                                       ; preds = %.preheader.i, %31
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %31 ], [ 1, %.preheader.i ]
   %17 = trunc i64 %indvars.iv32.i to i32
-  %18 = sitofp i32 %17 to double
+  %18 = uitofp nneg i32 %17 to double
   %19 = tail call double @drand48() #15
   %20 = sub i32 %11, %17
   %21 = sitofp i32 %20 to double
@@ -112,7 +112,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
 .lr.ph.i35:                                       ; preds = %.lr.ph.i35, %.lr.ph.preheader.i33
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i37, %.lr.ph.i35 ]
   %37 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i36
-  %38 = trunc i64 %indvars.iv.i36 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i36 to i32
   store i32 %38, ptr %37, align 4
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
@@ -121,7 +121,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
 .lr.ph30.i41:                                     ; preds = %.preheader.i39, %53
   %indvars.iv32.i43 = phi i64 [ %indvars.iv.next33.i45, %53 ], [ 1, %.preheader.i39 ]
   %39 = trunc i64 %indvars.iv32.i43 to i32
-  %40 = sitofp i32 %39 to double
+  %40 = uitofp nneg i32 %39 to double
   %41 = call double @drand48() #15
   %42 = sub i32 %11, %39
   %43 = sitofp i32 %42 to double
@@ -682,7 +682,7 @@ inside_polygon.exit.thread54:                     ; preds = %inside_polygon.exit
   %82 = getelementptr inbounds %struct.monchain_t, ptr %73, i64 %indvars.iv68, i32 1
   store i32 %81, ptr %82, align 4
   %83 = getelementptr inbounds %struct.monchain_t, ptr %73, i64 %indvars.iv68
-  %84 = trunc i64 %indvars.iv68 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv68 to i32
   store i32 %84, ptr %83, align 4
   %85 = getelementptr inbounds %struct.vertexchain_t, ptr %74, i64 %indvars.iv68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
@@ -1524,7 +1524,7 @@ get_angle.exit.i:                                 ; preds = %38, %33
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %get_angle.exit.i
-  %47 = trunc i64 %indvars.iv.i to i32
+  %47 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %48
 
 48:                                               ; preds = %46, %get_angle.exit.i, %14
@@ -1592,7 +1592,7 @@ get_angle.exit49.i:                               ; preds = %75, %70
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %get_angle.exit49.i
-  %84 = trunc i64 %indvars.iv57.i to i32
+  %84 = trunc nuw nsw i64 %indvars.iv57.i to i32
   br label %85
 
 85:                                               ; preds = %83, %get_angle.exit49.i, %51

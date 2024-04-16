@@ -1344,7 +1344,7 @@ for.cond:                                         ; preds = %invoke.cont80
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %28 = load ptr, ptr %supportedLocales_, align 8
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %call60 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %29)
           to label %invoke.cont59 unwind label %lpad.loopexit145
 
@@ -1553,7 +1553,7 @@ if.then149:                                       ; preds = %invoke.cont146
   %58 = load ptr, ptr %order, align 8
   %arrayidx.i121 = getelementptr inbounds i8, ptr %58, i64 %indvars.iv186
   store i8 1, ptr %arrayidx.i121, align 1
-  %59 = trunc i64 %indvars.iv186 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv186 to i32
   %call154 = invoke noundef i32 @_ZN6icu_7513LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx135, i32 noundef %59, i32 noundef %suppLength.0164, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end171 unwind label %lpad117.loopexit.split-lp.loopexit.split-lp
 
@@ -1612,7 +1612,7 @@ for.body185:                                      ; preds = %for.end179, %for.in
 if.then191:                                       ; preds = %for.body185
   %68 = load ptr, ptr %lsrs, align 8
   %arrayidx194 = getelementptr inbounds %"struct.icu_75::LSR", ptr %68, i64 %indvars.iv189
-  %69 = trunc i64 %indvars.iv189 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv189 to i32
   %call196 = invoke noundef i32 @_ZN6icu_7513LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx194, i32 noundef %69, i32 noundef %suppLength.2174, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.then191.for.inc198_crit_edge unwind label %lpad117.loopexit.split-lp.loopexit
 
@@ -1643,7 +1643,7 @@ for.body205:                                      ; preds = %for.cond202.prehead
 if.then211:                                       ; preds = %for.body205
   %76 = load ptr, ptr %lsrs, align 8
   %arrayidx214 = getelementptr inbounds %"struct.icu_75::LSR", ptr %76, i64 %indvars.iv192
-  %77 = trunc i64 %indvars.iv192 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv192 to i32
   %call216 = invoke noundef i32 @_ZN6icu_7513LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx214, i32 noundef %77, i32 noundef %suppLength.4178, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.then211.for.inc218_crit_edge unwind label %lpad117.loopexit
 
@@ -3429,7 +3429,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i23
 
 _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont7, %if.then.i23
   %and.i.i = and i32 %call8, 1023
-  %conv.i24 = sitofp i32 %and.i.i to double
+  %conv.i24 = uitofp nneg i32 %and.i.i to double
   %div.i = fmul double %conv.i24, 1.250000e-01
   %sub = fsub double 1.000000e+02, %div.i
   %div = fdiv double %sub, 1.000000e+02

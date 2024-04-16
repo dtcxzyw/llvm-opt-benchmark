@@ -28057,7 +28057,7 @@ define void @_ZN25FilterImgPatchParamPlugin14computePatchUVER6CMeshOP11RasterMod
   %.040.i = phi i1 [ true, %4 ], [ false, %23 ]
   %.02339.i = phi i32 [ 0, %4 ], [ %39, %23 ]
   %.zext.i = and i32 %.02339.i, 1
-  %24 = sitofp i32 %.zext.i to float
+  %24 = uitofp nneg i32 %.zext.i to float
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %18, float %.sroa.0154.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2

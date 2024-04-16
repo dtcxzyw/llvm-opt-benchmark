@@ -50803,7 +50803,7 @@ define linkonce_odr ptr @_ZN4CGAL25Triangulation_hierarchy_3INS_24Delaunay_trian
   %16 = and i64 %15, 281474976710655
   %17 = lshr i64 %16, 17
   %18 = trunc nuw nsw i64 %17 to i32
-  %19 = uitofp i32 %18 to double
+  %19 = uitofp nneg i32 %18 to double
   %20 = fmul double %19, 0x3E00000000000000
   %21 = fcmp olt double %20, 1.000000e+00
   br i1 %21, label %_ZN4CGAL25Triangulation_hierarchy_3INS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS4_12Alpha_wrap_3INS4_20Triangle_mesh_oracleIS6_iLb1EEEE11Vertex_infoES8_NS_27Triangulation_vertex_base_3IS8_NS_30Triangulation_ds_vertex_base_3INS9_INSB_ISG_S8_NSH_IS8_NSI_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES8_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS8_NS_34Delaunay_triangulation_cell_base_3IS8_NS_25Triangulation_cell_base_3IS8_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESY_SZ_EENS_7DefaultES16_EEE12random_levelEv.exit, label %12, !llvm.loop !1098
@@ -170104,7 +170104,7 @@ define linkonce_odr ptr @_ZN4CGAL25Triangulation_hierarchy_3INS_24Delaunay_trian
   %19 = and i64 %18, 281474976710655
   %20 = lshr i64 %19, 17
   %21 = trunc nuw nsw i64 %20 to i32
-  %22 = uitofp i32 %21 to double
+  %22 = uitofp nneg i32 %21 to double
   %23 = fmul double %22, 0x3E00000000000000
   %24 = fcmp olt double %23, 1.000000e+00
   br i1 %24, label %_ZN4CGAL25Triangulation_hierarchy_3INS_24Delaunay_triangulation_3INS_37Robust_circumcenter_filtered_traits_3INS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEEEENS_30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS4_12Alpha_wrap_3INS4_20Triangle_mesh_oracleIS6_iLb1EEEE11Vertex_infoES8_NS_27Triangulation_vertex_base_3IS8_NS_30Triangulation_ds_vertex_base_3INS9_INSB_ISG_S8_NSH_IS8_NSI_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INSF_9Cell_infoES8_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS8_NS_34Delaunay_triangulation_cell_base_3IS8_NS_25Triangulation_cell_base_3IS8_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESY_SZ_EENS_7DefaultES16_EEE12random_levelEv.exit, label %15, !llvm.loop !1098
@@ -194249,7 +194249,7 @@ _ZNK4CGAL8internal30Point_inside_vertical_ray_castINS_5EpickENS_9AABB_treeINS_11
   %39 = and i64 %38, 281474976710655
   %40 = lshr i64 %39, 17
   %41 = trunc nuw nsw i64 %40 to i32
-  %42 = uitofp i32 %41 to double
+  %42 = uitofp nneg i32 %41 to double
   %43 = fmul double %42, 0x3E00000000000000
   %44 = fcmp olt double %43, 1.000000e+00
   br i1 %44, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i, label %35, !llvm.loop !3671
@@ -194261,7 +194261,7 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.
   %48 = and i64 %47, 281474976710655
   %49 = lshr i64 %48, 17
   %50 = trunc nuw nsw i64 %49 to i32
-  %51 = uitofp i32 %50 to double
+  %51 = uitofp nneg i32 %50 to double
   %52 = fmul double %51, 0x3E00000000000000
   %53 = fcmp olt double %52, 1.000000e+00
   br i1 %53, label %_ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEppEi.exit, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i, !llvm.loop !3671

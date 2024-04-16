@@ -851,7 +851,7 @@ define i32 @Gia_ManFindSharedNode(ptr noundef %0, ptr nocapture noundef %1, i32 
 19:                                               ; preds = %33, %3
   %indvars.iv = phi i64 [ %20, %33 ], [ %18, %3 ]
   %20 = add nsw i64 %indvars.iv, -1
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw i64 %indvars.iv to i32
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %.loopexit
 
@@ -4551,7 +4551,7 @@ Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %276
 Vec_IntUpdateEntry.exit:                          ; preds = %Vec_IntFillExtra.exit, %314
   %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
   %.val231 = load i32, ptr %29, align 4
-  %315 = trunc i64 %indvars.iv.next447 to i32
+  %315 = trunc nuw i64 %indvars.iv.next447 to i32
   %316 = icmp sgt i32 %.val231, %315
   br i1 %316, label %.lr.ph405, label %.critedge4.loopexit.loopexit, !llvm.loop !32
 
@@ -5243,7 +5243,7 @@ Vec_IntStart.exit377:                             ; preds = %Vec_IntAlloc.exit.t
   %626 = sitofp i32 %.0198.lcssa to double
   %627 = fmul double %626, 1.000000e+02
   %628 = tail call noundef i32 @llvm.smax.i32(i32 %.0198.lcssa, i32 1)
-  %629 = sitofp i32 %628 to double
+  %629 = uitofp nneg i32 %628 to double
   %630 = fdiv double %627, %629
   %631 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0198.lcssa, double noundef %630)
   %632 = sitofp i32 %.0196.lcssa to double
@@ -5263,7 +5263,7 @@ Vec_IntStart.exit377:                             ; preds = %Vec_IntAlloc.exit.t
   %645 = sitofp i32 %403 to double
   %646 = fmul double %645, 1.000000e+02
   %647 = tail call noundef i32 @llvm.smax.i32(i32 %403, i32 1)
-  %648 = sitofp i32 %647 to double
+  %648 = uitofp nneg i32 %647 to double
   %649 = fdiv double %646, %648
   %650 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %403, double noundef %649)
   %651 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %403, double noundef %649)
@@ -5563,7 +5563,7 @@ Hash_IntObj.exit.i:                               ; preds = %69, %Hash_IntObj.ex
 
 Hash_Int2ManLookup.exit:                          ; preds = %65, %69, %.lr.ph
   %.0.lcssa.i = phi ptr [ %55, %.lr.ph ], [ %.018.i, %65 ], [ %70, %69 ]
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %72, ptr %.0.lcssa.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6763,7 +6763,7 @@ define void @Dam_PrintQue(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %14)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr i8, ptr %16, i64 8
@@ -8005,7 +8005,7 @@ Vec_FltFillExtra.exit:                            ; preds = %._crit_edge, %._cri
   %340 = getelementptr inbounds float, ptr %.val118, i64 %indvars.iv156
   store float %338, ptr %340, align 4
   %341 = load ptr, ptr %285, align 8
-  %342 = trunc i64 %indvars.iv156 to i32
+  %342 = trunc nsw i64 %indvars.iv156 to i32
   tail call fastcc void @Vec_QuePush(ptr noundef %341, i32 noundef %342)
   %343 = load ptr, ptr %17, align 8
   %344 = load ptr, ptr %286, align 8
@@ -8457,7 +8457,7 @@ Vec_QuePop.exit:                                  ; preds = %64, %Vec_QueMoveDow
   %157 = sitofp i32 %153 to double
   %158 = fmul double %157, 1.000000e+02
   %159 = call noundef i32 @llvm.smax.i32(i32 %153, i32 1)
-  %160 = sitofp i32 %159 to double
+  %160 = uitofp nneg i32 %159 to double
   %161 = fdiv double %158, %160
   %162 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %153, double noundef %161)
   %163 = sitofp i32 %155 to double
@@ -8471,7 +8471,7 @@ Vec_QuePop.exit:                                  ; preds = %64, %Vec_QueMoveDow
   %171 = getelementptr inbounds i8, ptr %8, i64 104
   %172 = load i32, ptr %171, align 8
   %173 = call noundef i32 @llvm.smax.i32(i32 %172, i32 1)
-  %174 = sitofp i32 %173 to double
+  %174 = uitofp nneg i32 %173 to double
   %175 = fdiv double %170, %174
   %176 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %168, double noundef %175)
   %177 = getelementptr inbounds i8, ptr %8, i64 112

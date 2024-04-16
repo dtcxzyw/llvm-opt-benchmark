@@ -9957,7 +9957,7 @@ if.end.i17.i:                                     ; preds = %if.then.i.i, %diff_
 if.then17.i.i:                                    ; preds = %if.end.i17.i
   %conv.i.i.i = zext i16 %80 to i32
   %mul.i.i.i = mul nuw nsw i32 %conv.i.i.i, 100
-  %conv1.i.i.i = sitofp i32 %mul.i.i.i to double
+  %conv1.i.i.i = uitofp nneg i32 %mul.i.i.i to double
   %div.i.i.i = fdiv double %conv1.i.i.i, 6.000000e+04
   %conv2.i.i.i = fptosi double %div.i.i.i to i32
   %call21.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.375, i32 noundef %conv24.i.i, i32 noundef %conv2.i.i.i, i32 noundef %cond.i.i)
@@ -11709,7 +11709,7 @@ sw.bb2.i:                                         ; preds = %for.body57
   %p.val.i.i = load i16, ptr %345, align 8
   %conv.i.i.i258 = zext i16 %p.val.i.i to i32
   %mul.i.i.i259 = mul nuw nsw i32 %conv.i.i.i258, 100
-  %conv1.i.i.i260 = sitofp i32 %mul.i.i.i259 to double
+  %conv1.i.i.i260 = uitofp nneg i32 %mul.i.i.i259 to double
   %div.i.i.i261 = fdiv double %conv1.i.i.i260, 6.000000e+04
   %conv2.i.i.i262 = fptosi double %div.i.i.i261 to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i.i, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.2, ptr noundef %344, i32 noundef %conv2.i.i.i262) #31
@@ -11742,7 +11742,7 @@ sw.bb3.i:                                         ; preds = %for.body57
   %p.val.i21.i = load i16, ptr %353, align 8
   %conv.i.i22.i = zext i16 %p.val.i21.i to i32
   %mul.i.i23.i = mul nuw nsw i32 %conv.i.i22.i, 100
-  %conv1.i.i24.i = sitofp i32 %mul.i.i23.i to double
+  %conv1.i.i24.i = uitofp nneg i32 %mul.i.i23.i to double
   %div.i.i25.i = fdiv double %conv1.i.i24.i, 6.000000e+04
   %conv2.i.i26.i = fptosi double %div.i.i25.i to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i15.i, ptr noundef nonnull @.str.401, ptr noundef nonnull @.str.396, ptr noundef %352, i32 noundef %conv2.i.i26.i) #31
@@ -11774,7 +11774,7 @@ if.then.i269:                                     ; preds = %sw.default.i266
   %p.val.i = load i16, ptr %score.i267, align 8
   %conv.i30.i = zext i16 %p.val.i to i32
   %mul.i.i271 = mul nuw nsw i32 %conv.i30.i, 100
-  %conv1.i.i272 = sitofp i32 %mul.i.i271 to double
+  %conv1.i.i272 = uitofp nneg i32 %mul.i.i271 to double
   %div.i.i273 = fdiv double %conv1.i.i272, 6.000000e+04
   %conv2.i.i = fptosi double %div.i.i273 to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i, ptr noundef nonnull @.str.398, i32 noundef %conv2.i.i) #31
@@ -17516,7 +17516,7 @@ sw.bb.i:                                          ; preds = %diff_line_prefix.ex
   %p.val75.i = load i16, ptr %15, align 8
   %conv.i.i = zext i16 %p.val75.i to i32
   %mul.i.i = mul nuw nsw i32 %conv.i.i, 100
-  %conv1.i.i = sitofp i32 %mul.i.i to double
+  %conv1.i.i = uitofp nneg i32 %mul.i.i to double
   %div.i.i = fdiv double %conv1.i.i, 6.000000e+04
   %conv2.i.i = fptosi double %div.i.i to i32
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef nonnull @.str.405, ptr noundef %retval.0.i81.i, ptr noundef nonnull %retval.0.i.i, i32 noundef %conv2.i.i) #31
@@ -17532,7 +17532,7 @@ sw.bb6.i:                                         ; preds = %diff_line_prefix.ex
   %p.val74.i = load i16, ptr %16, align 8
   %conv.i82.i = zext i16 %p.val74.i to i32
   %mul.i83.i = mul nuw nsw i32 %conv.i82.i, 100
-  %conv1.i84.i = sitofp i32 %mul.i83.i to double
+  %conv1.i84.i = uitofp nneg i32 %mul.i83.i to double
   %div.i85.i = fdiv double %conv1.i84.i, 6.000000e+04
   %conv2.i86.i = fptosi double %div.i85.i to i32
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef nonnull @.str.405, ptr noundef %retval.0.i81.i, ptr noundef nonnull %retval.0.i.i, i32 noundef %conv2.i86.i) #31
@@ -17552,7 +17552,7 @@ sw.bb10.i:                                        ; preds = %diff_line_prefix.ex
 if.then.i:                                        ; preds = %sw.bb10.i
   %conv.i87.i = zext i16 %17 to i32
   %mul.i88.i = mul nuw nsw i32 %conv.i87.i, 100
-  %conv1.i89.i = sitofp i32 %mul.i88.i to double
+  %conv1.i89.i = uitofp nneg i32 %mul.i88.i to double
   %div.i90.i = fdiv double %conv1.i89.i, 6.000000e+04
   %conv2.i91.i = fptosi double %div.i90.i to i32
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef nonnull @.str.411, ptr noundef %retval.0.i81.i, ptr noundef nonnull %retval.0.i.i, i32 noundef %conv2.i91.i, ptr noundef nonnull %retval.0.i78.i) #31

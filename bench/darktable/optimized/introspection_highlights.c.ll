@@ -4560,7 +4560,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   store float 1.000000e+00, ptr %44, align 4, !tbaa !302
   %45 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 0, ptr %45, align 4, !tbaa !303
-  %46 = sitofp i32 %38 to float
+  %46 = uitofp nneg i32 %38 to float
   %47 = fmul reassoc nsz arcp contract afn float %46, 3.750000e-01
   %48 = fptoui float %47 to i32
   store i32 %48, ptr %16, align 4, !tbaa !297
@@ -4904,7 +4904,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %234, label %.loopexit287, label %235
 
 235:                                              ; preds = %232
-  %236 = trunc i64 %233 to i32
+  %236 = trunc nuw nsw i64 %233 to i32
   %237 = add i32 %122, %236
   %238 = and i32 %237, 1
   %239 = or disjoint i32 %238, %152
@@ -4999,7 +4999,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %303, label %304, label %319
 
 304:                                              ; preds = %299
-  %305 = trunc i64 %297 to i32
+  %305 = trunc nuw nsw i64 %297 to i32
   %306 = and i32 %305, 1
   %307 = or disjoint i32 %306, %152
   %308 = shl nuw nsw i32 %307, 1
@@ -6524,7 +6524,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1403 = or i1 %1402, %1401
   %1404 = and i64 %1395, 2147483616
   %1405 = shl nuw nsw i64 %1404, 2
-  %1406 = trunc i64 %1404 to i32
+  %1406 = trunc nuw nsw i64 %1404 to i32
   %1407 = insertelement <8 x float> poison, float %468, i64 0
   %1408 = shufflevector <8 x float> %1407, <8 x float> poison, <8 x i32> zeroinitializer
   %1409 = icmp eq i64 %1404, %1395
@@ -9684,7 +9684,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %3913 = sext i32 %3901 to i64
   %3914 = add nsw i64 %3913, -2
   %3915 = tail call i64 @llvm.smax.i64(i64 %3914, i64 %3859)
-  %3916 = trunc i64 %3915 to i32
+  %3916 = trunc nsw i64 %3915 to i32
   %3917 = sub i32 %3907, %3903
   %3918 = add i32 %3917, %3916
   %3919 = sub i32 %3899, %3895
@@ -10825,7 +10825,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %4744 = xor i64 %4743, %4742
   %4745 = mul i64 %4744, -3808689974395783757
   %4746 = lshr i64 %4745, 32
-  %4747 = trunc i64 %4746 to i32
+  %4747 = trunc nuw i64 %4746 to i32
   %4748 = xor i32 %4747, 635086878
   %4749 = lshr i64 %4734, 33
   %4750 = xor i64 %4749, %4734
@@ -10834,7 +10834,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %4753 = xor i64 %4752, %4751
   %4754 = mul i64 %4753, -3808689974395783757
   %4755 = lshr i64 %4754, 32
-  %4756 = trunc i64 %4755 to i32
+  %4756 = trunc nuw i64 %4755 to i32
   %4757 = shl i32 %4756, 9
   %4758 = xor i32 %4748, %4757
   %4759 = xor i32 %4756, -1171427716
@@ -10906,7 +10906,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %4819 = xor i32 %4815, %4814
   %4820 = tail call noundef i32 @llvm.fshl.i32(i32 %4816, i32 %4816, i32 11)
   %4821 = lshr i32 %4813, 8
-  %4822 = uitofp i32 %4821 to float
+  %4822 = uitofp nneg i32 %4821 to float
   %4823 = fmul reassoc nsz arcp contract afn float %4822, 0x3E70000000000000
   %4824 = and i64 %4792, 1
   %4825 = icmp eq i64 %4824, 0
@@ -10927,7 +10927,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %4834 = phi float [ %4832, %4831 ], [ %4830, %4829 ]
   %4835 = add i32 %4796, %4793
   %4836 = lshr i32 %4835, 8
-  %4837 = uitofp i32 %4836 to float
+  %4837 = uitofp nneg i32 %4836 to float
   %4838 = fmul reassoc nsz arcp contract afn float %4837, 0x3E70000000000000
   %4839 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %4838, float 0x3810000000000000)
   %4840 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %4839)
@@ -11250,7 +11250,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br label %5171
 
 5075:                                             ; preds = %5069
-  %5076 = trunc i64 %5066 to i32
+  %5076 = trunc nuw nsw i64 %5066 to i32
   %5077 = udiv i32 %5076, 3
   %5078 = add i32 %5061, %5077
   %5079 = sext i32 %5078 to i64
@@ -11916,7 +11916,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %5532 = getelementptr i8, ptr %5528, i64 %5531
   %5533 = and i64 %5530, 1
   %5534 = or disjoint i64 %5533, %5513
-  %5535 = trunc i64 %5534 to i32
+  %5535 = trunc nuw nsw i64 %5534 to i32
   %5536 = shl nuw nsw i32 %5535, 1
   %5537 = lshr i32 %5433, %5536
   %5538 = and i32 %5537, 3
@@ -11972,7 +11972,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %5582 = fcmp reassoc nsz arcp contract afn ogt float %5541, %5504
   %5583 = zext i1 %5582 to i32
   %5584 = or disjoint i64 %5533, %5525
-  %5585 = trunc i64 %5584 to i32
+  %5585 = trunc nuw nsw i64 %5584 to i32
   %5586 = shl nuw nsw i32 %5585, 1
   br label %5648
 
@@ -11985,7 +11985,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %5591 = phi i32 [ %5589, %5587 ], [ %5579, %5567 ]
   %5592 = phi float [ %5541, %5587 ], [ %5571, %5567 ]
   %5593 = or disjoint i64 %5533, %5525
-  %5594 = trunc i64 %5593 to i32
+  %5594 = trunc nuw nsw i64 %5593 to i32
   %5595 = shl nuw nsw i32 %5594, 1
   %5596 = shl nuw i32 3, %5595
   %5597 = and i32 %5596, %5433
@@ -11994,7 +11994,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 5599:                                             ; preds = %5590
   %5600 = or disjoint i64 %5533, %5527
-  %5601 = trunc i64 %5600 to i32
+  %5601 = trunc nuw nsw i64 %5600 to i32
   %5602 = shl nuw nsw i32 %5601, 1
   %5603 = shl nuw i32 3, %5602
   %5604 = and i32 %5603, %5433
@@ -12004,7 +12004,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 5606:                                             ; preds = %5599, %5590
   %5607 = and i64 %5548, 1
   %5608 = or disjoint i64 %5607, %5513
-  %5609 = trunc i64 %5608 to i32
+  %5609 = trunc nuw nsw i64 %5608 to i32
   %5610 = shl nuw nsw i32 %5609, 1
   %5611 = shl nuw i32 3, %5610
   %5612 = and i32 %5611, %5433
@@ -12014,7 +12014,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 5614:                                             ; preds = %5606
   %5615 = and i64 %5549, 1
   %5616 = or disjoint i64 %5615, %5513
-  %5617 = trunc i64 %5616 to i32
+  %5617 = trunc nuw nsw i64 %5616 to i32
   %5618 = shl nuw nsw i32 %5617, 1
   %5619 = shl nuw i32 3, %5618
   %5620 = and i32 %5619, %5433
@@ -12068,7 +12068,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 5657:                                             ; preds = %5648
   %5658 = or disjoint i64 %5533, %5527
-  %5659 = trunc i64 %5658 to i32
+  %5659 = trunc nuw nsw i64 %5658 to i32
   %5660 = shl nuw nsw i32 %5659, 1
   %5661 = lshr i32 %5433, %5660
   %5662 = and i32 %5661, 3
@@ -12078,7 +12078,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 5664:                                             ; preds = %5657, %5648
   %5665 = and i64 %5548, 1
   %5666 = or disjoint i64 %5665, %5513
-  %5667 = trunc i64 %5666 to i32
+  %5667 = trunc nuw nsw i64 %5666 to i32
   %5668 = shl nuw nsw i32 %5667, 1
   %5669 = lshr i32 %5433, %5668
   %5670 = and i32 %5669, 3
@@ -12088,7 +12088,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 5672:                                             ; preds = %5664
   %5673 = and i64 %5549, 1
   %5674 = or disjoint i64 %5673, %5513
-  %5675 = trunc i64 %5674 to i32
+  %5675 = trunc nuw nsw i64 %5674 to i32
   %5676 = shl nuw nsw i32 %5675, 1
   %5677 = lshr i32 %5433, %5676
   %5678 = and i32 %5677, 3
@@ -12164,7 +12164,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %5734 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %5733)
   %5735 = sitofp i32 %5725 to float
   %5736 = sitofp i32 %5724 to float
-  %5737 = sitofp i32 %5723 to float
+  %5737 = uitofp nneg i32 %5723 to float
   %5738 = icmp ne i32 %5725, 0
   %5739 = icmp ne i32 %5724, 0
   %5740 = select i1 %5738, i1 true, i1 %5739
@@ -12254,7 +12254,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %5793 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %5786 ], [ %5821, %5791 ]
   %5794 = and <8 x i64> %5793, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
   %5795 = or disjoint <8 x i64> %5794, %5788
-  %5796 = trunc <8 x i64> %5795 to <8 x i32>
+  %5796 = trunc nuw nsw <8 x i64> %5795 to <8 x i32>
   %5797 = shl nuw nsw <8 x i32> %5796, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %5798 = lshr <8 x i32> %5779, %5797
   %5799 = and <8 x i32> %5798, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
@@ -12295,7 +12295,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %5825 = phi i64 [ %5851, %5824 ], [ %.ph539, %.preheader538 ]
   %5826 = and i64 %5825, 1
   %5827 = or disjoint i64 %5826, %5784
-  %5828 = trunc i64 %5827 to i32
+  %5828 = trunc nuw nsw i64 %5827 to i32
   %5829 = shl nuw nsw i32 %5828, 1
   %5830 = lshr i32 %5433, %5829
   %5831 = and i32 %5830, 3
@@ -13554,7 +13554,7 @@ define internal fastcc ptr @_process_opposed(ptr noundef %0, ptr nocapture nound
   %592 = phi i64 [ %629, %628 ], [ 3, %.preheader50 ]
   %593 = and i64 %592, 1
   %594 = or disjoint i64 %593, %585
-  %595 = trunc i64 %594 to i32
+  %595 = trunc nuw nsw i64 %594 to i32
   %596 = shl nuw nsw i32 %595, 1
   %597 = lshr i32 %22, %596
   %598 = and i32 %597, 3
@@ -13778,7 +13778,7 @@ define internal fastcc ptr @_process_opposed(ptr noundef %0, ptr nocapture nound
   %744 = add i64 %743, %738
   %745 = and i64 %743, 1
   %746 = or disjoint i64 %745, %740
-  %747 = trunc i64 %746 to i32
+  %747 = trunc nuw nsw i64 %746 to i32
   %748 = shl nuw nsw i32 %747, 1
   %749 = lshr i32 %22, %748
   %750 = and i32 %749, 3
@@ -14059,7 +14059,7 @@ define internal fastcc ptr @_process_opposed(ptr noundef %0, ptr nocapture nound
 945:                                              ; preds = %944
   %946 = and i64 %942, 1
   %947 = or disjoint i64 %946, %837
-  %948 = trunc i64 %947 to i32
+  %948 = trunc nuw nsw i64 %947 to i32
   %949 = shl nuw nsw i32 %948, 1
   %950 = lshr i32 %22, %949
   %951 = and i32 %950, 3
@@ -15379,7 +15379,7 @@ define internal fastcc float @_calc_refavg(ptr nocapture noundef readonly %0, pt
   %73 = phi i64 [ %123, %.split.us.split.us ], [ %61, %.split.us ]
   %74 = mul nsw i64 %73, %58
   %75 = getelementptr float, ptr %0, i64 %74
-  %76 = trunc i64 %73 to i32
+  %76 = trunc nsw i64 %73 to i32
   %77 = add i32 %76, %3
   %78 = shl i32 %77, 1
   %79 = and i32 %78, 14
@@ -15440,7 +15440,7 @@ define internal fastcc float @_calc_refavg(ptr nocapture noundef readonly %0, pt
   %125 = phi i64 [ %160, %.split.us.split ], [ %61, %.split.us ]
   %126 = mul nsw i64 %125, %58
   %127 = getelementptr float, ptr %0, i64 %126
-  %128 = trunc i64 %125 to i32
+  %128 = trunc nsw i64 %125 to i32
   %129 = add i32 %128, %3
   %130 = shl i32 %129, 1
   %131 = and i32 %130, 14
@@ -15516,7 +15516,7 @@ define internal fastcc float @_calc_refavg(ptr nocapture noundef readonly %0, pt
   %189 = phi i64 [ %235, %234 ], [ %167, %162 ]
   %190 = mul nsw i64 %189, %58
   %191 = getelementptr float, ptr %0, i64 %190
-  %192 = trunc i64 %189 to i32
+  %192 = trunc nsw i64 %189 to i32
   %193 = add i32 %187, %192
   %194 = srem i32 %193, 6
   %195 = sext i32 %194 to i64
@@ -15578,7 +15578,7 @@ define internal fastcc float @_calc_refavg(ptr nocapture noundef readonly %0, pt
 237:                                              ; preds = %237, %.split
   %238 = phi i64 [ %61, %.split ], [ %257, %237 ]
   %239 = mul nsw i64 %238, %58
-  %240 = trunc i64 %238 to i32
+  %240 = trunc nsw i64 %238 to i32
   %241 = add i32 %240, %3
   %242 = shl i32 %241, 1
   %243 = and i32 %242, 14
@@ -17022,7 +17022,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %703 = xor i64 %702, %701
   %704 = mul i64 %703, -3808689974395783757
   %705 = lshr i64 %704, 32
-  %706 = trunc i64 %705 to i32
+  %706 = trunc nuw i64 %705 to i32
   %707 = mul nsw i64 %700, %369
   %708 = lshr i64 %707, 33
   %709 = xor i64 %708, %707
@@ -17031,7 +17031,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %712 = xor i64 %711, %710
   %713 = mul i64 %712, -3808689974395783757
   %714 = lshr i64 %713, 32
-  %715 = trunc i64 %714 to i32
+  %715 = trunc nuw i64 %714 to i32
   %716 = shl i32 %715, 9
   %717 = xor i32 %706, 635086878
   %718 = xor i32 %715, -1171427716
@@ -17078,7 +17078,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %759 = xor i32 %755, %754
   %760 = call noundef i32 @llvm.fshl.i32(i32 %756, i32 %756, i32 11)
   %761 = lshr i32 %753, 8
-  %762 = uitofp i32 %761 to float
+  %762 = uitofp nneg i32 %761 to float
   %763 = fmul reassoc nsz arcp contract afn float %762, 0x3E70000000000000
   %764 = shl i32 %757, 9
   %765 = xor i32 %759, %758
@@ -17094,14 +17094,14 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %775 = xor i32 %773, %768
   %776 = call noundef i32 @llvm.fshl.i32(i32 %773, i32 %773, i32 11)
   %777 = lshr i32 %771, 8
-  %778 = uitofp i32 %777 to float
+  %778 = uitofp nneg i32 %777 to float
   %779 = fmul reassoc nsz arcp contract afn float %778, 0x3E70000000000000
   %780 = xor i32 %774, %776
   %781 = xor i32 %780, %775
   %782 = call noundef i32 @llvm.fshl.i32(i32 %780, i32 %780, i32 11)
   %783 = add i32 %782, %781
   %784 = lshr i32 %783, 8
-  %785 = uitofp i32 %784 to float
+  %785 = uitofp nneg i32 %784 to float
   %786 = fmul reassoc nsz arcp contract afn float %785, 0x3E70000000000000
   %787 = fpext float %763 to double
   %788 = fmul reassoc nsz arcp contract afn double %787, 0x401921FB54442D18
@@ -17117,7 +17117,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %798 = call reassoc nsz arcp contract afn float @llvm.cos.f32(float %797)
   %799 = add i32 %776, %775
   %800 = lshr i32 %799, 8
-  %801 = uitofp i32 %800 to float
+  %801 = uitofp nneg i32 %800 to float
   %802 = fmul reassoc nsz arcp contract afn float %801, 0x3E70000000000000
   %803 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %802, float 0x3810000000000000)
   %804 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %803)
@@ -17128,7 +17128,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %809 = insertelement <2 x i32> %808, i32 %758, i64 1
   %810 = add <2 x i32> %807, %809
   %811 = lshr <2 x i32> %810, <i32 8, i32 8>
-  %812 = uitofp <2 x i32> %811 to <2 x float>
+  %812 = uitofp nneg <2 x i32> %811 to <2 x float>
   %813 = fmul reassoc nsz arcp contract afn <2 x float> %812, <float 0x3E70000000000000, float 0x3E70000000000000>
   %814 = call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %813, <2 x float> <float 0x3810000000000000, float 0x3810000000000000>)
   %815 = call reassoc nsz arcp contract afn <2 x float> @llvm.log.v2f32(<2 x float> %814)

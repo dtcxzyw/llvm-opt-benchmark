@@ -1199,7 +1199,7 @@ define internal void @display_latitude(ptr nocapture noundef writeonly %0, i32 n
   %9 = mul i32 %1, 6
   %10 = srem i32 %9, 1000000
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %12 = sitofp i32 %11 to double
+  %12 = uitofp nneg i32 %11 to double
   %13 = fmul double %12, 6.000000e+00
   %14 = fdiv double %13, 1.000000e+05
   %15 = icmp sgt i32 %1, -1
@@ -1219,7 +1219,7 @@ define internal void @display_longitude(ptr nocapture noundef writeonly %0, i32 
   %9 = mul i32 %1, 6
   %10 = srem i32 %9, 1000000
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
-  %12 = sitofp i32 %11 to double
+  %12 = uitofp nneg i32 %11 to double
   %13 = fmul double %12, 6.000000e+00
   %14 = fdiv double %13, 1.000000e+05
   %15 = icmp sgt i32 %1, -1

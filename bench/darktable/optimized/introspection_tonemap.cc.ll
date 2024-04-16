@@ -208,7 +208,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %76 = select i1 %75, float %74, float 0x3EB0C6F7A0000000
   %77 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %76)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #25
-  %78 = sitofp i32 %62 to float
+  %78 = uitofp nneg i32 %62 to float
   %79 = fmul reassoc nsz arcp contract afn float %41, %78
   store float %79, ptr %8, align 4, !tbaa !31
   store float %58, ptr %46, align 4, !tbaa !31

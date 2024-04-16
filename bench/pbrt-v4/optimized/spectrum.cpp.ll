@@ -527,7 +527,7 @@ for.body.preheader:                               ; preds = %if.then, %entry
 for.body:                                         ; preds = %for.body.preheader, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit
   %lambda.07.int = phi i32 [ %inc.int, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit ], [ 360, %for.body.preheader ]
   %y.06 = phi float [ %add, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit ], [ 0.000000e+00, %for.body.preheader ]
-  %indvar.conv = sitofp i32 %lambda.07.int to float
+  %indvar.conv = uitofp nneg i32 %lambda.07.int to float
   %4 = load ptr, ptr @_ZN4pbrt7Spectra1yE, align 8
   %call.i.i = call noundef i64 @lroundf(float noundef %indvar.conv) #23
   %5 = load i32, ptr %4, align 8
@@ -560,7 +560,7 @@ _ZNK4pbrt22DenselySampledSpectrumclEf.exit:       ; preds = %for.body, %lor.lhs.
   %and.i.i.i = and i64 %10, 144115188075855871
   %11 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %10, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i = call noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i, ptr noundef %11, i32 noundef %sub.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lambda.addr.i)
@@ -596,20 +596,20 @@ entry:
   %and.i.i.i.i = and i64 %1, 144115188075855871
   %3 = inttoptr i64 %and.i.i.i.i to ptr
   %or.i.i = lshr i64 %1, 57
-  %4 = trunc i64 %or.i.i to i32
+  %4 = trunc nuw nsw i64 %or.i.i to i32
   %conv.i.i.i.i = or i32 %4, 2
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %and.i.i.i7.i = and i64 %2, 144115188075855871
   %5 = inttoptr i64 %and.i.i.i7.i to ptr
   %shr.i.i.i8.i = lshr i64 %2, 57
-  %conv.i.i.i9.i = trunc i64 %shr.i.i.i8.i to i32
+  %conv.i.i.i9.i = trunc nuw nsw i64 %shr.i.i.i8.i to i32
   %sub.i.i10.i = add nsw i32 %conv.i.i.i9.i, -1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %lambda.013.int.i = phi i32 [ 360, %entry ], [ %inc.int.i, %for.body.i ]
   %integral.012.i = phi float [ 0.000000e+00, %entry ], [ %add.i, %for.body.i ]
-  %indvar.conv.i = sitofp i32 %lambda.013.int.i to float
+  %indvar.conv.i = uitofp nneg i32 %lambda.013.int.i to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i)
   store float %indvar.conv.i, ptr %lambda.addr.i.i, align 4
@@ -637,20 +637,20 @@ _ZN4pbrt12InnerProductENS_8SpectrumES0_.exit:     ; preds = %for.body.i
   %and.i.i.i.i10 = and i64 %7, 144115188075855871
   %9 = inttoptr i64 %and.i.i.i.i10 to ptr
   %or.i.i1 = lshr i64 %7, 57
-  %10 = trunc i64 %or.i.i1 to i32
+  %10 = trunc nuw nsw i64 %or.i.i1 to i32
   %conv.i.i.i.i12 = or i32 %10, 2
   %sub.i.i.i13 = add nsw i32 %conv.i.i.i.i12, -1
   %and.i.i.i7.i15 = and i64 %8, 144115188075855871
   %11 = inttoptr i64 %and.i.i.i7.i15 to ptr
   %shr.i.i.i8.i16 = lshr i64 %8, 57
-  %conv.i.i.i9.i17 = trunc i64 %shr.i.i.i8.i16 to i32
+  %conv.i.i.i9.i17 = trunc nuw nsw i64 %shr.i.i.i8.i16 to i32
   %sub.i.i10.i18 = add nsw i32 %conv.i.i.i9.i17, -1
   br label %for.body.i6
 
 for.body.i6:                                      ; preds = %for.body.i6, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit
   %lambda.013.int.i7 = phi i32 [ 360, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit ], [ %inc.int.i22, %for.body.i6 ]
   %integral.012.i8 = phi float [ 0.000000e+00, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit ], [ %add.i21, %for.body.i6 ]
-  %indvar.conv.i9 = sitofp i32 %lambda.013.int.i7 to float
+  %indvar.conv.i9 = uitofp nneg i32 %lambda.013.int.i7 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i5)
   store float %indvar.conv.i9, ptr %lambda.addr.i.i4, align 4
@@ -678,20 +678,20 @@ _ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24:   ; preds = %for.body.i6
   %and.i.i.i.i34 = and i64 %13, 144115188075855871
   %15 = inttoptr i64 %and.i.i.i.i34 to ptr
   %or.i.i25 = lshr i64 %13, 57
-  %16 = trunc i64 %or.i.i25 to i32
+  %16 = trunc nuw nsw i64 %or.i.i25 to i32
   %conv.i.i.i.i36 = or i32 %16, 2
   %sub.i.i.i37 = add nsw i32 %conv.i.i.i.i36, -1
   %and.i.i.i7.i39 = and i64 %14, 144115188075855871
   %17 = inttoptr i64 %and.i.i.i7.i39 to ptr
   %shr.i.i.i8.i40 = lshr i64 %14, 57
-  %conv.i.i.i9.i41 = trunc i64 %shr.i.i.i8.i40 to i32
+  %conv.i.i.i9.i41 = trunc nuw nsw i64 %shr.i.i.i8.i40 to i32
   %sub.i.i10.i42 = add nsw i32 %conv.i.i.i9.i41, -1
   br label %for.body.i30
 
 for.body.i30:                                     ; preds = %for.body.i30, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24
   %lambda.013.int.i31 = phi i32 [ 360, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24 ], [ %inc.int.i46, %for.body.i30 ]
   %integral.012.i32 = phi float [ 0.000000e+00, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24 ], [ %add.i45, %for.body.i30 ]
-  %indvar.conv.i33 = sitofp i32 %lambda.013.int.i31 to float
+  %indvar.conv.i33 = uitofp nneg i32 %lambda.013.int.i31 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i29)
   store float %indvar.conv.i33, ptr %lambda.addr.i.i28, align 4
@@ -771,7 +771,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -1445,12 +1445,12 @@ for.body:                                         ; preds = %entry, %for.inc
   %and.i.i.i.i = and i64 %1, 144115188075855871
   %3 = inttoptr i64 %and.i.i.i.i to ptr
   %shr.i.i.i.i = lshr i64 %1, 57
-  %conv.i.i.i.i = trunc i64 %shr.i.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %and.i.i.i7.i = and i64 %2, 144115188075855871
   %4 = inttoptr i64 %and.i.i.i7.i to ptr
   %shr.i.i.i8.i = lshr i64 %2, 57
-  %conv.i.i.i9.i = trunc i64 %shr.i.i.i8.i to i32
+  %conv.i.i.i9.i = trunc nuw nsw i64 %shr.i.i.i8.i to i32
   %sub.i.i10.i = add nsw i32 %conv.i.i.i9.i, -1
   br label %for.body.i
 
@@ -2525,13 +2525,13 @@ invoke.cont58:                                    ; preds = %invoke.cont51
   %and.i.i.i.i = and i64 %76, 144115188075855871
   %79 = inttoptr i64 %and.i.i.i.i to ptr
   %or.i.i = lshr i64 %76, 57
-  %80 = trunc i64 %or.i.i to i32
+  %80 = trunc nuw nsw i64 %or.i.i to i32
   %conv.i.i.i.i = or i32 %80, 3
   %sub.i.i.i = add nsw i32 %conv.i.i.i.i, -1
   %and.i.i.i7.i = and i64 %78, 144115188075855871
   %81 = inttoptr i64 %and.i.i.i7.i to ptr
   %or.i.i253 = lshr i64 %78, 57
-  %82 = trunc i64 %or.i.i253 to i32
+  %82 = trunc nuw nsw i64 %or.i.i253 to i32
   %conv.i.i.i9.i = or i32 %82, 2
   %sub.i.i10.i = add nsw i32 %conv.i.i.i9.i, -1
   br label %for.body.i
@@ -2539,7 +2539,7 @@ invoke.cont58:                                    ; preds = %invoke.cont51
 for.body.i:                                       ; preds = %call3.i.i11.i.noexc, %invoke.cont58
   %lambda.013.int.i = phi i32 [ 360, %invoke.cont58 ], [ %inc.int.i, %call3.i.i11.i.noexc ]
   %integral.012.i = phi float [ 0.000000e+00, %invoke.cont58 ], [ %add.i, %call3.i.i11.i.noexc ]
-  %indvar.conv.i = sitofp i32 %lambda.013.int.i to float
+  %indvar.conv.i = uitofp nneg i32 %lambda.013.int.i to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i)
   store float %indvar.conv.i, ptr %lambda.addr.i.i, align 4
@@ -3938,8 +3938,8 @@ for.body.us.preheader.i:                          ; preds = %_ZN4pbrt17Blackbody
 
 for.body.us.i:                                    ; preds = %invoke.cont.us.i, %for.body.us.preheader.i
   %indvars.iv11.i = phi i64 [ 360, %for.body.us.preheader.i ], [ %indvars.iv.next12.i, %invoke.cont.us.i ]
-  %10 = trunc i64 %indvars.iv11.i to i32
-  %conv.us.i = sitofp i32 %10 to float
+  %10 = trunc nuw nsw i64 %indvars.iv11.i to i32
+  %conv.us.i = uitofp nneg i32 %10 to float
   %mul.i.i.i.us.i = fmul float %conv.us.i, 0x3E112E0BE0000000
   %mul.i.i.i.i.i.us.i = fmul float %mul.i.i.i.us.i, %mul.i.i.i.us.i
   %mul.i.i.i.i.us.i = fmul float %mul.i.i.i.i.i.us.i, %mul.i.i.i.i.i.us.i
@@ -6999,7 +6999,7 @@ for.body3.us:                                     ; preds = %_ZNK4pbrt3XYZixEi.e
   %1 = extractvalue { ptr, i64 } %call4.us, 0
   %arrayidx.i.us = getelementptr inbounds float, ptr %1, i64 %indvars.iv46
   %2 = load float, ptr %arrayidx.i.us, align 4
-  %3 = trunc i64 %indvars.iv46 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv46 to i32
   switch i32 %3, label %if.end4.i12.us [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit.us
     i32 1, label %if.then3.i10.us
@@ -7029,7 +7029,7 @@ for.body3.us24:                                   ; preds = %_ZNK4pbrt3XYZixEi.e
   %5 = extractvalue { ptr, i64 } %call4.us26, 0
   %arrayidx.i.us28 = getelementptr inbounds float, ptr %5, i64 %indvars.iv
   %6 = load float, ptr %arrayidx.i.us28, align 4
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %7, label %if.end4.i12.us30 [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit.us31
     i32 1, label %if.then3.i10.us29
@@ -7058,7 +7058,7 @@ for.body3:                                        ; preds = %for.body, %_ZNK4pbr
   %8 = extractvalue { ptr, i64 } %call4, 0
   %arrayidx.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv50
   %9 = load float, ptr %arrayidx.i, align 4
-  %10 = trunc i64 %indvars.iv50 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv50 to i32
   switch i32 %10, label %if.end4.i12 [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit
     i32 1, label %if.then3.i10
@@ -7210,7 +7210,7 @@ for.body.preheader:                               ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont8
   %indvars.iv = phi i64 [ %10, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont8 ]
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   %conv7 = sitofp i32 %12 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
@@ -7220,7 +7220,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %and.i.i.i = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %13, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i11 = invoke noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i, ptr noundef %14, i32 noundef %sub.i.i)
           to label %invoke.cont8 unwind label %lpad.loopexit

@@ -237,7 +237,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 define void @IDAProcessError(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ...) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca [256 x i8], align 16
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %8 = call i32 @vsprintf(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull %6) #13
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %15
@@ -258,7 +258,7 @@ define void @IDAProcessError(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   br label %20
 
 20:                                               ; preds = %15, %10
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2019,7 +2019,7 @@ define noundef i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %indvars.iv72 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next73, %203 ]
   %204 = load ptr, ptr %166, align 8
   %205 = getelementptr inbounds i32, ptr %204, i64 %indvars.iv72
-  %206 = trunc i64 %indvars.iv72 to i32
+  %206 = trunc nuw nsw i64 %indvars.iv72 to i32
   store i32 %206, ptr %205, align 4
   %207 = load ptr, ptr %144, align 8
   %208 = getelementptr inbounds double, ptr %207, i64 %indvars.iv72
@@ -2157,7 +2157,7 @@ define noundef i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr noundef re
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %56 ]
   %57 = load ptr, ptr %54, align 8
   %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv50
-  %59 = trunc i64 %indvars.iv50 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv50 to i32
   store i32 %59, ptr %58, align 4
   %60 = load ptr, ptr %55, align 8
   %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv50
@@ -4315,8 +4315,8 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %547 = fdiv double %545, %546
   %548 = getelementptr inbounds [6 x double], ptr %323, i64 0, i64 %indvars.iv.i.i
   store double %547, ptr %548, align 8
-  %549 = trunc i64 %indvars.iv.i.i to i32
-  %550 = sitofp i32 %549 to double
+  %549 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %550 = uitofp nneg i32 %549 to double
   %551 = fmul double %537, %550
   %552 = fmul double %551, %547
   %553 = getelementptr inbounds [6 x double], ptr %326, i64 0, i64 %indvars.iv.i.i
@@ -4354,8 +4354,8 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %.0162.i.i = phi double [ 0.000000e+00, %.lr.ph164.i.i ], [ %568, %564 ]
   %.0132161.i.i = phi double [ 0.000000e+00, %.lr.ph164.i.i ], [ %571, %564 ]
   %indvars.iv.next199.i.i = add nuw nsw i64 %indvars.iv198.i.i, 1
-  %565 = trunc i64 %indvars.iv.next199.i.i to i32
-  %566 = sitofp i32 %565 to double
+  %565 = trunc nuw nsw i64 %indvars.iv.next199.i.i to i32
+  %566 = uitofp nneg i32 %565 to double
   %567 = fdiv double 1.000000e+00, %566
   %568 = fsub double %.0162.i.i, %567
   %569 = getelementptr inbounds [6 x double], ptr %323, i64 0, i64 %indvars.iv198.i.i
@@ -4974,7 +4974,7 @@ IDASensWrmsNorm.exit.i.i.i:                       ; preds = %IDAWrmsNorm.exit20.
 
 883:                                              ; preds = %878
   %884 = fdiv double %.0122.i.i.i, %.0121.i.i.i
-  %885 = sitofp i32 %.0120.i.i.i to double
+  %885 = uitofp nneg i32 %.0120.i.i.i to double
   %886 = fdiv double 1.000000e+00, %885
   %887 = tail call double @SUNRpowerR(double noundef %884, double noundef %886) #13
   %888 = fcmp ogt double %887, 9.000000e-01
@@ -5754,7 +5754,7 @@ IDASensWrmsNorm.exit.i.i150.i:                    ; preds = %IDAWrmsNorm.exit20.
 
 1317:                                             ; preds = %IDASensWrmsNorm.exit.i.i150.i
   %1318 = fdiv double %.016.lcssa.i.i.i151.i, %.075.i.i.i
-  %1319 = sitofp i32 %.076.i.i.i to double
+  %1319 = uitofp nneg i32 %.076.i.i.i to double
   %1320 = fdiv double 1.000000e+00, %1319
   %1321 = tail call double @SUNRpowerR(double noundef %1318, double noundef %1320) #13
   %1322 = fcmp ogt double %1321, 9.000000e-01
@@ -8172,7 +8172,7 @@ define internal fastcc noundef i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
   br i1 %106, label %61, label %._crit_edge.i, !llvm.loop !94
 
 .thread.i:                                        ; preds = %98
-  %107 = trunc i64 %indvars.iv.i to i32
+  %107 = trunc nuw nsw i64 %indvars.iv.i to i32
   %indvars.iv.next345.i = add nuw nsw i64 %indvars.iv.i, 1
   %108 = load i32, ptr %51, align 8
   %109 = sext i32 %108 to i64
@@ -8446,7 +8446,7 @@ define internal fastcc noundef i32 @IDARcheck3(ptr noundef %0) unnamed_addr #0 {
   br i1 %283, label %.lr.ph270.i, label %._crit_edge271.i, !llvm.loop !97
 
 .thread54:                                        ; preds = %275
-  %284 = trunc i64 %indvars.iv312.i to i32
+  %284 = trunc nuw nsw i64 %indvars.iv312.i to i32
   %indvars.iv.next313.i59 = add nuw nsw i64 %indvars.iv312.i, 1
   %285 = load i32, ptr %51, align 8
   %286 = sext i32 %285 to i64
@@ -9557,8 +9557,8 @@ define noundef i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2,
   %64 = add nsw i64 %indvar, -1
   %65 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %64
   %66 = load double, ptr %65, align 8
-  %67 = trunc i64 %indvar to i32
-  %68 = sitofp i32 %67 to double
+  %67 = trunc nuw nsw i64 %indvar to i32
+  %68 = uitofp nneg i32 %67 to double
   %69 = fmul double %66, %68
   %70 = getelementptr inbounds [6 x double], ptr %43, i64 0, i64 %64
   %71 = load double, ptr %70, align 8
@@ -9574,8 +9574,8 @@ define noundef i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2,
   br i1 %.not8691, label %.loopexit88, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74
-  %76 = trunc i64 %indvar to i32
-  %77 = sitofp i32 %76 to double
+  %76 = trunc nuw nsw i64 %indvar to i32
+  %77 = uitofp nneg i32 %76 to double
   %load_initial = load double, ptr %scevgep119, align 8
   br label %78
 
@@ -9625,7 +9625,7 @@ define noundef i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2,
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef nonnull %3, double noundef %94, ptr noundef %96, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr %15, align 4
-  %98 = trunc i64 %indvars.iv to i32
+  %98 = trunc nuw i64 %indvars.iv to i32
   %.not85.not = icmp sgt i32 %97, %98
   br i1 %.not85.not, label %92, label %.loopexit, !llvm.loop !113
 
@@ -9775,8 +9775,8 @@ define noundef i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef
   %63 = add nsw i64 %indvar, -1
   %64 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %63
   %65 = load double, ptr %64, align 8
-  %66 = trunc i64 %indvar to i32
-  %67 = sitofp i32 %66 to double
+  %66 = trunc nuw nsw i64 %indvar to i32
+  %67 = uitofp nneg i32 %66 to double
   %68 = fmul double %65, %67
   %69 = getelementptr inbounds [6 x double], ptr %41, i64 0, i64 %63
   %70 = load double, ptr %69, align 8
@@ -9792,8 +9792,8 @@ define noundef i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef
   br i1 %.not8691, label %.loopexit88, label %.lr.ph
 
 .lr.ph:                                           ; preds = %73
-  %75 = trunc i64 %indvar to i32
-  %76 = sitofp i32 %75 to double
+  %75 = trunc nuw nsw i64 %indvar to i32
+  %76 = uitofp nneg i32 %75 to double
   %load_initial = load double, ptr %scevgep119, align 8
   br label %77
 
@@ -9844,7 +9844,7 @@ define noundef i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef nonnull %3, double noundef %94, ptr noundef %96, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr %88, align 4
-  %98 = trunc i64 %indvars.iv to i32
+  %98 = trunc nuw i64 %indvars.iv to i32
   %.not85.not = icmp sgt i32 %97, %98
   br i1 %.not85.not, label %92, label %.loopexit, !llvm.loop !117
 
@@ -9901,7 +9901,7 @@ define noundef i32 @IDAGetSens(ptr noundef %0, ptr nocapture noundef %1, ptr nou
   %24 = load double, ptr %1, align 8
   %25 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @IDAGetSensDky1(ptr noundef nonnull %0, double noundef %24, i32 noundef 0, i32 noundef %27, ptr noundef %26), !range !119
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %20, label %.loopexit
@@ -10049,8 +10049,8 @@ define noundef i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 nounde
   %76 = add nsw i64 %indvar, -1
   %77 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %76
   %78 = load double, ptr %77, align 8
-  %79 = trunc i64 %indvar to i32
-  %80 = sitofp i32 %79 to double
+  %79 = trunc nuw nsw i64 %indvar to i32
+  %80 = uitofp nneg i32 %79 to double
   %81 = fmul double %78, %80
   %82 = getelementptr inbounds [6 x double], ptr %55, i64 0, i64 %76
   %83 = load double, ptr %82, align 8
@@ -10066,8 +10066,8 @@ define noundef i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 nounde
   br i1 %.not95100, label %.loopexit97, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86
-  %88 = trunc i64 %indvar to i32
-  %89 = sitofp i32 %88 to double
+  %88 = trunc nuw nsw i64 %indvar to i32
+  %89 = uitofp nneg i32 %88 to double
   %load_initial = load double, ptr %scevgep128, align 8
   br label %90
 
@@ -10120,7 +10120,7 @@ define noundef i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 nounde
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef nonnull %4, double noundef %107, ptr noundef %111, ptr noundef nonnull %4) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load i32, ptr %27, align 4
-  %113 = trunc i64 %indvars.iv to i32
+  %113 = trunc nuw i64 %indvars.iv to i32
   %.not94.not = icmp sgt i32 %112, %113
   br i1 %.not94.not, label %105, label %.loopexit, !llvm.loop !122
 
@@ -10187,7 +10187,7 @@ define noundef i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i32 noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
   %29 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
-  %31 = trunc i64 %indvars.iv to i32
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = tail call i32 @IDAGetSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %31, ptr noundef %30), !range !119
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %25, label %.loopexit
@@ -10266,7 +10266,7 @@ define noundef i32 @IDAGetQuadSens(ptr noundef %0, ptr nocapture noundef %1, ptr
   %24 = load double, ptr %1, align 8
   %25 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @IDAGetQuadSensDky1(ptr noundef nonnull %0, double noundef %24, i32 noundef 0, i32 noundef %27, ptr noundef %26), !range !125
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %20, label %.loopexit
@@ -10424,8 +10424,8 @@ define noundef i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 no
   %81 = add nsw i64 %indvar, -1
   %82 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %81
   %83 = load double, ptr %82, align 8
-  %84 = trunc i64 %indvar to i32
-  %85 = sitofp i32 %84 to double
+  %84 = trunc nuw nsw i64 %indvar to i32
+  %85 = uitofp nneg i32 %84 to double
   %86 = fmul double %83, %85
   %87 = getelementptr inbounds [6 x double], ptr %60, i64 0, i64 %81
   %88 = load double, ptr %87, align 8
@@ -10441,8 +10441,8 @@ define noundef i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 no
   br i1 %.not97102, label %.loopexit99, label %.lr.ph
 
 .lr.ph:                                           ; preds = %91
-  %93 = trunc i64 %indvar to i32
-  %94 = sitofp i32 %93 to double
+  %93 = trunc nuw nsw i64 %indvar to i32
+  %94 = uitofp nneg i32 %93 to double
   %load_initial = load double, ptr %scevgep130, align 8
   br label %95
 
@@ -10495,7 +10495,7 @@ define noundef i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 no
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef nonnull %4, double noundef %112, ptr noundef %116, ptr noundef nonnull %4) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load i32, ptr %32, align 4
-  %118 = trunc i64 %indvars.iv to i32
+  %118 = trunc nuw i64 %indvars.iv to i32
   %.not96.not = icmp sgt i32 %117, %118
   br i1 %.not96.not, label %110, label %.loopexit, !llvm.loop !128
 
@@ -10572,7 +10572,7 @@ define noundef i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %1, i32 nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader ]
   %34 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 @IDAGetQuadSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %36, ptr noundef %35), !range !125
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %30, label %.loopexit
@@ -11227,17 +11227,11 @@ IDAWrmsNorm.exit20:                               ; preds = %IDAWrmsNorm.exit20.
   ret double %.016.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #7
+; Function Attrs: nofree nounwind
+declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #7
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 declare void @N_VDestroy(ptr noundef) local_unnamed_addr #4
 
@@ -11601,6 +11595,12 @@ declare double @N_VMinQuotient(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare double @SUNRsqrt(double noundef) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #8
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
@@ -11629,8 +11629,8 @@ attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

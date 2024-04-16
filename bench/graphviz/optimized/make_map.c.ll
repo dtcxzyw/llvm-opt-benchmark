@@ -106,7 +106,7 @@ define dso_local void @map_palette_optimal_coloring(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr %7, align 4
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = mul nsw i32 %27, %28
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds double, ptr %26, i64 %30
@@ -338,7 +338,7 @@ define dso_local void @improve_contiguity(i32 noundef %0, i32 noundef %1, ptr no
 .lr.ph:                                           ; preds = %21
   %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv60
   %27 = sext i32 %22 to i64
-  %28 = trunc i64 %indvars.iv60 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv60 to i32
   br label %29
 
 29:                                               ; preds = %.lr.ph, %54
@@ -511,7 +511,7 @@ plot_dot_edges.exit.thread71:                     ; preds = %41
   %55 = load double, ptr %54, align 8
   %56 = getelementptr i8, ptr %54, i64 8
   %57 = load double, ptr %56, align 8
-  %58 = trunc i64 %indvars.iv29.i to i32
+  %58 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.35, i32 noundef %58, ptr noundef %52, double noundef %55, double noundef %57) #18
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
@@ -529,7 +529,7 @@ plot_dot_edges.exit.thread71:                     ; preds = %41
   %67 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.i
   %68 = load float, ptr %67, align 4
   %69 = fpext float %68 to double
-  %70 = trunc i64 %indvars.iv.i to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.i to i32
   %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.34, i32 noundef %70, ptr noundef %61, double noundef %64, double noundef %66, double noundef %69) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count32.i
@@ -569,7 +569,7 @@ plot_dot_labels.exit:                             ; preds = %.lr.ph.split.i, %.l
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph22.i
   %84 = sext i32 %80 to i64
-  %85 = trunc i64 %indvars.iv24.i to i32
+  %85 = trunc nuw nsw i64 %indvars.iv24.i to i32
   br label %.lr.ph.i64
 
 .lr.ph.i64:                                       ; preds = %93, %.lr.ph.preheader.i
@@ -1429,11 +1429,11 @@ add_point.exit230:                                ; preds = %211, %209, %199, %.
   %219 = add nuw nsw i32 %.0210581, 1
   %indvars.iv.next702 = add nsw i64 %indvars.iv701, 1
   %220 = icmp slt i32 %219, %169
-  %221 = trunc i64 %indvars.iv701 to i32
+  %221 = trunc nsw i64 %indvars.iv701 to i32
   br i1 %220, label %.lr.ph583, label %._crit_edge584.loopexit
 
 ._crit_edge584.loopexit:                          ; preds = %add_point.exit230
-  %222 = trunc i64 %indvars.iv.next702 to i32
+  %222 = trunc nsw i64 %indvars.iv.next702 to i32
   br label %._crit_edge584
 
 ._crit_edge584:                                   ; preds = %._crit_edge584.loopexit, %add_point.exit
@@ -1551,7 +1551,7 @@ add_point.exit233:                                ; preds = %._crit_edge584, %22
 279:                                              ; preds = %275, %273
   %280 = shl nsw i64 %254, 2
   %281 = shl nsw i64 %256, 2
-  %282 = trunc i64 %256 to i32
+  %282 = trunc nsw i64 %256 to i32
   %283 = tail call ptr @realloc(ptr noundef %.5593, i64 noundef %281) #23
   %284 = icmp eq ptr %283, null
   br i1 %284, label %285, label %288
@@ -1590,7 +1590,7 @@ add_point.exit236:                                ; preds = %290, %288, %278, %.
   br i1 %299, label %.lr.ph596, label %.loopexit442.loopexit
 
 .loopexit442.loopexit:                            ; preds = %add_point.exit236
-  %300 = trunc i64 %indvars.iv.next705 to i32
+  %300 = trunc nsw i64 %indvars.iv.next705 to i32
   br label %.loopexit442
 
 .loopexit442:                                     ; preds = %128, %.loopexit442.loopexit, %add_point.exit233, %.split.preheader
@@ -1600,7 +1600,7 @@ add_point.exit236:                                ; preds = %290, %288, %278, %.
   %.7412 = phi i32 [ %.6411, %.loopexit442.loopexit ], [ %.4409, %add_point.exit233 ], [ %.0405629, %.split.preheader ], [ %.0405629, %128 ]
   %.7 = phi ptr [ %.6, %.loopexit442.loopexit ], [ %.4404, %add_point.exit233 ], [ %.0400630, %.split.preheader ], [ %.0400630, %128 ]
   %.sroa.0.4.extract.shift828 = lshr i64 %.sroa.0.0, 32
-  %.sroa.0.4.extract.trunc829 = trunc i64 %.sroa.0.4.extract.shift828 to i32
+  %.sroa.0.4.extract.trunc829 = trunc nuw i64 %.sroa.0.4.extract.shift828 to i32
   %301 = icmp sgt i32 %.sroa.0.4.extract.trunc829, 0
   br i1 %301, label %302, label %.loopexit
 
@@ -1642,7 +1642,7 @@ add_point.exit239:                                ; preds = %302, %312
   store i32 %130, ptr %326, align 4
   %.4424601 = add i32 %.3423, 1
   %.sroa.0.4.extract.shift831 = lshr i64 %.sroa.0.0, 32
-  %.sroa.0.4.extract.trunc832 = trunc i64 %.sroa.0.4.extract.shift831 to i32
+  %.sroa.0.4.extract.trunc832 = trunc nuw i64 %.sroa.0.4.extract.shift831 to i32
   %327 = icmp sgt i32 %.sroa.0.4.extract.trunc832, 1
   br i1 %327, label %.lr.ph609.preheader, label %._crit_edge610
 
@@ -1651,7 +1651,7 @@ add_point.exit239:                                ; preds = %302, %312
   %329 = extractelement <2 x double> %311, i64 1
   %330 = extractelement <2 x double> %311, i64 0
   %.sroa.0.4.extract.shift825 = lshr i64 %.sroa.0.0, 32
-  %.sroa.0.4.extract.trunc826 = trunc i64 %.sroa.0.4.extract.shift825 to i32
+  %.sroa.0.4.extract.trunc826 = trunc nuw i64 %.sroa.0.4.extract.shift825 to i32
   %331 = add nsw i32 %.sroa.0.4.extract.trunc826, -1
   br label %.lr.ph609
 
@@ -1757,11 +1757,11 @@ add_point.exit242:                                ; preds = %373, %371, %361, %.
   %381 = add nuw nsw i32 %.2212607, 1
   %indvars.iv.next708 = add nsw i64 %indvars.iv707, 1
   %382 = icmp slt i32 %381, %331
-  %383 = trunc i64 %indvars.iv707 to i32
+  %383 = trunc nsw i64 %indvars.iv707 to i32
   br i1 %382, label %.lr.ph609, label %._crit_edge610.loopexit
 
 ._crit_edge610.loopexit:                          ; preds = %add_point.exit242
-  %384 = trunc i64 %indvars.iv.next708 to i32
+  %384 = trunc nsw i64 %indvars.iv.next708 to i32
   br label %._crit_edge610
 
 ._crit_edge610:                                   ; preds = %._crit_edge610.loopexit, %add_point.exit239
@@ -1802,7 +1802,7 @@ add_point.exit245:                                ; preds = %._crit_edge610, %38
   store i32 %130, ptr %403, align 4
   %404 = add i32 %.4424.in.lcssa, 2
   %.sroa.0.4.extract.shift834 = lshr i64 %.sroa.0.0, 32
-  %.sroa.0.4.extract.trunc835 = trunc i64 %.sroa.0.4.extract.shift834 to i32
+  %.sroa.0.4.extract.trunc835 = trunc nuw i64 %.sroa.0.4.extract.shift834 to i32
   %405 = icmp sgt i32 %.sroa.0.4.extract.trunc835, 1
   br i1 %405, label %.lr.ph622.preheader, label %.loopexit
 
@@ -1811,7 +1811,7 @@ add_point.exit245:                                ; preds = %._crit_edge610, %38
   %407 = extractelement <2 x double> %388, i64 1
   %408 = extractelement <2 x double> %388, i64 0
   %.sroa.0.4.extract.shift = lshr i64 %.sroa.0.0, 32
-  %.sroa.0.4.extract.trunc = trunc i64 %.sroa.0.4.extract.shift to i32
+  %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
   %409 = add nsw i32 %.sroa.0.4.extract.trunc, -1
   br label %.lr.ph622
 
@@ -1879,7 +1879,7 @@ add_point.exit245:                                ; preds = %._crit_edge610, %38
 439:                                              ; preds = %435, %433
   %440 = shl nsw i64 %414, 2
   %441 = shl nsw i64 %416, 2
-  %442 = trunc i64 %416 to i32
+  %442 = trunc nsw i64 %416 to i32
   %443 = tail call ptr @realloc(ptr noundef %.12619, i64 noundef %441) #23
   %444 = icmp eq ptr %443, null
   br i1 %444, label %445, label %448
@@ -1918,7 +1918,7 @@ add_point.exit248:                                ; preds = %450, %448, %438, %.
   br i1 %459, label %.lr.ph622, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %add_point.exit248
-  %460 = trunc i64 %indvars.iv.next711 to i32
+  %460 = trunc nsw i64 %indvars.iv.next711 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %add_point.exit245, %.loopexit442
@@ -2171,11 +2171,11 @@ define internal fastcc void @make_map_internal(i1 noundef zeroext %0, i32 nounde
   br label %.preheader552.us601
 
 ..loopexit553_crit_edge.us.loopexit:              ; preds = %150
-  %122 = trunc i64 %indvars.iv.next724 to i32
+  %122 = trunc nsw i64 %indvars.iv.next724 to i32
   br label %..loopexit553_crit_edge.us
 
 ..loopexit553_crit_edge.us.loopexit675:           ; preds = %133
-  %123 = trunc i64 %indvars.iv.next715 to i32
+  %123 = trunc nsw i64 %indvars.iv.next715 to i32
   br label %..loopexit553_crit_edge.us
 
 ..loopexit553_crit_edge.us:                       ; preds = %..loopexit553_crit_edge.us.loopexit675, %..loopexit553_crit_edge.us.loopexit, %111
@@ -2207,7 +2207,7 @@ define internal fastcc void @make_map_internal(i1 noundef zeroext %0, i32 nounde
 .preheader552.us601:                              ; preds = %.preheader552.us601.preheader, %133
   %indvars.iv714 = phi i64 [ %121, %.preheader552.us601.preheader ], [ %indvars.iv.next715, %133 ]
   %.0440593.us602 = phi i32 [ 0, %.preheader552.us601.preheader ], [ %135, %133 ]
-  %136 = sitofp i32 %.0440593.us602 to double
+  %136 = uitofp nneg i32 %.0440593.us602 to double
   %137 = fdiv double %136, %100
   %138 = fcmp ogt double %137, 5.000000e-01
   br i1 %138, label %133, label %127
@@ -2221,7 +2221,7 @@ define internal fastcc void @make_map_internal(i1 noundef zeroext %0, i32 nounde
 .preheader552.us.us:                              ; preds = %150, %.preheader552.lr.ph.split.us.us
   %indvars.iv723 = phi i64 [ %indvars.iv.next724, %150 ], [ %141, %.preheader552.lr.ph.split.us.us ]
   %.0440593.us.us = phi i32 [ %152, %150 ], [ 0, %.preheader552.lr.ph.split.us.us ]
-  %142 = sitofp i32 %.0440593.us.us to double
+  %142 = uitofp nneg i32 %.0440593.us.us to double
   %143 = fdiv double %142, %100
   %144 = fsub double 1.000000e+00, %143
   %145 = mul nsw i64 %indvars.iv723, %101
@@ -2637,7 +2637,7 @@ gv_calloc.exit:                                   ; preds = %280, %._crit_edge63
   %330 = sext i32 %329 to i64
   %331 = shl nsw i64 %330, 3
   %scevgep781 = getelementptr i8, ptr %312, i64 %331
-  %332 = trunc i64 %indvars.iv786 to i32
+  %332 = trunc nuw nsw i64 %indvars.iv786 to i32
   %333 = sub i32 %.1468, %332
   %334 = mul i32 %333, %2
   %335 = sext i32 %334 to i64
@@ -2688,7 +2688,7 @@ gv_calloc.exit:                                   ; preds = %280, %._crit_edge63
   %indvars.iv802 = phi i64 [ 0, %.lr.ph656 ], [ %indvars.iv.next803, %.loopexit538 ]
   %.0654 = phi i32 [ 0, %.lr.ph656 ], [ %.1, %.loopexit538 ]
   %.0420653 = phi i32 [ 0, %.lr.ph656 ], [ %.2, %.loopexit538 ]
-  %351 = trunc i64 %indvars.iv802 to i32
+  %351 = trunc nuw nsw i64 %indvars.iv802 to i32
   %352 = mul i32 %351, %2
   %353 = sext i32 %352 to i64
   %354 = shl nsw i64 %353, 3
@@ -2735,7 +2735,7 @@ gv_calloc.exit:                                   ; preds = %280, %._crit_edge63
   br i1 %brmerge, label %.loopexit536, label %.lr.ph661
 
 .lr.ph661:                                        ; preds = %364
-  %367 = trunc i64 %indvars.iv818 to i32
+  %367 = trunc nuw nsw i64 %indvars.iv818 to i32
   %368 = mul i32 %367, %2
   %369 = zext i32 %368 to i64
   %370 = shl nuw nsw i64 %369, 3
@@ -2878,7 +2878,7 @@ triangle_center.exit.i:                           ; preds = %437, %.preheader.i
   %450 = phi <2 x double> [ %449, %437 ], [ %421, %.preheader.i ]
   store <2 x double> %450, ptr %412, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
-  %451 = trunc i64 %indvars.iv74.i to i32
+  %451 = trunc nuw nsw i64 %indvars.iv74.i to i32
   store i32 %451, ptr %27, align 4
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %398, i32 %400)
   %spec.select15.i.i = call i32 @llvm.smin.i32(i32 %398, i32 %400)
@@ -3017,7 +3017,7 @@ get_tri.exit:                                     ; preds = %384
 .lr.ph.i.i:                                       ; preds = %.lr.ph42.i.i
   %495 = getelementptr inbounds i32, ptr %465, i64 %indvars.iv44.i.i
   %496 = sext i32 %491 to i64
-  %497 = trunc i64 %indvars.iv44.i.i to i32
+  %497 = trunc nuw nsw i64 %indvars.iv44.i.i to i32
   br label %498
 
 498:                                              ; preds = %511, %.lr.ph.i.i
@@ -3089,7 +3089,7 @@ conn_comp.exit.i:                                 ; preds = %.loopexit.i.i, %480
 
 538:                                              ; preds = %541, %conn_comp.exit.i
   %indvars.iv52.i = phi i64 [ %542, %541 ], [ %537, %conn_comp.exit.i ]
-  %539 = trunc i64 %indvars.iv52.i to i32
+  %539 = trunc nuw i64 %indvars.iv52.i to i32
   %540 = icmp sgt i32 %539, 0
   br i1 %540, label %541, label %551
 
@@ -3237,7 +3237,7 @@ conn_comp.exit.i:                                 ; preds = %.loopexit.i.i, %480
 
 .lr.ph31.preheader.i.i:                           ; preds = %.preheader.i.i
   %wide.trip.count47.i.i = zext nneg i32 %.3220.i.i to i64
-  %606 = trunc i64 %indvars.iv49.i.i to i32
+  %606 = trunc nuw nsw i64 %indvars.iv49.i.i to i32
   br label %.lr.ph31.i.i
 
 .lr.ph18.i.i:                                     ; preds = %.loopexit.i121.i, %.lr.ph18.preheader.i.i
@@ -4404,16 +4404,16 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #18
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   br label %vagxbprint.exit
 
 8:                                                ; preds = %2
@@ -4521,21 +4521,12 @@ agxbnext.exit.i:                                  ; preds = %37, %35
 
 vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %45, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
@@ -4543,7 +4534,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare ptr @QuadTree_new_from_point_list(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @srand(i32 noundef) local_unnamed_addr #14
+declare void @srand(i32 noundef) local_unnamed_addr #13
 
 declare void @QuadTree_get_nearest(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4560,6 +4551,15 @@ declare ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef, i32 noundef, i3
 declare ptr @SparseMatrix_from_coordinate_format(ptr noundef) local_unnamed_addr #1
 
 declare ptr @SparseMatrix_weakly_connected_components(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #15
@@ -4604,8 +4604,8 @@ attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

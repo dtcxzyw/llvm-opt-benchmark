@@ -933,7 +933,7 @@ define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr nounde
   br i1 %48, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %40
-  %49 = sitofp i32 %spec.select to double
+  %49 = uitofp nneg i32 %spec.select to double
   %50 = fmul double %49, 1.000000e+02
   %51 = sitofp i32 %18 to double
   br label %._crit_edge

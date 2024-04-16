@@ -1578,7 +1578,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
   store i8 %8, ptr %17, align 8
   %18 = trunc i64 %10 to i32
   %19 = lshr i64 %10, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %21 = mul i32 %20, %18
   %22 = add i32 %20, -1
   %23 = add i32 %18, -1
@@ -1801,7 +1801,7 @@ define linkonce_odr hidden void @_ZN7mitsuba10Marginal2DIfLm4ELb1EEC2EPKfRKNS_6V
 
 .lr.ph.us286:                                     ; preds = %.lr.ph285, %._crit_edge.us287
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %._crit_edge.us287 ], [ 0, %.lr.ph285 ]
-  %108 = trunc i64 %indvars.iv350 to i32
+  %108 = trunc nuw i64 %indvars.iv350 to i32
   %109 = mul i32 %108, %18
   %110 = mul i32 %23, %108
   br label %111
@@ -3701,8 +3701,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 .preheader2404:                                   ; preds = %.preheader2405, %389
   %indvars.iv2432 = phi i64 [ 0, %.preheader2405 ], [ %indvars.iv.next2433, %389 ]
-  %375 = trunc i64 %indvars.iv2432 to i32
-  %376 = sitofp i32 %375 to float
+  %375 = trunc nuw nsw i64 %indvars.iv2432 to i32
+  %376 = uitofp nneg i32 %375 to float
   %377 = fdiv contract float %376, 3.000000e+00
   %invariant.gep2414 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %23, i64 0, i64 %indvars.iv2432
   br label %378
@@ -3710,8 +3710,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 378:                                              ; preds = %.preheader2404, %388
   %indvars.iv2428 = phi i64 [ 0, %.preheader2404 ], [ %indvars.iv.next2429, %388 ]
   store <4 x float> zeroinitializer, ptr %24, align 16
-  %379 = trunc i64 %indvars.iv2428 to i32
-  %380 = sitofp i32 %379 to float
+  %379 = trunc nuw nsw i64 %indvars.iv2428 to i32
+  %380 = uitofp nneg i32 %379 to float
   %381 = fdiv contract float %380, 3.000000e+00
   %.sroa.02171.0.vec.insert = insertelement <2 x float> poison, float %381, i64 0
   %.sroa.02171.4.vec.insert = insertelement <2 x float> %.sroa.02171.0.vec.insert, float %377, i64 1
@@ -3745,8 +3745,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 .preheader2407:                                   ; preds = %.preheader2408, %401
   %indvars.iv2423 = phi i64 [ 0, %.preheader2408 ], [ %indvars.iv.next2424, %401 ]
-  %390 = trunc i64 %indvars.iv2423 to i32
-  %391 = sitofp i32 %390 to float
+  %390 = trunc nuw nsw i64 %indvars.iv2423 to i32
+  %391 = uitofp nneg i32 %390 to float
   %392 = fdiv contract float %391, 3.000000e+00
   %invariant.gep = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %23, i64 0, i64 %indvars.iv2423
   br label %393
@@ -3757,8 +3757,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   store <2 x float> %244, ptr %368, align 4
   %394 = load float, ptr %365, align 8
   store float %394, ptr %369, align 4
-  %395 = trunc i64 %indvars.iv to i32
-  %396 = sitofp i32 %395 to float
+  %395 = trunc nuw nsw i64 %indvars.iv to i32
+  %396 = uitofp nneg i32 %395 to float
   %397 = fdiv contract float %396, 3.000000e+00
   %.sroa.02166.0.vec.insert = insertelement <2 x float> poison, float %397, i64 0
   %.sroa.02166.4.vec.insert = insertelement <2 x float> %.sroa.02166.0.vec.insert, float %392, i64 1
@@ -8315,11 +8315,11 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba6VectorIiLm2EEEE4and_IS3_EES3_RKT_.exit.crite
   %.0.copyload.i.i = load i64, ptr %0, align 4
   %.sroa.0270.0.extract.trunc = trunc i64 %.0.copyload.i.i to i32
   %.sroa.2271.0.extract.shift = lshr i64 %.0.copyload.i.i, 32
-  %.sroa.2271.0.extract.trunc = trunc i64 %.sroa.2271.0.extract.shift to i32
+  %.sroa.2271.0.extract.trunc = trunc nuw i64 %.sroa.2271.0.extract.shift to i32
   %1 = trunc i64 %.0.copyload.i.i to i32
   %2 = and i32 %1, 2139095040
   %3 = lshr i64 %.0.copyload.i.i, 32
-  %4 = trunc i64 %3 to i32
+  %4 = trunc nuw i64 %3 to i32
   %5 = and i32 %4, 2139095040
   %.sroa.0268.0.vec.insert = insertelement <2 x i32> poison, i32 %2, i64 0
   %.sroa.0268.4.vec.insert = insertelement <2 x i32> %.sroa.0268.0.vec.insert, i32 %5, i64 1

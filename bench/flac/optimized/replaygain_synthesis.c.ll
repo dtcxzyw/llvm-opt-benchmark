@@ -37,7 +37,7 @@ entry:
   %Mask = getelementptr inbounds i8, ptr %d, i64 8
   store i64 %shl, ptr %Mask, align 8
   %sub16 = xor i64 %shl, -1
-  %conv = sitofp i64 %sub16 to double
+  %conv = uitofp nneg i64 %sub16 to double
   %mul = fmul double %conv, 5.000000e-01
   %Add = getelementptr inbounds i8, ptr %d, i64 16
   store double %mul, ptr %Add, align 8
@@ -185,7 +185,7 @@ if.then19.us:                                     ; preds = %if.then.us
 if.end30.us:                                      ; preds = %if.then19.us, %if.then24.us, %if.else.us, %for.body12.us
   %sample.0.us = phi double [ %8, %if.then19.us ], [ %7, %if.then24.us ], [ %mul16.us, %if.else.us ], [ %mul16.us, %for.body12.us ]
   %mul31.us = fmul double %sample.0.us, 0x41DFFFFFFFC00000
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw i64 %indvars.iv to i32
   %add32.us = add i32 %1, %9
   %rem.us = and i32 %add32.us, 31
   br i1 %tobool.not.i, label %if.end46.i.us, label %if.then.i.us

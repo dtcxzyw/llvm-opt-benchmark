@@ -819,7 +819,7 @@ define internal fastcc noundef i32 @_wait_nodes_ready(ptr nocapture noundef read
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = sitofp i32 %.029 to double
+  %9 = uitofp nneg i32 %.029 to double
   %10 = fmul double %9, 5.000000e-01
   br label %11
 

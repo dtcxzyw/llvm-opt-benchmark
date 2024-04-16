@@ -577,7 +577,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
 
 159:                                              ; preds = %.lr.ph462, %207
   %indvars.iv497 = phi i64 [ 0, %.lr.ph462 ], [ %indvars.iv.next498, %207 ]
-  %160 = trunc i64 %indvars.iv497 to i32
+  %160 = trunc nuw nsw i64 %indvars.iv497 to i32
   %161 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %160)
   %162 = load i8, ptr %161, align 8
   %163 = trunc i8 %162 to i1
@@ -611,7 +611,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %177 = mul nsw i32 %176, 3
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds [192 x float], ptr %165, i64 0, i64 %178
-  %180 = sitofp i32 %.0394458 to float
+  %180 = uitofp nneg i32 %.0394458 to float
   %181 = fmul float %180, 1.562500e-02
   %182 = fsub float 1.000000e+00, %181
   %183 = fadd float %.sroa.3.0, 0x3FB99999A0000000
@@ -708,7 +708,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
 239:                                              ; preds = %.lr.ph465, %239
   %indvars.iv500 = phi i64 [ 0, %.lr.ph465 ], [ %indvars.iv.next501, %239 ]
   %240 = icmp eq i64 %indvars.iv500, 0
-  %241 = trunc i64 %indvars.iv500 to i32
+  %241 = trunc nuw nsw i64 %indvars.iv500 to i32
   %242 = mul i32 %241, 3
   %243 = add i32 %242, -3
   %244 = sext i32 %243 to i64
@@ -1751,7 +1751,7 @@ define dso_local void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull ali
 
 24:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %14, i32 noundef %25)
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1

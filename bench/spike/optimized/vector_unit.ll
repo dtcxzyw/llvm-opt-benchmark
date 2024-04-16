@@ -2708,13 +2708,13 @@ define noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr nocapture noundef nonnull 
 
 23:                                               ; preds = %12
   %24 = shl nuw nsw i32 1, %21
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   br label %31
 
 26:                                               ; preds = %12
   %27 = sub nsw i32 0, %21
   %28 = shl nuw nsw i32 1, %27
-  %29 = sitofp i32 %28 to double
+  %29 = uitofp nneg i32 %28 to double
   %30 = fdiv double 1.000000e+00, %29
   br label %31
 
@@ -2728,7 +2728,7 @@ define noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr nocapture noundef nonnull 
   %37 = add nuw nsw i32 %15, 3
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %36, %38
-  %40 = uitofp i64 %39 to float
+  %40 = uitofp nneg i64 %39 to float
   %41 = fmul float %33, %40
   %42 = fptoui float %41 to i64
   %43 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2747,7 +2747,7 @@ define noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr nocapture noundef nonnull 
   br i1 %or.cond20, label %.critedge, label %52
 
 52:                                               ; preds = %31
-  %53 = uitofp i32 %16 to float
+  %53 = uitofp nneg i32 %16 to float
   %54 = fcmp ogt float %33, 1.000000e+00
   %.sroa.speculated25 = select i1 %54, float 1.000000e+00, float %33
   %55 = getelementptr inbounds i8, ptr %0, i64 184

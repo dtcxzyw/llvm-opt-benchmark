@@ -177,7 +177,7 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
 37:                                               ; preds = %31, %30
   %38 = phi float [ %36, %31 ], [ -1.000000e+09, %30 ]
   %39 = add nsw i32 %.128.i, -1
-  %40 = trunc i64 %indvars.iv.i to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @quicksort_placef(ptr noundef %9, ptr noundef %14, i32 noundef %40, i32 noundef %39) #10
   br label %41
 
@@ -344,8 +344,8 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %indvars.iv554.lcssa = phi i64 [ %78, %.lr.ph460.us.preheader ], [ %indvars.iv.next555, %._crit_edge461.us.loopexit.split.loop.exit.loopexit ]
   %indvars.iv552.lcssa = phi i64 [ %86, %.lr.ph460.us.preheader ], [ %indvars.iv.next553, %._crit_edge461.us.loopexit.split.loop.exit.loopexit ]
   %.lcssa = phi i1 [ true, %.lr.ph460.us.preheader ], [ %121, %._crit_edge461.us.loopexit.split.loop.exit.loopexit ]
-  %122 = trunc i64 %indvars.iv552.lcssa to i32
-  %123 = trunc i64 %indvars.iv554.lcssa to i32
+  %122 = trunc nsw i64 %indvars.iv552.lcssa to i32
+  %123 = trunc nsw i64 %indvars.iv554.lcssa to i32
   br label %._crit_edge461.us
 
 ._crit_edge461.us:                                ; preds = %.lr.ph651, %._crit_edge461.us.loopexit.split.loop.exit, %77
@@ -704,7 +704,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   br i1 %exitcond617.not, label %._crit_edge537.us, label %.lr.ph536.us
 
 ._crit_edge537.us:                                ; preds = %.lr.ph536.us, %302
-  %308 = trunc i8 %.1405544.us to i1
+  %308 = trunc nuw i8 %.1405544.us to i1
   br i1 %308, label %309, label %319
 
 309:                                              ; preds = %._crit_edge537.us
@@ -743,7 +743,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %330 = getelementptr inbounds float, ptr %9, i64 %326
   store float %329, ptr %330, align 4
   %indvars.iv.next611 = add nuw nsw i64 %indvars.iv610, 1
-  %331 = trunc i64 %indvars.iv.next611 to i32
+  %331 = trunc nuw i64 %indvars.iv.next611 to i32
   %332 = icmp sgt i32 %.0397.lcssa.us629, %331
   br i1 %332, label %.lr.ph531.us, label %._crit_edge532.us
 
@@ -800,8 +800,8 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %354 = fsub float %.0.us, %83
   %355 = tail call float @llvm.fabs.f32(float %354)
   %356 = fpext float %355 to double
-  %357 = trunc i64 %indvars.iv600 to i32
-  %358 = sitofp i32 %357 to double
+  %357 = trunc nuw nsw i64 %indvars.iv600 to i32
+  %358 = uitofp nneg i32 %357 to double
   %359 = fsub float %.1372.us, %83
   %360 = tail call float @llvm.fabs.f32(float %359)
   %361 = fpext float %360 to double
@@ -861,7 +861,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %392 = load float, ptr %391, align 4
   %393 = fsub float %.1412508.us, %392
   %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
-  %394 = trunc i64 %indvars.iv.next594 to i32
+  %394 = trunc nuw i64 %indvars.iv.next594 to i32
   %395 = icmp sgt i32 %.0397.lcssa.us629, %394
   br i1 %395, label %.lr.ph511.us, label %._crit_edge512.us
 
@@ -966,7 +966,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   tail call void @orthog1f(i32 noundef %11, ptr noundef %9) #10
   %433 = add nuw nsw i32 %.0381548.us, 1
   %434 = icmp sge i32 %433, %4
-  %435 = trunc i8 %.2406.us to i1
+  %435 = trunc nuw i8 %.2406.us to i1
   %.not439.us = select i1 %434, i1 true, i1 %435
   br i1 %.not439.us, label %.loopexit451, label %.preheader450.us
 

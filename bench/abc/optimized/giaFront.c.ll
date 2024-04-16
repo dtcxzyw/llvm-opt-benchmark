@@ -43,7 +43,7 @@ define void @Gia_ManFrontTransform(ptr nocapture noundef readonly %0) local_unna
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i32, ptr %6, i64 %14
   %18 = load i32, ptr %17, align 4
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = sub nsw i32 %19, %18
   %21 = and i32 %20, 536870911
   %22 = zext nneg i32 %21 to i64
@@ -60,7 +60,7 @@ define void @Gia_ManFrontTransform(ptr nocapture noundef readonly %0) local_unna
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i32, ptr %6, i64 %14
   %28 = load i32, ptr %27, align 4
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = sub nsw i32 %29, %28
   %31 = and i32 %30, 536870911
   %32 = zext nneg i32 %31 to i64
@@ -88,7 +88,7 @@ define void @Gia_ManFrontTransform(ptr nocapture noundef readonly %0) local_unna
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds i32, ptr %6, i64 %51
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %53, ptr %52, align 4
   br label %54
 
@@ -244,7 +244,7 @@ Gia_ManFrontFindNext.exit:                        ; preds = %14, %Abc_UtilStrsav
   %19 = phi ptr [ %17, %14 ], [ null, %Abc_UtilStrsav.exit ]
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = sitofp i32 %2 to float
+  %21 = uitofp nneg i32 %2 to float
   %22 = fmul float %21, 0x3FF19999A0000000
   %23 = fptosi float %22 to i32
   %24 = add nsw i32 %23, 1

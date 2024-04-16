@@ -213,7 +213,7 @@ Min_ManStart.exit:                                ; preds = %2, %6
 49:                                               ; preds = %45
   %50 = trunc i64 %.val79 to i32
   %51 = and i32 %50, 536870911
-  %52 = trunc i64 %indvars.iv124 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv124 to i32
   %53 = sub nsw i32 %52, %51
   %54 = lshr i32 %50, 29
   %55 = and i32 %54, 1
@@ -1993,7 +1993,7 @@ Vec_IntFill.exit.i.us:                            ; preds = %159, %Vec_IntGrow.e
   %.012.i70.i.us = phi i32 [ 0, %.lr.ph.i67.i.us ], [ %184, %175 ]
   %176 = getelementptr inbounds i32, ptr %173, i64 %indvars.iv.i69.i.us
   %177 = load i32, ptr %176, align 4
-  %178 = trunc i64 %indvars.iv.i69.i.us to i32
+  %178 = trunc nuw nsw i64 %indvars.iv.i69.i.us to i32
   %179 = urem i32 %178, 7
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %180
@@ -2013,7 +2013,7 @@ Hsh_VecManHash.exit.i.us:                         ; preds = %175, %167
   %188 = load i32, ptr %187, align 4
   %189 = getelementptr inbounds i8, ptr %171, i64 4
   store i32 %188, ptr %189, align 4
-  %190 = trunc i64 %indvars.iv.i135.us to i32
+  %190 = trunc nuw nsw i64 %indvars.iv.i135.us to i32
   store i32 %190, ptr %187, align 4
   %indvars.iv.next.i136.us = add nuw nsw i64 %indvars.iv.i135.us, 1
   %.val58.i.us = load i32, ptr %130, align 4
@@ -2036,7 +2036,7 @@ Hsh_VecManHash.exit.i.us:                         ; preds = %175, %167
   %.012.i80.i.us = phi i32 [ 0, %.lr.ph.i76.i.us ], [ %203, %194 ]
   %195 = getelementptr inbounds i32, ptr %.val114.us, i64 %indvars.iv.i79.i.us
   %196 = load i32, ptr %195, align 4
-  %197 = trunc i64 %indvars.iv.i79.i.us to i32
+  %197 = trunc nuw nsw i64 %indvars.iv.i79.i.us to i32
   %198 = urem i32 %197, 7
   %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %199
@@ -2801,7 +2801,7 @@ Vec_IntPush.exit146.us:                           ; preds = %Vec_IntGrow.exit.i1
   %.val = load i32, ptr %16, align 4
   %531 = sitofp i32 %.val to double
   %532 = call noundef i32 @llvm.smax.i32(i32 %.079.lcssa, i32 1)
-  %533 = sitofp i32 %532 to double
+  %533 = uitofp nneg i32 %532 to double
   %534 = fdiv double %531, %533
   %535 = fadd double %534, -2.000000e+00
   %.val104 = load i32, ptr %57, align 4
@@ -3190,7 +3190,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %1
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %16, ptr %15, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3986,7 +3986,7 @@ define noundef i32 @Min_ManRemoveItem(ptr nocapture noundef readonly %0, i32 nou
   br i1 %15, label %.critedge.loopexit.split.loop.exit26, label %12, !llvm.loop !32
 
 .critedge.loopexit.split.loop.exit26:             ; preds = %.lr.ph
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %12, %.critedge.loopexit.split.loop.exit26, %4
@@ -4119,7 +4119,7 @@ Vec_IntTwoCountCommon.exit:                       ; preds = %42, %20
   br i1 %52, label %.critedge.loopexit.split.loop.exit26.i, label %49, !llvm.loop !32
 
 .critedge.loopexit.split.loop.exit26.i:           ; preds = %.lr.ph.i35
-  %53 = trunc i64 %indvars.iv.i to i32
+  %53 = trunc nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %49, %.critedge.loopexit.split.loop.exit26.i
@@ -4266,7 +4266,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %37, %31
 44:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
   %45 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.i
-  %46 = trunc i64 %indvars.iv.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %46, ptr %45, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4499,7 +4499,7 @@ Min_ManStartValsL.exit:                           ; preds = %124, %Vec_StrGrow.e
   %152 = icmp slt i64 %149, %151
   %153 = add i64 %149, -1
   %154 = shl nsw i64 %149, 4
-  %155 = trunc i64 %151 to i32
+  %155 = trunc nsw i64 %151 to i32
   br label %156
 
 156:                                              ; preds = %.preheader400, %319
@@ -5178,7 +5178,7 @@ Vec_IntPush.exit327:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %424, label %143, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %Vec_IntPush.exit327
-  %425 = trunc i64 %indvars.iv.next441 to i32
+  %425 = trunc nsw i64 %indvars.iv.next441 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Min_ManStartValsL.exit
@@ -7096,7 +7096,7 @@ define void @Patt_ManProfileErrors(ptr nocapture noundef readonly %0, ptr nocapt
   %29 = sub nsw i32 %.val51, %28
   %30 = sitofp i32 %.043.lcssa to double
   %31 = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 1)
-  %32 = sitofp i32 %31 to double
+  %32 = uitofp nneg i32 %31 to double
   %33 = fdiv double %30, %32
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %29, double noundef %33)
   %35 = sitofp i32 %.val50 to double
@@ -7119,7 +7119,7 @@ define void @Patt_ManProfileErrors(ptr nocapture noundef readonly %0, ptr nocapt
 46:                                               ; preds = %43
   %47 = icmp eq i64 %indvars.iv66, 32
   %48 = select i1 %47, ptr @.str.20, ptr @.str.21
-  %49 = trunc i64 %indvars.iv66 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv66 to i32
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %48, i32 noundef %49, i32 noundef %45)
   br label %51
 
@@ -7143,7 +7143,7 @@ define void @Patt_ManProfileErrors(ptr nocapture noundef readonly %0, ptr nocapt
 57:                                               ; preds = %54
   %58 = icmp eq i64 %indvars.iv70, 32
   %59 = select i1 %58, ptr @.str.20, ptr @.str.21
-  %60 = trunc i64 %indvars.iv70 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv70 to i32
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %59, i32 noundef %60, i32 noundef %56)
   br label %62
 
@@ -7300,7 +7300,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %46, ptr %3, align 4
   %47 = sext i32 %22 to i64
   %48 = getelementptr inbounds i32, ptr %45, i64 %47
-  %49 = trunc i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %49, ptr %48, align 4
   %.pre = load ptr, ptr %6, align 8
   br label %50
@@ -7590,7 +7590,7 @@ Vec_IntFree.exit73:                               ; preds = %36, %38
 
 69:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %70 = trunc i64 %indvars.iv to i32
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %70)
   %.val68 = load ptr, ptr %14, align 8
   %72 = getelementptr inbounds i32, ptr %.val68, i64 %indvars.iv

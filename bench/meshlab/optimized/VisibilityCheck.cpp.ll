@@ -4917,7 +4917,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultD
   %.040.i = phi i1 [ true, %._crit_edge ], [ false, %383 ]
   %.02339.i = phi i32 [ 0, %._crit_edge ], [ %399, %383 ]
   %.zext.i = and i32 %.02339.i, 1
-  %384 = sitofp i32 %.zext.i to float
+  %384 = uitofp nneg i32 %.zext.i to float
   %385 = call float @llvm.fmuladd.f32(float %384, float %380, float %.sroa.0121.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
@@ -10944,7 +10944,7 @@ define void @_ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv(ptr nocapture 
   %.040.i = phi i1 [ true, %1 ], [ false, %19 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %35, %19 ]
   %.zext.i = and i32 %.02339.i, 1
-  %20 = sitofp i32 %.zext.i to float
+  %20 = uitofp nneg i32 %.zext.i to float
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %16, float %.sroa.045.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2

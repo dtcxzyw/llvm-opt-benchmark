@@ -2809,7 +2809,7 @@ define i32 @Abc_NtkDelayTraceCritPath_rec(ptr nocapture noundef readonly %0, ptr
   %.phi.trans.insert = sext i32 %.val50.pre to i64
   %.phi.trans.insert60 = getelementptr inbounds i32, ptr %.val49.pre, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert60, align 4
-  %.pre61 = trunc i64 %indvars.iv to i32
+  %.pre61 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre63 = add nsw i32 %.pre, %.pre61
   %.pre65 = sext i32 %.pre63 to i64
   br i1 %47, label %._crit_edge, label %48
@@ -3241,7 +3241,7 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %2, %13, %16, %Abc_O
   %157 = sext i32 %.val109 to i64
   %158 = getelementptr inbounds i32, ptr %.val108, i64 %157
   %159 = load i32, ptr %158, align 4
-  %160 = trunc i64 %indvars.iv122 to i32
+  %160 = trunc nuw nsw i64 %indvars.iv122 to i32
   %161 = add nsw i32 %159, %160
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i32, ptr %.val108, i64 %162
@@ -3978,7 +3978,7 @@ define i32 @Abc_ObjLevelNew(ptr nocapture noundef readonly %0) local_unnamed_add
   %14 = getelementptr i8, ptr %12, i64 20
   %.val12 = load i32, ptr %14, align 4
   %15 = lshr i32 %.val12, 12
-  %16 = sitofp i32 %15 to float
+  %16 = uitofp nneg i32 %15 to float
   %17 = fcmp ogt float %13, %16
   %18 = select i1 %17, float %13, float %16
   %19 = fptosi float %18 to i32
@@ -4500,7 +4500,7 @@ define void @Abc_NtkUpdateLevel(ptr noundef %0, ptr nocapture noundef %1) local_
   %17 = getelementptr i8, ptr %15, i64 20
   %.val12.i = load i32, ptr %17, align 4
   %18 = lshr i32 %.val12.i, 12
-  %19 = sitofp i32 %18 to float
+  %19 = uitofp nneg i32 %18 to float
   %20 = fcmp ogt float %16, %19
   %21 = select i1 %20, float %16, float %19
   %22 = fptosi float %21 to i32
@@ -4604,7 +4604,7 @@ Vec_VecClear.exit:                                ; preds = %30, %26
   %65 = getelementptr i8, ptr %63, i64 20
   %.val12.i64 = load i32, ptr %65, align 4
   %66 = lshr i32 %.val12.i64, 12
-  %67 = sitofp i32 %66 to float
+  %67 = uitofp nneg i32 %66 to float
   %68 = fcmp ogt float %64, %67
   %69 = select i1 %68, float %64, float %67
   %70 = fptosi float %69 to i32
@@ -5090,7 +5090,7 @@ Vec_VecClear.exit:                                ; preds = %51, %47
   br i1 %66, label %.lr.ph158.preheader, label %.critedge
 
 .lr.ph158.preheader:                              ; preds = %.preheader151
-  %67 = trunc i64 %indvars.iv166 to i32
+  %67 = trunc nsw i64 %indvars.iv166 to i32
   br label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.critedge2

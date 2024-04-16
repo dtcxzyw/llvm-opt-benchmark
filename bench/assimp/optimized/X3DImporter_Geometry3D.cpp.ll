@@ -1099,7 +1099,7 @@ lpad17.loopexit.split-lp:                         ; preds = %if.else, %if.then23
   br label %ehcleanup70
 
 if.end:                                           ; preds = %if.then23, %invoke.cont21
-  %tobool27 = trunc i8 %bottom.0219234 to i1
+  %tobool27 = trunc nuw i8 %bottom.0219234 to i1
   br i1 %side.0204217236, label %if.then26, label %if.else29
 
 if.then26:                                        ; preds = %if.end
@@ -1704,7 +1704,7 @@ if.end30:                                         ; preds = %if.then28, %if.end
   br i1 %top.0287306, label %if.then33, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end30
-  %tobool32 = trunc i8 %bottom.0267283309 to i1
+  %tobool32 = trunc nuw i8 %bottom.0267283309 to i1
   br i1 %tobool32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %lor.lhs.false, %if.end30
@@ -1765,7 +1765,7 @@ for.inc57:                                        ; preds = %for.body53
   br i1 %cmp.i184.not, label %if.end60, label %for.body53, !llvm.loop !9
 
 if.end60:                                         ; preds = %for.inc57, %if.then44, %for.end
-  %tobool61 = trunc i8 %bottom.0267283309 to i1
+  %tobool61 = trunc nuw i8 %bottom.0267283309 to i1
   br i1 %tobool61, label %if.then62, label %if.end79
 
 if.then62:                                        ; preds = %if.end60
@@ -2560,7 +2560,7 @@ for.cond55.preheader.us.preheader:                ; preds = %if.then49, %invoke.
 for.cond55.preheader.us:                          ; preds = %for.cond55.preheader.us.preheader, %for.cond55.for.inc66_crit_edge.us
   %zi.0904.us = phi i32 [ %inc67.us, %for.cond55.for.inc66_crit_edge.us ], [ 0, %for.cond55.preheader.us.preheader ]
   %he_it.sroa.0.0903.us = phi ptr [ %incdec.ptr.i.us, %for.cond55.for.inc66_crit_edge.us ], [ %35, %for.cond55.preheader.us.preheader ]
-  %conv61.us = sitofp i32 %zi.0904.us to float
+  %conv61.us = uitofp nneg i32 %zi.0904.us to float
   %mul62.us = fmul float %zSpacing.0, %conv61.us
   br label %for.body57.us
 
@@ -2572,7 +2572,7 @@ for.body57.us:                                    ; preds = %for.cond55.preheade
           to label %invoke.cont64.us unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 invoke.cont64.us:                                 ; preds = %for.body57.us
-  %conv58.us = sitofp i32 %xi.0901.us to float
+  %conv58.us = uitofp nneg i32 %xi.0901.us to float
   %mul59.us = fmul float %xSpacing.0862868, %conv58.us
   %_M_storage.i.i.i.i.us = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i309.us, i64 16
   store float %mul59.us, ptr %_M_storage.i.i.i.i.us, align 4
@@ -6183,7 +6183,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %if.end314
 
 if.end314:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i1026, %if.then.i.i1001, %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit982
-  %tobool315 = trunc i8 %endCap.12254 to i1
+  %tobool315 = trunc nuw i8 %endCap.12254 to i1
   br i1 %tobool315, label %if.then316, label %if.end338
 
 if.then316:                                       ; preds = %if.end314
@@ -6361,7 +6361,7 @@ if.end338:                                        ; preds = %_ZNSt6vectorIiSaIiE
   %sub.ptr.sub.i1124 = sub i64 %sub.ptr.lhs.cast.i1122, %sub.ptr.rhs.cast.i1123
   %sub.ptr.div.i1125 = sdiv exact i64 %sub.ptr.sub.i1124, 12
   %sub342 = add nsw i64 %sub.ptr.div.i1125, -1
-  %tobool365 = trunc i8 %ccw.020392052 to i1
+  %tobool365 = trunc nuw i8 %ccw.020392052 to i1
   %_M_finish.i.i1280 = getelementptr inbounds i8, ptr %call122, i64 160
   %_M_end_of_storage.i.i1281 = getelementptr inbounds i8, ptr %call122, i64 168
   br label %for.body345

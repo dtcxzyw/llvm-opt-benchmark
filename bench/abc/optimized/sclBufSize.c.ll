@@ -1919,7 +1919,7 @@ SC_CellPinCapAve.exit:                            ; preds = %40, %Abc_SclObjCell
   %53 = fpext float %35 to double
   %54 = fmul double %53, 1.000000e+02
   %55 = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 1)
-  %56 = sitofp i32 %55 to float
+  %56 = uitofp nneg i32 %55 to float
   %57 = fdiv float %.0.lcssa.i, %56
   %58 = fpext float %57 to double
   %59 = fdiv double %54, %58
@@ -2896,7 +2896,7 @@ Abc_ObjIsBarBuf.exit:                             ; preds = %98
 SC_CellPinCapAve.exit:                            ; preds = %110, %105
   %.0.lcssa.i = phi float [ 0.000000e+00, %105 ], [ %122, %110 ]
   %123 = call noundef i32 @llvm.smax.i32(i32 %107, i32 1)
-  %124 = sitofp i32 %123 to float
+  %124 = uitofp nneg i32 %123 to float
   %125 = fdiv float %.0.lcssa.i, %124
   br label %161
 
@@ -2959,7 +2959,7 @@ Abc_SclObjCell.exit:                              ; preds = %Abc_ObjIsBarBuf.exi
 SC_CellPinCapAve.exit187:                         ; preds = %145, %Abc_SclObjCell.exit
   %.0.lcssa.i179 = phi float [ 0.000000e+00, %Abc_SclObjCell.exit ], [ %157, %145 ]
   %158 = call noundef i32 @llvm.smax.i32(i32 %142, i32 1)
-  %159 = sitofp i32 %158 to float
+  %159 = uitofp nneg i32 %158 to float
   %160 = fdiv float %.0.lcssa.i179, %159
   br label %161
 

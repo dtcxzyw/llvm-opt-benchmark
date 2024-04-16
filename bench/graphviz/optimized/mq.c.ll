@@ -360,7 +360,7 @@ gv_alloc.exit:                                    ; preds = %2
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %indvars.iv67 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next68, %.lr.ph63 ]
   %26 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv67
-  %27 = trunc i64 %indvars.iv67 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv67 to i32
   store i32 %27, ptr %26, align 4
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
@@ -666,7 +666,7 @@ gv_alloc.exit:                                    ; preds = %2
   br i1 %172, label %173, label %get_mq.exit
 
 173:                                              ; preds = %._crit_edge175.i
-  %174 = sitofp i32 %spec.select.i to double
+  %174 = uitofp nneg i32 %spec.select.i to double
   %175 = fdiv double %.0110.lcssa.i, %174
   %176 = add nsw i32 %spec.select.i, -1
   %177 = mul nsw i32 %176, %spec.select.i
@@ -782,7 +782,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 .lr.ph485.preheader:                              ; preds = %43
   %54 = sext i32 %45 to i64
   %wide.trip.count = sext i32 %47 to i64
-  %55 = trunc i64 %indvars.iv578 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv578 to i32
   br label %.lr.ph485
 
 .lr.ph485:                                        ; preds = %.lr.ph485.preheader, %79
@@ -855,7 +855,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %97 = insertelement <2 x i32> %96, i32 %95, i64 1
   %98 = sitofp <2 x i32> %97 to <2 x double>
   %99 = sext i32 %45 to i64
-  %100 = trunc i64 %indvars.iv578 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv578 to i32
   %101 = extractelement <2 x double> %98, i64 0
   br label %102
 
@@ -961,7 +961,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 
 162:                                              ; preds = %159, %156
   %163 = phi i32 [ %.pre, %159 ], [ %103, %156 ]
-  %164 = trunc i64 %indvars.iv566 to i32
+  %164 = trunc nsw i64 %indvars.iv566 to i32
   %165 = icmp eq i32 %163, %164
   %166 = fcmp ogt double %157, %.0420492
   %or.cond = select i1 %165, i1 true, i1 %166
@@ -1009,7 +1009,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, -1
   %186 = load ptr, ptr @stderr, align 8
-  %187 = trunc i64 %indvars.iv578 to i32
+  %187 = trunc nuw nsw i64 %indvars.iv578 to i32
   br i1 %185, label %188, label %206
 
 188:                                              ; preds = %180
@@ -1070,7 +1070,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 
 224:                                              ; preds = %._crit_edge498
   %225 = load ptr, ptr @stderr, align 8
-  %226 = trunc i64 %indvars.iv578 to i32
+  %226 = trunc nuw nsw i64 %indvars.iv578 to i32
   %227 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.4, double noundef %.0420.lcssa, i32 noundef %226) #14
   %228 = sext i32 %.0539 to i64
   %229 = getelementptr inbounds %struct.ints_t, ptr %22, i64 %228
@@ -1111,8 +1111,8 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 .lr.ph525:                                        ; preds = %.preheader
   %242 = add nuw nsw i64 %indvars.iv578, %21
   %243 = fadd double %175, %.1423.lcssa
-  %244 = trunc i64 %242 to i32
-  %245 = trunc i64 %242 to i32
+  %244 = trunc nsw i64 %242 to i32
+  %245 = trunc nsw i64 %242 to i32
   br label %251
 
 246:                                              ; preds = %.lr.ph509, %246
@@ -1308,7 +1308,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %indvars.iv588 = phi i64 [ 0, %.lr.ph554.preheader ], [ %indvars.iv.next589, %.lr.ph554 ]
   %344 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv588
   %345 = load i32, ptr %344, align 4
-  %346 = trunc i64 %indvars.iv588 to i32
+  %346 = trunc nuw nsw i64 %indvars.iv588 to i32
   %347 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %343, i32 noundef %345, i32 noundef %346, ptr noundef nonnull %3) #12
   %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
   %exitcond592.not = icmp eq i64 %indvars.iv.next589, %wide.trip.count591
@@ -1436,7 +1436,7 @@ gv_recalloc.exit477:                              ; preds = %391, %392
 .lr.ph550:                                        ; preds = %.lr.ph550.preheader, %.lr.ph550
   %indvars.iv583 = phi i64 [ 0, %.lr.ph550.preheader ], [ %indvars.iv.next584, %.lr.ph550 ]
   %400 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv583
-  %401 = trunc i64 %indvars.iv583 to i32
+  %401 = trunc nuw nsw i64 %indvars.iv583 to i32
   store i32 %401, ptr %400, align 4
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count586

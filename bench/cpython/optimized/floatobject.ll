@@ -2458,7 +2458,7 @@ if.end71:                                         ; preds = %if.then3, %lor.lhs.
   %spec.select = getelementptr i8, ptr %data, i64 %spec.select.idx
   %spec.select29 = select i1 %tobool77.not, i64 -1, i64 1
   %shr = lshr i16 %conv76, 8
-  %conv81 = trunc i16 %shr to i8
+  %conv81 = trunc nuw i16 %shr to i8
   store i8 %conv81, ptr %spec.select, align 1
   %add.ptr82 = getelementptr i8, ptr %spec.select, i64 %spec.select29
   %conv85 = trunc i16 %bits.0 to i8
@@ -2743,7 +2743,7 @@ if.end46:                                         ; preds = %if.then36, %if.then
   store i8 %conv68, ptr %add.ptr66, align 1
   %add.ptr70 = getelementptr i8, ptr %add.ptr66, i64 %spec.select53
   %shr71 = lshr i32 %flo.0, 16
-  %conv73 = trunc i32 %shr71 to i8
+  %conv73 = trunc nuw i32 %shr71 to i8
   store i8 %conv73, ptr %add.ptr70, align 1
   %add.ptr75 = getelementptr i8, ptr %add.ptr70, i64 %spec.select53
   %shr76 = lshr i32 %flo.0, 8
@@ -2817,7 +2817,7 @@ if.else:                                          ; preds = %if.then10
   br label %return
 
 if.end19:                                         ; preds = %entry
-  %conv20 = uitofp i32 %or to double
+  %conv20 = uitofp nneg i32 %or to double
   %div = fmul double %conv20, 0x3F50000000000000
   %cmp21 = icmp eq i32 %shr4, 0
   %add = fadd double %div, 1.000000e+00
@@ -2876,7 +2876,7 @@ if.end17:                                         ; preds = %if.then
   %6 = load i8, ptr %add.ptr22, align 1
   %conv23 = zext i8 %6 to i32
   %or24 = or disjoint i32 %or20, %conv23
-  %conv25 = uitofp i32 %or24 to double
+  %conv25 = uitofp nneg i32 %or24 to double
   %div = fmul double %conv25, 0x3E80000000000000
   %cmp26 = icmp eq i32 %or, 0
   %add = fadd double %div, 1.000000e+00
@@ -2981,8 +2981,8 @@ if.end17:                                         ; preds = %if.then
   %10 = load i8, ptr %add.ptr40, align 1
   %conv41 = zext i8 %10 to i32
   %or42 = or disjoint i32 %or38, %conv41
-  %conv43 = uitofp i32 %or29 to double
-  %conv44 = uitofp i32 %or42 to double
+  %conv43 = uitofp nneg i32 %or29 to double
+  %conv44 = uitofp nneg i32 %or42 to double
   %div = fmul double %conv44, 0x3E70000000000000
   %add = fadd double %div, %conv43
   %div45 = fmul double %add, 0x3E30000000000000
@@ -5205,7 +5205,7 @@ _PyObject_Init.exit.i52.i:                        ; preds = %if.end.i.i.i51.i, %
   br label %exit
 
 if.else20.i:                                      ; preds = %if.else.i, %if.end9.thread.i
-  %conv.i = trunc i64 %call5.i to i32
+  %conv.i = trunc nsw i64 %call5.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_end.i.i)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %shortbuf.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %decpt.i.i)
@@ -5857,7 +5857,7 @@ if.end201:                                        ; preds = %if.end166
   %21 = xor i64 %sub139, -1
   %sub203 = add i64 %sub173, %21
   %rem = srem i64 %sub203, 4
-  %conv204 = trunc i64 %rem to i32
+  %conv204 = trunc nsw i64 %rem to i32
   %shl = shl nuw nsw i32 1, %conv204
   %div207 = sdiv i64 %sub203, 4
   %cmp210142 = icmp sgt i64 %sub140, %div207
@@ -5942,7 +5942,7 @@ for.body288:                                      ; preds = %for.cond285
   br i1 %cmp301.not, label %for.cond285, label %if.then310, !llvm.loop !23
 
 if.then310:                                       ; preds = %for.body288, %land.lhs.true263, %if.then250
-  %conv312 = sitofp i32 %mul243 to double
+  %conv312 = uitofp nneg i32 %mul243 to double
   %add313 = fadd double %25, %conv312
   %cmp314 = icmp eq i64 %top_exp.0.lcssa, 1024
   br i1 %cmp314, label %land.lhs.true316, label %if.end325

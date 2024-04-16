@@ -1600,14 +1600,14 @@ if.then123:                                       ; preds = %if.else93
   %sub130 = add nsw i32 %and128, -40
   %shr131 = lshr i32 %conv127, 4
   %add133 = add nsw i32 %shr131, %sub130
-  %28 = trunc i32 %add133 to i8
+  %28 = trunc nsw i32 %add133 to i8
   %conv137 = add i8 %px.sroa.0.0142, %28
   %29 = trunc nuw nsw i32 %and128 to i8
   %30 = add i8 %px.sroa.11.0143, -32
   %conv141 = add i8 %30, %29
   %and143 = and i32 %conv127, 15
   %add144 = add nsw i32 %and143, %sub130
-  %31 = trunc i32 %add144 to i8
+  %31 = trunc nsw i32 %add144 to i8
   %conv148 = add i8 %px.sroa.20.0144, %31
   br label %if.end159
 
@@ -1669,7 +1669,7 @@ if.then192:                                       ; preds = %if.end178
 
 for.inc:                                          ; preds = %if.end178, %if.then192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %17
-  %32 = trunc i64 %indvars.iv.next to i32
+  %32 = trunc nuw i64 %indvars.iv.next to i32
   %cmp51 = icmp sgt i32 %mul46, %32
   br i1 %cmp51, label %for.body, label %return, !llvm.loop !7
 
@@ -2280,7 +2280,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont7
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont7 ]
   %3 = phi i32 [ %halfWidth, %for.body.lr.ph ], [ %13, %invoke.cont7 ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %sub = sub nsw i32 %4, %3
   %conv5 = sitofp i32 %sub to float
   %call.i.i = tail call noundef float @sqrtf(float noundef %mul1.i) #31
@@ -3051,8 +3051,8 @@ invoke.cont7.lr.ph:                               ; preds = %invoke.cont.thread4
 
 invoke.cont7:                                     ; preds = %invoke.cont7.lr.ph, %for.inc58
   %indvars.iv40 = phi i64 [ 0, %invoke.cont7.lr.ph ], [ %indvars.iv.next41, %for.inc58 ]
-  %0 = trunc i64 %indvars.iv40 to i32
-  %conv2 = sitofp i32 %0 to float
+  %0 = trunc nuw nsw i64 %indvars.iv40 to i32
+  %conv2 = uitofp nneg i32 %0 to float
   %add = fadd float %conv2, 5.000000e-01
   %mul = fmul float %add, %conv3
   %div = fdiv float %mul, %conv4
@@ -3068,7 +3068,7 @@ invoke.cont7:                                     ; preds = %invoke.cont7.lr.ph,
 for.body13:                                       ; preds = %invoke.cont7, %invoke.cont21
   %indvars.iv = phi i64 [ 0, %invoke.cont7 ], [ %indvars.iv.next, %invoke.cont21 ]
   %2 = load i32, ptr %add.ptr.i, align 4
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %add17 = add nsw i32 %2, %3
   %conv18 = sitofp i32 %add17 to float
   %add19 = fadd float %conv18, 5.000000e-01
@@ -4684,7 +4684,7 @@ sw.default.i.i.i.i.us.us.us.i:                    ; preds = %for.body43.us.us.us
   br i1 %exitcond153.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i, label %for.body43.us.us.us.i, !llvm.loop !38
 
 for.cond41.for.inc45_crit_edge.us.us.us.i:        ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_0clEi.exit.us.us.us.i"
-  %24 = trunc i64 %indvars.iv.next151.i to i32
+  %24 = trunc nsw i64 %indvars.iv.next151.i to i32
   %inc46.us.us.us.i = add nuw nsw i32 %x37.0133.us.us.us.i, 1
   %exitcond154.not.i = icmp eq i32 %inc46.us.us.us.i, %sub.i
   br i1 %exitcond154.not.i, label %for.cond38.for.inc48_crit_edge.split.us.us.us.i, label %for.cond41.preheader.us.us.us.i, !llvm.loop !39
@@ -5055,7 +5055,7 @@ if.then.i.i.us.us.us.i:                           ; preds = %for.body43.us.us.us
   br i1 %exitcond161.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i189, label %for.body43.us.us.us.i185, !llvm.loop !45
 
 for.cond41.for.inc45_crit_edge.us.us.us.i189:     ; preds = %"_ZZN4pbrt5Image10CopyRectInERKNS_7Bounds2IiEEN4pstd4spanIKfEEENK3$_1clEi.exit.us.us.us.i"
-  %45 = trunc i64 %indvars.iv.next159.i to i32
+  %45 = trunc nsw i64 %indvars.iv.next159.i to i32
   %inc46.us.us.us.i190 = add nuw nsw i32 %x37.0141.us.us.us.i, 1
   %exitcond162.not.i = icmp eq i32 %inc46.us.us.us.i190, %sub.i.i
   br i1 %exitcond162.not.i, label %for.cond38.for.inc48_crit_edge.split.us.us.us.i191, label %for.cond41.preheader.us.us.us.i184, !llvm.loop !46
@@ -5392,7 +5392,7 @@ for.body43.us.us.us.i299:                         ; preds = %for.body43.us.us.us
   br i1 %exitcond160.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i303, label %for.body43.us.us.us.i299, !llvm.loop !51
 
 for.cond41.for.inc45_crit_edge.us.us.us.i303:     ; preds = %for.body43.us.us.us.i299
-  %64 = trunc i64 %indvars.iv.next158.i to i32
+  %64 = trunc nsw i64 %indvars.iv.next158.i to i32
   %inc46.us.us.us.i304 = add nuw nsw i32 %x37.0132.us.us.us.i, 1
   %exitcond161.not.i305 = icmp eq i32 %inc46.us.us.us.i304, %sub.i.i
   br i1 %exitcond161.not.i305, label %for.cond38.for.inc48_crit_edge.split.us.us.us.i306, label %for.cond41.preheader.us.us.us.i298, !llvm.loop !52
@@ -8684,7 +8684,7 @@ if.end89:                                         ; preds = %invoke.cont86
   %add = fadd double %sub, %55
   store double %add, ptr %add.ptr.i, align 8
   %conv96 = fptrunc double %sub to float
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %errorImage, i64 %agg.tmp55.sroa.0.0.insert.insert, i32 noundef %56, float noundef %conv96)
           to label %if.end89.for.inc_crit_edge unwind label %lpad73
 
@@ -9443,7 +9443,7 @@ if.end96:                                         ; preds = %invoke.cont93
   %add = fadd double %mul.i, %56
   store double %add, ptr %add.ptr.i, align 8
   %conv103 = fptrunc double %mul.i to float
-  %57 = trunc i64 %indvars.iv to i32
+  %57 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %mseImage, i64 %agg.tmp60.sroa.0.0.insert.insert, i32 noundef %57, float noundef %conv103)
           to label %if.end96.for.inc_crit_edge unwind label %lpad78
 
@@ -10165,7 +10165,7 @@ if.end97:                                         ; preds = %invoke.cont94
   %add100 = fadd double %div, %55
   store double %add100, ptr %add.ptr.i, align 8
   %conv105 = fptrunc double %div to float
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %mrseImage, i64 %agg.tmp55.sroa.0.0.insert.insert, i32 noundef %56, float noundef %conv105)
           to label %if.end97.for.inc_crit_edge unwind label %lpad73
 
@@ -10930,7 +10930,7 @@ sw.default.i.i.i.i.us.us.us.i:                    ; preds = %for.body43.us.us.us
   br i1 %exitcond148.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i, label %for.body43.us.us.us.i, !llvm.loop !121
 
 for.cond41.for.inc45_crit_edge.us.us.us.i:        ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_0clEi.exit.us.us.us.i"
-  %24 = trunc i64 %indvars.iv.next146.i to i32
+  %24 = trunc nsw i64 %indvars.iv.next146.i to i32
   %inc46.us.us.us.i = add nuw nsw i32 %x37.0128.us.us.us.i, 1
   %exitcond149.not.i = icmp eq i32 %inc46.us.us.us.i, %sub.i
   br i1 %exitcond149.not.i, label %for.cond38.for.inc48_crit_edge.split.us.us.us.i, label %for.cond41.preheader.us.us.us.i, !llvm.loop !122
@@ -11368,7 +11368,7 @@ if.then.i.i.us.us.us.i:                           ; preds = %for.body43.us.us.us
   br i1 %exitcond180.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i145, label %for.body43.us.us.us.i141, !llvm.loop !127
 
 for.cond41.for.inc45_crit_edge.us.us.us.i145:     ; preds = %"_ZZNK4pbrt5Image11CopyRectOutERKNS_7Bounds2IiEEN4pstd4spanIfEENS_10WrapMode2DEENK3$_1clEi.exit.us.us.us.i"
-  %54 = trunc i64 %indvars.iv.next178.i to i32
+  %54 = trunc nsw i64 %indvars.iv.next178.i to i32
   %inc46.us.us.us.i146 = add nuw nsw i32 %x37.0152.us.us.us.i, 1
   %exitcond181.not.i = icmp eq i32 %inc46.us.us.us.i146, %sub.i.i
   br i1 %exitcond181.not.i, label %for.cond38.for.inc48_crit_edge.split.us.us.us.i147, label %for.cond41.preheader.us.us.us.i140, !llvm.loop !128
@@ -11851,7 +11851,7 @@ for.body43.us.us.us.i304:                         ; preds = %for.body43.us.us.us
   br i1 %exitcond159.not.i, label %for.cond41.for.inc45_crit_edge.us.us.us.i309, label %for.body43.us.us.us.i304, !llvm.loop !133
 
 for.cond41.for.inc45_crit_edge.us.us.us.i309:     ; preds = %for.body43.us.us.us.i304
-  %84 = trunc i64 %indvars.iv.next157.i to i32
+  %84 = trunc nsw i64 %indvars.iv.next157.i to i32
   %inc46.us.us.us.i310 = add nuw nsw i32 %x37.0131.us.us.us.i, 1
   %exitcond160.not.i = icmp eq i32 %inc46.us.us.us.i310, %sub.i.i
   br i1 %exitcond160.not.i, label %for.cond38.for.inc48_crit_edge.split.us.us.us.i311, label %for.cond41.preheader.us.us.us.i303, !llvm.loop !134
@@ -12307,7 +12307,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %pi.sroa.2.0.insert.shift.i = shl nuw i64 %pi.sroa.2.0.insert.ext.i, 32
   %pi.sroa.0.0.insert.ext.i = zext i32 %conv5.i to i64
   %pi.sroa.0.0.insert.insert.i = or disjoint i64 %pi.sroa.2.0.insert.shift.i, %pi.sroa.0.0.insert.ext.i
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i8 = invoke noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %this, i64 %pi.sroa.0.0.insert.insert.i, i32 noundef %9, i64 %wrapMode.coerce)
           to label %invoke.cont9 unwind label %lpad
 
@@ -12527,7 +12527,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %14 = extractelement <2 x i32> %12, i64 0
   %agg.tmp19.sroa.0.0.insert.ext.i = zext i32 %14 to i64
   %agg.tmp19.sroa.0.0.insert.insert.i = or disjoint i64 %agg.tmp19.sroa.2.0.insert.shift.i, %agg.tmp19.sroa.0.0.insert.ext.i
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %call24.i8 = invoke noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %this, i64 %agg.tmp19.sroa.0.0.insert.insert.i, i32 noundef %15, i64 %wrapMode.coerce)
           to label %call24.i.noexc unwind label %lpad
 
@@ -13119,7 +13119,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorINSt7__
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %17 = phi ptr [ null, %for.body.lr.ph ], [ %30, %for.inc ]
   %i.0109 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %conv = sitofp i32 %i.0109 to float
+  %conv = uitofp nneg i32 %i.0109 to float
   %18 = load float, ptr %xySigma, align 4
   %mul.i = fmul float %18, 0x401921FB60000000
   %mul1.i = fmul float %18, %mul.i
@@ -13984,7 +13984,7 @@ for.cond25.preheader.i:                           ; preds = %for.inc35.i, %for.c
   %indvars.iv339.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next340.i, %for.inc35.i ]
   %18 = shl nuw nsw i64 %indvars.iv339.i, 2
   %invariant.gep.i = getelementptr float, ptr %_value.i69.i, i64 %18
-  %19 = trunc i64 %indvars.iv339.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv339.i to i32
   br label %for.body27.i
 
 for.body27.i:                                     ; preds = %invoke.cont32.i, %for.cond25.preheader.i
@@ -14079,7 +14079,7 @@ for.cond54.preheader.i:                           ; preds = %for.inc73.i, %for.c
   %indvars.iv349.i = phi i64 [ 0, %for.cond50.preheader.i ], [ %indvars.iv.next350.i, %for.inc73.i ]
   %26 = shl nuw nsw i64 %indvars.iv349.i, 2
   %invariant.gep359.i = getelementptr float, ptr %_value.i100.i, i64 %26
-  %27 = trunc i64 %indvars.iv349.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv349.i to i32
   br label %for.body56.i
 
 for.body56.i:                                     ; preds = %invoke.cont66.i, %for.cond54.preheader.i
@@ -14815,7 +14815,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %tobool.not.i.i.i.i = icmp eq ptr %89, null
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %88, ptr %89
   %arrayidx.i.i259.i = getelementptr inbounds i32, ptr %cond.i.i.i.i, i64 %indvars.iv.i.i
-  %90 = trunc i64 %indvars.iv.i.i to i32
+  %90 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %90, ptr %arrayidx.i.i259.i, align 4, !noalias !152
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %91 = load i64, ptr %nStored.i.i.i.i, align 8, !noalias !165
@@ -15548,7 +15548,7 @@ for.body77.i.us:                                  ; preds = %for.body77.lr.ph.i,
   %178 = load i8, ptr %arrayidx.i.i100.us, align 1, !noalias !167
   %conv80.i.us = zext i8 %178 to i32
   %add.i.us = or disjoint i32 %shl.i.us, %conv80.i.us
-  %conv81.i.us = sitofp i32 %add.i.us to float
+  %conv81.i.us = uitofp nneg i32 %add.i.us to float
   %div.i.us = fdiv float %conv81.i.us, 6.553500e+04
   %agg.tmp84.sroa.0.0.insert.insert.i.us = add nuw nsw i64 %indvars.iv.i99.us, %agg.tmp84.sroa.2.0.insert.shift.i
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp84.sroa.0.0.insert.insert.i.us, i32 noundef 0, float noundef %div.i.us)
@@ -15577,7 +15577,7 @@ for.body77.i.us987:                               ; preds = %for.body77.lr.ph.i,
   %182 = load i8, ptr %arrayidx.i.i100.us992, align 1, !noalias !167
   %conv80.i.us993 = zext i8 %182 to i32
   %add.i.us994 = or disjoint i32 %shl.i.us991, %conv80.i.us993
-  %conv81.i.us995 = sitofp i32 %add.i.us994 to float
+  %conv81.i.us995 = uitofp nneg i32 %add.i.us994 to float
   %div.i.us996 = fdiv float %conv81.i.us995, 6.553500e+04
   %call.i.i.i.i87.i.us = invoke noundef float @_ZNK4pbrt17sRGBColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 1 dereferenceable(1) %174, float noundef %div.i.us996)
           to label %invoke.cont85.i.us997 unwind label %lpad23.loopexit.i.split.split.us, !noalias !167
@@ -15610,7 +15610,7 @@ for.body77.i:                                     ; preds = %for.body77.lr.ph.i,
   %186 = load i8, ptr %arrayidx.i.i100, align 1, !noalias !167
   %conv80.i = zext i8 %186 to i32
   %add.i = or disjoint i32 %shl.i, %conv80.i
-  %conv81.i = sitofp i32 %add.i to float
+  %conv81.i = uitofp nneg i32 %add.i to float
   %div.i = fdiv float %conv81.i, 6.553500e+04
   %call.i5.i.i.i88.i = invoke noundef float @_ZNK4pbrt18GammaColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 4 dereferenceable(5124) %174, float noundef %div.i)
           to label %invoke.cont85.i unwind label %lpad23.loopexit.i.split.split, !noalias !167
@@ -16373,7 +16373,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %282 = load i8, ptr %arrayidx.i196.i, align 1, !noalias !167
   %conv283.i = zext i8 %282 to i32
   %add284.i = or disjoint i32 %shl281.i, %conv283.i
-  %conv285.i = sitofp i32 %add284.i to float
+  %conv285.i = uitofp nneg i32 %add284.i to float
   %div286.i = fdiv float %conv285.i, 6.553500e+04
   store float %div286.i, ptr %rgba.i, align 16, !noalias !167
   %arrayidx.i197.i = getelementptr inbounds i8, ptr %bufIter264.sroa.0.1551.i, i64 2
@@ -16384,7 +16384,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %284 = load i8, ptr %arrayidx.i198.i, align 1, !noalias !167
   %conv292.i = zext i8 %284 to i32
   %add293.i = or disjoint i32 %shl290.i, %conv292.i
-  %conv294.i = sitofp i32 %add293.i to float
+  %conv294.i = uitofp nneg i32 %add293.i to float
   %div295.i = fdiv float %conv294.i, 6.553500e+04
   store float %div295.i, ptr %arrayinit.element287.i, align 4, !noalias !167
   %arrayidx.i199.i = getelementptr inbounds i8, ptr %bufIter264.sroa.0.1551.i, i64 4
@@ -16395,7 +16395,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %286 = load i8, ptr %arrayidx.i200.i, align 1, !noalias !167
   %conv301.i = zext i8 %286 to i32
   %add302.i = or disjoint i32 %shl299.i, %conv301.i
-  %conv303.i = sitofp i32 %add302.i to float
+  %conv303.i = uitofp nneg i32 %add302.i to float
   %div304.i = fdiv float %conv303.i, 6.553500e+04
   store float %div304.i, ptr %arrayinit.element296.i, align 8, !noalias !167
   %arrayidx.i201.i = getelementptr inbounds i8, ptr %bufIter264.sroa.0.1551.i, i64 6
@@ -16406,7 +16406,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %288 = load i8, ptr %arrayidx.i202.i, align 1, !noalias !167
   %conv310.i = zext i8 %288 to i32
   %add311.i = or disjoint i32 %shl308.i, %conv310.i
-  %conv312.i = sitofp i32 %add311.i to float
+  %conv312.i = uitofp nneg i32 %add311.i to float
   %div313.i = fdiv float %conv312.i, 6.553500e+04
   store float %div313.i, ptr %arrayinit.element305.i, align 4, !noalias !167
   %agg.tmp321.sroa.0.0.insert.insert.i = add nuw nsw i64 %indvars.iv578.i, %agg.tmp321.sroa.2.0.insert.shift.i
@@ -16419,7 +16419,7 @@ for.body316.i.us:                                 ; preds = %do.end277.i, %for.i
   %indvars.iv574.i.us = phi i64 [ %indvars.iv.next575.i.us, %for.inc327.i.us ], [ 0, %do.end277.i ]
   %arrayidx.i.us = getelementptr inbounds [4 x float], ptr %rgba.i, i64 0, i64 %indvars.iv574.i.us
   %289 = load float, ptr %arrayidx.i.us, align 4, !noalias !167
-  %290 = trunc i64 %indvars.iv574.i.us to i32
+  %290 = trunc nuw nsw i64 %indvars.iv574.i.us to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp321.sroa.0.0.insert.insert.i, i32 noundef %290, float noundef %289)
           to label %for.inc327.i.us unwind label %lpad188.loopexit.i.split.us, !noalias !167
 
@@ -16442,7 +16442,7 @@ for.body316.i.us1024:                             ; preds = %do.end277.i, %for.i
 
 invoke.cont322.i.us1027:                          ; preds = %for.body316.i.us1024
   store float %call.i.i.i.i210.i.us, ptr %arrayidx.i.us1026, align 4, !noalias !167
-  %292 = trunc i64 %indvars.iv574.i.us1025 to i32
+  %292 = trunc nuw nsw i64 %indvars.iv574.i.us1025 to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp321.sroa.0.0.insert.insert.i, i32 noundef %292, float noundef %call.i.i.i.i210.i.us)
           to label %for.inc327.i.us1029 unwind label %lpad188.loopexit.i.split.split.us, !noalias !167
 
@@ -16465,7 +16465,7 @@ for.body316.i:                                    ; preds = %do.end277.i, %for.i
 
 invoke.cont322.i:                                 ; preds = %for.body316.i
   store float %call.i5.i.i.i212.i, ptr %arrayidx.i, align 4, !noalias !167
-  %294 = trunc i64 %indvars.iv574.i to i32
+  %294 = trunc nuw nsw i64 %indvars.iv574.i to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp321.sroa.0.0.insert.insert.i, i32 noundef %294, float noundef %call.i5.i.i.i212.i)
           to label %for.inc327.i unwind label %lpad188.loopexit.i.split.split, !noalias !167
 
@@ -16894,7 +16894,7 @@ do.end416.i:                                      ; preds = %for.inc463.i, %do.e
   %347 = load i8, ptr %arrayidx.i261.i, align 1, !noalias !167
   %conv422.i = zext i8 %347 to i32
   %add423.i = or disjoint i32 %shl420.i, %conv422.i
-  %conv424.i = sitofp i32 %add423.i to float
+  %conv424.i = uitofp nneg i32 %add423.i to float
   %div425.i = fdiv float %conv424.i, 6.553500e+04
   store float %div425.i, ptr %rgb.i, align 4, !noalias !167
   %arrayidx.i262.i = getelementptr inbounds i8, ptr %bufIter403.sroa.0.1543.i, i64 2
@@ -16905,7 +16905,7 @@ do.end416.i:                                      ; preds = %for.inc463.i, %do.e
   %349 = load i8, ptr %arrayidx.i263.i, align 1, !noalias !167
   %conv431.i = zext i8 %349 to i32
   %add432.i = or disjoint i32 %shl429.i, %conv431.i
-  %conv433.i = sitofp i32 %add432.i to float
+  %conv433.i = uitofp nneg i32 %add432.i to float
   %div434.i = fdiv float %conv433.i, 6.553500e+04
   store float %div434.i, ptr %arrayinit.element426.i, align 4, !noalias !167
   %arrayidx.i264.i = getelementptr inbounds i8, ptr %bufIter403.sroa.0.1543.i, i64 4
@@ -16916,7 +16916,7 @@ do.end416.i:                                      ; preds = %for.inc463.i, %do.e
   %351 = load i8, ptr %arrayidx.i265.i, align 1, !noalias !167
   %conv440.i = zext i8 %351 to i32
   %add441.i = or disjoint i32 %shl438.i, %conv440.i
-  %conv442.i = sitofp i32 %add441.i to float
+  %conv442.i = uitofp nneg i32 %add441.i to float
   %div443.i = fdiv float %conv442.i, 6.553500e+04
   store float %div443.i, ptr %arrayinit.element435.i, align 4, !noalias !167
   %agg.tmp454.sroa.0.0.insert.insert.i = add nuw nsw i64 %indvars.iv568.i, %agg.tmp454.sroa.2.0.insert.shift.i
@@ -16929,7 +16929,7 @@ for.body447.i.us:                                 ; preds = %do.end416.i, %for.i
   %indvars.iv565.i.us = phi i64 [ %indvars.iv.next566.i.us, %for.inc460.i.us ], [ 0, %do.end416.i ]
   %arrayidx449.i.us = getelementptr inbounds [3 x float], ptr %rgb.i, i64 0, i64 %indvars.iv565.i.us
   %352 = load float, ptr %arrayidx449.i.us, align 4, !noalias !167
-  %353 = trunc i64 %indvars.iv565.i.us to i32
+  %353 = trunc nuw nsw i64 %indvars.iv565.i.us to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp454.sroa.0.0.insert.insert.i, i32 noundef %353, float noundef %352)
           to label %for.inc460.i.us unwind label %lpad188.loopexit.split-lp.loopexit.i.split.us, !noalias !167
 
@@ -16952,7 +16952,7 @@ for.body447.i.us1012:                             ; preds = %do.end416.i, %for.i
 
 invoke.cont455.i.us1015:                          ; preds = %for.body447.i.us1012
   store float %call.i.i.i.i273.i.us, ptr %arrayidx449.i.us1014, align 4, !noalias !167
-  %355 = trunc i64 %indvars.iv565.i.us1013 to i32
+  %355 = trunc nuw nsw i64 %indvars.iv565.i.us1013 to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp454.sroa.0.0.insert.insert.i, i32 noundef %355, float noundef %call.i.i.i.i273.i.us)
           to label %for.inc460.i.us1017 unwind label %lpad188.loopexit.split-lp.loopexit.i.split.split.us, !noalias !167
 
@@ -16975,7 +16975,7 @@ for.body447.i:                                    ; preds = %do.end416.i, %for.i
 
 invoke.cont455.i:                                 ; preds = %for.body447.i
   store float %call.i5.i.i.i275.i, ptr %arrayidx449.i, align 4, !noalias !167
-  %357 = trunc i64 %indvars.iv565.i to i32
+  %357 = trunc nuw nsw i64 %indvars.iv565.i to i32
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp454.sroa.0.0.insert.insert.i, i32 noundef %357, float noundef %call.i5.i.i.i275.i)
           to label %for.inc460.i unwind label %lpad188.loopexit.split-lp.loopexit.i.split.split, !noalias !167
 
@@ -24056,7 +24056,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %tobool.not.i.i.i = icmp eq ptr %22, null
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %21, ptr %22
   %arrayidx.i.i = getelementptr inbounds i32, ptr %cond.i.i.i, i64 %indvars.iv.i
-  %23 = trunc i64 %indvars.iv.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %23, ptr %arrayidx.i.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = load i64, ptr %nStored.i.i.i, align 8, !noalias !210
@@ -24225,7 +24225,7 @@ if.end133:                                        ; preds = %invoke.cont132, %fo
 
 for.cond139.preheader:                            ; preds = %if.end133, %for.inc154
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %for.inc154 ], [ 0, %if.end133 ]
-  %40 = trunc i64 %indvars.iv271 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv271 to i32
   br label %for.body141
 
 for.body141:                                      ; preds = %for.cond139.preheader, %invoke.cont146
@@ -24296,7 +24296,7 @@ if.end163:                                        ; preds = %invoke.cont162, %if
 
 for.cond173.preheader:                            ; preds = %if.end163, %for.inc192
   %indvars.iv279 = phi i64 [ %indvars.iv.next280, %for.inc192 ], [ 0, %if.end163 ]
-  %48 = trunc i64 %indvars.iv279 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv279 to i32
   br label %for.body175
 
 for.body175:                                      ; preds = %for.cond173.preheader, %invoke.cont180
@@ -25292,7 +25292,7 @@ if.end4:                                          ; preds = %if.end
   %mul = mul nsw i32 %7, 3
   %conv = sext i32 %mul to i64
   %8 = icmp slt i32 %7, 0
-  %9 = shl nsw i64 %conv, 2
+  %9 = shl nuw nsw i64 %conv, 2
   %10 = select i1 %8, i64 -1, i64 %9
   %call.i29 = call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #33, !noalias !222
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call.i29, i8 0, i64 %10, i1 false), !noalias !222
@@ -25343,7 +25343,7 @@ if.end24:                                         ; preds = %if.end18
 for.cond:                                         ; preds = %for.end86, %if.end24
   %indvars.iv75 = phi i64 [ %15, %for.end86 ], [ %14, %if.end24 ]
   %15 = add nsw i64 %indvars.iv75, -1
-  %16 = trunc i64 %indvars.iv75 to i32
+  %16 = trunc nuw i64 %indvars.iv75 to i32
   %cmp28 = icmp sgt i32 %16, 0
   br i1 %cmp28, label %for.cond30.preheader, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit49
 
@@ -25400,7 +25400,7 @@ invoke.cont64:                                    ; preds = %if.then63
 
 invoke.cont72:                                    ; preds = %for.cond66.preheader, %invoke.cont76
   %indvars.iv = phi i64 [ 0, %for.cond66.preheader ], [ %indvars.iv.next, %invoke.cont76 ]
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %call77 = invoke noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %this, i64 %agg.tmp69.sroa.0.0.insert.insert, i32 noundef %22, i64 4294967297)
           to label %invoke.cont76 unwind label %lpad5.loopexit
 
@@ -27330,7 +27330,7 @@ for.cond10.preheader:                             ; preds = %entry, %for.inc50
 invoke.cont.preheader.lr.ph:                      ; preds = %for.cond10.preheader
   %agg.tmp.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv31, 32
   %rem9.i = and i64 %indvars.iv31, 127
-  %8 = trunc i64 %indvars.iv31 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv31 to i32
   br label %invoke.cont.preheader
 
 invoke.cont.preheader:                            ; preds = %invoke.cont.preheader.lr.ph, %for.inc47
@@ -27344,7 +27344,7 @@ invoke.cont.preheader:                            ; preds = %invoke.cont.prehead
 invoke.cont25.lr.ph:                              ; preds = %invoke.cont.preheader
   %agg.tmp.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp.sroa.2.0.insert.shift, %indvars.iv
   %rem6.i = and i64 %indvars.iv, 127
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %invoke.cont25.lr.ph, %invoke.cont35
@@ -38670,7 +38670,7 @@ _ZN4pbrt18ImageChannelValuesC2Emf.exit.i.i.i:     ; preds = %for.body.i.i.i.i.i,
 
 invoke.cont11.preheader.i.i.i:                    ; preds = %_ZN4pbrt18ImageChannelValuesC2Emf.exit.i.i.i
   %sub.i.i.i = sub nsw i32 0, %24
-  %25 = trunc i64 %indvars.iv85.i.i.i to i32
+  %25 = trunc nuw nsw i64 %indvars.iv85.i.i.i to i32
   br label %invoke.cont11.i.i.i
 
 invoke.cont11.i.i.i:                              ; preds = %_ZN4pbrt18ImageChannelValuesD2Ev.exit30.i.i.i, %invoke.cont11.preheader.i.i.i
@@ -38973,7 +38973,7 @@ for.cond3.preheader.i.i.i:                        ; preds = %for.cond3.preheader
   br i1 %cmp577.i.i.i, label %for.body6.lr.ph.i.i.i, label %for.inc36.i.i.i
 
 for.body6.lr.ph.i.i.i:                            ; preds = %for.cond3.preheader.i.i.i
-  %12 = trunc i64 %indvars.iv88.i.i.i to i32
+  %12 = trunc nsw i64 %indvars.iv88.i.i.i to i32
   %agg.tmp29.sroa.2.0.insert.ext.i.i.i = shl i64 %indvars.iv88.i.i.i, 32
   br label %for.body6.i.i.i
 
@@ -41632,8 +41632,8 @@ for.body11.i.i.i:                                 ; preds = %for.body11.i.i.i, %
   br i1 %cmp10.i.i.i, label %for.body11.i.i.i, label %for.inc35.loopexit.i.i.i, !llvm.loop !288
 
 for.inc35.loopexit.i.i.i:                         ; preds = %for.body11.i.i.i
-  %35 = trunc i64 %indvars.iv.next67.i.i.i to i32
-  %36 = trunc i64 %indvars.iv.next.i.i.i to i32
+  %35 = trunc nsw i64 %indvars.iv.next67.i.i.i to i32
+  %36 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   %.pre.i.i.i = load ptr, ptr %1, align 8
   %.pre71.i.i.i = load i32, ptr %.pre.i.i.i, align 4
   br label %for.inc35.i.i.i
@@ -47847,7 +47847,7 @@ for.cond3.preheader.i.i.i:                        ; preds = %for.cond3.preheader
   br i1 %cmp5220.i.i.i, label %invoke.cont.lr.ph.i.i.i, label %for.inc129.i.i.i
 
 invoke.cont.lr.ph.i.i.i:                          ; preds = %for.cond3.preheader.i.i.i
-  %15 = trunc i64 %indvars.iv237.i.i.i to i32
+  %15 = trunc nsw i64 %indvars.iv237.i.i.i to i32
   %agg.tmp.sroa.2.0.insert.ext.i.i.i = shl i64 %indvars.iv237.i.i.i, 32
   br label %invoke.cont.i.i.i
 
@@ -47943,7 +47943,7 @@ invoke.cont10.i.i.i:                              ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp12212.i.i.i, label %for.body13.preheader.i.i.i, label %invoke.cont122.i.i.i
 
 for.body13.preheader.i.i.i:                       ; preds = %invoke.cont10.i.i.i
-  %31 = trunc i64 %indvars.iv234.i.i.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv234.i.i.i to i32
   br label %for.body13.i.i.i
 
 for.body13.i.i.i:                                 ; preds = %for.inc104.i.i.i, %for.body13.preheader.i.i.i

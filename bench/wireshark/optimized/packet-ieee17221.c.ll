@@ -2811,7 +2811,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
 
 220:                                              ; preds = %218, %.lr.ph24
   %221 = phi float [ 1.000000e+00, %.lr.ph24 ], [ %switch.select681, %218 ]
-  %222 = sitofp i32 %216 to float
+  %222 = uitofp nneg i32 %216 to float
   %223 = fmul float %221, %222
   %224 = load i32, ptr @hf_aem_frequency, align 4
   %225 = tail call ptr @proto_tree_add_float(ptr noundef %210, i32 noundef %224, ptr noundef %0, i32 noundef %.167322, i32 noundef 4, float noundef %223) #2
@@ -3280,7 +3280,7 @@ define internal fastcc void @dissect_17221_aem(ptr noundef %0, ptr noundef %1) u
 get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %583, %581, %579, %577, %575, %573, %571, %537
   %.sroa.0.0.i.i = phi i32 [ %590, %589 ], [ %588, %587 ], [ %586, %585 ], [ %584, %583 ], [ %582, %581 ], [ %580, %579 ], [ %578, %577 ], [ %576, %575 ], [ %574, %573 ], [ %572, %571 ], [ -1, %537 ]
   %.sroa.13.0.i.i = phi i64 [ 8, %589 ], [ 8, %587 ], [ 8, %585 ], [ 4, %583 ], [ 4, %581 ], [ 4, %579 ], [ 2, %577 ], [ 2, %575 ], [ 1, %573 ], [ 1, %571 ], [ 0, %537 ]
-  %.sroa.9.0.extract.trunc.i = trunc i64 %.sroa.13.0.i.i to i32
+  %.sroa.9.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.13.0.i.i to i32
   %591 = icmp ult i16 %564, 10
   br i1 %591, label %.preheader.i, label %619
 
@@ -3290,7 +3290,7 @@ get_ctrl_ref_vals.exit.i:                         ; preds = %589, %587, %585, %5
   br i1 %.not137.i, label %dissect_17221_ctrl_val.exit, label %.lr.ph136.i
 
 .lr.ph136.i:                                      ; preds = %.preheader.i
-  %593 = trunc i64 %.sroa.13.0.i.i to i16
+  %593 = trunc nuw nsw i64 %.sroa.13.0.i.i to i16
   br label %594
 
 594:                                              ; preds = %594, %.lr.ph136.i

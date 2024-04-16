@@ -173,8 +173,8 @@ _ZN3tbb5mutexC2Ev.exit:                           ; preds = %3, %14
 23:                                               ; preds = %22, %33
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %33 ]
   %24 = load float, ptr %8, align 8
-  %25 = trunc i64 %indvars.iv to i32
-  %26 = sitofp i32 %25 to float
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = uitofp nneg i32 %25 to float
   %27 = fmul float %24, %26
   %28 = fmul float %27, 3.125000e-02
   %29 = load ptr, ptr %2, align 8
@@ -404,7 +404,7 @@ _ZN4nori6BitmapC2ERKNS_7TVectorIiLi2EEE.exit.preheader: ; preds = %_ZN5Eigen15Pl
   br i1 %30, label %.lr.ph, label %_ZN4nori6BitmapC2ERKNS_7TVectorIiLi2EEE.exit
 
 .lr.ph:                                           ; preds = %.preheader
-  %31 = trunc i64 %indvars.iv17 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv17 to i32
   br label %32
 
 32:                                               ; preds = %.lr.ph, %_ZNK4nori7Color4f20divideByFilterWeightEv.exit
@@ -412,7 +412,7 @@ _ZN4nori6BitmapC2ERKNS_7TVectorIiLi2EEE.exit.preheader: ; preds = %_ZN5Eigen15Pl
   %33 = load i32, ptr %21, align 8
   %34 = add nsw i32 %33, %31
   %35 = sext i32 %34 to i64
-  %36 = trunc i64 %indvars.iv to i32
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = add nsw i32 %33, %36
   %38 = sext i32 %37 to i64
   %39 = load ptr, ptr %0, align 8
@@ -766,7 +766,7 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %.03168 = phi i32 [ %69, %.lr.ph ], [ %96, %83 ]
   %84 = load ptr, ptr %73, align 8
-  %85 = sitofp i32 %.03168 to float
+  %85 = uitofp nneg i32 %.03168 to float
   %86 = fsub float %85, %40
   %87 = tail call noundef float @llvm.fabs.f32(float %86)
   %88 = load float, ptr %74, align 8
@@ -807,7 +807,7 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %indvars.iv85 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next86, %106 ]
   %.02971 = phi i32 [ %70, %.lr.ph73 ], [ %119, %106 ]
   %107 = load ptr, ptr %78, align 8
-  %108 = sitofp i32 %.02971 to float
+  %108 = uitofp nneg i32 %.02971 to float
   %109 = fsub float %108, %48
   %110 = tail call noundef float @llvm.fabs.f32(float %109)
   %111 = load float, ptr %79, align 8
@@ -2495,7 +2495,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc i32 %.0.lcssa.i to i8
+  %60 = trunc nuw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

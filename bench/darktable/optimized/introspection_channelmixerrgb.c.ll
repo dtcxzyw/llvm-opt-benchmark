@@ -9251,7 +9251,7 @@ find_temperature_from_raw_coeffs.exit9:           ; preds = %278, %285, %293, %2
 
 608:                                              ; preds = %608, %601
   %609 = phi i32 [ 0, %601 ], [ %618, %608 ]
-  %610 = sitofp i32 %609 to float
+  %610 = uitofp nneg i32 %609 to float
   %611 = fmul reassoc nsz arcp contract afn float %610, 0x3FAAF286C0000000
   %612 = fmul reassoc nsz arcp contract afn float %610, 0x3FCAF286C0000000
   %613 = fadd reassoc nsz arcp contract afn float %612, -2.000000e+00
@@ -9350,7 +9350,7 @@ _update_RGB_colors.exit:                          ; preds = %608
 
 675:                                              ; preds = %675, %668
   %676 = phi i32 [ 0, %668 ], [ %685, %675 ]
-  %677 = sitofp i32 %676 to float
+  %677 = uitofp nneg i32 %676 to float
   %678 = fmul reassoc nsz arcp contract afn float %677, 0x3FAAF286C0000000
   %679 = fmul reassoc nsz arcp contract afn float %677, 0x3FCAF286C0000000
   %680 = fadd reassoc nsz arcp contract afn float %679, -2.000000e+00
@@ -9422,7 +9422,7 @@ _update_RGB_colors.exit13:                        ; preds = %675
 
 725:                                              ; preds = %725, %718
   %726 = phi i32 [ 0, %718 ], [ %735, %725 ]
-  %727 = sitofp i32 %726 to float
+  %727 = uitofp nneg i32 %726 to float
   %728 = fmul reassoc nsz arcp contract afn float %727, 0x3FAAF286C0000000
   %729 = fmul reassoc nsz arcp contract afn float %727, 0x3FCAF286C0000000
   %730 = fadd reassoc nsz arcp contract afn float %729, -2.000000e+00
@@ -9527,7 +9527,7 @@ _update_RGB_colors.exit17:                        ; preds = %725
 
 796:                                              ; preds = %796, %789
   %797 = phi i32 [ 0, %789 ], [ %806, %796 ]
-  %798 = sitofp i32 %797 to float
+  %798 = uitofp nneg i32 %797 to float
   %799 = fmul reassoc nsz arcp contract afn float %798, 0x3FAAF286C0000000
   %800 = fmul reassoc nsz arcp contract afn float %798, 0x3FCAF286C0000000
   %801 = fadd reassoc nsz arcp contract afn float %800, -2.000000e+00
@@ -10429,7 +10429,7 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
 
 19:                                               ; preds = %dt_XYZ_to_sRGB.exit7, %1
   %20 = phi i32 [ 0, %1 ], [ %329, %dt_XYZ_to_sRGB.exit7 ]
-  %21 = sitofp i32 %20 to float
+  %21 = uitofp nneg i32 %20 to float
   %22 = fmul reassoc nsz arcp contract afn float %21, 0x3FAAF286C0000000
   %23 = fmul reassoc nsz arcp contract afn float %21, 0x3FD52A1720000000
   %24 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %23)
@@ -11085,7 +11085,7 @@ define internal fastcc void @_update_illuminant_color(ptr nocapture noundef read
 
 13:                                               ; preds = %13, %1
   %14 = phi i32 [ 0, %1 ], [ %131, %13 ]
-  %15 = sitofp i32 %14 to float
+  %15 = uitofp nneg i32 %14 to float
   %16 = fmul reassoc nsz arcp contract afn float %15, 0x3FBAF286C0000000
   %17 = fpext float %16 to double
   %18 = fmul reassoc nsz arcp contract afn double %17, 0x400921FB54442D18
@@ -11227,7 +11227,7 @@ define internal fastcc void @_paint_temperature_background(ptr nocapture readonl
 
 5:                                                ; preds = %72, %1
   %6 = phi i32 [ 0, %1 ], [ %100, %72 ]
-  %7 = sitofp i32 %6 to float
+  %7 = uitofp nneg i32 %6 to float
   %8 = fmul reassoc nsz arcp contract afn float %7, 0x3FAAF286C0000000
   %9 = fmul reassoc nsz arcp contract afn float %7, 0x40933035E0000000
   %10 = fadd reassoc nsz arcp contract afn float %9, 1.667000e+03
@@ -17426,7 +17426,7 @@ define internal fastcc float @CCT_reverse_lookup(float noundef %0, float noundef
 5:                                                ; preds = %94, %2
   %6 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %2 ], [ %107, %94 ]
   %7 = phi i64 [ 0, %2 ], [ %108, %94 ]
-  %8 = uitofp i64 %7 to float
+  %8 = uitofp nneg i64 %7 to float
   %9 = fmul reassoc nsz arcp contract afn float %8, 0x3EF0001000000000
   %10 = tail call reassoc nsz arcp contract afn float @llvm.powi.f32.i32(float %9, i32 4)
   %11 = fmul reassoc nsz arcp contract afn float %10, 2.333300e+04

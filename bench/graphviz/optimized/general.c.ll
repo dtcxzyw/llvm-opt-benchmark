@@ -43,7 +43,7 @@ define noalias noundef ptr @random_permutation(i32 noundef %0) local_unnamed_add
 6:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
   %7 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %8, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
@@ -52,7 +52,7 @@ define noalias noundef ptr @random_permutation(i32 noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph ], [ %4, %.preheader ]
   %9 = tail call i32 @rand() #18
-  %10 = trunc i64 %indvars.iv28 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv28 to i32
   %11 = srem i32 %9, %10
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv28
   %12 = load i32, ptr %gep, align 4
@@ -279,8 +279,8 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = trunc i64 %indvars.iv to i32
-  %15 = sitofp i32 %14 to double
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  %15 = uitofp nneg i32 %14 to double
   %16 = shl nuw nsw i64 %indvars.iv, 1
   %17 = or disjoint i64 %16, 1
   %18 = getelementptr inbounds double, ptr %11, i64 %17

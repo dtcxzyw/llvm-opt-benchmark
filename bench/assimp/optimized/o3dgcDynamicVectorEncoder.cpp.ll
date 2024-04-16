@@ -649,7 +649,7 @@ delete.notnull.i:                                 ; preds = %if.then.i80
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then.i80
   store i64 %mul.i, ptr %m_maxNumVectors.i, align 8
   %38 = icmp ugt i64 %mul.i, 2305843009213693951
-  %39 = shl i64 %mul.i, 3
+  %39 = shl nuw i64 %mul.i, 3
   %40 = select i1 %38, i64 -1, i64 %39
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %40) #12
   store ptr %call.i, ptr %m_quantVectors.i, align 8
@@ -663,7 +663,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %sh_prom.i = trunc i64 %35 to i32
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %sub9.i = xor i32 %notmask.i, -1
-  %conv.i = sitofp i32 %sub9.i to float
+  %conv.i = uitofp nneg i32 %sub9.i to float
   %cmp1216.not.i = icmp eq i64 %2, 0
   %m_quantVectors20.i = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %cmp1216.not.i, label %for.body17.lr.ph, label %for.body.us.i
@@ -755,7 +755,7 @@ for.body30.us:                                    ; preds = %for.cond28.preheade
   br i1 %cmp.i95.us, label %if.then.i98.us, label %if.else.i96.us
 
 if.else.i96.us:                                   ; preds = %for.body30.us
-  %conv10.i.us = trunc i64 %cond.i.i.us to i8
+  %conv10.i.us = trunc nuw nsw i64 %cond.i.i.us to i8
   %54 = load i64, ptr %m_size.i.i, align 8
   %55 = load i64, ptr %m_allocated.i26.i, align 8
   %cmp.i27.i.us = icmp eq i64 %54, %55
@@ -1434,7 +1434,7 @@ delete.notnull:                                   ; preds = %if.then
 delete.end:                                       ; preds = %delete.notnull, %if.then
   store i64 %mul, ptr %m_maxNumVectors, align 8
   %2 = icmp ugt i64 %mul, 2305843009213693951
-  %3 = shl i64 %mul, 3
+  %3 = shl nuw i64 %mul, 3
   %4 = select i1 %2, i64 -1, i64 %3
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #12
   store ptr %call, ptr %m_quantVectors, align 8
@@ -1448,7 +1448,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sh_prom = trunc i64 %nQBits to i32
   %notmask = shl nsw i32 -1, %sh_prom
   %sub9 = xor i32 %notmask, -1
-  %conv = sitofp i32 %sub9 to float
+  %conv = uitofp nneg i32 %sub9 to float
   %cmp1216.not = icmp eq i64 %numFloatArray, 0
   %m_quantVectors20 = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %cmp1216.not, label %for.end26, label %for.body.us
@@ -2022,7 +2022,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit:            ; preds = %entry.if.end16_crit
   %5 = phi ptr [ %.pre.i, %entry.if.end16_crit_edge.i ], [ %call.i, %if.end14.i ]
   %6 = bitcast float %value to i32
   %value.addr.3.extract.shift150 = lshr i32 %6, 24
-  %value.addr.3.extract.trunc151 = trunc i32 %value.addr.3.extract.shift150 to i8
+  %value.addr.3.extract.trunc151 = trunc nuw i32 %value.addr.3.extract.shift150 to i8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %m_size.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -2315,7 +2315,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit140:         ; preds = %entry.if.end16_crit
   %39 = phi i64 [ %36, %entry.if.end16_crit_edge.i125 ], [ %.pre4.i139, %if.end14.i138 ]
   %40 = phi ptr [ %.pre.i126, %entry.if.end16_crit_edge.i125 ], [ %call.i132, %if.end14.i138 ]
   %value.addr.3.extract.shift = lshr i32 %25, 24
-  %value.addr.3.extract.trunc = trunc i32 %value.addr.3.extract.shift to i8
+  %value.addr.3.extract.trunc = trunc nuw i32 %value.addr.3.extract.shift to i8
   %inc.i127 = add i64 %39, 1
   store i64 %inc.i127, ptr %m_size.i, align 8
   %arrayidx.i128 = getelementptr inbounds i8, ptr %40, i64 %39

@@ -130,7 +130,7 @@ define void @dsygvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %92 = load i32, ptr %4, align 4, !tbaa !3
   %93 = mul nsw i32 %92, %91
   %94 = tail call i32 @llvm.smax.i32(i32 %89, i32 %93)
-  %95 = sitofp i32 %94 to double
+  %95 = uitofp nneg i32 %94 to double
   store double %95, ptr %18, align 8, !tbaa !7
   %96 = load i32, ptr %19, align 4, !tbaa !3
   %97 = icmp sge i32 %96, %89

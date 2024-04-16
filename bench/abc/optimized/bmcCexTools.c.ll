@@ -230,7 +230,7 @@ Bmc_CexBitCount.exit48:                           ; preds = %46, %.preheader.i40
   br i1 %exitcond.not.i55, label %Bmc_CexBitCount.exit57.loopexit, label %69, !llvm.loop !4
 
 Bmc_CexBitCount.exit57.loopexit:                  ; preds = %69
-  %82 = sitofp i32 %.1.i54 to double
+  %82 = uitofp nneg i32 %.1.i54 to double
   %83 = fmul double %82, 1.000000e+02
   br label %Bmc_CexBitCount.exit57
 
@@ -627,7 +627,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %153 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %137, i64 %152, i32 1
   %154 = load i32, ptr %153, align 4
   %155 = lshr i64 %.val105, 61
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw nsw i64 %155 to i32
   %157 = and i32 %156, 1
   %158 = xor i32 %154, %157
   %159 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %8, i32 noundef %149, i32 noundef %158) #20
@@ -1227,7 +1227,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %179 = trunc i64 %178 to i32
   %180 = lshr i32 %179, 30
   %181 = lshr i64 %.val168, 61
-  %182 = trunc i64 %181 to i32
+  %182 = trunc nuw nsw i64 %181 to i32
   %183 = xor i32 %180, %182
   %184 = and i32 %183, 1
   %185 = and i32 %184, %172
@@ -1725,7 +1725,7 @@ define i32 @Bmc_CexVerify(ptr nocapture noundef readonly %0, ptr nocapture nound
   %51 = load i32, ptr %31, align 4
   %52 = load i32, ptr %32, align 4
   %53 = mul nsw i32 %52, %.060127
-  %54 = trunc i64 %indvars.iv144 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv144 to i32
   %55 = add i32 %51, %54
   %56 = add i32 %55, %53
   %57 = ashr i32 %56, 5
@@ -1812,7 +1812,7 @@ define i32 @Bmc_CexVerify(ptr nocapture noundef readonly %0, ptr nocapture nound
   %102 = getelementptr i8, ptr %.val5.i.i, i64 4
   %.val5.val.i.i = load i32, ptr %102, align 4
   %103 = lshr i64 %.val.i, 32
-  %104 = trunc i64 %103 to i32
+  %104 = trunc nuw i64 %103 to i32
   %105 = and i32 %104, 536870911
   %106 = sub i32 %.val5.val.i.i, %.val75.val
   %107 = add i32 %106, %105
@@ -2011,7 +2011,7 @@ Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet0Fa
   %187 = and i64 %.val95, 1073741824
   %.not.i100 = icmp eq i64 %187, 0
   %188 = lshr i64 %.val95, 62
-  %189 = trunc i64 %188 to i32
+  %189 = trunc nuw nsw i64 %188 to i32
   %190 = and i32 %189, 1
   %191 = select i1 %.not.i100, i32 %190, i32 0
   ret i32 %191
@@ -2250,7 +2250,7 @@ define noundef ptr @Bmc_CexInnerStates(ptr noundef %0, ptr nocapture noundef rea
 122:                                              ; preds = %119
   %123 = load i32, ptr %51, align 4
   %124 = mul nsw i32 %123, %.0124216
-  %125 = trunc i64 %indvars.iv219 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv219 to i32
   %126 = add nsw i32 %124, %125
   %127 = and i32 %126, 31
   %128 = shl nuw i32 1, %127
@@ -2272,7 +2272,7 @@ define noundef ptr @Bmc_CexInnerStates(ptr noundef %0, ptr nocapture noundef rea
 137:                                              ; preds = %134
   %138 = load i32, ptr %53, align 4
   %139 = mul nsw i32 %138, %.0124216
-  %140 = trunc i64 %indvars.iv219 to i32
+  %140 = trunc nuw nsw i64 %indvars.iv219 to i32
   %141 = add nsw i32 %139, %140
   %142 = and i32 %141, 31
   %143 = shl nuw i32 1, %142
@@ -2332,7 +2332,7 @@ define noundef ptr @Bmc_CexInnerStates(ptr noundef %0, ptr nocapture noundef rea
   %176 = trunc i64 %175 to i32
   %177 = lshr i32 %176, 30
   %178 = lshr i64 %.val177, 61
-  %179 = trunc i64 %178 to i32
+  %179 = trunc nuw nsw i64 %178 to i32
   %180 = xor i32 %177, %179
   %181 = and i32 %180, 1
   %182 = and i32 %181, %169
@@ -2519,7 +2519,7 @@ define void @Bmc_CexCareBits_rec(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %16 = trunc i64 %15 to i32
   %17 = lshr i32 %16, 30
   %18 = lshr i64 %.val2231, 61
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i64 %.val2231, 1073741824
   %.not20 = icmp eq i64 %20, 0
   br i1 %.not20, label %24, label %21
@@ -2598,7 +2598,7 @@ define void @Bmc_CexCareBits2_rec(ptr nocapture noundef readnone %0, ptr nocaptu
   %16 = trunc i64 %15 to i32
   %17 = lshr i32 %16, 30
   %18 = lshr i64 %.val2231, 61
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i64 %.val2231, 1073741824
   %.not20 = icmp eq i64 %20, 0
   br i1 %.not20, label %29, label %21
@@ -2752,7 +2752,7 @@ define noundef ptr @Bmc_CexCareBits(ptr noundef %0, ptr nocapture noundef readon
   %71 = load i32, ptr %70, align 4
   %72 = lshr i32 %71, %51
   %73 = lshr i64 %68, 62
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw nsw i64 %73 to i32
   %75 = or i32 %72, %74
   %76 = and i32 %75, 1
   %77 = zext nneg i32 %76 to i64
@@ -2810,7 +2810,7 @@ define noundef ptr @Bmc_CexCareBits(ptr noundef %0, ptr nocapture noundef readon
   %108 = trunc i64 %107 to i32
   %109 = lshr i32 %108, 30
   %110 = lshr i64 %.val170, 61
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw nsw i64 %110 to i32
   %112 = xor i32 %109, %111
   %113 = and i32 %112, 1
   %114 = and i32 %113, %101
@@ -3047,7 +3047,7 @@ define noundef ptr @Bmc_CexCareBits(ptr noundef %0, ptr nocapture noundef readon
   store i64 %238, ptr %233, align 4
   %.pre216 = load i32, ptr %31, align 4
   %.pre218 = mul nsw i32 %.pre216, %.0124203
-  %.pre219 = trunc i64 %indvars.iv213 to i32
+  %.pre219 = trunc nuw nsw i64 %indvars.iv213 to i32
   %.pre221 = add nsw i32 %.pre218, %.pre219
   br i1 %.not147, label %._crit_edge217, label %239
 
@@ -3189,7 +3189,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val147, i64 %49
   %51 = load i32, ptr %30, align 4
   %52 = mul nsw i32 %51, %.0113177
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = add nsw i32 %52, %53
   %55 = ashr i32 %54, 5
   %56 = sext i32 %55 to i64
@@ -3266,7 +3266,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   %107 = trunc i64 %106 to i32
   %108 = lshr i32 %107, 30
   %109 = lshr i64 %.val149, 61
-  %110 = trunc i64 %109 to i32
+  %110 = trunc nuw nsw i64 %109 to i32
   %111 = xor i32 %108, %110
   %112 = and i32 %111, 1
   %113 = and i32 %112, %100
@@ -3427,7 +3427,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
 
 198:                                              ; preds = %187
   %199 = lshr i64 %.pre, 62
-  %200 = trunc i64 %199 to i32
+  %200 = trunc nuw nsw i64 %199 to i32
   %201 = add nsw i32 %.3167, %185
   %202 = ashr i32 %201, 5
   %203 = sext i32 %202 to i64
@@ -3879,7 +3879,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %61 = trunc i64 %60 to i32
   %62 = lshr i32 %61, 30
   %63 = lshr i64 %.val112, 61
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = and i32 %64, 1
   %66 = xor i32 %62, %65
   %67 = and i32 %66, %55
@@ -3990,7 +3990,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %124 = trunc i64 %123 to i32
   %125 = lshr i32 %124, 30
   %126 = lshr i64 %.val111, 61
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nuw nsw i64 %126 to i32
   %128 = xor i32 %125, %127
   %129 = and i32 %128, 1
   %130 = icmp eq i32 %129, 0
@@ -4056,7 +4056,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %154 = icmp eq i64 %153, 536870911
   %narrow.i125.not = or i1 %.not.i124, %154
   %155 = lshr i64 %.val110, 62
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw nsw i64 %155 to i32
   %157 = and i32 %156, 1
   %158 = select i1 %narrow.i125.not, i32 0, i32 %157
   %.1 = add nuw nsw i32 %158, %.0145
@@ -4153,7 +4153,7 @@ Vec_WecStart.exit:                                ; preds = %1, %4
   %15 = mul nuw nsw i64 %indvars.iv24, 784
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %15
-  %16 = trunc i64 %indvars.iv.next25 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.next25 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader18, %78
@@ -4539,7 +4539,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #20
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #20
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -4558,7 +4558,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4569,19 +4569,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #14
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #14
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
@@ -4618,8 +4618,8 @@ attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

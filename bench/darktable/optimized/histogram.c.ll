@@ -1346,7 +1346,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %165 = freeze i32 %164
   %166 = icmp eq i32 %165, 0
   %167 = select i1 %166, i32 %159, i32 %162
-  %168 = sitofp i32 %167 to float
+  %168 = uitofp nneg i32 %167 to float
   %169 = getelementptr inbounds i8, ptr %45, i64 48
   %170 = load i32, ptr %169, align 16, !tbaa !72
   %171 = sitofp i32 %170 to float
@@ -3097,7 +3097,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   br i1 %1474, label %.loopexit72, label %1475
 
 1475:                                             ; preds = %.loopexit73
-  %1476 = sitofp i32 %1269 to float
+  %1476 = uitofp nneg i32 %1269 to float
   %1477 = fmul reassoc nsz arcp contract afn float %1476, 0x3FA1111120000000
   %1478 = mul nsw i32 %1266, %1265
   %1479 = sitofp i32 %1478 to float
@@ -5054,7 +5054,7 @@ define internal noundef i32 @_drawable_draw_callback(ptr noundef %0, ptr noundef
   call void @cairo_arc(ptr noundef %53, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %589, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   call void @cairo_stroke(ptr noundef %53) #16
   %590 = add nuw nsw i32 %577, 1
-  %591 = sitofp i32 %590 to float
+  %591 = uitofp nneg i32 %590 to float
   %592 = fcmp reassoc nsz arcp contract afn ogt float %549, %591
   br i1 %592, label %575, label %.loopexit34
 

@@ -880,7 +880,7 @@ Ver_ParseMaxBoxSize.exit.i.i:                     ; preds = %.critedge2.i.i.i
   br i1 %.not30.i.us.us.i.i.i, label %.critedge2.split.loop.exit.i.us.us.i.i.i, label %359
 
 .critedge2.split.loop.exit.i.us.us.i.i.i:         ; preds = %355
-  %358 = trunc i64 %indvars.iv.i.us.us.i.i.i to i32
+  %358 = trunc nuw nsw i64 %indvars.iv.i.us.us.i.i.i to i32
   br label %.critedge2.i.us.us.i.i.i
 
 359:                                              ; preds = %355, %352
@@ -2737,7 +2737,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %exitcond533.not.i, label %.critedge20.thread.i, label %210, !llvm.loop !39
 
 .critedge20.loopexit.i:                           ; preds = %210
-  %216 = trunc i64 %indvars.iv529.i to i32
+  %216 = trunc nuw nsw i64 %indvars.iv529.i to i32
   br label %.critedge20.i
 
 .critedge20.i:                                    ; preds = %.critedge20.loopexit.i, %197
@@ -2762,7 +2762,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 226:                                              ; preds = %229, %224
   %indvars.iv534.i = phi i64 [ %230, %229 ], [ %225, %224 ]
-  %227 = trunc i64 %indvars.iv534.i to i32
+  %227 = trunc nuw i64 %indvars.iv534.i to i32
   %228 = icmp sgt i32 %227, 0
   br i1 %228, label %229, label %.thread401.i
 
@@ -2806,7 +2806,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %exitcond542.not.i, label %.thread401.i, label %237, !llvm.loop !41
 
 .critedge22.i:                                    ; preds = %242
-  %247 = trunc i64 %indvars.iv538.i to i32
+  %247 = trunc nuw nsw i64 %indvars.iv538.i to i32
   %248 = icmp eq i32 %.val322.i, %247
   br i1 %248, label %.thread401.i, label %270
 
@@ -2923,7 +2923,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %exitcond550.not.i, label %.critedge28.thread.i, label %297, !llvm.loop !43
 
 .critedge28.loopexit.i:                           ; preds = %297
-  %303 = trunc i64 %indvars.iv546.i to i32
+  %303 = trunc nuw nsw i64 %indvars.iv546.i to i32
   br label %.critedge28.i
 
 .critedge28.i:                                    ; preds = %.critedge28.loopexit.i, %284
@@ -2948,7 +2948,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
 
 313:                                              ; preds = %316, %311
   %indvars.iv551.i = phi i64 [ %317, %316 ], [ %312, %311 ]
-  %314 = trunc i64 %indvars.iv551.i to i32
+  %314 = trunc nuw i64 %indvars.iv551.i to i32
   %315 = icmp sgt i32 %314, 0
   br i1 %315, label %316, label %.thread406.i
 
@@ -2992,7 +2992,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %exitcond559.not.i, label %.thread406.i, label %324, !llvm.loop !45
 
 .critedge30.i:                                    ; preds = %329
-  %334 = trunc i64 %indvars.iv555.i to i32
+  %334 = trunc nuw nsw i64 %indvars.iv555.i to i32
   %335 = icmp eq i32 %.val317.i, %334
   br i1 %335, label %.thread406.i, label %340
 
@@ -3944,7 +3944,7 @@ define noundef i32 @Ver_ParseFormalNetsAreDriven(ptr nocapture noundef readonly 
   br i1 %24, label %17, label %.critedge2, !llvm.loop !13
 
 .critedge2.split.loop.exit:                       ; preds = %20
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %23, %.critedge2.split.loop.exit
@@ -4094,7 +4094,7 @@ define ptr @Ver_ParseGetNondrivenBundle(ptr nocapture noundef readonly %0, i32 n
   br i1 %.not30.i.us.us, label %.critedge2.split.loop.exit.i.us.us, label %47
 
 .critedge2.split.loop.exit.i.us.us:               ; preds = %43
-  %46 = trunc i64 %indvars.iv.i.us.us to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i.us.us to i32
   br label %.critedge2.i.us.us
 
 47:                                               ; preds = %43, %40
@@ -4264,7 +4264,7 @@ define noundef i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1, ptr noc
   br i1 %55, label %48, label %.critedge4, !llvm.loop !65
 
 .critedge4.split.loop.exit:                       ; preds = %51
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %54, %.critedge4.split.loop.exit
@@ -5049,7 +5049,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %.lr.ph251, %Ver_Ntk
 .critedge8:                                       ; preds = %.critedge6, %.critedge2, %.critedge6.preheader
   %.0153.lcssa327 = phi i32 [ %102, %.critedge6.preheader ], [ 0, %.critedge2 ], [ %102, %.critedge6 ]
   %.val183.lcssa = phi i32 [ %.val184, %.critedge6.preheader ], [ %.val184248, %.critedge2 ], [ %.val183, %.critedge6 ]
-  %120 = sitofp i32 %.0153.lcssa327 to double
+  %120 = uitofp nneg i32 %.0153.lcssa327 to double
   %121 = fmul double %120, 1.000000e+02
   %122 = sitofp i32 %.val183.lcssa to double
   %123 = fdiv double %121, %122

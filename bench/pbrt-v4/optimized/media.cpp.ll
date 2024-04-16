@@ -836,7 +836,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -1397,7 +1397,7 @@ entry:
   %and.i.i = and i64 %this.val, 144115188075855871
   %0 = inttoptr i64 %and.i.i to ptr
   %shr.i.i = lshr i64 %this.val, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -1821,7 +1821,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont94
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %max.i)
   %27 = inttoptr i64 %and.i79 to ptr
   %shr.i.i.i = lshr i64 %26, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i81 = invoke noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum8MaxValueEvEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %max.i, ptr noundef nonnull %27, i32 noundef %sub.i.i)
           to label %invoke.cont100 unwind label %lpad11
@@ -2386,9 +2386,9 @@ for.cond61.preheader.for.inc84_crit_edge:         ; preds = %for.cond61.preheade
   br label %for.inc84
 
 for.cond67.preheader.lr.ph:                       ; preds = %for.cond61.preheader
-  %conv9.i = sitofp i32 %z.0150 to float
+  %conv9.i = uitofp nneg i32 %z.0150 to float
   %add25.i = add nuw nsw i32 %z.0150, 1
-  %conv26.i = sitofp i32 %add25.i to float
+  %conv26.i = uitofp nneg i32 %add25.i to float
   %62 = load i32, ptr %res4.i, align 8
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %for.cond67.preheader, label %for.inc84
@@ -2405,21 +2405,21 @@ for.cond67.preheader.for.inc81_crit_edge:         ; preds = %for.cond67.preheade
   br label %for.inc81
 
 invoke.cont75.lr.ph:                              ; preds = %for.cond67.preheader
-  %conv4.i = sitofp i32 %y.0148 to float
+  %conv4.i = uitofp nneg i32 %y.0148 to float
   %add19.i = add nuw nsw i32 %y.0148, 1
-  %conv20.i = sitofp i32 %add19.i to float
+  %conv20.i = uitofp nneg i32 %add19.i to float
   br label %invoke.cont75
 
 invoke.cont75:                                    ; preds = %invoke.cont75.lr.ph, %invoke.cont78
   %66 = phi i32 [ %65, %invoke.cont75.lr.ph ], [ %132, %invoke.cont78 ]
   %x.0146 = phi i32 [ 0, %invoke.cont75.lr.ph ], [ %add.i, %invoke.cont78 ]
-  %conv.i69 = sitofp i32 %x.0146 to float
+  %conv.i69 = uitofp nneg i32 %x.0146 to float
   %67 = load i32, ptr %y64, align 4
   %68 = load i32, ptr %res.sroa.4.0.res4.sroa_idx.i, align 8, !noalias !10
   %conv12.i = sitofp i32 %68 to float
   %div13.i = fdiv float %conv9.i, %conv12.i
   %add.i = add nuw nsw i32 %x.0146, 1
-  %conv14.i = sitofp i32 %add.i to float
+  %conv14.i = uitofp nneg i32 %add.i to float
   %div30.i = fdiv float %conv26.i, %conv12.i
   %cmp.i3.i.i.i = fcmp olt float %div30.i, %div13.i
   %.sroa.speculated.i.i.i = select i1 %cmp.i3.i.i.i, float %div30.i, float %div13.i
@@ -3442,7 +3442,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %max.i)
   %42 = inttoptr i64 %and.i to ptr
   %shr.i.i.i = lshr i64 %37, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i129 = invoke noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8Spectrum8MaxValueEvEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 1 dereferenceable(1) %max.i, ptr noundef nonnull %42, i32 noundef %sub.i.i)
           to label %invoke.cont96 unwind label %lpad69
@@ -4882,9 +4882,9 @@ for.cond56.preheader.for.inc99_crit_edge:         ; preds = %for.cond56.preheade
   br label %for.inc99
 
 for.cond62.preheader.lr.ph:                       ; preds = %for.cond56.preheader
-  %conv9.i = sitofp i32 %z.0159 to float
+  %conv9.i = uitofp nneg i32 %z.0159 to float
   %add25.i = add nuw nsw i32 %z.0159, 1
-  %conv26.i = sitofp i32 %add25.i to float
+  %conv26.i = uitofp nneg i32 %add25.i to float
   %73 = load i32, ptr %res4.i, align 8
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %for.cond62.preheader, label %for.inc99
@@ -4901,22 +4901,22 @@ for.cond62.preheader.for.inc96_crit_edge:         ; preds = %for.cond62.preheade
   br label %for.inc96
 
 invoke.cont70.lr.ph:                              ; preds = %for.cond62.preheader
-  %conv4.i = sitofp i32 %y.0157 to float
+  %conv4.i = uitofp nneg i32 %y.0157 to float
   %add19.i = add nuw nsw i32 %y.0157, 1
-  %conv20.i = sitofp i32 %add19.i to float
+  %conv20.i = uitofp nneg i32 %add19.i to float
   br label %invoke.cont70
 
 invoke.cont70:                                    ; preds = %invoke.cont70.lr.ph, %cond.end91
   %77 = phi i32 [ %76, %invoke.cont70.lr.ph ], [ %96, %cond.end91 ]
   %x.0155 = phi i32 [ 0, %invoke.cont70.lr.ph ], [ %add.i, %cond.end91 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %conv.i95 = sitofp i32 %x.0155 to float
+  %conv.i95 = uitofp nneg i32 %x.0155 to float
   %78 = load i32, ptr %y59, align 4
   %79 = load i32, ptr %res.sroa.4.0.res4.sroa_idx.i, align 8, !noalias !22
   %conv12.i = sitofp i32 %79 to float
   %div13.i = fdiv float %conv9.i, %conv12.i
   %add.i = add nuw nsw i32 %x.0155, 1
-  %conv14.i = sitofp i32 %add.i to float
+  %conv14.i = uitofp nneg i32 %add.i to float
   %div30.i = fdiv float %conv26.i, %conv12.i
   %80 = insertelement <2 x i32> poison, i32 %77, i64 0
   %81 = insertelement <2 x i32> %80, i32 %78, i64 1
@@ -11797,7 +11797,7 @@ for.body.preheader:                               ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont8
   %indvars.iv = phi i64 [ %10, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont8 ]
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   %conv7 = sitofp i32 %12 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
@@ -11807,7 +11807,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %and.i.i.i = and i64 %13, 144115188075855871
   %14 = inttoptr i64 %and.i.i.i to ptr
   %shr.i.i.i = lshr i64 %13, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   %sub.i.i = add nsw i32 %conv.i.i.i, -1
   %call3.i.i11 = invoke noundef float @_ZN4pbrt6detail8DispatchIRZNKS_8SpectrumclEfEUlT_E_fNS_16ConstantSpectrumENS_22DenselySampledSpectrumENS_23PiecewiseLinearSpectrumENS_17RGBAlbedoSpectrumENS_20RGBUnboundedSpectrumENS_21RGBIlluminantSpectrumENS_17BlackbodySpectrumEEET0_OS3_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %op.i, ptr noundef %14, i32 noundef %sub.i.i)
           to label %invoke.cont8 unwind label %lpad.loopexit
@@ -23212,7 +23212,7 @@ entry:
   %agg.tmp3.sroa.2.0.copyload = load i32, ptr %agg.tmp3.sroa.2.0..sroa_idx, align 4
   %p.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp3.sroa.0.0.copyload to i32
   %p.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp3.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i = trunc i64 %p.sroa.3.0.extract.shift.i to i32
+  %p.sroa.3.0.extract.trunc.i = trunc nuw i64 %p.sroa.3.0.extract.shift.i to i32
   %cmp.not.i = icmp sle i32 %.sroa.speculated10.i.i, %p.sroa.0.0.extract.trunc.i
   %cmp4.i = icmp sgt i32 %.sroa.speculated10.i11.i, %p.sroa.0.0.extract.trunc.i
   %or.cond.not12.not14.not17.i.not63 = and i1 %cmp.not.i, %cmp4.i

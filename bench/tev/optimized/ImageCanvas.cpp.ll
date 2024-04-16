@@ -2285,9 +2285,10 @@ define dso_local void @_ZN3tev11ImageCanvas9transformEPKNS_5ImageE(ptr dead_on_u
   %14 = alloca %"struct.nanogui::Array.40", align 4
   %15 = alloca %"struct.nanogui::Matrix", align 4
   %16 = alloca %"struct.nanogui::Matrix", align 4
-  %17 = alloca %"struct.nanogui::Array.40", align 8
+  %17 = alloca %"struct.nanogui::Array.40", align 4
   %18 = alloca %"struct.nanogui::Matrix", align 4
   %.not = icmp eq ptr %2, null
+  %.05.i.sroa.gep88 = getelementptr inbounds i8, ptr %17, i64 4
   %.04.i27.sroa.gep95 = getelementptr inbounds i8, ptr %14, i64 4
   br i1 %.not, label %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge, label %25
 
@@ -2335,7 +2336,7 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit: ; preds = %19
 
 32:                                               ; preds = %30
   invoke void @__cxa_throw(ptr nonnull %29, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #36
-          to label %162 unwind label %34
+          to label %161 unwind label %34
 
 .thread:                                          ; preds = %28
   %33 = landingpad { ptr, i32 }
@@ -2346,12 +2347,12 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit: ; preds = %19
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #33
-  br label %161
+  br label %160
 
 36:                                               ; preds = %.thread104, %.thread
   %.pn103 = phi { ptr, i32 } [ %33, %.thread ], [ %31, %.thread104 ]
   call void @__cxa_free_exception(ptr %29) #33
-  br label %161
+  br label %160
 
 37:                                               ; preds = %25
   %38 = getelementptr inbounds i8, ptr %1, i64 48
@@ -2547,122 +2548,122 @@ _ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit: ; preds = %105
 
 _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit53:     ; preds = %120
   %122 = tail call i32 @llvm.smax.i32(i32 %109, i32 0)
-  %123 = insertelement <2 x i32> poison, i32 %101, i64 0
-  %124 = insertelement <2 x i32> %123, i32 %122, i64 1
-  %125 = sitofp <2 x i32> %124 to <2 x float>
-  store <2 x float> %125, ptr %17, align 8
+  %123 = uitofp nneg i32 %101 to float
+  store float %123, ptr %17, align 4
+  %124 = uitofp nneg i32 %122 to float
+  store float %124, ptr %.05.i.sroa.gep88, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, i8 0, i64 32, i1 false), !alias.scope !63
-  br label %126
+  br label %125
 
-126:                                              ; preds = %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit53, %126
-  %.06.i58114 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit53 ], [ %130, %126 ]
-  %127 = getelementptr inbounds [2 x float], ptr %17, i64 0, i64 %.06.i58114
-  %128 = load float, ptr %127, align 4, !noalias !63
-  %129 = getelementptr inbounds [3 x [3 x float]], ptr %16, i64 0, i64 %.06.i58114, i64 %.06.i58114
-  store float %128, ptr %129, align 4, !alias.scope !63
-  %130 = add nuw nsw i64 %.06.i58114, 1
-  %.not.i59 = icmp eq i64 %130, 2
-  br i1 %.not.i59, label %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60, label %126
+125:                                              ; preds = %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit53, %125
+  %.06.i58114 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit53 ], [ %129, %125 ]
+  %126 = getelementptr inbounds [2 x float], ptr %17, i64 0, i64 %.06.i58114
+  %127 = load float, ptr %126, align 4, !noalias !63
+  %128 = getelementptr inbounds [3 x [3 x float]], ptr %16, i64 0, i64 %.06.i58114, i64 %.06.i58114
+  store float %127, ptr %128, align 4, !alias.scope !63
+  %129 = add nuw nsw i64 %.06.i58114, 1
+  %.not.i59 = icmp eq i64 %129, 2
+  br i1 %.not.i59, label %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60, label %125
 
-_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60: ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %16, i64 32
-  store float 1.000000e+00, ptr %131, align 4, !alias.scope !63
+_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60: ; preds = %125
+  %130 = getelementptr inbounds i8, ptr %16, i64 32
+  store float 1.000000e+00, ptr %130, align 4, !alias.scope !63
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   br label %.preheader18.i61
 
-.preheader18.i61:                                 ; preds = %142, %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60
-  %.01722.i62 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60 ], [ %143, %142 ]
+.preheader18.i61:                                 ; preds = %141, %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60
+  %.01722.i62 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit60 ], [ %142, %141 ]
   br label %.preheader.i63
 
-.preheader.i63:                                   ; preds = %139, %.preheader18.i61
-  %.01621.i64 = phi i64 [ 0, %.preheader18.i61 ], [ %141, %139 ]
-  br label %132
+.preheader.i63:                                   ; preds = %138, %.preheader18.i61
+  %.01621.i64 = phi i64 [ 0, %.preheader18.i61 ], [ %140, %138 ]
+  br label %131
 
-132:                                              ; preds = %132, %.preheader.i63
-  %.020.i65 = phi i64 [ 0, %.preheader.i63 ], [ %138, %132 ]
-  %.01519.i66 = phi float [ 0.000000e+00, %.preheader.i63 ], [ %137, %132 ]
-  %133 = getelementptr inbounds [3 x [3 x float]], ptr %8, i64 0, i64 %.020.i65, i64 %.01722.i62
-  %134 = load float, ptr %133, align 4, !noalias !66
-  %135 = getelementptr inbounds [3 x [3 x float]], ptr %16, i64 0, i64 %.01621.i64, i64 %.020.i65
-  %136 = load float, ptr %135, align 4, !noalias !66
-  %137 = tail call float @llvm.fmuladd.f32(float %134, float %136, float %.01519.i66)
-  %138 = add nuw nsw i64 %.020.i65, 1
-  %exitcond.not.i67 = icmp eq i64 %138, 3
-  br i1 %exitcond.not.i67, label %139, label %132, !llvm.loop !20
+131:                                              ; preds = %131, %.preheader.i63
+  %.020.i65 = phi i64 [ 0, %.preheader.i63 ], [ %137, %131 ]
+  %.01519.i66 = phi float [ 0.000000e+00, %.preheader.i63 ], [ %136, %131 ]
+  %132 = getelementptr inbounds [3 x [3 x float]], ptr %8, i64 0, i64 %.020.i65, i64 %.01722.i62
+  %133 = load float, ptr %132, align 4, !noalias !66
+  %134 = getelementptr inbounds [3 x [3 x float]], ptr %16, i64 0, i64 %.01621.i64, i64 %.020.i65
+  %135 = load float, ptr %134, align 4, !noalias !66
+  %136 = tail call float @llvm.fmuladd.f32(float %133, float %135, float %.01519.i66)
+  %137 = add nuw nsw i64 %.020.i65, 1
+  %exitcond.not.i67 = icmp eq i64 %137, 3
+  br i1 %exitcond.not.i67, label %138, label %131, !llvm.loop !20
 
-139:                                              ; preds = %132
-  %140 = getelementptr inbounds [3 x [3 x float]], ptr %7, i64 0, i64 %.01621.i64, i64 %.01722.i62
-  store float %137, ptr %140, align 4, !alias.scope !66
-  %141 = add nuw nsw i64 %.01621.i64, 1
-  %exitcond23.not.i68 = icmp eq i64 %141, 3
-  br i1 %exitcond23.not.i68, label %142, label %.preheader.i63, !llvm.loop !21
+138:                                              ; preds = %131
+  %139 = getelementptr inbounds [3 x [3 x float]], ptr %7, i64 0, i64 %.01621.i64, i64 %.01722.i62
+  store float %136, ptr %139, align 4, !alias.scope !66
+  %140 = add nuw nsw i64 %.01621.i64, 1
+  %exitcond23.not.i68 = icmp eq i64 %140, 3
+  br i1 %exitcond23.not.i68, label %141, label %.preheader.i63, !llvm.loop !21
 
-142:                                              ; preds = %139
-  %143 = add nuw nsw i64 %.01722.i62, 1
-  %exitcond24.not.i69 = icmp eq i64 %143, 3
+141:                                              ; preds = %138
+  %142 = add nuw nsw i64 %.01722.i62, 1
+  %exitcond24.not.i69 = icmp eq i64 %142, 3
   br i1 %exitcond24.not.i69, label %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70, label %.preheader18.i61, !llvm.loop !22
 
-_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70:     ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %18, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %144, i8 0, i64 32, i1 false), !alias.scope !69
-  %145 = getelementptr inbounds i8, ptr %18, i64 24
+_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70:     ; preds = %141
+  %143 = getelementptr inbounds i8, ptr %18, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %143, i8 0, i64 32, i1 false), !alias.scope !69
+  %144 = getelementptr inbounds i8, ptr %18, i64 24
   store float 1.000000e+00, ptr %18, align 4, !alias.scope !69
-  store <2 x float> <float -5.000000e-01, float -5.000000e-01>, ptr %145, align 4
-  br label %146
+  store <2 x float> <float -5.000000e-01, float -5.000000e-01>, ptr %144, align 4
+  br label %145
 
-146:                                              ; preds = %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70, %146
-  %.07.i73115 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70 ], [ %147, %146 ]
-  %147 = add nuw nsw i64 %.07.i73115, 1
-  %148 = getelementptr inbounds [3 x [3 x float]], ptr %18, i64 0, i64 %147, i64 %147
-  store float 1.000000e+00, ptr %148, align 4, !alias.scope !69
-  %.not.i74 = icmp eq i64 %147, 2
-  br i1 %.not.i74, label %_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75, label %146
+145:                                              ; preds = %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70, %145
+  %.07.i73115 = phi i64 [ 0, %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit70 ], [ %146, %145 ]
+  %146 = add nuw nsw i64 %.07.i73115, 1
+  %147 = getelementptr inbounds [3 x [3 x float]], ptr %18, i64 0, i64 %146, i64 %146
+  store float 1.000000e+00, ptr %147, align 4, !alias.scope !69
+  %.not.i74 = icmp eq i64 %146, 2
+  br i1 %.not.i74, label %_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75, label %145
 
-_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75: ; preds = %146
+_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75: ; preds = %145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   br label %.preheader18.i76
 
-.preheader18.i76:                                 ; preds = %159, %_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75
-  %.01722.i77 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75 ], [ %160, %159 ]
+.preheader18.i76:                                 ; preds = %158, %_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75
+  %.01722.i77 = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm3EE9translateERKNS_5ArrayIfLm2EEE.exit75 ], [ %159, %158 ]
   br label %.preheader.i78
 
-.preheader.i78:                                   ; preds = %156, %.preheader18.i76
-  %.01621.i79 = phi i64 [ 0, %.preheader18.i76 ], [ %158, %156 ]
-  br label %149
+.preheader.i78:                                   ; preds = %155, %.preheader18.i76
+  %.01621.i79 = phi i64 [ 0, %.preheader18.i76 ], [ %157, %155 ]
+  br label %148
 
-149:                                              ; preds = %149, %.preheader.i78
-  %.020.i80 = phi i64 [ 0, %.preheader.i78 ], [ %155, %149 ]
-  %.01519.i81 = phi float [ 0.000000e+00, %.preheader.i78 ], [ %154, %149 ]
-  %150 = getelementptr inbounds [3 x [3 x float]], ptr %7, i64 0, i64 %.020.i80, i64 %.01722.i77
-  %151 = load float, ptr %150, align 4, !noalias !72
-  %152 = getelementptr inbounds [3 x [3 x float]], ptr %18, i64 0, i64 %.01621.i79, i64 %.020.i80
-  %153 = load float, ptr %152, align 4, !noalias !72
-  %154 = tail call float @llvm.fmuladd.f32(float %151, float %153, float %.01519.i81)
-  %155 = add nuw nsw i64 %.020.i80, 1
-  %exitcond.not.i82 = icmp eq i64 %155, 3
-  br i1 %exitcond.not.i82, label %156, label %149, !llvm.loop !20
+148:                                              ; preds = %148, %.preheader.i78
+  %.020.i80 = phi i64 [ 0, %.preheader.i78 ], [ %154, %148 ]
+  %.01519.i81 = phi float [ 0.000000e+00, %.preheader.i78 ], [ %153, %148 ]
+  %149 = getelementptr inbounds [3 x [3 x float]], ptr %7, i64 0, i64 %.020.i80, i64 %.01722.i77
+  %150 = load float, ptr %149, align 4, !noalias !72
+  %151 = getelementptr inbounds [3 x [3 x float]], ptr %18, i64 0, i64 %.01621.i79, i64 %.020.i80
+  %152 = load float, ptr %151, align 4, !noalias !72
+  %153 = tail call float @llvm.fmuladd.f32(float %150, float %152, float %.01519.i81)
+  %154 = add nuw nsw i64 %.020.i80, 1
+  %exitcond.not.i82 = icmp eq i64 %154, 3
+  br i1 %exitcond.not.i82, label %155, label %148, !llvm.loop !20
 
-156:                                              ; preds = %149
-  %157 = getelementptr inbounds [3 x [3 x float]], ptr %0, i64 0, i64 %.01621.i79, i64 %.01722.i77
-  store float %154, ptr %157, align 4, !alias.scope !72
-  %158 = add nuw nsw i64 %.01621.i79, 1
-  %exitcond23.not.i83 = icmp eq i64 %158, 3
-  br i1 %exitcond23.not.i83, label %159, label %.preheader.i78, !llvm.loop !21
+155:                                              ; preds = %148
+  %156 = getelementptr inbounds [3 x [3 x float]], ptr %0, i64 0, i64 %.01621.i79, i64 %.01722.i77
+  store float %153, ptr %156, align 4, !alias.scope !72
+  %157 = add nuw nsw i64 %.01621.i79, 1
+  %exitcond23.not.i83 = icmp eq i64 %157, 3
+  br i1 %exitcond23.not.i83, label %158, label %.preheader.i78, !llvm.loop !21
 
-159:                                              ; preds = %156
-  %160 = add nuw nsw i64 %.01722.i77, 1
-  %exitcond24.not.i84 = icmp eq i64 %160, 3
+158:                                              ; preds = %155
+  %159 = add nuw nsw i64 %.01722.i77, 1
+  %exitcond24.not.i84 = icmp eq i64 %159, 3
   br i1 %exitcond24.not.i84, label %_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit85, label %.preheader18.i76, !llvm.loop !22
 
-_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit85:     ; preds = %159, %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit
+_ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit85:     ; preds = %158, %_ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit
   ret void
 
-161:                                              ; preds = %34, %36
+160:                                              ; preds = %34, %36
   %.pn102 = phi { ptr, i32 } [ %35, %34 ], [ %.pn103, %36 ]
   resume { ptr, i32 } %.pn102
 
-162:                                              ; preds = %32
+161:                                              ; preds = %32
   unreachable
 }
 
@@ -4071,7 +4072,7 @@ _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit42:     ; preds = %72
   %79 = load <2 x i32>, ptr %74, align 4
   %80 = sub nsw <2 x i32> %78, %79
   %81 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %80, <2 x i32> zeroinitializer)
-  %82 = sitofp <2 x i32> %81 to <2 x float>
+  %82 = uitofp nneg <2 x i32> %81 to <2 x float>
   %83 = fmul <2 x float> %82, <float -5.000000e-01, float -5.000000e-01>
   %84 = sitofp <2 x i32> %79 to <2 x float>
   %85 = sitofp <2 x i32> %78 to <2 x float>
@@ -7418,7 +7419,7 @@ common.resume:                                    ; preds = %129, %66
   %74 = sub i64 %72, %73
   %75 = ashr exact i64 %74, 2
   %76 = lshr i64 %75, 2
-  %77 = uitofp i64 %76 to float
+  %77 = uitofp nneg i64 %76 to float
   %78 = fmul float %58, %77
   %79 = fptosi float %78 to i32
   %80 = trunc i64 %75 to i32
@@ -7843,7 +7844,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %10 = load <2 x i32>, ptr %4, align 4
   %11 = sub nsw <2 x i32> %9, %10
   %12 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %11, <2 x i32> zeroinitializer)
-  %13 = sitofp <2 x i32> %12 to <2 x float>
+  %13 = uitofp nneg <2 x i32> %12 to <2 x float>
   %14 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> zeroinitializer
   %15 = fdiv <2 x float> %13, %14
   %16 = load <2 x i32>, ptr %8, align 8
@@ -15645,7 +15646,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %indvars.iv279 = phi i64 [ 0, %.preheader237 ], [ %indvars.iv.next280, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit154" ]
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %570 = trunc nuw nsw i64 %indvars.iv.next280 to i32
-  %571 = sitofp i32 %570 to float
+  %571 = uitofp nneg i32 %570 to float
   %.val = load ptr, ptr %346, align 8
   %.val110 = load ptr, ptr %347, align 8
   %.val.val = load float, ptr %.val, align 4
@@ -15673,7 +15674,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
 "_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit": ; preds = %581, %577
   %586 = phi float [ %580, %577 ], [ %585, %581 ]
   %587 = trunc nuw nsw i64 %indvars.iv279 to i32
-  %588 = sitofp i32 %587 to float
+  %588 = uitofp nneg i32 %587 to float
   %.val111 = load ptr, ptr %346, align 8
   %.val112 = load ptr, ptr %347, align 8
   %.val111.val = load float, ptr %.val111, align 4
@@ -20256,7 +20257,7 @@ _ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i: ; preds = %190, %_ZNSt3_
   %235 = trunc i64 %234 to i32
   %236 = sub i32 %227, %235
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %236, i32 0)
-  %237 = sitofp i32 %.sroa.speculated to double
+  %237 = uitofp nneg i32 %.sroa.speculated to double
   %238 = fmul double %44, %237
   %239 = call double @llvm.round.f64(double %238)
   %240 = fptosi double %239 to i32
@@ -70651,7 +70652,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
   %indvars.iv270 = phi i64 [ 0, %.preheader212 ], [ %indvars.iv.next271, %"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit148" ]
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %575 = trunc nuw nsw i64 %indvars.iv.next271 to i32
-  %576 = sitofp i32 %575 to float
+  %576 = uitofp nneg i32 %575 to float
   %.val109 = load ptr, ptr %545, align 8
   %.val110 = load ptr, ptr %546, align 8
   %.val109.val = load float, ptr %.val109, align 4
@@ -70679,7 +70680,7 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPfS5_EEvT_T0_m.exit.i.i
 "_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiENK3$_5clEf.exit": ; preds = %586, %582
   %591 = phi float [ %585, %582 ], [ %590, %586 ]
   %592 = trunc nuw nsw i64 %indvars.iv270 to i32
-  %593 = sitofp i32 %592 to float
+  %593 = uitofp nneg i32 %592 to float
   %.val = load ptr, ptr %545, align 8
   %.val108 = load ptr, ptr %546, align 8
   %.val.val = load float, ptr %.val, align 4

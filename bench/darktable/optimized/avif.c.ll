@@ -322,7 +322,7 @@ define noundef i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %
   call void @avifRGBImageAllocatePixels(ptr noundef nonnull %13) #17
   %117 = shl nsw i32 -1, %23
   %118 = xor i32 %117, -1
-  %119 = sitofp i32 %118 to float
+  %119 = uitofp nneg i32 %118 to float
   %120 = getelementptr inbounds i8, ptr %13, i64 40
   %121 = load i32, ptr %120, align 8, !tbaa !47
   %122 = zext i32 %121 to i64

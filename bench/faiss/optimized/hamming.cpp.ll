@@ -198,7 +198,7 @@ define void @_ZN5faiss8hammingsEPKmS1_mmmPi(ptr noalias nocapture noundef readon
   %14 = load i64, ptr %13, align 8
   %15 = xor i64 %14, %12
   %16 = tail call i64 @llvm.ctpop.i64(i64 %15), !range !5
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = add nuw nsw i32 %.089.i.us, %17
   %19 = add nuw i64 %.010.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %19, %4
@@ -237,7 +237,7 @@ define void @_ZN5faiss11fvec2bitvecEPKfPhm(ptr noalias nocapture noundef readonl
   %.01828 = phi ptr [ %1, %.lr.ph30 ], [ %14, %._crit_edge ]
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 8
   %.not = icmp ugt i64 %indvars.iv.next34, %2
-  %6 = trunc i64 %indvars.iv33 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv33 to i32
   %7 = sub i32 %4, %6
   %8 = select i1 %.not, i32 %7, i32 8
   %9 = icmp sgt i32 %8, 0
@@ -374,7 +374,7 @@ _ZN5faiss11fvec2bitvecEPKfPhm.exit.us:            ; preds = %.lr.ph, %_ZN5faiss1
   %.01828.i = phi ptr [ %31, %.lr.ph30.i ], [ %42, %._crit_edge.i ]
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 8
   %.not.i = icmp ugt i64 %indvars.iv.next34.i, %23
-  %34 = trunc i64 %indvars.iv33.i to i32
+  %34 = trunc nuw nsw i64 %indvars.iv33.i to i32
   %35 = sub i32 %32, %34
   %36 = select i1 %.not.i, i32 %35, i32 8
   %37 = icmp sgt i32 %36, 0
@@ -802,7 +802,7 @@ define internal void @_ZN5faiss14bitvec_shuffleEmmmPKiPKhPh.omp_outlined(ptr noa
   %44 = lshr i64 %.02930, 3
   %45 = getelementptr inbounds i8, ptr %28, i64 %44
   %46 = load i8, ptr %45, align 1
-  %47 = trunc i32 %43 to i8
+  %47 = trunc nuw i32 %43 to i8
   %48 = or i8 %46, %47
   store i8 %48, ptr %45, align 1
   %49 = add nuw i64 %.02930, 1
@@ -910,7 +910,7 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
   %36 = load i64, ptr %35, align 8, !alias.scope !29, !noalias !34
   %37 = xor i64 %36, %33
   %38 = tail call i64 @llvm.ctpop.i64(i64 %37), !range !5
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = getelementptr inbounds i32, ptr %32, i64 %.01516.us.i
   store i32 %39, ptr %40, align 4, !alias.scope !31, !noalias !35
   %41 = add nuw i64 %.01516.us.i, 1
@@ -947,7 +947,7 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
   %52 = load <2 x i64>, ptr %51, align 8, !alias.scope !41, !noalias !46
   %53 = xor <2 x i64> %52, %48
   %54 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %53), !range !5
-  %55 = trunc <2 x i64> %54 to <2 x i32>
+  %55 = trunc nuw nsw <2 x i64> %54 to <2 x i32>
   %shift = shufflevector <2 x i32> %55, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %56 = add nuw nsw <2 x i32> %shift, %55
   %57 = extractelement <2 x i32> %56, i64 0
@@ -1032,7 +1032,7 @@ define void @_ZN5faiss8hammingsEPKhS1_mmmPi(ptr noalias nocapture noundef readon
   %90 = load i64, ptr %89, align 8, !alias.scope !65, !noalias !70
   %91 = xor i64 %90, %88
   %92 = tail call i64 @llvm.ctpop.i64(i64 %91), !range !5
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw nsw i64 %92 to i32
   %94 = add nuw nsw i32 %.09.i.us.i, %93
   %95 = add nuw nsw i64 %.078.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %95, 8
@@ -1086,7 +1086,7 @@ _ZN5faiss7hammingILm512EEEiPKmS2_.exit.us.i:      ; preds = %86
   %108 = load i64, ptr %107, align 8, !alias.scope !78, !noalias !83
   %109 = xor i64 %108, %106
   %110 = tail call i64 @llvm.ctpop.i64(i64 %109), !range !5
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw nsw i64 %110 to i32
   %112 = add nuw nsw i32 %.089.i.us.i, %111
   %113 = add nuw i64 %.010.i.us.i, 1
   %exitcond.not.i.us.i62 = icmp eq i64 %113, %100
@@ -1673,7 +1673,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %68 = load i64, ptr %9, align 8
   %69 = sub i64 %68, %35
   %70 = trunc i64 %69 to i32
-  %71 = trunc i64 %41 to i32
+  %71 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %70, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef %37, i32 noundef %71, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -1706,7 +1706,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %87 = load i64, ptr %9, align 8
   %88 = sub i64 %87, %35
   %89 = trunc i64 %88 to i32
-  %90 = trunc i64 %41 to i32
+  %90 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %89, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef %37, i32 noundef %90, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -1739,7 +1739,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %106 = load i64, ptr %9, align 8
   %107 = sub i64 %106, %35
   %108 = trunc i64 %107 to i32
-  %109 = trunc i64 %41 to i32
+  %109 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %108, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef %37, i32 noundef %109, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -1772,7 +1772,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %125 = load i64, ptr %9, align 8
   %126 = sub i64 %125, %35
   %127 = trunc i64 %126 to i32
-  %128 = trunc i64 %41 to i32
+  %128 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer4EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %127, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef %37, i32 noundef %128, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer4EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -1997,7 +1997,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %34
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %38, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %38
-  %.pre = trunc i64 %indvars.iv184 to i32
+  %.pre = trunc nuw i64 %indvars.iv184 to i32
   %.pre188 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -2283,7 +2283,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %198
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %198 ], [ %32, %.preheader145 ]
-  %150 = trunc i64 %indvars.iv182 to i32
+  %150 = trunc nuw i64 %indvars.iv182 to i32
   %151 = add i32 %.pre188, %150
   %152 = zext i32 %151 to i64
   %153 = shl nuw nsw i64 %152, 2
@@ -2474,7 +2474,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %37, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %37
-  %.pre = trunc i64 %indvars.iv180 to i32
+  %.pre = trunc nuw i64 %indvars.iv180 to i32
   %.pre184 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -2754,7 +2754,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %195
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %195 ], [ %32, %.preheader145 ]
-  %147 = trunc i64 %indvars.iv178 to i32
+  %147 = trunc nuw i64 %indvars.iv178 to i32
   %148 = add i32 %.pre184, %147
   %149 = zext i32 %148 to i64
   %150 = shl nuw nsw i64 %149, 2
@@ -2944,7 +2944,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %36
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %42, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %42
-  %.pre = trunc i64 %indvars.iv212 to i32
+  %.pre = trunc nuw i64 %indvars.iv212 to i32
   %.pre216 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -3125,7 +3125,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 .preheader145:                                    ; preds = %.preheader145.preheader, %116
   %103 = phi i1 [ false, %116 ], [ true, %.preheader145.preheader ]
   %indvars.iv193 = phi i64 [ 1, %116 ], [ 0, %.preheader145.preheader ]
-  %indvars.iv193.tr = trunc i64 %indvars.iv193 to i32
+  %indvars.iv193.tr = trunc nuw nsw i64 %indvars.iv193 to i32
   %104 = shl nuw nsw i32 %indvars.iv193.tr, 3
   %105 = add i32 %104, %.pre216
   br label %106
@@ -3286,7 +3286,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %220
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %220 ], [ %32, %.preheader143 ]
-  %172 = trunc i64 %indvars.iv210 to i32
+  %172 = trunc nuw i64 %indvars.iv210 to i32
   %173 = add i32 %.pre216, %172
   %174 = zext i32 %173 to i64
   %175 = shl nuw nsw i64 %174, 2
@@ -3477,7 +3477,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %41, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %41
-  %.pre = trunc i64 %indvars.iv217 to i32
+  %.pre = trunc nuw i64 %indvars.iv217 to i32
   %.pre221 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -3823,7 +3823,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %215
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %215 ], [ %32, %.preheader143 ]
-  %167 = trunc i64 %indvars.iv215 to i32
+  %167 = trunc nuw i64 %indvars.iv215 to i32
   %168 = add i32 %.pre221, %167
   %169 = zext i32 %168 to i64
   %170 = shl nuw nsw i64 %169, 2
@@ -4033,7 +4033,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %68 = load i64, ptr %9, align 8
   %69 = sub i64 %68, %35
   %70 = trunc i64 %69 to i32
-  %71 = trunc i64 %41 to i32
+  %71 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %70, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %37, i32 noundef %71, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -4066,7 +4066,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %87 = load i64, ptr %9, align 8
   %88 = sub i64 %87, %35
   %89 = trunc i64 %88 to i32
-  %90 = trunc i64 %41 to i32
+  %90 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %89, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %37, i32 noundef %90, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -4099,7 +4099,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %106 = load i64, ptr %9, align 8
   %107 = sub i64 %106, %35
   %108 = trunc i64 %107 to i32
-  %109 = trunc i64 %41 to i32
+  %109 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %108, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %37, i32 noundef %109, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -4132,7 +4132,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %125 = load i64, ptr %9, align 8
   %126 = sub i64 %125, %35
   %127 = trunc i64 %126 to i32
-  %128 = trunc i64 %41 to i32
+  %128 = trunc nuw nsw i64 %41 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_16HammingComputer8EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %127, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %37, i32 noundef %128, ptr noundef %43, ptr noundef %46)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_16HammingComputer8EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -4145,7 +4145,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_16HammingCompu
   %133 = load i64, ptr %15, align 8
   %134 = xor i64 %133, %132
   %135 = call i64 @llvm.ctpop.i64(i64 %134), !range !5
-  %136 = trunc i64 %135 to i32
+  %136 = trunc nuw nsw i64 %135 to i32
   %137 = load i32, ptr %43, align 4
   %138 = icmp sgt i32 %137, %136
   br i1 %138, label %139, label %179
@@ -4356,7 +4356,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %34
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %38, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %38
-  %.pre = trunc i64 %indvars.iv184 to i32
+  %.pre = trunc nuw i64 %indvars.iv184 to i32
   %.pre188 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -4377,7 +4377,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %38
   %46 = load i64, ptr %45, align 8
   %47 = xor i64 %27, %46
   %48 = tail call i64 @llvm.ctpop.i64(i64 %47), !range !5
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = getelementptr inbounds [8 x i32], ptr %17, i64 0, i64 %.095150
   store i32 %49, ptr %50, align 4
   %51 = add nuw nsw i64 %.095150, 1
@@ -4643,7 +4643,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %200
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %200 ], [ %32, %.preheader145 ]
-  %151 = trunc i64 %indvars.iv182 to i32
+  %151 = trunc nuw i64 %indvars.iv182 to i32
   %152 = add i32 %.pre188, %151
   %153 = zext i32 %152 to i64
   %154 = shl nuw nsw i64 %153, 3
@@ -4651,7 +4651,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %156 = load i64, ptr %155, align 8
   %157 = xor i64 %27, %156
   %158 = tail call i64 @llvm.ctpop.i64(i64 %157), !range !5
-  %159 = trunc i64 %158 to i32
+  %159 = trunc nuw nsw i64 %158 to i32
   %160 = load i32, ptr %5, align 4
   %161 = icmp sgt i32 %160, %159
   br i1 %161, label %162, label %200
@@ -4832,7 +4832,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %37, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %37
-  %.pre = trunc i64 %indvars.iv180 to i32
+  %.pre = trunc nuw i64 %indvars.iv180 to i32
   %.pre184 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -4853,7 +4853,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %37
   %45 = load i64, ptr %44, align 8
   %46 = xor i64 %27, %45
   %47 = tail call i64 @llvm.ctpop.i64(i64 %46), !range !5
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = getelementptr inbounds [8 x i32], ptr %17, i64 0, i64 %.095150
   store i32 %48, ptr %49, align 4
   %50 = add nuw nsw i64 %.095150, 1
@@ -5113,7 +5113,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %197
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %197 ], [ %32, %.preheader145 ]
-  %148 = trunc i64 %indvars.iv178 to i32
+  %148 = trunc nuw i64 %indvars.iv178 to i32
   %149 = add i32 %.pre184, %148
   %150 = zext i32 %149 to i64
   %151 = shl nuw nsw i64 %150, 3
@@ -5121,7 +5121,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %153 = load i64, ptr %152, align 8
   %154 = xor i64 %27, %153
   %155 = tail call i64 @llvm.ctpop.i64(i64 %154), !range !5
-  %156 = trunc i64 %155 to i32
+  %156 = trunc nuw nsw i64 %155 to i32
   %157 = load i32, ptr %5, align 4
   %158 = icmp sgt i32 %157, %156
   br i1 %158, label %159, label %197
@@ -5304,7 +5304,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %36
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %42, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %42
-  %.pre = trunc i64 %indvars.iv212 to i32
+  %.pre = trunc nuw i64 %indvars.iv212 to i32
   %.pre216 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -5335,7 +5335,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %42
   %53 = load i64, ptr %52, align 8
   %54 = xor i64 %27, %53
   %55 = tail call i64 @llvm.ctpop.i64(i64 %54), !range !5
-  %56 = trunc i64 %55 to i32
+  %56 = trunc nuw nsw i64 %55 to i32
   %57 = getelementptr inbounds [8 x i32], ptr %17, i64 0, i64 %.095151
   store i32 %56, ptr %57, align 4
   %58 = add nuw nsw i64 %.095151, 1
@@ -5486,7 +5486,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 .preheader145:                                    ; preds = %.preheader145.preheader, %117
   %104 = phi i1 [ false, %117 ], [ true, %.preheader145.preheader ]
   %indvars.iv193 = phi i64 [ 1, %117 ], [ 0, %.preheader145.preheader ]
-  %indvars.iv193.tr = trunc i64 %indvars.iv193 to i32
+  %indvars.iv193.tr = trunc nuw nsw i64 %indvars.iv193 to i32
   %105 = shl nuw nsw i32 %indvars.iv193.tr, 3
   %106 = add i32 %105, %.pre216
   br label %107
@@ -5647,7 +5647,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %222
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %222 ], [ %32, %.preheader143 ]
-  %173 = trunc i64 %indvars.iv210 to i32
+  %173 = trunc nuw i64 %indvars.iv210 to i32
   %174 = add i32 %.pre216, %173
   %175 = zext i32 %174 to i64
   %176 = shl nuw nsw i64 %175, 3
@@ -5655,7 +5655,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %178 = load i64, ptr %177, align 8
   %179 = xor i64 %27, %178
   %180 = tail call i64 @llvm.ctpop.i64(i64 %179), !range !5
-  %181 = trunc i64 %180 to i32
+  %181 = trunc nuw nsw i64 %180 to i32
   %182 = load i32, ptr %5, align 4
   %183 = icmp sgt i32 %182, %181
   br i1 %183, label %184, label %222
@@ -5839,7 +5839,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %41, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %41
-  %.pre = trunc i64 %indvars.iv217 to i32
+  %.pre = trunc nuw i64 %indvars.iv217 to i32
   %.pre221 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -5869,7 +5869,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %41
   %51 = load i64, ptr %50, align 8
   %52 = xor i64 %27, %51
   %53 = tail call i64 @llvm.ctpop.i64(i64 %52), !range !5
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = getelementptr inbounds [8 x i32], ptr %17, i64 0, i64 %.095151
   store i32 %54, ptr %55, align 4
   %56 = add nuw nsw i64 %.095151, 1
@@ -6186,7 +6186,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %217
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %217 ], [ %32, %.preheader143 ]
-  %168 = trunc i64 %indvars.iv215 to i32
+  %168 = trunc nuw i64 %indvars.iv215 to i32
   %169 = add i32 %.pre221, %168
   %170 = zext i32 %169 to i64
   %171 = shl nuw nsw i64 %170, 3
@@ -6194,7 +6194,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %173 = load i64, ptr %172, align 8
   %174 = xor i64 %27, %173
   %175 = tail call i64 @llvm.ctpop.i64(i64 %174), !range !5
-  %176 = trunc i64 %175 to i32
+  %176 = trunc nuw nsw i64 %175 to i32
   %177 = load i32, ptr %5, align 4
   %178 = icmp sgt i32 %177, %176
   br i1 %178, label %179, label %217
@@ -6404,7 +6404,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %72 = load i64, ptr %9, align 8
   %73 = sub i64 %72, %39
   %74 = trunc i64 %73 to i32
-  %75 = trunc i64 %45 to i32
+  %75 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %74, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %75, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -6437,7 +6437,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %91 = load i64, ptr %9, align 8
   %92 = sub i64 %91, %39
   %93 = trunc i64 %92 to i32
-  %94 = trunc i64 %45 to i32
+  %94 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %93, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %94, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -6470,7 +6470,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %110 = load i64, ptr %9, align 8
   %111 = sub i64 %110, %39
   %112 = trunc i64 %111 to i32
-  %113 = trunc i64 %45 to i32
+  %113 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %112, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %113, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -6503,7 +6503,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %129 = load i64, ptr %9, align 8
   %130 = sub i64 %129, %39
   %131 = trunc i64 %130 to i32
-  %132 = trunc i64 %45 to i32
+  %132 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer16EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %131, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %132, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer16EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -6516,7 +6516,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %137 = load <2 x i64>, ptr %15, align 16
   %138 = xor <2 x i64> %137, %136
   %139 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %138), !range !5
-  %140 = trunc <2 x i64> %139 to <2 x i32>
+  %140 = trunc nuw nsw <2 x i64> %139 to <2 x i32>
   %shift = shufflevector <2 x i32> %140, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %141 = add nuw nsw <2 x i32> %shift, %140
   %142 = extractelement <2 x i32> %141, i64 0
@@ -6730,7 +6730,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %34
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %38, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %38
-  %.pre = trunc i64 %indvars.iv184 to i32
+  %.pre = trunc nuw i64 %indvars.iv184 to i32
   %.pre188 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -6751,7 +6751,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %38
   %46 = load <2 x i64>, ptr %45, align 8
   %47 = xor <2 x i64> %27, %46
   %48 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %47), !range !5
-  %49 = trunc <2 x i64> %48 to <2 x i32>
+  %49 = trunc nuw nsw <2 x i64> %48 to <2 x i32>
   %shift = shufflevector <2 x i32> %49, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %50 = add nuw nsw <2 x i32> %shift, %49
   %51 = extractelement <2 x i32> %50, i64 0
@@ -7020,7 +7020,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %204
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %204 ], [ %32, %.preheader145 ]
-  %153 = trunc i64 %indvars.iv182 to i32
+  %153 = trunc nuw i64 %indvars.iv182 to i32
   %154 = add i32 %.pre188, %153
   %155 = zext i32 %154 to i64
   %156 = shl nuw nsw i64 %155, 4
@@ -7028,7 +7028,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %158 = load <2 x i64>, ptr %157, align 8
   %159 = xor <2 x i64> %27, %158
   %160 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %159), !range !5
-  %161 = trunc <2 x i64> %160 to <2 x i32>
+  %161 = trunc nuw nsw <2 x i64> %160 to <2 x i32>
   %shift192 = shufflevector <2 x i32> %161, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %162 = add nuw nsw <2 x i32> %shift192, %161
   %163 = extractelement <2 x i32> %162, i64 0
@@ -7212,7 +7212,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %37, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %37
-  %.pre = trunc i64 %indvars.iv180 to i32
+  %.pre = trunc nuw i64 %indvars.iv180 to i32
   %.pre184 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -7233,7 +7233,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %37
   %45 = load <2 x i64>, ptr %44, align 8
   %46 = xor <2 x i64> %27, %45
   %47 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %46), !range !5
-  %48 = trunc <2 x i64> %47 to <2 x i32>
+  %48 = trunc nuw nsw <2 x i64> %47 to <2 x i32>
   %shift = shufflevector <2 x i32> %48, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %49 = add nuw nsw <2 x i32> %shift, %48
   %50 = extractelement <2 x i32> %49, i64 0
@@ -7496,7 +7496,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %201
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %201 ], [ %32, %.preheader145 ]
-  %150 = trunc i64 %indvars.iv178 to i32
+  %150 = trunc nuw i64 %indvars.iv178 to i32
   %151 = add i32 %.pre184, %150
   %152 = zext i32 %151 to i64
   %153 = shl nuw nsw i64 %152, 4
@@ -7504,7 +7504,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %155 = load <2 x i64>, ptr %154, align 8
   %156 = xor <2 x i64> %27, %155
   %157 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %156), !range !5
-  %158 = trunc <2 x i64> %157 to <2 x i32>
+  %158 = trunc nuw nsw <2 x i64> %157 to <2 x i32>
   %shift188 = shufflevector <2 x i32> %158, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %159 = add nuw nsw <2 x i32> %shift188, %158
   %160 = extractelement <2 x i32> %159, i64 0
@@ -7690,7 +7690,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %36
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %42, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %42
-  %.pre = trunc i64 %indvars.iv212 to i32
+  %.pre = trunc nuw i64 %indvars.iv212 to i32
   %.pre216 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -7721,7 +7721,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %42
   %53 = load <2 x i64>, ptr %52, align 8
   %54 = xor <2 x i64> %27, %53
   %55 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %54), !range !5
-  %56 = trunc <2 x i64> %55 to <2 x i32>
+  %56 = trunc nuw nsw <2 x i64> %55 to <2 x i32>
   %shift = shufflevector <2 x i32> %56, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %57 = add nuw nsw <2 x i32> %shift, %56
   %58 = extractelement <2 x i32> %57, i64 0
@@ -7875,7 +7875,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 .preheader145:                                    ; preds = %.preheader145.preheader, %119
   %106 = phi i1 [ false, %119 ], [ true, %.preheader145.preheader ]
   %indvars.iv193 = phi i64 [ 1, %119 ], [ 0, %.preheader145.preheader ]
-  %indvars.iv193.tr = trunc i64 %indvars.iv193 to i32
+  %indvars.iv193.tr = trunc nuw nsw i64 %indvars.iv193 to i32
   %107 = shl nuw nsw i32 %indvars.iv193.tr, 3
   %108 = add i32 %107, %.pre216
   br label %109
@@ -8036,7 +8036,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %226
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %226 ], [ %32, %.preheader143 ]
-  %175 = trunc i64 %indvars.iv210 to i32
+  %175 = trunc nuw i64 %indvars.iv210 to i32
   %176 = add i32 %.pre216, %175
   %177 = zext i32 %176 to i64
   %178 = shl nuw nsw i64 %177, 4
@@ -8044,7 +8044,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %180 = load <2 x i64>, ptr %179, align 8
   %181 = xor <2 x i64> %27, %180
   %182 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %181), !range !5
-  %183 = trunc <2 x i64> %182 to <2 x i32>
+  %183 = trunc nuw nsw <2 x i64> %182 to <2 x i32>
   %shift220 = shufflevector <2 x i32> %183, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %184 = add nuw nsw <2 x i32> %shift220, %183
   %185 = extractelement <2 x i32> %184, i64 0
@@ -8231,7 +8231,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %41, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %41
-  %.pre = trunc i64 %indvars.iv217 to i32
+  %.pre = trunc nuw i64 %indvars.iv217 to i32
   %.pre221 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -8261,7 +8261,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %41
   %51 = load <2 x i64>, ptr %50, align 8
   %52 = xor <2 x i64> %27, %51
   %53 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %52), !range !5
-  %54 = trunc <2 x i64> %53 to <2 x i32>
+  %54 = trunc nuw nsw <2 x i64> %53 to <2 x i32>
   %shift = shufflevector <2 x i32> %54, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %55 = add nuw nsw <2 x i32> %shift, %54
   %56 = extractelement <2 x i32> %55, i64 0
@@ -8581,7 +8581,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %221
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %221 ], [ %32, %.preheader143 ]
-  %170 = trunc i64 %indvars.iv215 to i32
+  %170 = trunc nuw i64 %indvars.iv215 to i32
   %171 = add i32 %.pre221, %170
   %172 = zext i32 %171 to i64
   %173 = shl nuw nsw i64 %172, 4
@@ -8589,7 +8589,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %175 = load <2 x i64>, ptr %174, align 8
   %176 = xor <2 x i64> %27, %175
   %177 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %176), !range !5
-  %178 = trunc <2 x i64> %177 to <2 x i32>
+  %178 = trunc nuw nsw <2 x i64> %177 to <2 x i32>
   %shift225 = shufflevector <2 x i32> %178, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %179 = add nuw nsw <2 x i32> %shift225, %178
   %180 = extractelement <2 x i32> %179, i64 0
@@ -8807,7 +8807,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %76 = load i64, ptr %9, align 8
   %77 = sub i64 %76, %43
   %78 = trunc i64 %77 to i32
-  %79 = trunc i64 %49 to i32
+  %79 = trunc nuw nsw i64 %49 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %78, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %45, i32 noundef %79, ptr noundef %51, ptr noundef %54)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -8840,7 +8840,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %95 = load i64, ptr %9, align 8
   %96 = sub i64 %95, %43
   %97 = trunc i64 %96 to i32
-  %98 = trunc i64 %49 to i32
+  %98 = trunc nuw nsw i64 %49 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %97, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %45, i32 noundef %98, ptr noundef %51, ptr noundef %54)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -8873,7 +8873,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %114 = load i64, ptr %9, align 8
   %115 = sub i64 %114, %43
   %116 = trunc i64 %115 to i32
-  %117 = trunc i64 %49 to i32
+  %117 = trunc nuw nsw i64 %49 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %116, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %45, i32 noundef %117, ptr noundef %51, ptr noundef %54)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -8906,7 +8906,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %133 = load i64, ptr %9, align 8
   %134 = sub i64 %133, %43
   %135 = trunc i64 %134 to i32
-  %136 = trunc i64 %49 to i32
+  %136 = trunc nuw nsw i64 %49 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer20EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %135, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %45, i32 noundef %136, ptr noundef %51, ptr noundef %54)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer20EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -8919,7 +8919,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %141 = load <2 x i64>, ptr %15, align 16
   %142 = xor <2 x i64> %141, %140
   %143 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %142), !range !5
-  %144 = trunc <2 x i64> %143 to <2 x i32>
+  %144 = trunc nuw nsw <2 x i64> %143 to <2 x i32>
   %shift = shufflevector <2 x i32> %144, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %145 = add nuw nsw <2 x i32> %shift, %144
   %146 = extractelement <2 x i32> %145, i64 0
@@ -9141,7 +9141,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %36
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %40, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %40
-  %.pre = trunc i64 %indvars.iv184 to i32
+  %.pre = trunc nuw i64 %indvars.iv184 to i32
   %.pre188 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -9162,7 +9162,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %40
   %48 = load <2 x i64>, ptr %47, align 8
   %49 = xor <2 x i64> %27, %48
   %50 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %49), !range !5
-  %51 = trunc <2 x i64> %50 to <2 x i32>
+  %51 = trunc nuw nsw <2 x i64> %50 to <2 x i32>
   %shift = shufflevector <2 x i32> %51, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %52 = add nuw nsw <2 x i32> %shift, %51
   %53 = extractelement <2 x i32> %52, i64 0
@@ -9436,7 +9436,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %216
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %216 ], [ %34, %.preheader145 ]
-  %160 = trunc i64 %indvars.iv182 to i32
+  %160 = trunc nuw i64 %indvars.iv182 to i32
   %161 = add i32 %.pre188, %160
   %162 = zext i32 %161 to i64
   %163 = mul nuw nsw i64 %162, 20
@@ -9444,7 +9444,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %165 = load <2 x i64>, ptr %164, align 8
   %166 = xor <2 x i64> %27, %165
   %167 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %166), !range !5
-  %168 = trunc <2 x i64> %167 to <2 x i32>
+  %168 = trunc nuw nsw <2 x i64> %167 to <2 x i32>
   %shift192 = shufflevector <2 x i32> %168, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %169 = add nuw nsw <2 x i32> %shift192, %168
   %170 = extractelement <2 x i32> %169, i64 0
@@ -9635,7 +9635,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %37
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %39, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %39
-  %.pre = trunc i64 %indvars.iv180 to i32
+  %.pre = trunc nuw i64 %indvars.iv180 to i32
   %.pre184 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -9656,7 +9656,7 @@ _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %39
   %47 = load <2 x i64>, ptr %46, align 8
   %48 = xor <2 x i64> %27, %47
   %49 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %48), !range !5
-  %50 = trunc <2 x i64> %49 to <2 x i32>
+  %50 = trunc nuw nsw <2 x i64> %49 to <2 x i32>
   %shift = shufflevector <2 x i32> %50, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %51 = add nuw nsw <2 x i32> %shift, %50
   %52 = extractelement <2 x i32> %51, i64 0
@@ -9924,7 +9924,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %213
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %213 ], [ %34, %.preheader145 ]
-  %157 = trunc i64 %indvars.iv178 to i32
+  %157 = trunc nuw i64 %indvars.iv178 to i32
   %158 = add i32 %.pre184, %157
   %159 = zext i32 %158 to i64
   %160 = mul nuw nsw i64 %159, 20
@@ -9932,7 +9932,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %162 = load <2 x i64>, ptr %161, align 8
   %163 = xor <2 x i64> %27, %162
   %164 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %163), !range !5
-  %165 = trunc <2 x i64> %164 to <2 x i32>
+  %165 = trunc nuw nsw <2 x i64> %164 to <2 x i32>
   %shift188 = shufflevector <2 x i32> %165, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %166 = add nuw nsw <2 x i32> %shift188, %165
   %167 = extractelement <2 x i32> %166, i64 0
@@ -10125,7 +10125,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %38
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %44, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %44
-  %.pre = trunc i64 %indvars.iv212 to i32
+  %.pre = trunc nuw i64 %indvars.iv212 to i32
   %.pre216 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -10156,7 +10156,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %44
   %55 = load <2 x i64>, ptr %54, align 8
   %56 = xor <2 x i64> %27, %55
   %57 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %56), !range !5
-  %58 = trunc <2 x i64> %57 to <2 x i32>
+  %58 = trunc nuw nsw <2 x i64> %57 to <2 x i32>
   %shift = shufflevector <2 x i32> %58, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %59 = add nuw nsw <2 x i32> %shift, %58
   %60 = extractelement <2 x i32> %59, i64 0
@@ -10315,7 +10315,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 .preheader145:                                    ; preds = %.preheader145.preheader, %126
   %113 = phi i1 [ false, %126 ], [ true, %.preheader145.preheader ]
   %indvars.iv193 = phi i64 [ 1, %126 ], [ 0, %.preheader145.preheader ]
-  %indvars.iv193.tr = trunc i64 %indvars.iv193 to i32
+  %indvars.iv193.tr = trunc nuw nsw i64 %indvars.iv193 to i32
   %114 = shl nuw nsw i32 %indvars.iv193.tr, 3
   %115 = add i32 %114, %.pre216
   br label %116
@@ -10476,7 +10476,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %238
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %238 ], [ %34, %.preheader143 ]
-  %182 = trunc i64 %indvars.iv210 to i32
+  %182 = trunc nuw i64 %indvars.iv210 to i32
   %183 = add i32 %.pre216, %182
   %184 = zext i32 %183 to i64
   %185 = mul nuw nsw i64 %184, 20
@@ -10484,7 +10484,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %187 = load <2 x i64>, ptr %186, align 8
   %188 = xor <2 x i64> %27, %187
   %189 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %188), !range !5
-  %190 = trunc <2 x i64> %189 to <2 x i32>
+  %190 = trunc nuw nsw <2 x i64> %189 to <2 x i32>
   %shift220 = shufflevector <2 x i32> %190, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %191 = add nuw nsw <2 x i32> %shift220, %190
   %192 = extractelement <2 x i32> %191, i64 0
@@ -10678,7 +10678,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %37
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %43, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %43
-  %.pre = trunc i64 %indvars.iv217 to i32
+  %.pre = trunc nuw i64 %indvars.iv217 to i32
   %.pre221 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -10708,7 +10708,7 @@ _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %43
   %53 = load <2 x i64>, ptr %52, align 8
   %54 = xor <2 x i64> %27, %53
   %55 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %54), !range !5
-  %56 = trunc <2 x i64> %55 to <2 x i32>
+  %56 = trunc nuw nsw <2 x i64> %55 to <2 x i32>
   %shift = shufflevector <2 x i32> %56, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %57 = add nuw nsw <2 x i32> %shift, %56
   %58 = extractelement <2 x i32> %57, i64 0
@@ -11033,7 +11033,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %233
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %233 ], [ %34, %.preheader143 ]
-  %177 = trunc i64 %indvars.iv215 to i32
+  %177 = trunc nuw i64 %indvars.iv215 to i32
   %178 = add i32 %.pre221, %177
   %179 = zext i32 %178 to i64
   %180 = mul nuw nsw i64 %179, 20
@@ -11041,7 +11041,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   %182 = load <2 x i64>, ptr %181, align 8
   %183 = xor <2 x i64> %27, %182
   %184 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %183), !range !5
-  %185 = trunc <2 x i64> %184 to <2 x i32>
+  %185 = trunc nuw nsw <2 x i64> %184 to <2 x i32>
   %shift225 = shufflevector <2 x i32> %185, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %186 = add nuw nsw <2 x i32> %shift225, %185
   %187 = extractelement <2 x i32> %186, i64 0
@@ -11267,7 +11267,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %78 = load i64, ptr %9, align 8
   %79 = sub i64 %78, %45
   %80 = trunc i64 %79 to i32
-  %81 = trunc i64 %51 to i32
+  %81 = trunc nuw nsw i64 %51 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, i32 noundef %81, ptr noundef %53, ptr noundef %56)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -11300,7 +11300,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %97 = load i64, ptr %9, align 8
   %98 = sub i64 %97, %45
   %99 = trunc i64 %98 to i32
-  %100 = trunc i64 %51 to i32
+  %100 = trunc nuw nsw i64 %51 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %99, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, i32 noundef %100, ptr noundef %53, ptr noundef %56)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -11333,7 +11333,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %116 = load i64, ptr %9, align 8
   %117 = sub i64 %116, %45
   %118 = trunc i64 %117 to i32
-  %119 = trunc i64 %51 to i32
+  %119 = trunc nuw nsw i64 %51 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %118, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, i32 noundef %119, ptr noundef %53, ptr noundef %56)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -11366,7 +11366,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %135 = load i64, ptr %9, align 8
   %136 = sub i64 %135, %45
   %137 = trunc i64 %136 to i32
-  %138 = trunc i64 %51 to i32
+  %138 = trunc nuw nsw i64 %51 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer32EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %137, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %47, i32 noundef %138, ptr noundef %53, ptr noundef %56)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer32EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -11591,7 +11591,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %34
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %38, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %38
-  %.pre = trunc i64 %indvars.iv184 to i32
+  %.pre = trunc nuw i64 %indvars.iv184 to i32
   %.pre188 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -11879,7 +11879,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %202
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %202 ], [ %32, %.preheader145 ]
-  %152 = trunc i64 %indvars.iv182 to i32
+  %152 = trunc nuw i64 %indvars.iv182 to i32
   %153 = add i32 %.pre188, %152
   %154 = zext i32 %153 to i64
   %155 = shl nuw nsw i64 %154, 5
@@ -12069,7 +12069,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %37, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %37
-  %.pre = trunc i64 %indvars.iv180 to i32
+  %.pre = trunc nuw i64 %indvars.iv180 to i32
   %.pre184 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -12351,7 +12351,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %199
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %199 ], [ %32, %.preheader145 ]
-  %149 = trunc i64 %indvars.iv178 to i32
+  %149 = trunc nuw i64 %indvars.iv178 to i32
   %150 = add i32 %.pre184, %149
   %151 = zext i32 %150 to i64
   %152 = shl nuw nsw i64 %151, 5
@@ -12543,7 +12543,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %36
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %42, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %42
-  %.pre = trunc i64 %indvars.iv212 to i32
+  %.pre = trunc nuw i64 %indvars.iv212 to i32
   %.pre216 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -12726,7 +12726,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 .preheader145:                                    ; preds = %.preheader145.preheader, %118
   %105 = phi i1 [ false, %118 ], [ true, %.preheader145.preheader ]
   %indvars.iv193 = phi i64 [ 1, %118 ], [ 0, %.preheader145.preheader ]
-  %indvars.iv193.tr = trunc i64 %indvars.iv193 to i32
+  %indvars.iv193.tr = trunc nuw nsw i64 %indvars.iv193 to i32
   %106 = shl nuw nsw i32 %indvars.iv193.tr, 3
   %107 = add i32 %106, %.pre216
   br label %108
@@ -12887,7 +12887,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %224
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %224 ], [ %32, %.preheader143 ]
-  %174 = trunc i64 %indvars.iv210 to i32
+  %174 = trunc nuw i64 %indvars.iv210 to i32
   %175 = add i32 %.pre216, %174
   %176 = zext i32 %175 to i64
   %177 = shl nuw nsw i64 %176, 5
@@ -13080,7 +13080,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %41, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %41
-  %.pre = trunc i64 %indvars.iv217 to i32
+  %.pre = trunc nuw i64 %indvars.iv217 to i32
   %.pre221 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -13428,7 +13428,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %219
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %219 ], [ %32, %.preheader143 ]
-  %169 = trunc i64 %indvars.iv215 to i32
+  %169 = trunc nuw i64 %indvars.iv215 to i32
   %170 = add i32 %.pre221, %169
   %171 = zext i32 %170 to i64
   %172 = shl nuw nsw i64 %171, 5
@@ -13671,7 +13671,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %90 = load i64, ptr %9, align 8
   %91 = sub i64 %90, %57
   %92 = trunc i64 %91 to i32
-  %93 = trunc i64 %63 to i32
+  %93 = trunc nuw nsw i64 %63 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %92, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %59, i32 noundef %93, ptr noundef %65, ptr noundef %68)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -13704,7 +13704,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %109 = load i64, ptr %9, align 8
   %110 = sub i64 %109, %57
   %111 = trunc i64 %110 to i32
-  %112 = trunc i64 %63 to i32
+  %112 = trunc nuw nsw i64 %63 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %111, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %59, i32 noundef %112, ptr noundef %65, ptr noundef %68)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -13737,7 +13737,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %128 = load i64, ptr %9, align 8
   %129 = sub i64 %128, %57
   %130 = trunc i64 %129 to i32
-  %131 = trunc i64 %63 to i32
+  %131 = trunc nuw nsw i64 %63 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %130, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %59, i32 noundef %131, ptr noundef %65, ptr noundef %68)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -13770,7 +13770,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_17HammingCompu
   %147 = load i64, ptr %9, align 8
   %148 = sub i64 %147, %57
   %149 = trunc i64 %148 to i32
-  %150 = trunc i64 %63 to i32
+  %150 = trunc nuw nsw i64 %63 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_17HammingComputer64EE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %149, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %59, i32 noundef %150, ptr noundef %65, ptr noundef %68)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_17HammingComputer64EE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -13995,7 +13995,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %34
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %38, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %38
-  %.pre = trunc i64 %indvars.iv184 to i32
+  %.pre = trunc nuw i64 %indvars.iv184 to i32
   %.pre188 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -14283,7 +14283,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %202
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %202 ], [ %32, %.preheader145 ]
-  %152 = trunc i64 %indvars.iv182 to i32
+  %152 = trunc nuw i64 %indvars.iv182 to i32
   %153 = add i32 %.pre188, %152
   %154 = zext i32 %153 to i64
   %155 = shl nuw nsw i64 %154, 6
@@ -14473,7 +14473,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i112, label %_ZN5faiss11simd8uint32C2Ej.exit113, label %37, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit113:               ; preds = %37
-  %.pre = trunc i64 %indvars.iv180 to i32
+  %.pre = trunc nuw i64 %indvars.iv180 to i32
   %.pre184 = mul i32 %.pre, %1
   br i1 %.not160, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -14755,7 +14755,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader145, %199
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %199 ], [ %32, %.preheader145 ]
-  %149 = trunc i64 %indvars.iv178 to i32
+  %149 = trunc nuw i64 %indvars.iv178 to i32
   %150 = add i32 %.pre184, %149
   %151 = zext i32 %150 to i64
   %152 = shl nuw nsw i64 %151, 6
@@ -14947,7 +14947,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %36
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %42, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %42
-  %.pre = trunc i64 %indvars.iv212 to i32
+  %.pre = trunc nuw i64 %indvars.iv212 to i32
   %.pre216 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -15130,7 +15130,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 .preheader145:                                    ; preds = %.preheader145.preheader, %118
   %105 = phi i1 [ false, %118 ], [ true, %.preheader145.preheader ]
   %indvars.iv193 = phi i64 [ 1, %118 ], [ 0, %.preheader145.preheader ]
-  %indvars.iv193.tr = trunc i64 %indvars.iv193 to i32
+  %indvars.iv193.tr = trunc nuw nsw i64 %indvars.iv193 to i32
   %106 = shl nuw nsw i32 %indvars.iv193.tr, 3
   %107 = add i32 %106, %.pre216
   br label %108
@@ -15291,7 +15291,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %224
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %224 ], [ %32, %.preheader143 ]
-  %174 = trunc i64 %indvars.iv210 to i32
+  %174 = trunc nuw i64 %indvars.iv210 to i32
   %175 = add i32 %.pre216, %174
   %176 = zext i32 %175 to i64
   %177 = shl nuw nsw i64 %176, 6
@@ -15484,7 +15484,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %35
   br i1 %exitcond.not.i.i106, label %_ZN5faiss11simd8uint32C2Ej.exit107, label %41, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit107:               ; preds = %41
-  %.pre = trunc i64 %indvars.iv217 to i32
+  %.pre = trunc nuw i64 %indvars.iv217 to i32
   %.pre221 = mul i32 %.pre, %1
   br i1 %.not174, label %.preheader145.preheader, label %.preheader141.lr.ph
 
@@ -15832,7 +15832,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader143, %219
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %219 ], [ %32, %.preheader143 ]
-  %169 = trunc i64 %indvars.iv215 to i32
+  %169 = trunc nuw i64 %indvars.iv215 to i32
   %170 = add i32 %.pre221, %169
   %171 = zext i32 %170 to i64
   %172 = shl nuw nsw i64 %171, 6
@@ -16052,7 +16052,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   %72 = load i64, ptr %9, align 8
   %73 = sub i64 %72, %39
   %74 = trunc i64 %73 to i32
-  %75 = trunc i64 %45 to i32
+  %75 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %74, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %75, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -16085,7 +16085,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   %91 = load i64, ptr %9, align 8
   %92 = sub i64 %91, %39
   %93 = trunc i64 %92 to i32
-  %94 = trunc i64 %45 to i32
+  %94 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %93, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %94, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -16118,7 +16118,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   %110 = load i64, ptr %9, align 8
   %111 = sub i64 %110, %39
   %112 = trunc i64 %111 to i32
-  %113 = trunc i64 %45 to i32
+  %113 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj16ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %112, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %113, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -16151,7 +16151,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_hcINS_22HammingCompu
   %129 = load i64, ptr %9, align 8
   %130 = sub i64 %129, %39
   %131 = trunc i64 %130 to i32
-  %132 = trunc i64 %45 to i32
+  %132 = trunc nuw nsw i64 %45 to i32
   invoke void @_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj32ELj2ENS_22HammingComputerDefaultEE7bs_addnEjjRKS3_PKhjPiPl(i32 noundef 1, i32 noundef %131, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %41, i32 noundef %132, ptr noundef %47, ptr noundef %50)
           to label %_ZN5faiss27HeapWithBucketsForHamming32INS_4CMaxIilEELj8ELj3ENS_22HammingComputerDefaultEE4addnEjRKS3_PKhjPiPl.exit unwind label %.loopexit
 
@@ -16318,7 +16318,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, %13
   %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !5
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = add nsw i32 %.0, %18
   %20 = add nsw i32 %.075, 1
   br label %21
@@ -16334,7 +16334,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %26 = load i64, ptr %25, align 8
   %27 = xor i64 %26, %24
   %28 = tail call i64 @llvm.ctpop.i64(i64 %27), !range !5
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = add nsw i32 %.1, %29
   %31 = add nsw i32 %.176, 1
   br label %32
@@ -16350,7 +16350,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, %35
   %39 = tail call i64 @llvm.ctpop.i64(i64 %38), !range !5
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %41 = add nsw i32 %.2, %40
   %42 = add nsw i32 %.277, 1
   br label %43
@@ -16366,7 +16366,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %48 = load i64, ptr %47, align 8
   %49 = xor i64 %48, %46
   %50 = tail call i64 @llvm.ctpop.i64(i64 %49), !range !5
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = add nsw i32 %.3, %51
   %53 = add nsw i32 %.378, 1
   br label %54
@@ -16382,7 +16382,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %59 = load i64, ptr %58, align 8
   %60 = xor i64 %59, %57
   %61 = tail call i64 @llvm.ctpop.i64(i64 %60), !range !5
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = add nsw i32 %.4, %62
   %64 = add nsw i32 %.479, 1
   br label %65
@@ -16398,7 +16398,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %70 = load i64, ptr %69, align 8
   %71 = xor i64 %70, %68
   %72 = tail call i64 @llvm.ctpop.i64(i64 %71), !range !5
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw nsw i64 %72 to i32
   %74 = add nsw i32 %.5, %73
   %75 = add nsw i32 %.580, 1
   br label %76
@@ -16414,7 +16414,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %81 = load i64, ptr %80, align 8
   %82 = xor i64 %81, %79
   %83 = tail call i64 @llvm.ctpop.i64(i64 %82), !range !5
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw nsw i64 %83 to i32
   %85 = add nsw i32 %.6, %84
   %86 = add nsw i32 %.681, 1
   br label %87
@@ -16430,7 +16430,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %92 = load i64, ptr %91, align 8
   %93 = xor i64 %92, %90
   %94 = tail call i64 @llvm.ctpop.i64(i64 %93), !range !5
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw nsw i64 %94 to i32
   %96 = add nsw i32 %.7, %95
   %97 = add nsw i32 %.782, 1
   br label %7, !llvm.loop !417
@@ -16643,7 +16643,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %40
   br i1 %exitcond.not.i.i113, label %_ZN5faiss11simd8uint32C2Ej.exit114, label %44, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit114:               ; preds = %44
-  %.pre = trunc i64 %indvars.iv185 to i32
+  %.pre = trunc nuw i64 %indvars.iv185 to i32
   %.pre189 = mul i32 %.pre, %1
   br i1 %.not161, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -16927,7 +16927,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader146, %200
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %200 ], [ %38, %.preheader146 ]
-  %154 = trunc i64 %indvars.iv183 to i32
+  %154 = trunc nuw i64 %indvars.iv183 to i32
   %155 = add i32 %.pre189, %154
   %156 = zext i32 %155 to i64
   %157 = mul nsw i64 %156, %31
@@ -17119,7 +17119,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %41
   br i1 %exitcond.not.i.i113, label %_ZN5faiss11simd8uint32C2Ej.exit114, label %43, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit114:               ; preds = %43
-  %.pre = trunc i64 %indvars.iv181 to i32
+  %.pre = trunc nuw i64 %indvars.iv181 to i32
   %.pre185 = mul i32 %.pre, %1
   br i1 %.not161, label %._crit_edge.preheader, label %.preheader.lr.ph
 
@@ -17397,7 +17397,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader146, %197
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %197 ], [ %38, %.preheader146 ]
-  %151 = trunc i64 %indvars.iv179 to i32
+  %151 = trunc nuw i64 %indvars.iv179 to i32
   %152 = add i32 %.pre185, %151
   %153 = zext i32 %152 to i64
   %154 = mul nsw i64 %153, %31
@@ -17591,7 +17591,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %42
   br i1 %exitcond.not.i.i107, label %_ZN5faiss11simd8uint32C2Ej.exit108, label %48, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %48
-  %.pre = trunc i64 %indvars.iv213 to i32
+  %.pre = trunc nuw i64 %indvars.iv213 to i32
   %.pre217 = mul i32 %.pre, %1
   br i1 %.not175, label %.preheader146.preheader, label %.preheader142.lr.ph
 
@@ -17770,7 +17770,7 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit.thread.us.us.us: ; preds = %_ZN5faiss4CMaxIilE
 .preheader146:                                    ; preds = %.preheader146.preheader, %120
   %107 = phi i1 [ false, %120 ], [ true, %.preheader146.preheader ]
   %indvars.iv194 = phi i64 [ 1, %120 ], [ 0, %.preheader146.preheader ]
-  %indvars.iv194.tr = trunc i64 %indvars.iv194 to i32
+  %indvars.iv194.tr = trunc nuw nsw i64 %indvars.iv194 to i32
   %108 = shl nuw nsw i32 %indvars.iv194.tr, 3
   %109 = add i32 %108, %.pre217
   br label %110
@@ -17931,7 +17931,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader144, %222
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %222 ], [ %38, %.preheader144 ]
-  %176 = trunc i64 %indvars.iv211 to i32
+  %176 = trunc nuw i64 %indvars.iv211 to i32
   %177 = add i32 %.pre217, %176
   %178 = zext i32 %177 to i64
   %179 = mul nsw i64 %178, %31
@@ -18126,7 +18126,7 @@ _ZN5faiss11simd8uint32C2Ej.exit:                  ; preds = %41
   br i1 %exitcond.not.i.i107, label %_ZN5faiss11simd8uint32C2Ej.exit108, label %47, !llvm.loop !144
 
 _ZN5faiss11simd8uint32C2Ej.exit108:               ; preds = %47
-  %.pre = trunc i64 %indvars.iv218 to i32
+  %.pre = trunc nuw i64 %indvars.iv218 to i32
   %.pre222 = mul i32 %.pre, %1
   br i1 %.not175, label %.preheader146.preheader, label %.preheader142.lr.ph
 
@@ -18470,7 +18470,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 
 .lr.ph:                                           ; preds = %.preheader144, %217
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %217 ], [ %38, %.preheader144 ]
-  %171 = trunc i64 %indvars.iv216 to i32
+  %171 = trunc nuw i64 %indvars.iv216 to i32
   %172 = add i32 %.pre222, %171
   %173 = zext i32 %172 to i64
   %174 = mul nsw i64 %173, %31
@@ -18659,7 +18659,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc70.i.i.i, %_Z
   %.sroa.0102.0.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i ], [ %56, %.noexc70.i.i.i ]
   %57 = mul i64 %53, %4
   %58 = icmp ugt i64 %57, 2305843009213693951
-  %59 = shl i64 %57, 3
+  %59 = shl nuw i64 %57, 3
   %60 = select i1 %58, i64 -1, i64 %59
   %61 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %60) #25
           to label %62 unwind label %107, !noalias !471
@@ -18905,7 +18905,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %110, %1
   %135 = mul i64 %indvars.iv152.i.i.i, %4
   %136 = getelementptr i64, ptr %134, i64 %135
   %137 = zext nneg i32 %129 to i64
-  %138 = trunc i64 %indvars.iv152.i.i.i to i32
+  %138 = trunc nuw nsw i64 %indvars.iv152.i.i.i to i32
   %139 = add i64 %114, %131
   %140 = shl i64 %139, 3
   %scevgep107 = getelementptr i8, ptr %7, i64 %140
@@ -19021,7 +19021,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc70.i.i65.i, %
   %.sroa.0100.0.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i63.i ], [ %162, %.noexc70.i.i65.i ]
   %163 = mul i64 %159, %4
   %164 = icmp ugt i64 %163, 2305843009213693951
-  %165 = shl i64 %163, 3
+  %165 = shl nuw i64 %163, 3
   %166 = select i1 %164, i64 -1, i64 %165
   %167 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %166) #25
           to label %168 unwind label %213, !noalias !497
@@ -19267,7 +19267,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i104.i: ; preds = %216,
   %241 = mul i64 %indvars.iv149.i.i.i, %4
   %242 = getelementptr i64, ptr %240, i64 %241
   %243 = zext nneg i32 %235 to i64
-  %244 = trunc i64 %indvars.iv149.i.i.i to i32
+  %244 = trunc nuw nsw i64 %indvars.iv149.i.i.i to i32
   %245 = add i64 %220, %237
   %246 = shl i64 %245, 3
   %scevgep103 = getelementptr i8, ptr %7, i64 %246
@@ -19373,7 +19373,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i125.i:   ; preds = %.noexc70.i.i124.i, 
   %.sroa.0102.0.i.i126.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i122.i ], [ %268, %.noexc70.i.i124.i ]
   %269 = mul i64 %265, %4
   %270 = icmp ugt i64 %269, 2305843009213693951
-  %271 = shl i64 %269, 3
+  %271 = shl nuw i64 %269, 3
   %272 = select i1 %270, i64 -1, i64 %271
   %273 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %272) #25
           to label %274 unwind label %321, !noalias !522
@@ -19625,7 +19625,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i198.i: ; preds = %324,
   %349 = mul i64 %indvars.iv152.i.i172.i, %4
   %350 = getelementptr i64, ptr %348, i64 %349
   %351 = zext nneg i32 %343 to i64
-  %352 = trunc i64 %indvars.iv152.i.i172.i to i32
+  %352 = trunc nuw nsw i64 %indvars.iv152.i.i172.i to i32
   %353 = add i64 %328, %345
   %354 = shl i64 %353, 3
   %scevgep99 = getelementptr i8, ptr %7, i64 %354
@@ -19731,7 +19731,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i219.i:   ; preds = %.noexc70.i.i218.i, 
   %.sroa.0107.0.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i216.i ], [ %376, %.noexc70.i.i218.i ]
   %377 = mul i64 %373, %4
   %378 = icmp ugt i64 %377, 2305843009213693951
-  %379 = shl i64 %377, 3
+  %379 = shl nuw i64 %377, 3
   %380 = select i1 %378, i64 -1, i64 %379
   %381 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %380) #25
           to label %382 unwind label %432, !noalias !547
@@ -19990,7 +19990,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i257.i: ; preds = %435,
   %460 = mul i64 %indvars.iv157.i.i.i, %4
   %461 = getelementptr i64, ptr %459, i64 %460
   %462 = zext nneg i32 %454 to i64
-  %463 = trunc i64 %indvars.iv157.i.i.i to i32
+  %463 = trunc nuw nsw i64 %indvars.iv157.i.i.i to i32
   %464 = add i64 %439, %456
   %465 = shl i64 %464, 3
   %scevgep95 = getelementptr i8, ptr %7, i64 %465
@@ -20096,7 +20096,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i276.i:   ; preds = %.noexc70.i.i275.i, 
   %.sroa.0106.0.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i273.i ], [ %487, %.noexc70.i.i275.i ]
   %488 = mul i64 %484, %4
   %489 = icmp ugt i64 %488, 2305843009213693951
-  %490 = shl i64 %488, 3
+  %490 = shl nuw i64 %488, 3
   %491 = select i1 %489, i64 -1, i64 %490
   %492 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %491) #25
           to label %493 unwind label %544, !noalias !572
@@ -20360,7 +20360,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i320.i: ; preds = %547,
   %572 = mul i64 %indvars.iv156.i.i.i, %4
   %573 = getelementptr i64, ptr %571, i64 %572
   %574 = zext nneg i32 %566 to i64
-  %575 = trunc i64 %indvars.iv156.i.i.i to i32
+  %575 = trunc nuw nsw i64 %indvars.iv156.i.i.i to i32
   %576 = add i64 %551, %568
   %577 = shl i64 %576, 3
   %scevgep91 = getelementptr i8, ptr %7, i64 %577
@@ -20466,7 +20466,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i342.i:   ; preds = %.noexc70.i.i341.i, 
   %.sroa.0114.0.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i339.i ], [ %599, %.noexc70.i.i341.i ]
   %600 = mul i64 %596, %4
   %601 = icmp ugt i64 %600, 2305843009213693951
-  %602 = shl i64 %600, 3
+  %602 = shl nuw i64 %600, 3
   %603 = select i1 %601, i64 -1, i64 %602
   %604 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %603) #25
           to label %605 unwind label %664, !noalias !597
@@ -20754,7 +20754,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i386.i: ; preds = %667,
   %692 = mul i64 %indvars.iv164.i.i.i, %4
   %693 = getelementptr i64, ptr %691, i64 %692
   %694 = zext nneg i32 %686 to i64
-  %695 = trunc i64 %indvars.iv164.i.i.i to i32
+  %695 = trunc nuw nsw i64 %indvars.iv164.i.i.i to i32
   %696 = add i64 %671, %688
   %697 = shl i64 %696, 3
   %scevgep = getelementptr i8, ptr %7, i64 %697
@@ -21125,7 +21125,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.i.i458.i: ; preds = %777,
   %806 = mul i64 %indvars.iv154.i.i.i, %4
   %807 = getelementptr i64, ptr %805, i64 %806
   %808 = zext nneg i32 %800 to i64
-  %809 = trunc i64 %indvars.iv154.i.i.i to i32
+  %809 = trunc nuw nsw i64 %indvars.iv154.i.i.i to i32
   %810 = add i64 %785, %802
   %811 = shl i64 %810, 3
   %scevgep111 = getelementptr i8, ptr %7, i64 %811
@@ -21327,7 +21327,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingCompu
 
 65:                                               ; preds = %68, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %64, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
-  %66 = trunc i64 %indvars.iv.i to i32
+  %66 = trunc nuw i64 %indvars.iv.i to i32
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %68, label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit
 
@@ -21458,7 +21458,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingCompu
   %36 = load i64, ptr %34, align 8
   %37 = xor i64 %36, %35
   %38 = call i64 @llvm.ctpop.i64(i64 %37), !range !5
-  %39 = trunc i64 %38 to i32
+  %39 = trunc nuw nsw i64 %38 to i32
   %40 = getelementptr inbounds i8, ptr %28, i64 24
   %41 = load i32, ptr %40, align 8
   %.not.i = icmp slt i32 %41, %39
@@ -21500,7 +21500,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingCompu
 
 65:                                               ; preds = %68, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %64, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
-  %66 = trunc i64 %indvars.iv.i to i32
+  %66 = trunc nuw i64 %indvars.iv.i to i32
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %68, label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit
 
@@ -21618,7 +21618,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   %36 = load <2 x i64>, ptr %34, align 8
   %37 = xor <2 x i64> %36, %35
   %38 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %37), !range !5
-  %39 = trunc <2 x i64> %38 to <2 x i32>
+  %39 = trunc nuw nsw <2 x i64> %38 to <2 x i32>
   %shift = shufflevector <2 x i32> %39, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %40 = add nuw nsw <2 x i32> %shift, %39
   %41 = extractelement <2 x i32> %40, i64 0
@@ -21664,7 +21664,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
 
 68:                                               ; preds = %71, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %67, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
-  %69 = trunc i64 %indvars.iv.i to i32
+  %69 = trunc nuw i64 %indvars.iv.i to i32
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit
 
@@ -21783,7 +21783,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   %36 = load <2 x i64>, ptr %34, align 8
   %37 = xor <2 x i64> %36, %35
   %38 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %37), !range !5
-  %39 = trunc <2 x i64> %38 to <2 x i32>
+  %39 = trunc nuw nsw <2 x i64> %38 to <2 x i32>
   %shift = shufflevector <2 x i32> %39, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %40 = add nuw nsw <2 x i32> %shift, %39
   %41 = extractelement <2 x i32> %40, i64 0
@@ -21836,7 +21836,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
 
 75:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %74, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
-  %76 = trunc i64 %indvars.iv.i to i32
+  %76 = trunc nuw i64 %indvars.iv.i to i32
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit
 
@@ -21999,7 +21999,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
 
 67:                                               ; preds = %70, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %66, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
-  %68 = trunc i64 %indvars.iv.i to i32
+  %68 = trunc nuw i64 %indvars.iv.i to i32
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit
 
@@ -22162,7 +22162,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
 
 67:                                               ; preds = %70, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %66, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
-  %68 = trunc i64 %indvars.iv.i to i32
+  %68 = trunc nuw i64 %indvars.iv.i to i32
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit
 
@@ -22320,7 +22320,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_22HammingCompu
 
 62:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %61, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
-  %63 = trunc i64 %indvars.iv.i to i32
+  %63 = trunc nuw i64 %indvars.iv.i to i32
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %65, label %_ZN5faiss13HCounterStateINS_22HammingComputerDefaultEE14update_counterEPKhm.exit
 
@@ -22685,7 +22685,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.lr.ph
-  %38 = sitofp i32 %34 to float
+  %38 = uitofp nneg i32 %34 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %38, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -22821,13 +22821,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   %32 = load i64, ptr %.02833, align 8
   %33 = xor i64 %32, %27
   %34 = call i64 @llvm.ctpop.i64(i64 %33), !range !5
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = load i32, ptr %8, align 4
   %37 = icmp sgt i32 %36, %35
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph
-  %39 = sitofp i32 %35 to float
+  %39 = uitofp nneg i32 %35 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %39, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -22949,7 +22949,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   %32 = load <2 x i64>, ptr %.02833, align 8
   %33 = xor <2 x i64> %32, %27
   %34 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %33), !range !5
-  %35 = trunc <2 x i64> %34 to <2 x i32>
+  %35 = trunc nuw nsw <2 x i64> %34 to <2 x i32>
   %shift = shufflevector <2 x i32> %35, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %36 = add nuw nsw <2 x i32> %shift, %35
   %37 = extractelement <2 x i32> %36, i64 0
@@ -22958,7 +22958,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.lr.ph
-  %41 = sitofp i32 %37 to float
+  %41 = uitofp nneg i32 %37 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %41, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -23083,7 +23083,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   %35 = load <2 x i64>, ptr %.02833, align 8
   %36 = xor <2 x i64> %35, %27
   %37 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %36), !range !5
-  %38 = trunc <2 x i64> %37 to <2 x i32>
+  %38 = trunc nuw nsw <2 x i64> %37 to <2 x i32>
   %shift = shufflevector <2 x i32> %38, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %39 = add nuw nsw <2 x i32> %shift, %38
   %40 = extractelement <2 x i32> %39, i64 0
@@ -23097,7 +23097,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph
-  %49 = sitofp i32 %45 to float
+  %49 = uitofp nneg i32 %45 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %32, float noundef %49, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -23226,7 +23226,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %.lr.ph
-  %40 = sitofp i32 %36 to float
+  %40 = uitofp nneg i32 %36 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %40, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -23588,7 +23588,7 @@ define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef r
   %14 = load i64, ptr %.01819.us.i, align 8, !alias.scope !666, !noalias !670
   %15 = xor i64 %14, %12
   %16 = tail call i64 @llvm.ctpop.i64(i64 %15), !range !5
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %.not.us.i = icmp sle i32 %17, %4
   %18 = zext i1 %.not.us.i to i64
   %spec.select.us.i = add i64 %.121.us.i, %18
@@ -23625,7 +23625,7 @@ define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef r
   %26 = load <2 x i64>, ptr %.01819.us.i40, align 8, !alias.scope !676, !noalias !680
   %27 = xor <2 x i64> %26, %24
   %28 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %27), !range !5
-  %29 = trunc <2 x i64> %28 to <2 x i32>
+  %29 = trunc nuw nsw <2 x i64> %28 to <2 x i32>
   %shift = shufflevector <2 x i32> %29, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %30 = add nuw nsw <2 x i32> %shift, %29
   %31 = extractelement <2 x i32> %30, i64 0
@@ -23704,7 +23704,7 @@ define void @_ZN5faiss19hamming_count_thresEPKhS1_mmimPm(ptr nocapture noundef r
   %55 = load i64, ptr %54, align 8, !alias.scope !696, !noalias !700
   %56 = xor i64 %55, %53
   %57 = tail call i64 @llvm.ctpop.i64(i64 %56), !range !5
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = add nuw nsw i32 %.09.i.us.i, %58
   %60 = add nuw nsw i64 %.078.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %60, 8
@@ -23815,7 +23815,7 @@ define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef 
   %15 = load i64, ptr %.023.i, align 8, !alias.scope !703, !noalias !706
   %16 = xor i64 %15, %13
   %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !5
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %.not.i = icmp sle i32 %18, %2
   %19 = zext i1 %.not.i to i64
   %spec.select.i = add i64 %.122.i, %19
@@ -23859,7 +23859,7 @@ define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef 
   %30 = load <2 x i64>, ptr %.023.i31, align 8, !alias.scope !711, !noalias !714
   %31 = xor <2 x i64> %30, %28
   %32 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %31), !range !5
-  %33 = trunc <2 x i64> %32 to <2 x i32>
+  %33 = trunc nuw nsw <2 x i64> %32 to <2 x i32>
   %shift = shufflevector <2 x i32> %33, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %34 = add nuw nsw <2 x i32> %shift, %33
   %35 = extractelement <2 x i32> %34, i64 0
@@ -23942,7 +23942,7 @@ define void @_ZN5faiss24crosshamming_count_thresEPKhmimPm(ptr nocapture noundef 
   %64 = load i64, ptr %63, align 8, !alias.scope !724, !noalias !727
   %65 = xor i64 %64, %62
   %66 = tail call i64 @llvm.ctpop.i64(i64 %65), !range !5
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw nsw i64 %66 to i32
   %68 = add nuw nsw i32 %.09.i.i, %67
   %69 = add nuw nsw i64 %.078.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %69, 8
@@ -24051,7 +24051,7 @@ define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture 
   %15 = load i64, ptr %.02439.us.i, align 8, !alias.scope !734, !noalias !741
   %16 = xor i64 %15, %13
   %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !5
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %.not.us.i = icmp sgt i32 %18, %4
   br i1 %.not.us.i, label %24, label %19
 
@@ -24108,7 +24108,7 @@ define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture 
   %32 = load <2 x i64>, ptr %.02439.us.i46, align 8, !alias.scope !749, !noalias !756
   %33 = xor <2 x i64> %32, %30
   %34 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %33), !range !5
-  %35 = trunc <2 x i64> %34 to <2 x i32>
+  %35 = trunc nuw nsw <2 x i64> %34 to <2 x i32>
   %shift = shufflevector <2 x i32> %35, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %36 = add nuw nsw <2 x i32> %shift, %35
   %37 = extractelement <2 x i32> %36, i64 0
@@ -24225,7 +24225,7 @@ define noundef i64 @_ZN5faiss19match_hamming_thresEPKhS1_mmimPlPi(ptr nocapture 
   %71 = load i64, ptr %70, align 8, !alias.scope !779, !noalias !786
   %72 = xor i64 %71, %69
   %73 = tail call i64 @llvm.ctpop.i64(i64 %72), !range !5
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw nsw i64 %73 to i32
   %75 = add nuw nsw i32 %.09.i.us.i, %74
   %76 = add nuw nsw i64 %.078.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %76, 8
@@ -24440,7 +24440,7 @@ define internal void @_ZN5faiss27generalized_hammings_knn_hcEPNS_9HeapArrayINS_4
   %52 = or i64 %51, %50
   %53 = and i64 %52, 72340172838076673
   %54 = call i64 @llvm.ctpop.i64(i64 %53), !range !5
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw nsw i64 %54 to i32
   %56 = getelementptr inbounds i8, ptr %.04.us.i, i64 8
   %57 = icmp sgt i32 %44, %55
   br i1 %57, label %_ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.i, label %58
@@ -24469,7 +24469,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.i: ; preds = %43
   %68 = or i64 %67, %66
   %69 = and i64 %68, 72340172838076673
   %70 = call i64 @llvm.ctpop.i64(i64 %69), !range !5
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nuw nsw i64 %70 to i32
   %72 = getelementptr inbounds i8, ptr %.04.i, i64 8
   %73 = load i32, ptr %34, align 4, !alias.scope !794, !noalias !798
   %74 = icmp sgt i32 %73, %71
@@ -24581,7 +24581,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.loopexit.i: ; preds = %103, %
   %127 = or <2 x i64> %126, %125
   %128 = and <2 x i64> %127, <i64 72340172838076673, i64 72340172838076673>
   %129 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %128), !range !810
-  %130 = trunc <2 x i64> %129 to <2 x i32>
+  %130 = trunc nuw nsw <2 x i64> %129 to <2 x i32>
   %shift = shufflevector <2 x i32> %130, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %131 = add nuw nsw <2 x i32> %shift, %130
   %132 = extractelement <2 x i32> %131, i64 0
@@ -24833,7 +24833,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.i63: ; preds = %226, %_ZN5fai
   %256 = or i64 %255, %254
   %257 = and i64 %256, 72340172838076673
   %258 = call i64 @llvm.ctpop.i64(i64 %257), !range !5
-  %259 = trunc i64 %258 to i32
+  %259 = trunc nuw nsw i64 %258 to i32
   %260 = add nuw nsw i32 %.089.i.us.us.i, %259
   %indvars.iv.next.i.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.i, 1
   %exitcond.not.i.us.us.i = icmp eq i64 %indvars.iv.next.i.us.us.i, %wide.trip.count.i.i
@@ -24896,7 +24896,7 @@ _ZN5faiss19maxheap_replace_topIiEEvmPT_PlS1_l.exit.us.i89: ; preds = %_ZNK5faiss
   %282 = or i64 %281, %280
   %283 = and i64 %282, 72340172838076673
   %284 = call i64 @llvm.ctpop.i64(i64 %283), !range !5
-  %285 = trunc i64 %284 to i32
+  %285 = trunc nuw nsw i64 %284 to i32
   %286 = add nuw nsw i32 %.089.i.us24.i, %285
   %indvars.iv.next.i.us25.i = add nuw nsw i64 %indvars.iv.i.us23.i, 1
   %exitcond.not.i.us26.i = icmp eq i64 %indvars.iv.next.i.us25.i, %wide.trip.count.i.i
@@ -25234,7 +25234,7 @@ define internal void @_ZN5faiss15pack_bitstringsEmmiPKiPhm.omp_outlined(ptr noal
   %31 = sext i32 %30 to i64
   %32 = load i32, ptr %7, align 4
   %33 = and i64 %.sroa.5.028, 7
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = sub nuw nsw i32 8, %34
   %.not.i = icmp slt i32 %35, %32
   br i1 %.not.i, label %44, label %36
@@ -25453,7 +25453,7 @@ define internal void @_ZN5faiss15pack_bitstringsEmmPKiS1_Phm.omp_outlined(ptr no
   %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = and i64 %.sroa.5.029, 7
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw nsw i64 %35 to i32
   %37 = sub nuw nsw i32 8, %36
   %.not.i = icmp slt i32 %37, %34
   br i1 %.not.i, label %46, label %38
@@ -25699,7 +25699,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr no
   br i1 %57, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !848
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %58 = trunc i64 %indvars.iv.next.i to i32
+  %58 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %45
@@ -25945,7 +25945,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr 
   br i1 %59, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !848
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %60 = trunc i64 %indvars.iv.next.i to i32
+  %60 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %47

@@ -196,7 +196,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp432, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.035 to double
+  %conv14 = uitofp nneg i32 %y.035 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -433,7 +433,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp436, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.039 to double
+  %conv14 = uitofp nneg i32 %y.039 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -702,7 +702,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp432, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.035 to double
+  %conv14 = uitofp nneg i32 %y.035 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -939,7 +939,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp436, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.039 to double
+  %conv14 = uitofp nneg i32 %y.039 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -1212,7 +1212,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp434, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.037 to double
+  %conv14 = uitofp nneg i32 %y.037 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -1464,7 +1464,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp438, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.041 to double
+  %conv14 = uitofp nneg i32 %y.041 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -1752,7 +1752,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp435, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.038 to double
+  %conv14 = uitofp nneg i32 %y.038 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -2010,7 +2010,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp439, label %for.body5.lr.ph, label %for.end
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv14 = sitofp i32 %y.042 to double
+  %conv14 = uitofp nneg i32 %y.042 to double
   %add15 = fadd double %conv14, 5.000000e-01
   br label %for.body5
 
@@ -2331,14 +2331,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp434, label %for.body5.lr.ph, label %for.inc47
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv7 = sitofp i32 %y.037 to double
+  %conv7 = uitofp nneg i32 %y.037 to double
   %add8 = fadd double %conv7, 5.000000e-01
   br label %for.body5
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %for.end40
   %7 = phi i32 [ %4, %for.body5.lr.ph ], [ %23, %for.end40 ]
   %x.035 = phi i32 [ 0, %for.body5.lr.ph ], [ %inc, %for.end40 ]
-  %conv = sitofp i32 %x.035 to double
+  %conv = uitofp nneg i32 %x.035 to double
   %add = fadd double %conv, 5.000000e-01
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %scale, align 8
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp9.sroa.2.0..sroa_idx, align 8
@@ -2484,13 +2484,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp437, label %for.body5.lr.ph, label %for.inc55
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv7 = sitofp i32 %y.040 to double
+  %conv7 = uitofp nneg i32 %y.040 to double
   %add8 = fadd double %conv7, 5.000000e-01
   br label %for.body5
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %if.end48
   %x.038 = phi i32 [ 0, %for.body5.lr.ph ], [ %inc, %if.end48 ]
-  %conv = sitofp i32 %x.038 to double
+  %conv = uitofp nneg i32 %x.038 to double
   %add = fadd double %conv, 5.000000e-01
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %scale, align 8
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp9.sroa.2.0..sroa_idx, align 8
@@ -2661,13 +2661,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp478, label %for.body5.lr.ph, label %for.inc138
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv7 = sitofp i32 %y.081 to double
+  %conv7 = uitofp nneg i32 %y.081 to double
   %add8 = fadd double %conv7, 5.000000e-01
   br label %for.body5
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %if.end116
   %x.079 = phi i32 [ 0, %for.body5.lr.ph ], [ %inc, %if.end116 ]
-  %conv = sitofp i32 %x.079 to double
+  %conv = uitofp nneg i32 %x.079 to double
   %add = fadd double %conv, 5.000000e-01
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %scale, align 8
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp9.sroa.2.0..sroa_idx, align 8
@@ -2968,13 +2968,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4101, label %for.body5.lr.ph, label %for.inc150
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %conv7 = sitofp i32 %y.0104 to double
+  %conv7 = uitofp nneg i32 %y.0104 to double
   %add8 = fadd double %conv7, 5.000000e-01
   br label %for.body5
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %if.end122
   %x.0102 = phi i32 [ 0, %for.body5.lr.ph ], [ %inc, %if.end122 ]
-  %conv = sitofp i32 %x.0102 to double
+  %conv = uitofp nneg i32 %x.0102 to double
   %add = fadd double %conv, 5.000000e-01
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %scale, align 8
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp9.sroa.2.0..sroa_idx, align 8

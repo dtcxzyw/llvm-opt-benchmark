@@ -990,7 +990,7 @@ for.body148:                                      ; preds = %for.body148.prehead
   %or = or i64 %shr, %y.0216
   %cmp.i185 = icmp ult i64 %or, 2
   %73 = call i64 @llvm.ctlz.i64(i64 %or, i1 false), !range !10
-  %cast.i.i.i186 = trunc i64 %73 to i32
+  %cast.i.i.i186 = trunc nuw nsw i64 %73 to i32
   %sub.i187 = sub nuw nsw i32 63, %cast.i.i.i186
   %cond.i188 = select i1 %cmp.i185, i32 0, i32 %sub.i187
   store i32 %cond.i188, ptr %ref.tmp151, align 4
@@ -1815,7 +1815,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %cmp.i = icmp eq i32 %storemerge218, 0
   %sub.i = add i64 %shl, -1
   %50 = call i64 @llvm.ctlz.i64(i64 %sub.i, i1 false), !range !10
-  %cast.i.i.i = trunc i64 %50 to i32
+  %cast.i.i.i = trunc nuw nsw i64 %50 to i32
   %sub1.i = sub nuw nsw i32 64, %cast.i.i.i
   %cond.i = select i1 %cmp.i, i32 0, i32 %sub1.i
   store i32 %cond.i, ptr %ref.tmp99, align 4
@@ -2045,7 +2045,7 @@ for.body141:                                      ; preds = %for.body141.prehead
   %cmp.i184 = icmp ult i64 %or, 2
   %sub.i185 = add i64 %or, -1
   %76 = call i64 @llvm.ctlz.i64(i64 %sub.i185, i1 false), !range !10
-  %cast.i.i.i186 = trunc i64 %76 to i32
+  %cast.i.i.i186 = trunc nuw nsw i64 %76 to i32
   %sub1.i187 = sub nuw nsw i32 64, %cast.i.i.i186
   %cond.i188 = select i1 %cmp.i184, i32 0, i32 %sub1.i187
   store i32 %cond.i188, ptr %ref.tmp145, align 4
@@ -2515,7 +2515,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %if.end47, %_ZNKSt14
 
 for.body:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit67, %_ZN7testing15AssertionResultD2Ev.exit90
   %i.091 = phi i32 [ 2, %_ZN7testing15AssertionResultD2Ev.exit67 ], [ %35, %_ZN7testing15AssertionResultD2Ev.exit90 ]
-  %conv = sitofp i32 %i.091 to double
+  %conv = uitofp nneg i32 %i.091 to double
   %call.i68 = call double @log(double noundef %conv) #13
   %div.i = fdiv double 1.000000e+00, %conv
   %neg.i = fneg double %conv
@@ -2527,7 +2527,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %neg3.i = fmul double %div.i, %33
   %34 = call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %32)
   %35 = add nuw nsw i32 %i.091, 1
-  %add = uitofp i32 %35 to double
+  %add = uitofp nneg i32 %35 to double
   %call51 = call double @lgamma(double noundef %add) #13
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar49, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, double noundef %34, double noundef %call51, double noundef 3.000000e-05)
   %36 = load i8, ptr %gtest_ar49, align 8

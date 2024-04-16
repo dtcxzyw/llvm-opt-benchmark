@@ -580,7 +580,7 @@ define void @_ZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKl(ptr noundef nonnu
   %43 = fsub double %42, %33
   %44 = fdiv double %43, 1.000000e+03
   %.not109 = icmp eq i64 %.088189, 0
-  %45 = sitofp i64 %.088189 to double
+  %45 = uitofp nneg i64 %.088189 to double
   %46 = fdiv double %44, %45
   %47 = fmul double %46, %35
   %.090 = select i1 %.not109, double 0.000000e+00, double %47
@@ -1537,7 +1537,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc21, %_ZNSt6ve
   %29 = load i64, ptr %21, align 8
   %30 = trunc i64 %29 to i32
   %31 = and i64 %.sroa.5.057, 7
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw nsw i64 %31 to i32
   %33 = sub nuw nsw i32 8, %32
   %.not.i = icmp slt i32 %33, %30
   br i1 %.not.i, label %42, label %34
@@ -1572,7 +1572,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit.loopexit: ; preds = %42
   %.0.i = add nuw nsw i64 %43, 1
   %52 = getelementptr inbounds i8, ptr %.sroa.042.0, i64 %.0.i
   %53 = load i8, ptr %52, align 1
-  %54 = trunc i64 %51 to i8
+  %54 = trunc nuw nsw i64 %51 to i8
   %55 = or i8 %53, %54
   store i8 %55, ptr %52, align 1
   br label %_ZN5faiss15BitstringWriter5writeEmi.exit
@@ -5427,8 +5427,8 @@ define void @_ZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS_24SIMDResult
   %.sroa.18.0363.us = phi ptr [ %.sroa.18.3.us, %._crit_edge.us ], [ null, %.preheader266.lr.ph ]
   %sext459 = shl i64 %.0101367.us, 32
   %63 = ashr exact i64 %sext459, 32
-  %64 = trunc i64 %indvars.iv450 to i32
-  %65 = trunc i64 %indvars.iv450 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv450 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv450 to i32
   br label %66
 
 66:                                               ; preds = %.preheader266.us, %_ZNSt6vectorIZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS0_24SIMDResultHandlerToFloatERKNS1_15CoarseQuantizedEPmS9_PKNS0_15NormTableScalerEE2QCSaISD_EE9push_backEOSD_.exit.us
@@ -5453,7 +5453,7 @@ define void @_ZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS_24SIMDResult
   %.sroa.3231.0..sroa_idx.us = getelementptr inbounds i8, ptr %.sroa.11.1356.us, i64 4
   store i32 %72, ptr %.sroa.3231.0..sroa_idx.us, align 4
   %.sroa.4.0..sroa_idx.us = getelementptr inbounds i8, ptr %.sroa.11.1356.us, i64 8
-  %74 = trunc i64 %indvars.iv445 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv445 to i32
   store i32 %74, ptr %.sroa.4.0..sroa_idx.us, align 4
   %75 = getelementptr inbounds i8, ptr %.sroa.11.1356.us, i64 12
   br label %_ZNSt6vectorIZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS0_24SIMDResultHandlerToFloatERKNS1_15CoarseQuantizedEPmS9_PKNS0_15NormTableScalerEE2QCSaISD_EE9push_backEOSD_.exit.us
@@ -5488,7 +5488,7 @@ _ZNSt12_Vector_baseIZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS0_24SIM
   %.sroa.3231.0..sroa_idx232.us = getelementptr inbounds i8, ptr %91, i64 4
   store i32 %72, ptr %.sroa.3231.0..sroa_idx232.us, align 4
   %.sroa.4.0..sroa_idx234.us = getelementptr inbounds i8, ptr %91, i64 8
-  %92 = trunc i64 %indvars.iv445 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv445 to i32
   store i32 %92, ptr %.sroa.4.0..sroa_idx234.us, align 4
   %93 = icmp sgt i64 %79, 0
   br i1 %93, label %94, label %_ZNSt6vectorIZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS0_24SIMDResultHandlerToFloatERKNS1_15CoarseQuantizedEPmS9_PKNS0_15NormTableScalerEE2QCSaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit20.i.i.i.us
@@ -6362,8 +6362,8 @@ define void @_ZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS0_15Coa
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %82 = sext i32 %.042114 to i64
-  %83 = trunc i64 %indvars.iv131 to i32
-  %84 = trunc i64 %indvars.iv131 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv131 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv131 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS1_15CoarseQuantizedEiPKNS0_15NormTableScalerEE2QCSaISC_EE9push_backEOSC_.exit
@@ -6388,7 +6388,7 @@ define void @_ZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS0_15Coa
   %.sroa.395.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 4
   store i32 %92, ptr %.sroa.395.0..sroa_idx, align 4
   %.sroa.498.0..sroa_idx = getelementptr inbounds i8, ptr %86, i64 8
-  %95 = trunc i64 %indvars.iv126 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv126 to i32
   store i32 %95, ptr %.sroa.498.0..sroa_idx, align 4
   %96 = load ptr, ptr %76, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 12
@@ -6434,7 +6434,7 @@ _ZNSt12_Vector_baseIZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS1
   %.sroa.395.0..sroa_idx96 = getelementptr inbounds i8, ptr %114, i64 4
   store i32 %92, ptr %.sroa.395.0..sroa_idx96, align 4
   %.sroa.498.0..sroa_idx99 = getelementptr inbounds i8, ptr %114, i64 8
-  %115 = trunc i64 %indvars.iv126 to i32
+  %115 = trunc nuw nsw i64 %indvars.iv126 to i32
   store i32 %115, ptr %.sroa.498.0..sroa_idx99, align 4
   %116 = icmp sgt i64 %101, 0
   br i1 %116, label %117, label %_ZNSt6vectorIZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS1_15CoarseQuantizedEiPKNS0_15NormTableScalerEE2QCSaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit20.i.i.i
@@ -6489,7 +6489,7 @@ _ZNSt6vectorIZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS1_15Coar
   br i1 %128, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS1_15CoarseQuantizedEiPKNS0_15NormTableScalerEE2QCSaISC_EE9push_backEOSC_.exit
-  %129 = trunc i64 %indvars.iv.next to i32
+  %129 = trunc nsw i64 %indvars.iv.next to i32
   %.pre137 = load i64, ptr %12, align 8
   br label %._crit_edge
 
@@ -7910,7 +7910,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %86
   br i1 %146, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %147 = trunc i64 %indvars.iv.next.i.i to i32
+  %147 = trunc nuw i64 %indvars.iv.next.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %135
@@ -8010,7 +8010,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %1
   br i1 %194, label %.lr.ph.i58.i, label %._crit_edge.loopexit.i65.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i65.i:                       ; preds = %.lr.ph.i58.i
-  %195 = trunc i64 %indvars.iv.next.i63.i to i32
+  %195 = trunc nuw i64 %indvars.iv.next.i63.i to i32
   br label %._crit_edge.i51.i
 
 ._crit_edge.i51.i:                                ; preds = %._crit_edge.loopexit.i65.i, %183
@@ -8667,7 +8667,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %86
   br i1 %146, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %147 = trunc i64 %indvars.iv.next.i.i to i32
+  %147 = trunc nuw i64 %indvars.iv.next.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %135
@@ -8767,7 +8767,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %1
   br i1 %194, label %.lr.ph.i58.i, label %._crit_edge.loopexit.i65.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i65.i:                       ; preds = %.lr.ph.i58.i
-  %195 = trunc i64 %indvars.iv.next.i63.i to i32
+  %195 = trunc nuw i64 %indvars.iv.next.i63.i to i32
   br label %._crit_edge.i51.i
 
 ._crit_edge.i51.i:                                ; preds = %._crit_edge.loopexit.i65.i, %183
@@ -9458,7 +9458,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %98
   br i1 %158, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %159 = trunc i64 %indvars.iv.next.i.i to i32
+  %159 = trunc nuw i64 %indvars.iv.next.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %147
@@ -9564,7 +9564,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %1
   br i1 %208, label %.lr.ph.i58.i, label %._crit_edge.loopexit.i65.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i65.i:                       ; preds = %.lr.ph.i58.i
-  %209 = trunc i64 %indvars.iv.next.i63.i to i32
+  %209 = trunc nuw i64 %indvars.iv.next.i63.i to i32
   br label %._crit_edge.i51.i
 
 ._crit_edge.i51.i:                                ; preds = %._crit_edge.loopexit.i65.i, %197
@@ -10315,7 +10315,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %98
   br i1 %158, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %159 = trunc i64 %indvars.iv.next.i.i to i32
+  %159 = trunc nuw i64 %indvars.iv.next.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %147
@@ -10421,7 +10421,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %1
   br i1 %208, label %.lr.ph.i58.i, label %._crit_edge.loopexit.i65.i, !llvm.loop !54
 
 ._crit_edge.loopexit.i65.i:                       ; preds = %.lr.ph.i58.i
-  %209 = trunc i64 %indvars.iv.next.i63.i to i32
+  %209 = trunc nuw i64 %indvars.iv.next.i63.i to i32
   br label %._crit_edge.i51.i
 
 ._crit_edge.i51.i:                                ; preds = %._crit_edge.loopexit.i65.i, %197
@@ -11291,7 +11291,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i16:             ; preds = %50, %_ZN5faiss12sim
   %54 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %55 = load i16, ptr %54, align 2
   %.not.i.i = icmp ult i16 %53, %55
-  %56 = trunc i64 %indvars.iv.i.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %57 = shl nuw nsw i32 1, %56
   %58 = select i1 %.not.i.i, i32 0, i32 %57
   %59 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -11618,7 +11618,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i25:             ; preds = %55, %_ZN5faiss12sim
   %59 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %60 = load i16, ptr %59, align 2
   %.not.i.i = icmp ult i16 %58, %60
-  %61 = trunc i64 %indvars.iv.i.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %62 = shl nuw nsw i32 1, %61
   %63 = select i1 %.not.i.i, i32 0, i32 %62
   %64 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -12120,7 +12120,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %51, %_ZN5faiss12sim
   %55 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %56 = load i16, ptr %55, align 2
   %.not.i.i = icmp ult i16 %54, %56
-  %57 = trunc i64 %indvars.iv.i.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %58 = shl nuw nsw i32 1, %57
   %59 = select i1 %.not.i.i, i32 0, i32 %58
   %60 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -12461,7 +12461,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItlEEE6shrinkEv.exit: ; preds = %25
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %51 ]
   %52 = getelementptr inbounds i32, ptr %.sroa.061.0, i64 %indvars.iv
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %53, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i64, ptr %22, align 8
@@ -14007,7 +14007,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i16:             ; preds = %50, %_ZN5faiss12sim
   %54 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %55 = load i16, ptr %54, align 2
   %.not.i.i = icmp ugt i16 %53, %55
-  %56 = trunc i64 %indvars.iv.i.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %57 = shl nuw nsw i32 1, %56
   %58 = select i1 %.not.i.i, i32 0, i32 %57
   %59 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -14324,7 +14324,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i25:             ; preds = %55, %_ZN5faiss12sim
   %59 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %60 = load i16, ptr %59, align 2
   %.not.i.i = icmp ugt i16 %58, %60
-  %61 = trunc i64 %indvars.iv.i.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %62 = shl nuw nsw i32 1, %61
   %63 = select i1 %.not.i.i, i32 0, i32 %62
   %64 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -14826,7 +14826,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i17:             ; preds = %51, %_ZN5faiss12sim
   %55 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %56 = load i16, ptr %55, align 2
   %.not.i.i = icmp ugt i16 %54, %56
-  %57 = trunc i64 %indvars.iv.i.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %58 = shl nuw nsw i32 1, %57
   %59 = select i1 %.not.i.i, i32 0, i32 %58
   %60 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -15167,7 +15167,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItlEEE6shrinkEv.exit: ; preds = %25
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %51 ]
   %52 = getelementptr inbounds i32, ptr %.sroa.061.0, i64 %indvars.iv
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %53, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i64, ptr %22, align 8
@@ -16934,7 +16934,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i15:             ; preds = %50, %_ZN5faiss12sim
   %54 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %55 = load i16, ptr %54, align 2
   %.not.i.i = icmp ult i16 %53, %55
-  %56 = trunc i64 %indvars.iv.i.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %57 = shl nuw nsw i32 1, %56
   %58 = select i1 %.not.i.i, i32 0, i32 %57
   %59 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -17662,7 +17662,7 @@ _ZN5faiss12simd16uint16C2Et.exit.i15:             ; preds = %50, %_ZN5faiss12sim
   %54 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i
   %55 = load i16, ptr %54, align 2
   %.not.i.i = icmp ugt i16 %53, %55
-  %56 = trunc i64 %indvars.iv.i.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %57 = shl nuw nsw i32 1, %56
   %58 = select i1 %.not.i.i, i32 0, i32 %57
   %59 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i
@@ -18736,7 +18736,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 43:                                               ; preds = %42, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %27, %42 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.03.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.05.0.copyload.i.i.i, 32
-  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i.i to i32
+  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %44 = icmp sgt i64 %.1.i.i.i.i, %.0.i.i.i
   br i1 %44, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS2_24SIMDResultHandlerToFloatERKNS3_15CoarseQuantizedEPmSB_PKNS2_15NormTableScalerEE2QCSt6vectorISF_SaISF_EEEElSF_NS0_5__ops15_Iter_comp_iterIZNKS3_16search_implem_12ElS5_S7_SA_SB_SB_SE_E3$_0EEEvT_T0_SQ_T1_T2_.exit.i.i.i"
 
@@ -18821,7 +18821,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 81:                                               ; preds = %76, %72, %._crit_edge.i.i.i13.i
   %.1.i.i.i15.i = phi i64 [ %78, %76 ], [ %.0.lcssa.i.i.i14.i, %72 ], [ %.0.lcssa.i.i.i14.i, %._crit_edge.i.i.i13.i ]
   %.sroa.03.sroa.2.0.extract.shift.i.i.i.i16.i = lshr i64 %.sroa.05.0.copyload.i.i10.i, 32
-  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i17.i = trunc i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i16.i to i32
+  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i17.i = trunc nuw i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i16.i to i32
   %82 = icmp sgt i64 %.1.i.i.i15.i, 0
   br i1 %82, label %.lr.ph.i.i.i.i20.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZNK5faiss16IndexIVFFastScan16search_implem_12ElPKfRNS2_24SIMDResultHandlerToFloatERKNS3_15CoarseQuantizedEPmSB_PKNS2_15NormTableScalerEE2QCSt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_16search_implem_12ElS5_S7_SA_SB_SB_SE_E3$_0EEEvT_SP_SP_RT0_.exit.i.i"
 
@@ -19838,7 +19838,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 43:                                               ; preds = %42, %._crit_edge.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %27, %42 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.03.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.05.0.copyload.i.i.i, 32
-  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i.i to i32
+  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %44 = icmp sgt i64 %.1.i.i.i.i, %.0.i.i.i
   br i1 %44, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS3_15CoarseQuantizedEiPKNS2_15NormTableScalerEE2QCSt6vectorISE_SaISE_EEEElSE_NS0_5__ops15_Iter_comp_iterIZNKS3_16search_implem_14ElS5_lS6_S7_SA_iSD_E3$_0EEEvT_T0_SP_T1_T2_.exit.i.i.i"
 
@@ -19923,7 +19923,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 81:                                               ; preds = %76, %72, %._crit_edge.i.i.i13.i
   %.1.i.i.i15.i = phi i64 [ %78, %76 ], [ %.0.lcssa.i.i.i14.i, %72 ], [ %.0.lcssa.i.i.i14.i, %._crit_edge.i.i.i13.i ]
   %.sroa.03.sroa.2.0.extract.shift.i.i.i.i16.i = lshr i64 %.sroa.05.0.copyload.i.i10.i, 32
-  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i17.i = trunc i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i16.i to i32
+  %.sroa.03.sroa.2.0.extract.trunc.i.i.i.i17.i = trunc nuw i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i.i16.i to i32
   %82 = icmp sgt i64 %.1.i.i.i15.i, 0
   br i1 %82, label %.lr.ph.i.i.i.i20.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZNK5faiss16IndexIVFFastScan16search_implem_14ElPKflPfPlRKNS3_15CoarseQuantizedEiPKNS2_15NormTableScalerEE2QCSt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_16search_implem_14ElS5_lS6_S7_SA_iSD_E3$_0EEEvT_SO_SO_RT0_.exit.i.i"
 
@@ -20776,7 +20776,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc36, %_ZNSt6ve
   %80 = load i64, ptr %34, align 8
   %81 = trunc i64 %80 to i32
   %82 = and i64 %.sroa.5.0117, 7
-  %83 = trunc i64 %82 to i32
+  %83 = trunc nuw nsw i64 %82 to i32
   %84 = sub nuw nsw i32 8, %83
   %.not.i = icmp slt i32 %84, %81
   br i1 %.not.i, label %93, label %85
@@ -20811,7 +20811,7 @@ _ZN5faiss15BitstringWriter5writeEmi.exit.loopexit: ; preds = %93
   %.0.i = add nuw nsw i64 %94, 1
   %103 = getelementptr inbounds i8, ptr %.sroa.045.1, i64 %.0.i
   %104 = load i8, ptr %103, align 1
-  %105 = trunc i64 %102 to i8
+  %105 = trunc nuw nsw i64 %102 to i8
   %106 = or i8 %104, %105
   store i8 %106, ptr %103, align 1
   br label %_ZN5faiss15BitstringWriter5writeEmi.exit

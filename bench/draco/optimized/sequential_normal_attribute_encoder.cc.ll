@@ -894,7 +894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i32 %34, ptr %23, align 4
   %35 = sub nuw nsw i32 -2, %notmask.i.i.i.i.i
   store i32 %35, ptr %24, align 4
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp nneg i32 %35 to float
   %37 = fdiv float 2.000000e+00, %36
   store float %37, ptr %25, align 4
   %38 = lshr i32 %35, 1
@@ -6302,7 +6302,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %22 = sub nuw nsw i32 -2, %notmask.i.i
   %23 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %22, ptr %23, align 8
-  %24 = sitofp i32 %22 to float
+  %24 = uitofp nneg i32 %22 to float
   %25 = fdiv float 2.000000e+00, %24
   %26 = getelementptr inbounds i8, ptr %0, i64 148
   store float %25, ptr %26, align 4
@@ -10385,7 +10385,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %22 = sub nuw nsw i32 -2, %notmask.i.i
   %23 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %22, ptr %23, align 8
-  %24 = sitofp i32 %22 to float
+  %24 = uitofp nneg i32 %22 to float
   %25 = fdiv float 2.000000e+00, %24
   %26 = getelementptr inbounds i8, ptr %0, i64 148
   store float %25, ptr %26, align 4

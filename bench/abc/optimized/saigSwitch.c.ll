@@ -420,7 +420,7 @@ Abc_Clock.exit39:                                 ; preds = %30, %29
   %.03143.us = phi ptr [ %55, %.lr.ph.split.us ], [ %23, %.lr.ph ]
   %43 = lshr i32 %42, 8
   %44 = shl nuw nsw i32 %43, 1
-  %45 = uitofp i32 %44 to float
+  %45 = uitofp nneg i32 %44 to float
   %46 = fdiv float %45, %40
   %47 = sub nsw i32 %39, %43
   %48 = sitofp i32 %47 to float
@@ -442,7 +442,7 @@ Abc_Clock.exit39:                                 ; preds = %30, %29
   %59 = phi i32 [ %69, %.lr.ph.split ], [ %36, %.lr.ph ]
   %.03143 = phi ptr [ %67, %.lr.ph.split ], [ %23, %.lr.ph ]
   %60 = lshr i32 %59, 8
-  %61 = sitofp i32 %60 to float
+  %61 = uitofp nneg i32 %60 to float
   %62 = fdiv float %61, %40
   %63 = ptrtoint ptr %.03143 to i64
   %64 = sub i64 %63, %41
@@ -563,7 +563,7 @@ define void @Aig_CManStoreNum(ptr nocapture noundef %0, i32 noundef %1) local_un
 
 ._crit_edge:                                      ; preds = %4, %2
   %.0.lcssa = phi i32 [ %1, %2 ], [ %9, %4 ]
-  %10 = trunc i32 %.0.lcssa to i8
+  %10 = trunc nuw i32 %.0.lcssa to i8
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 1
@@ -642,7 +642,7 @@ define void @Aig_CManAddNode(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 
 Aig_CManStoreNum.exit:                            ; preds = %10, %3
   %.0.lcssa.i = phi i32 [ %8, %3 ], [ %15, %10 ]
-  %16 = trunc i32 %.0.lcssa.i to i8
+  %16 = trunc nuw i32 %.0.lcssa.i to i8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 1
@@ -666,7 +666,7 @@ Aig_CManStoreNum.exit:                            ; preds = %10, %3
 
 Aig_CManStoreNum.exit10:                          ; preds = %.lr.ph.i6, %Aig_CManStoreNum.exit
   %.0.lcssa.i9 = phi i32 [ %20, %Aig_CManStoreNum.exit ], [ %25, %.lr.ph.i6 ]
-  %26 = trunc i32 %.0.lcssa.i9 to i8
+  %26 = trunc nuw i32 %.0.lcssa.i9 to i8
   %27 = load ptr, ptr %17, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 1
   store ptr %28, ptr %17, align 8
@@ -706,7 +706,7 @@ define void @Aig_CManAddPo(ptr nocapture noundef %0, i32 noundef %1) local_unnam
 
 Aig_CManStoreNum.exit:                            ; preds = %11, %6
   %.0.lcssa.i = phi i32 [ %9, %6 ], [ %16, %11 ]
-  %17 = trunc i32 %.0.lcssa.i to i8
+  %17 = trunc nuw i32 %.0.lcssa.i to i8
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 1
@@ -742,7 +742,7 @@ Aig_CManStoreNum.exit:                            ; preds = %11, %6
 
 Aig_CManStoreNum.exit20:                          ; preds = %26, %22
   %.0.lcssa.i19 = phi i32 [ %24, %22 ], [ %31, %26 ]
-  %32 = trunc i32 %.0.lcssa.i19 to i8
+  %32 = trunc nuw i32 %.0.lcssa.i19 to i8
   %33 = getelementptr inbounds i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 1
@@ -775,7 +775,7 @@ Aig_CManStoreNum.exit20:                          ; preds = %26, %22
 
 Aig_CManStoreNum.exit26:                          ; preds = %41, %36
   %.0.lcssa.i25 = phi i32 [ %39, %36 ], [ %46, %41 ]
-  %47 = trunc i32 %.0.lcssa.i25 to i8
+  %47 = trunc nuw i32 %.0.lcssa.i25 to i8
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 1
@@ -1063,7 +1063,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
 
 Aig_CManStoreNum.exit.i:                          ; preds = %.lr.ph.i.i, %Aig_ObjFaninId1.exit
   %.0.lcssa.i.i = phi i32 [ %64, %Aig_ObjFaninId1.exit ], [ %69, %.lr.ph.i.i ]
-  %70 = trunc i32 %.0.lcssa.i.i to i8
+  %70 = trunc nuw i32 %.0.lcssa.i.i to i8
   %71 = load ptr, ptr %21, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 1
   store ptr %72, ptr %21, align 8
@@ -1087,7 +1087,7 @@ Aig_CManStoreNum.exit.i:                          ; preds = %.lr.ph.i.i, %Aig_Ob
 
 Aig_CManAddNode.exit:                             ; preds = %.lr.ph.i6.i, %Aig_CManStoreNum.exit.i
   %.0.lcssa.i9.i = phi i32 [ %73, %Aig_CManStoreNum.exit.i ], [ %78, %.lr.ph.i6.i ]
-  %79 = trunc i32 %.0.lcssa.i9.i to i8
+  %79 = trunc nuw i32 %.0.lcssa.i9.i to i8
   %80 = load ptr, ptr %21, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 1
   store ptr %81, ptr %21, align 8
@@ -1154,7 +1154,7 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph67, %92
 
 Aig_CManStoreNum.exit.i55:                        ; preds = %.lr.ph.i.i52, %104
   %.0.lcssa.i.i56 = phi i32 [ %106, %104 ], [ %111, %.lr.ph.i.i52 ]
-  %112 = trunc i32 %.0.lcssa.i.i56 to i8
+  %112 = trunc nuw i32 %.0.lcssa.i.i56 to i8
   %113 = load ptr, ptr %21, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 1
   store ptr %114, ptr %21, align 8
@@ -1185,7 +1185,7 @@ Aig_CManStoreNum.exit.i55:                        ; preds = %.lr.ph.i.i52, %104
 
 Aig_CManStoreNum.exit20.i:                        ; preds = %.lr.ph.i16.i, %116
   %.0.lcssa.i19.i = phi i32 [ %118, %116 ], [ %123, %.lr.ph.i16.i ]
-  %124 = trunc i32 %.0.lcssa.i19.i to i8
+  %124 = trunc nuw i32 %.0.lcssa.i19.i to i8
   %125 = load ptr, ptr %21, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 1
   store ptr %126, ptr %21, align 8
@@ -1213,7 +1213,7 @@ Aig_CManStoreNum.exit20.i:                        ; preds = %.lr.ph.i16.i, %116
 
 Aig_CManStoreNum.exit26.i:                        ; preds = %.lr.ph.i22.i, %127
   %.0.lcssa.i25.i = phi i32 [ %130, %127 ], [ %135, %.lr.ph.i22.i ]
-  %136 = trunc i32 %.0.lcssa.i25.i to i8
+  %136 = trunc nuw i32 %.0.lcssa.i25.i to i8
   %137 = load ptr, ptr %21, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 1
   store ptr %138, ptr %21, align 8

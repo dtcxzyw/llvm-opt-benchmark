@@ -741,7 +741,7 @@ Vec_IntGrow.exit:                                 ; preds = %.lr.ph110, %97
 
 .lr.ph113:                                        ; preds = %.lr.ph116
   %108 = getelementptr i8, ptr %105, i64 8
-  %109 = trunc i64 %indvars.iv133 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv133 to i32
   br label %110
 
 110:                                              ; preds = %.lr.ph113, %Vec_WecPush.exit
@@ -1285,7 +1285,7 @@ define void @Fxch_ManDivCreate(ptr noundef %0) local_unnamed_addr #2 {
   store i32 %54, ptr %32, align 4
   %55 = sext i32 %48 to i64
   %56 = getelementptr inbounds i32, ptr %53, i64 %55
-  %57 = trunc i64 %indvars.iv to i32
+  %57 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %57, ptr %56, align 4
   %58 = getelementptr i8, ptr %31, i64 24
   %.val.i.i = load ptr, ptr %58, align 8
@@ -1299,7 +1299,7 @@ define void @Fxch_ManDivCreate(ptr noundef %0) local_unnamed_addr #2 {
   br label %Vec_QuePrio.exit.i.i
 
 62:                                               ; preds = %47
-  %63 = sitofp i32 %57 to float
+  %63 = uitofp nneg i32 %57 to float
   br label %Vec_QuePrio.exit.i.i
 
 Vec_QuePrio.exit.i.i:                             ; preds = %62, %59
@@ -1638,7 +1638,7 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %129, ptr %15, align 8
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.val59 = load i32, ptr %9, align 4
-  %130 = trunc i64 %indvars.iv.next91 to i32
+  %130 = trunc nuw i64 %indvars.iv.next91 to i32
   %131 = icmp sgt i32 %.val59, %130
   br i1 %131, label %24, label %.critedge2.loopexit.loopexit, !llvm.loop !24
 
@@ -1730,7 +1730,7 @@ Fxch_ManSCAddRemove.exit75.us:                    ; preds = %Fxch_ManSCAddRemove
   %41 = sub nsw i32 %.191.us, %40
   %42 = load ptr, ptr %24, align 8
   %43 = load ptr, ptr %0, align 8
-  %44 = trunc i64 %indvars.iv111 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv111 to i32
   %45 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %42, ptr noundef %43, i32 noundef %41, i32 noundef %1, i32 noundef %44, i32 noundef 0, i8 noundef signext %22) #19
   %46 = load i32, ptr %35, align 4
   %47 = add nsw i32 %46, %45
@@ -1777,7 +1777,7 @@ Fxch_ManSCAddRemove.exit78.us.us:                 ; preds = %.preheader.us, %Fxc
   %62 = sub nsw i32 %.283.us.us, %61
   %63 = load ptr, ptr %24, align 8
   %64 = load ptr, ptr %0, align 8
-  %65 = trunc i64 %indvars.iv108 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv108 to i32
   %66 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %63, ptr noundef %64, i32 noundef %62, i32 noundef %1, i32 noundef %44, i32 noundef %65, i8 noundef signext %22) #19
   %67 = load i32, ptr %35, align 4
   %68 = add nsw i32 %67, %66
@@ -1788,7 +1788,7 @@ Fxch_ManSCAddRemove.exit78.us.us:                 ; preds = %.preheader.us, %Fxc
   %71 = add nsw i32 %70, %62
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.val69.us.us = load i32, ptr %11, align 4
-  %72 = trunc i64 %indvars.iv.next109 to i32
+  %72 = trunc nuw i64 %indvars.iv.next109 to i32
   %73 = icmp sgt i32 %.val69.us.us, %72
   br i1 %73, label %Fxch_ManSCAddRemove.exit78.us.us, label %.critedge4.us, !llvm.loop !27
 
@@ -1806,7 +1806,7 @@ Fxch_ManSCAddRemove.exit75:                       ; preds = %Fxch_ManSCAddRemove
   %79 = sub nsw i32 %.191, %78
   %80 = load ptr, ptr %24, align 8
   %81 = load ptr, ptr %0, align 8
-  %82 = trunc i64 %indvars.iv102 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv102 to i32
   %83 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %80, ptr noundef %81, i32 noundef %79, i32 noundef %1, i32 noundef %82, i32 noundef 0, i8 noundef signext %22) #19
   %84 = load i32, ptr %32, align 4
   %85 = add nsw i32 %84, %83
@@ -1840,7 +1840,7 @@ Fxch_ManSCAddRemove.exit78:                       ; preds = %.preheader, %Fxch_M
   %95 = sub nsw i32 %.283, %94
   %96 = load ptr, ptr %24, align 8
   %97 = load ptr, ptr %0, align 8
-  %98 = trunc i64 %indvars.iv99 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv99 to i32
   %99 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %96, ptr noundef %97, i32 noundef %95, i32 noundef %1, i32 noundef %82, i32 noundef %98, i8 noundef signext %22) #19
   %100 = load i32, ptr %32, align 4
   %101 = add nsw i32 %100, %99
@@ -1851,7 +1851,7 @@ Fxch_ManSCAddRemove.exit78:                       ; preds = %.preheader, %Fxch_M
   %104 = add nsw i32 %103, %95
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %.val69 = load i32, ptr %11, align 4
-  %105 = trunc i64 %indvars.iv.next100 to i32
+  %105 = trunc nuw i64 %indvars.iv.next100 to i32
   %106 = icmp sgt i32 %.val69, %105
   br i1 %106, label %Fxch_ManSCAddRemove.exit78, label %.critedge4, !llvm.loop !27
 
@@ -2010,7 +2010,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not, label %36, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = sub i32 %28, %.032
   %30 = getelementptr i8, ptr %.pre34, i64 8
   %.val27 = load ptr, ptr %30, align 8
@@ -2462,10 +2462,10 @@ Vec_IntErase.exit:                                ; preds = %176, %187
   br i1 %199, label %200, label %204
 
 200:                                              ; preds = %.lr.ph
-  %201 = trunc i64 %indvars.iv to i32
+  %201 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %192, i32 noundef %201, i32 noundef %198)
   %202 = load ptr, ptr %177, align 8
-  %203 = trunc i64 %193 to i32
+  %203 = trunc nuw nsw i64 %193 to i32
   tail call fastcc void @Vec_IntSetEntry(ptr noundef %202, i32 noundef %203, i32 noundef %196)
   %.pre = load ptr, ptr %177, align 8
   br label %204
@@ -3536,7 +3536,7 @@ Fxch_ManCreateCube.exit:                          ; preds = %.Vec_IntGrow.exit10
   br i1 %741, label %.preheader.i.i, label %744
 
 .preheader.i.i:                                   ; preds = %737
-  %742 = trunc i64 %indvars.iv.i.i301 to i32
+  %742 = trunc nuw nsw i64 %indvars.iv.i.i301 to i32
   %.123.i.i = add nuw nsw i32 %742, 1
   %743 = icmp slt i32 %.123.i.i, %733
   br i1 %743, label %.lr.ph26.i.i, label %._crit_edge.i.i
@@ -3557,7 +3557,7 @@ Fxch_ManCreateCube.exit:                          ; preds = %.Vec_IntGrow.exit10
   store i32 %747, ptr %748, align 4
   %indvars.iv.next34.i.i = add nuw nsw i64 %indvars.iv33.i.i, 1
   %749 = load i32, ptr %732, align 4
-  %750 = trunc i64 %indvars.iv.next34.i.i to i32
+  %750 = trunc nuw i64 %indvars.iv.next34.i.i to i32
   %751 = icmp sgt i32 %749, %750
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   br i1 %751, label %.lr.ph26.i.i, label %._crit_edge.i.i, !llvm.loop !43
@@ -3588,7 +3588,7 @@ Vec_IntRemove1.exit.i:                            ; preds = %744, %._crit_edge.i
   br i1 %759, label %.preheader.i34.i, label %762
 
 .preheader.i34.i:                                 ; preds = %755
-  %760 = trunc i64 %indvars.iv.i30.i to i32
+  %760 = trunc nuw nsw i64 %indvars.iv.i30.i to i32
   %.123.i35.i = add nuw nsw i32 %760, 1
   %761 = icmp slt i32 %.123.i35.i, %.pr58.i
   br i1 %761, label %.lr.ph26.i38.i, label %._crit_edge.i36.i
@@ -3609,7 +3609,7 @@ Vec_IntRemove1.exit.i:                            ; preds = %744, %._crit_edge.i
   store i32 %765, ptr %766, align 4
   %indvars.iv.next34.i41.i = add nuw nsw i64 %indvars.iv33.i40.i, 1
   %767 = load i32, ptr %732, align 4
-  %768 = trunc i64 %indvars.iv.next34.i41.i to i32
+  %768 = trunc nuw i64 %indvars.iv.next34.i41.i to i32
   %769 = icmp sgt i32 %767, %768
   %indvars.iv.next37.i42.i = add nuw nsw i64 %indvars.iv36.i39.i, 1
   br i1 %769, label %.lr.ph26.i38.i, label %._crit_edge.i36.i, !llvm.loop !43
@@ -4633,7 +4633,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %136, !llvm.loop !54
 
 ._crit_edge.loopexit.i:                           ; preds = %136
-  %141 = trunc i64 %indvars.iv.i to i32
+  %141 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %115
@@ -4662,9 +4662,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %149, ptr %151, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %152 = load i32, ptr %131, align 4
-  %153 = trunc i64 %indvars.iv.next35.i to i32
+  %153 = trunc nuw i64 %indvars.iv.next35.i to i32
   %154 = icmp sgt i32 %152, %153
-  %155 = trunc i64 %indvars.iv34.i to i32
+  %155 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %154, label %146, label %._crit_edge30.i, !llvm.loop !55
 
 ._crit_edge30.i:                                  ; preds = %146, %.preheader.i
@@ -4713,7 +4713,7 @@ Vec_IntRemove.exit:                               ; preds = %140, %._crit_edge.i
   br i1 %exitcond.not.i197, label %Vec_IntRemove.exit199, label %165, !llvm.loop !54
 
 ._crit_edge.loopexit.i198:                        ; preds = %165
-  %170 = trunc i64 %indvars.iv.i195 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv.i195 to i32
   br label %._crit_edge.i182
 
 ._crit_edge.i182:                                 ; preds = %._crit_edge.loopexit.i198, %Vec_IntRemove.exit
@@ -4742,9 +4742,9 @@ Vec_IntRemove.exit:                               ; preds = %140, %._crit_edge.i
   store i32 %178, ptr %180, align 4
   %indvars.iv.next35.i192 = add nuw nsw i64 %indvars.iv34.i190, 1
   %181 = load i32, ptr %160, align 4
-  %182 = trunc i64 %indvars.iv.next35.i192 to i32
+  %182 = trunc nuw i64 %indvars.iv.next35.i192 to i32
   %183 = icmp sgt i32 %181, %182
-  %184 = trunc i64 %indvars.iv34.i190 to i32
+  %184 = trunc nuw i64 %indvars.iv34.i190 to i32
   br i1 %183, label %175, label %._crit_edge30.i186, !llvm.loop !55
 
 ._crit_edge30.i186:                               ; preds = %175, %.preheader.i184

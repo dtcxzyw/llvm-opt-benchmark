@@ -2547,7 +2547,7 @@ if.then96:                                        ; preds = %if.end78
   %sub = sub nsw i64 %call79, %retval.sroa.0.0.copyload.i215
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %sub, i64 0)
   %13 = load double, ptr %acceptRateAdjustSpeed_, align 8, !tbaa !183
-  %conv97 = sitofp i64 %.sroa.speculated to double
+  %conv97 = uitofp nneg i64 %.sroa.speculated to double
   %14 = call double @llvm.fmuladd.f64(double %13, double %conv97, double 1.000000e+00)
   %mul = fmul double %12, %14
   store double %mul, ptr %acceptRate_, align 8, !tbaa !182

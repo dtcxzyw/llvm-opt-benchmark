@@ -417,7 +417,7 @@ for.body16:                                       ; preds = %for.end, %for.body1
   %10 = lshr i8 %8, 4
   %11 = and i8 %10, 1
   %shr = zext nneg i8 %11 to i32
-  %12 = trunc i64 %indvars.iv39 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv39 to i32
   %shl65 = shl nuw nsw i32 %shr, %12
   %13 = lshr i8 %9, 4
   %14 = and i8 %13, 1
@@ -612,7 +612,7 @@ for.body28:                                       ; preds = %for.end, %for.body2
   %9 = lshr i8 %conv, 4
   %10 = and i8 %9, 1
   %shr = zext nneg i8 %10 to i32
-  %11 = trunc i64 %indvars.iv47 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv47 to i32
   %shl57 = shl nuw nsw i32 %shr, %11
   %12 = lshr i8 %conv45, 4
   %13 = and i8 %12, 1
@@ -1045,12 +1045,12 @@ for.body8:                                        ; preds = %for.body, %for.body
   %conv = zext i8 %5 to i32
   %and = and i32 %conv, 15
   %shr = lshr i32 %conv, 4
-  %conv19 = sitofp i32 %and to float
+  %conv19 = uitofp nneg i32 %and to float
   %6 = tail call float @llvm.fmuladd.f32(float %conv19, float %1, float %3)
   %7 = add nuw nsw i64 %indvars.iv, %4
   %arrayidx22 = getelementptr inbounds float, ptr %y, i64 %7
   store float %6, ptr %arrayidx22, align 4
-  %conv23 = sitofp i32 %shr to float
+  %conv23 = uitofp nneg i32 %shr to float
   %8 = tail call float @llvm.fmuladd.f32(float %conv23, float %1, float %3)
   %9 = or disjoint i64 %7, 16
   %arrayidx29 = getelementptr inbounds float, ptr %y, i64 %9
@@ -1097,7 +1097,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.body7:                                        ; preds = %for.body, %for.body7
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body7 ]
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %shr = lshr i32 %qh.0.copyload, %3
   %4 = shl i32 %shr, 4
   %conv = and i32 %4, 16
@@ -1168,7 +1168,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.body11:                                       ; preds = %for.body, %for.body11
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body11 ]
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %shr = lshr i32 %qh.0.copyload, %5
   %6 = shl i32 %shr, 4
   %conv = and i32 %6, 16
@@ -1183,12 +1183,12 @@ for.body11:                                       ; preds = %for.body, %for.body
   %or = or disjoint i32 %and21, %conv
   %shr29 = lshr i32 %conv20, 4
   %or31 = or disjoint i32 %shr29, %conv15
-  %conv32 = sitofp i32 %or to float
+  %conv32 = uitofp nneg i32 %or to float
   %10 = tail call float @llvm.fmuladd.f32(float %conv32, float %1, float %3)
   %11 = add nuw nsw i64 %indvars.iv, %4
   %arrayidx36 = getelementptr inbounds float, ptr %y, i64 %11
   store float %10, ptr %arrayidx36, align 4
-  %conv37 = sitofp i32 %or31 to float
+  %conv37 = uitofp nneg i32 %or31 to float
   %12 = tail call float @llvm.fmuladd.f32(float %conv37, float %1, float %3)
   %13 = or disjoint i64 %11, 16
   %arrayidx43 = getelementptr inbounds float, ptr %y, i64 %13
@@ -1362,7 +1362,7 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %conv59.i = trunc i32 %14 to i8
   %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr13, i64 %indvars.iv179.i
   store i8 %conv59.i, ptr %arrayidx61.i, align 1, !alias.scope !56, !noalias !65
-  %conv65.i = sitofp i32 %spec.select.i to float
+  %conv65.i = uitofp nneg i32 %spec.select.i to float
   %15 = tail call float @llvm.fmuladd.f32(float %div35.i, float %conv65.i, float %min.2.i)
   %sub69.i = fsub float %15, %11
   %16 = tail call float @llvm.fabs.f32(float %sub69.i)
@@ -1378,7 +1378,7 @@ for.body91.i:                                     ; preds = %for.inc210.i, %for.
   %is.0165.i = phi i32 [ 0, %for.cond88.preheader.i ], [ %inc211.i, %for.inc210.i ]
   %best_mad.1164.i = phi float [ %18, %for.cond88.preheader.i ], [ %best_mad.2.i, %for.inc210.i ]
   %scale.0163.i = phi float [ %div35.i, %for.cond88.preheader.i ], [ %scale.1.i, %for.inc210.i ]
-  %conv92.i = sitofp i32 %is.0165.i to float
+  %conv92.i = uitofp nneg i32 %is.0165.i to float
   %19 = tail call float @llvm.fmuladd.f32(float %conv92.i, float 0x3FB99999A0000000, float -5.000000e-01)
   %add95.i = fadd float %19, 3.000000e+00
   %sub96.i = fsub float %max.1.i, %min.3166.i
@@ -1405,7 +1405,7 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   store i8 %conv127.i, ptr %arrayidx129.i, align 1, !alias.scope !60, !noalias !67
   %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv184.i
   %24 = load float, ptr %arrayidx132.i, align 4, !alias.scope !54, !noalias !63
-  %conv133.i = sitofp i32 %spec.select131.i to float
+  %conv133.i = uitofp nneg i32 %spec.select131.i to float
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %conv133.i, float %sum_l.0149.i)
   %mul136.i = fmul float %24, %conv133.i
   %26 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0150.i)
@@ -1581,7 +1581,7 @@ for.body123:                                      ; preds = %if.end118, %for.inc
   %arrayidx133 = getelementptr inbounds [16 x i8], ptr %arrayidx126, i64 0, i64 %indvars.iv138
   %51 = load i8, ptr %arrayidx133, align 1
   %52 = and i8 %51, 15
-  %conv135 = uitofp i8 %52 to float
+  %conv135 = uitofp nneg i8 %52 to float
   %mul136 = fmul float %50, %conv135
   %tobool = fcmp une float %mul136, 0.000000e+00
   br i1 %tobool, label %if.end138, label %for.inc185
@@ -1589,7 +1589,7 @@ for.body123:                                      ; preds = %if.end118, %for.inc
 if.end138:                                        ; preds = %for.body123
   %53 = load float, ptr %arrayidx.i86, align 4
   %54 = lshr i8 %51, 4
-  %conv149 = uitofp i8 %54 to float
+  %conv149 = uitofp nneg i8 %54 to float
   %mul150 = fmul float %53, %conv149
   %55 = shl nuw nsw i64 %indvars.iv138, 4
   br label %for.body154
@@ -1711,10 +1711,10 @@ for.body12:                                       ; preds = %for.cond10.preheade
   %6 = load i8, ptr %arrayidx16, align 1
   %conv = zext i8 %6 to i32
   %and = and i32 %conv, 15
-  %conv17 = sitofp i32 %and to float
+  %conv17 = uitofp nneg i32 %and to float
   %mul = fmul float %1, %conv17
   %shr = lshr i32 %conv, 4
-  %conv19 = sitofp i32 %shr to float
+  %conv19 = uitofp nneg i32 %shr to float
   %neg = fmul float %4, %conv19
   br label %for.body24
 
@@ -1726,7 +1726,7 @@ for.body24:                                       ; preds = %for.body12, %for.bo
   %conv27 = zext i8 %7 to i32
   %shr28 = lshr i32 %conv27, %shift.038
   %conv30 = and i32 %shr28, 3
-  %conv32 = sitofp i32 %conv30 to float
+  %conv32 = uitofp nneg i32 %conv30 to float
   %8 = tail call float @llvm.fmuladd.f32(float %mul, float %conv32, float %neg)
   %incdec.ptr = getelementptr inbounds i8, ptr %y.addr.332, i64 4
   store float %8, ptr %y.addr.332, align 4
@@ -1740,10 +1740,10 @@ for.end:                                          ; preds = %for.body24
   %10 = load i8, ptr %arrayidx40, align 1
   %conv41 = zext i8 %10 to i32
   %and42 = and i32 %conv41, 15
-  %conv43 = sitofp i32 %and42 to float
+  %conv43 = uitofp nneg i32 %and42 to float
   %mul44 = fmul float %1, %conv43
   %shr46 = lshr i32 %conv41, 4
-  %conv47 = sitofp i32 %shr46 to float
+  %conv47 = uitofp nneg i32 %shr46 to float
   %neg63 = fmul float %4, %conv47
   br label %for.body53
 
@@ -1756,7 +1756,7 @@ for.body53:                                       ; preds = %for.end, %for.body5
   %conv56 = zext i8 %12 to i32
   %shr57 = lshr i32 %conv56, %shift.038
   %conv59 = and i32 %shr57, 3
-  %conv61 = sitofp i32 %conv59 to float
+  %conv61 = uitofp nneg i32 %conv59 to float
   %13 = tail call float @llvm.fmuladd.f32(float %mul44, float %conv61, float %neg63)
   %incdec.ptr64 = getelementptr inbounds i8, ptr %y.addr.434, i64 4
   store float %13, ptr %y.addr.434, align 4
@@ -1804,7 +1804,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nsw i64 %indvars.iv to i32
   %div = sdiv i32 %2, 256
   %idx.ext = sext i32 %div to i64
   %add.ptr = getelementptr inbounds %struct.block_q2_K, ptr %dst, i64 %idx.ext
@@ -2031,7 +2031,7 @@ for.body21:                                       ; preds = %if.then16, %if.end6
   br i1 %cmp45, label %if.then47, label %if.else
 
 if.then47:                                        ; preds = %for.body21
-  %24 = trunc i32 %cond43 to i8
+  %24 = trunc nsw i32 %cond43 to i8
   %conv49 = and i8 %24, 15
   %arrayidx54 = getelementptr inbounds [12 x i8], ptr %scales14, i64 0, i64 %indvars.iv113
   store i8 %conv49, ptr %arrayidx54, align 1
@@ -2041,7 +2041,7 @@ if.else:                                          ; preds = %for.body21
   %25 = add nsw i64 %indvars.iv113, -8
   %arrayidx61 = getelementptr inbounds [12 x i8], ptr %scales14, i64 0, i64 %25
   %26 = load i8, ptr %arrayidx61, align 1
-  %cond43.tr = trunc i32 %cond43 to i8
+  %cond43.tr = trunc nsw i32 %cond43 to i8
   %27 = shl i8 %cond43.tr, 4
   %conv63 = or i8 %26, %27
   store i8 %conv63, ptr %arrayidx61, align 1
@@ -2049,7 +2049,7 @@ if.else:                                          ; preds = %for.body21
 
 if.end64:                                         ; preds = %if.else, %if.then47
   %shr = lshr i32 %conv44, 4
-  %28 = trunc i64 %indvars.iv113 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv113 to i32
   %29 = lshr i32 %28, 1
   %mul69 = and i32 %29, 6
   %shl70 = shl nuw nsw i32 %shr, %mul69
@@ -2057,7 +2057,7 @@ if.end64:                                         ; preds = %if.else, %if.then47
   %add74 = or disjoint i64 %rem, 8
   %arrayidx76 = getelementptr inbounds [12 x i8], ptr %scales14, i64 0, i64 %add74
   %30 = load i8, ptr %arrayidx76, align 1
-  %31 = trunc i32 %shl70 to i8
+  %31 = trunc nuw i32 %shl70 to i8
   %conv79 = or i8 %30, %31
   store i8 %conv79, ptr %arrayidx76, align 1
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
@@ -2104,7 +2104,7 @@ cond.false112:                                    ; preds = %for.body101
 
 cond.end121:                                      ; preds = %cond.false112, %cond.true104
   %cond122.in = phi i8 [ %36, %cond.true104 ], [ %39, %cond.false112 ]
-  %40 = trunc i64 %indvars.iv123 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv123 to i32
   %rem128 = and i64 %indvars.iv123, 3
   %add129 = or disjoint i64 %rem128, 8
   %arrayidx131 = getelementptr inbounds [12 x i8], ptr %scales14, i64 0, i64 %add129
@@ -2113,7 +2113,7 @@ cond.end121:                                      ; preds = %cond.false112, %con
   %42 = lshr i32 %40, 1
   %mul134 = and i32 %42, 6
   %shr135 = lshr i32 %conv132, %mul134
-  %shr135.tr = trunc i32 %shr135 to i8
+  %shr135.tr = trunc nuw i32 %shr135 to i8
   %43 = shl i8 %shr135.tr, 4
   %44 = and i8 %43, 48
   %45 = or disjoint i8 %cond122.in, -32
@@ -2398,7 +2398,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nsw i64 %indvars.iv to i32
   %div = sdiv i32 %2, 256
   %idx.ext = sext i32 %div to i64
   %add.ptr = getelementptr inbounds %struct.block_q3_K, ptr %dst, i64 %idx.ext
@@ -2542,7 +2542,7 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %conv59.i = trunc i32 %16 to i8
   %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv179.i
   store i8 %conv59.i, ptr %arrayidx61.i, align 1, !alias.scope !119, !noalias !127
-  %conv65.i = sitofp i32 %spec.select.i to float
+  %conv65.i = uitofp nneg i32 %spec.select.i to float
   %17 = tail call float @llvm.fmuladd.f32(float %div35.i, float %conv65.i, float %min.2.i)
   %sub69.i = fsub float %17, %13
   %mul73.i = fmul float %sub69.i, %sub69.i
@@ -2558,7 +2558,7 @@ for.body91.i:                                     ; preds = %for.inc210.i, %for.
   %is.0165.i = phi i32 [ 0, %for.cond88.preheader.i ], [ %inc211.i, %for.inc210.i ]
   %best_mad.1164.i = phi float [ %19, %for.cond88.preheader.i ], [ %best_mad.2.i, %for.inc210.i ]
   %scale.0163.i = phi float [ %div35.i, %for.cond88.preheader.i ], [ %scale.1.i, %for.inc210.i ]
-  %conv92.i = sitofp i32 %is.0165.i to float
+  %conv92.i = uitofp nneg i32 %is.0165.i to float
   %20 = tail call float @llvm.fmuladd.f32(float %conv92.i, float 0x3FB99999A0000000, float -1.000000e+00)
   %add95.i = fadd float %20, 1.500000e+01
   %sub96.i = fsub float %max.1.i, %min.3166.i
@@ -2585,7 +2585,7 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   store i8 %conv127.i, ptr %arrayidx129.i, align 1, !alias.scope !123, !noalias !128
   %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv184.i
   %25 = load float, ptr %arrayidx132.i, align 4, !alias.scope !117, !noalias !126
-  %conv133.i = sitofp i32 %spec.select131.i to float
+  %conv133.i = uitofp nneg i32 %spec.select131.i to float
   %26 = tail call float @llvm.fmuladd.f32(float %25, float %conv133.i, float %sum_l.0149.i)
   %mul136.i = fmul float %25, %conv133.i
   %27 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0150.i)
@@ -2692,8 +2692,8 @@ for.body60:                                       ; preds = %for.end48, %for.inc
   br i1 %cmp88, label %if.then90, label %if.else
 
 if.then90:                                        ; preds = %for.body60
-  %conv87 = trunc i32 %cond86 to i8
-  %conv78 = trunc i32 %cond77 to i8
+  %conv87 = trunc nuw nsw i32 %cond86 to i8
+  %conv78 = trunc nuw nsw i32 %cond77 to i8
   %arrayidx95 = getelementptr inbounds %struct.block_q4_K, ptr %y, i64 %indvars.iv168, i32 2, i64 %indvars.iv142
   store i8 %conv78, ptr %arrayidx95, align 1
   %42 = or disjoint i64 %indvars.iv142, 4
@@ -2712,14 +2712,14 @@ if.else:                                          ; preds = %for.body60
   %44 = add nsw i64 %indvars.iv142, -4
   %arrayidx118 = getelementptr inbounds %struct.block_q4_K, ptr %y, i64 %indvars.iv168, i32 2, i64 %44
   %45 = load i8, ptr %arrayidx118, align 1
-  %cond77.tr = trunc i32 %cond77 to i8
+  %cond77.tr = trunc nuw nsw i32 %cond77 to i8
   %46 = shl nuw i8 %cond77.tr, 2
   %47 = and i8 %46, -64
   %conv121 = or i8 %45, %47
   store i8 %conv121, ptr %arrayidx118, align 1
   %arrayidx130 = getelementptr inbounds %struct.block_q4_K, ptr %y, i64 %indvars.iv168, i32 2, i64 %indvars.iv142
   %48 = load i8, ptr %arrayidx130, align 1
-  %cond86.tr = trunc i32 %cond86 to i8
+  %cond86.tr = trunc nuw nsw i32 %cond86 to i8
   %49 = shl nuw i8 %cond86.tr, 2
   %50 = and i8 %49, -64
   %conv133 = or i8 %48, %50
@@ -2981,7 +2981,7 @@ for.body31:                                       ; preds = %get_scale_min_k4.ex
   %arrayidx33 = getelementptr inbounds i8, ptr %q.048, i64 %indvars.iv
   %32 = load i8, ptr %arrayidx33, align 1
   %33 = and i8 %32, 15
-  %conv35 = uitofp i8 %33 to float
+  %conv35 = uitofp nneg i8 %33 to float
   %34 = tail call float @llvm.fmuladd.f32(float %mul, float %conv35, float %neg)
   %incdec.ptr = getelementptr inbounds i8, ptr %y.addr.242, i64 4
   store float %34, ptr %y.addr.242, align 4
@@ -2995,7 +2995,7 @@ for.body41:                                       ; preds = %for.cond38.preheade
   %arrayidx43 = getelementptr inbounds i8, ptr %q.048, i64 %indvars.iv54
   %35 = load i8, ptr %arrayidx43, align 1
   %36 = lshr i8 %35, 4
-  %conv45 = uitofp i8 %36 to float
+  %conv45 = uitofp nneg i8 %36 to float
   %37 = tail call float @llvm.fmuladd.f32(float %mul24, float %conv45, float %neg47)
   %incdec.ptr48 = getelementptr inbounds i8, ptr %y.addr.344, i64 4
   store float %37, ptr %y.addr.344, align 4
@@ -3039,7 +3039,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nsw i64 %indvars.iv to i32
   %div = sdiv i32 %2, 256
   %idx.ext = sext i32 %div to i64
   %add.ptr = getelementptr inbounds %struct.block_q4_K, ptr %dst, i64 %idx.ext
@@ -3183,7 +3183,7 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %conv59.i = trunc i32 %16 to i8
   %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv179.i
   store i8 %conv59.i, ptr %arrayidx61.i, align 1, !alias.scope !169, !noalias !177
-  %conv65.i = sitofp i32 %spec.select.i to float
+  %conv65.i = uitofp nneg i32 %spec.select.i to float
   %17 = tail call float @llvm.fmuladd.f32(float %div35.i, float %conv65.i, float %min.2.i)
   %sub69.i = fsub float %17, %13
   %mul73.i = fmul float %sub69.i, %sub69.i
@@ -3199,7 +3199,7 @@ for.body91.i:                                     ; preds = %for.inc210.i, %for.
   %is.0165.i = phi i32 [ 0, %for.cond88.preheader.i ], [ %inc211.i, %for.inc210.i ]
   %best_mad.1164.i = phi float [ %19, %for.cond88.preheader.i ], [ %best_mad.2.i, %for.inc210.i ]
   %scale.0163.i = phi float [ %div35.i, %for.cond88.preheader.i ], [ %scale.1.i, %for.inc210.i ]
-  %conv92.i = sitofp i32 %is.0165.i to float
+  %conv92.i = uitofp nneg i32 %is.0165.i to float
   %20 = tail call float @llvm.fmuladd.f32(float %conv92.i, float 0x3FB99999A0000000, float -5.000000e-01)
   %add95.i = fadd float %20, 3.100000e+01
   %sub96.i = fsub float %max.1.i, %min.3166.i
@@ -3226,7 +3226,7 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   store i8 %conv127.i, ptr %arrayidx129.i, align 1, !alias.scope !173, !noalias !178
   %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv184.i
   %25 = load float, ptr %arrayidx132.i, align 4, !alias.scope !167, !noalias !176
-  %conv133.i = sitofp i32 %spec.select131.i to float
+  %conv133.i = uitofp nneg i32 %spec.select131.i to float
   %26 = tail call float @llvm.fmuladd.f32(float %25, float %conv133.i, float %sum_l.0149.i)
   %mul136.i = fmul float %25, %conv133.i
   %27 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0150.i)
@@ -3333,8 +3333,8 @@ for.body60:                                       ; preds = %for.end48, %for.inc
   br i1 %cmp88, label %if.then90, label %if.else
 
 if.then90:                                        ; preds = %for.body60
-  %conv87 = trunc i32 %cond86 to i8
-  %conv78 = trunc i32 %cond77 to i8
+  %conv87 = trunc nuw nsw i32 %cond86 to i8
+  %conv78 = trunc nuw nsw i32 %cond77 to i8
   %arrayidx95 = getelementptr inbounds %struct.block_q5_K, ptr %y, i64 %indvars.iv183, i32 2, i64 %indvars.iv158
   store i8 %conv78, ptr %arrayidx95, align 1
   %42 = or disjoint i64 %indvars.iv158, 4
@@ -3353,14 +3353,14 @@ if.else:                                          ; preds = %for.body60
   %44 = add nsw i64 %indvars.iv158, -4
   %arrayidx118 = getelementptr inbounds %struct.block_q5_K, ptr %y, i64 %indvars.iv183, i32 2, i64 %44
   %45 = load i8, ptr %arrayidx118, align 1
-  %cond77.tr = trunc i32 %cond77 to i8
+  %cond77.tr = trunc nuw nsw i32 %cond77 to i8
   %46 = shl nuw i8 %cond77.tr, 2
   %47 = and i8 %46, -64
   %conv121 = or i8 %45, %47
   store i8 %conv121, ptr %arrayidx118, align 1
   %arrayidx130 = getelementptr inbounds %struct.block_q5_K, ptr %y, i64 %indvars.iv183, i32 2, i64 %indvars.iv158
   %48 = load i8, ptr %arrayidx130, align 1
-  %cond86.tr = trunc i32 %cond86 to i8
+  %cond86.tr = trunc nuw nsw i32 %cond86 to i8
   %49 = shl nuw i8 %cond86.tr, 2
   %50 = and i8 %49, -64
   %conv133 = or i8 %48, %50
@@ -3661,7 +3661,7 @@ for.body35:                                       ; preds = %get_scale_min_k4.ex
   %tobool.not = icmp eq i8 %and4331, 0
   %cond = select i1 %tobool.not, i32 0, i32 16
   %add44 = or disjoint i32 %cond, %and
-  %conv45 = sitofp i32 %add44 to float
+  %conv45 = uitofp nneg i32 %add44 to float
   %35 = tail call float @llvm.fmuladd.f32(float %mul, float %conv45, float %neg)
   %incdec.ptr = getelementptr inbounds i8, ptr %y.addr.251, i64 4
   store float %35, ptr %y.addr.251, align 4
@@ -3682,7 +3682,7 @@ for.body51:                                       ; preds = %for.cond48.preheade
   %tobool60.not = icmp eq i8 %and5930, 0
   %cond61 = select i1 %tobool60.not, i32 0, i32 16
   %add62 = or disjoint i32 %cond61, %shr
-  %conv63 = sitofp i32 %add62 to float
+  %conv63 = uitofp nneg i32 %add62 to float
   %39 = tail call float @llvm.fmuladd.f32(float %mul28, float %conv63, float %neg65)
   %incdec.ptr66 = getelementptr inbounds i8, ptr %y.addr.353, i64 4
   store float %39, ptr %y.addr.353, align 4
@@ -3728,7 +3728,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nsw i64 %indvars.iv to i32
   %div = sdiv i32 %2, 256
   %idx.ext = sext i32 %div to i64
   %add.ptr = getelementptr inbounds %struct.block_q5_K, ptr %dst, i64 %idx.ext
@@ -4106,7 +4106,7 @@ for.cond15.preheader:                             ; preds = %for.body, %for.end
 
 for.body17:                                       ; preds = %for.cond15.preheader, %for.body17
   %indvars.iv = phi i64 [ 0, %for.cond15.preheader ], [ %indvars.iv.next, %for.body17 ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %div1846 = lshr i32 %2, 4
   %arrayidx20 = getelementptr inbounds i8, ptr %ql.052, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx20, align 1
@@ -4215,7 +4215,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nsw i64 %indvars.iv to i32
   %div = sdiv i32 %2, 256
   %idx.ext = sext i32 %div to i64
   %add.ptr = getelementptr inbounds %struct.block_q6_K, ptr %dst, i64 %idx.ext

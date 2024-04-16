@@ -225,13 +225,13 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp651, label %for.cond19.preheader.lr.ph, label %for.cond.cleanup
 
 for.cond19.preheader.lr.ph:                       ; preds = %if.end
-  %tr.sh.diff = trunc i48 %nmin.sroa.6.0.extract.shift to i32
+  %tr.sh.diff = trunc nuw i48 %nmin.sroa.6.0.extract.shift to i32
   %conv37 = ashr i32 %tr.sh.diff, 16
   %flags = getelementptr inbounds i8, ptr %this, i64 132
   %np = getelementptr inbounds i8, ptr %this, i64 180
   %mapseed = getelementptr inbounds i8, ptr %this, i64 136
   %fill_ratio = getelementptr inbounds i8, ptr %this, i64 176
-  %conv94 = sitofp i32 %mul to float
+  %conv94 = uitofp nneg i32 %mul to float
   %biomemap = getelementptr inbounds i8, ptr %mg, i64 72
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %biomes = getelementptr inbounds i8, ptr %this, i64 256
@@ -826,10 +826,10 @@ entry:
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i16
   %p.sroa.5.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.5.0.extract.trunc = trunc i48 %p.sroa.5.0.extract.shift to i16
+  %p.sroa.5.0.extract.trunc = trunc nuw i48 %p.sroa.5.0.extract.shift to i16
   %m_area = getelementptr inbounds i8, ptr %vm, i64 8
   %p.sroa.0.0.extract.trunc.i = trunc i48 %p.coerce to i32
-  %tr.sh.diff.i = trunc i48 %p.sroa.3.0.extract.shift to i32
+  %tr.sh.diff.i = trunc nuw i48 %p.sroa.3.0.extract.shift to i32
   %conv.i.i = ashr i32 %tr.sh.diff.i, 16
   %Z.i.i = getelementptr inbounds i8, ptr %vm, i64 12
   %0 = load i16, ptr %Z.i.i, align 2, !tbaa !73
@@ -2129,7 +2129,7 @@ entry:
 define dso_local noundef i64 @_ZN10DecoSimple8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(342) %this, ptr nocapture noundef readonly %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
 entry:
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 16
-  %p.sroa.3.0.extract.trunc = trunc i48 %p.sroa.3.0.extract.shift to i32
+  %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i32
   %c_decos = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %c_decos, align 8, !tbaa !12
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 320
@@ -2762,7 +2762,7 @@ entry:
   %p.sroa.7.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.7.0.extract.trunc = trunc i48 %p.sroa.7.0.extract.shift to i16
   %p.sroa.15.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.15.0.extract.trunc = trunc i48 %p.sroa.15.0.extract.shift to i16
+  %p.sroa.15.0.extract.trunc = trunc nuw i48 %p.sroa.15.0.extract.shift to i16
   %schematic = getelementptr inbounds i8, ptr %this, i64 320
   %0 = load ptr, ptr %schematic, align 8, !tbaa !127
   %cmp = icmp eq ptr %0, null
@@ -2785,7 +2785,7 @@ if.then4:                                         ; preds = %if.end3
   %conv = sext i16 %2 to i32
   %sub = add nsw i32 %conv, -1
   %div.neg = sdiv i32 %sub, -2
-  %3 = trunc i48 %p.sroa.7.0.extract.shift to i32
+  %3 = trunc nuw i48 %p.sroa.7.0.extract.shift to i32
   %sub8 = add i32 %div.neg, %3
   %conv9 = trunc i32 %sub8 to i16
   br label %if.end30
@@ -2864,7 +2864,7 @@ if.then61:                                        ; preds = %if.then58
   br label %if.end82
 
 if.else71:                                        ; preds = %if.then58
-  %16 = trunc i48 %p.sroa.15.0.extract.shift to i32
+  %16 = trunc nuw nsw i48 %p.sroa.15.0.extract.shift to i32
   %sub79 = add nsw i32 %div66.neg, %16
   %conv80 = trunc i32 %sub79 to i16
   br label %if.end82
@@ -2889,7 +2889,7 @@ if.then86:                                        ; preds = %if.end82
   %conv94 = sext i16 %19 to i32
   %sub95 = add nsw i32 %conv94, -1
   %div96.neg = sdiv i32 %sub95, -2
-  %20 = trunc i32 %div96.neg to i16
+  %20 = trunc nsw i32 %div96.neg to i16
   br i1 %or.cond121, label %if.then90, label %if.else101
 
 if.then90:                                        ; preds = %if.then86

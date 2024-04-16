@@ -1052,7 +1052,7 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTest8activateEv(ptr noundef 
   %87 = xor i64 %85, %86
   %88 = trunc i64 %87 to i32
   %89 = lshr i64 %.sroa.0114.1185, 59
-  %90 = trunc i64 %89 to i32
+  %90 = trunc nuw nsw i64 %89 to i32
   %91 = call noundef i32 @llvm.fshr.i32(i32 %88, i32 %88, i32 %90)
   %92 = lshr i32 %91, 9
   %93 = or disjoint i32 %92, 1065353216
@@ -1068,7 +1068,7 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTest8activateEv(ptr noundef 
   %101 = xor i64 %99, %100
   %102 = trunc i64 %101 to i32
   %103 = lshr i64 %84, 59
-  %104 = trunc i64 %103 to i32
+  %104 = trunc nuw nsw i64 %103 to i32
   %105 = call noundef i32 @llvm.fshr.i32(i32 %102, i32 %102, i32 %104)
   %106 = lshr i32 %105, 9
   %107 = or disjoint i32 %106, 1065353216
@@ -1139,7 +1139,7 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTest8activateEv(ptr noundef 
   %143 = xor i64 %141, %142
   %144 = trunc i64 %143 to i32
   %145 = lshr i64 %.sroa.0114.2175, 59
-  %146 = trunc i64 %145 to i32
+  %146 = trunc nuw nsw i64 %145 to i32
   %147 = call noundef i32 @llvm.fshr.i32(i32 %144, i32 %144, i32 %146)
   %148 = lshr i32 %147, 9
   %149 = or disjoint i32 %148, 1065353216
@@ -1150,7 +1150,7 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTest8activateEv(ptr noundef 
   %154 = xor i64 %152, %153
   %155 = trunc i64 %154 to i32
   %156 = lshr i64 %140, 59
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw nsw i64 %156 to i32
   %158 = call noundef i32 @llvm.fshr.i32(i32 %155, i32 %155, i32 %157)
   %159 = lshr i32 %158, 9
   %160 = or disjoint i32 %159, 1065353216
@@ -1323,13 +1323,13 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
 
 .noexc:                                           ; preds = %.lr.ph179
   %238 = shl nuw nsw i32 %236, 1
-  %239 = sitofp i32 %238 to float
+  %239 = uitofp nneg i32 %238 to float
   %240 = fmul float %239, 0x400921FB60000000
   %241 = sitofp i32 %235 to float
   %242 = fdiv float %240, %241
   %243 = fpext float %242 to double
   %244 = shl nuw nsw i32 %.043177, 1
-  %245 = sitofp i32 %244 to float
+  %245 = uitofp nneg i32 %244 to float
   %246 = fmul float %245, 0x400921FB60000000
   %247 = fdiv float %246, %241
   %248 = fpext float %247 to double
@@ -5423,7 +5423,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %50 = phi <2 x double> [ %46, %35 ], [ %52, %70 ]
   %51 = add nuw nsw i32 %.084, 1
   %52 = fadd <2 x double> %50, <double 2.000000e+00, double 1.000000e+00>
-  %53 = sitofp i32 %51 to double
+  %53 = uitofp nneg i32 %51 to double
   %54 = extractelement <2 x double> %52, i64 1
   %55 = fmul double %54, %53
   %56 = fneg <2 x double> %49

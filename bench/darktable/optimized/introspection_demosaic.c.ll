@@ -497,7 +497,7 @@ define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture no
   %116 = icmp eq i32 %41, 1026
   %117 = select i1 %116, i32 8, i32 4
   %118 = select i1 %116, i32 18, i32 12
-  %119 = sitofp i32 %117 to float
+  %119 = uitofp nneg i32 %117 to float
   %120 = fmul reassoc nsz arcp contract afn float %119, 1.375000e+00
   %121 = fadd reassoc nsz arcp contract afn float %22, 2.000000e+00
   %122 = fadd reassoc nsz arcp contract afn float %121, %120
@@ -1140,7 +1140,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 345:                                              ; preds = %.loopexit237
   %346 = getelementptr float, ptr %299, i64 %344
   %347 = load float, ptr %346, align 4, !tbaa !24
-  %348 = trunc i64 %344 to i32
+  %348 = trunc nuw nsw i64 %344 to i32
   %349 = add i32 %296, %348
   %350 = shl i32 %349, 2
   %351 = shl nuw nsw i32 %298, 1
@@ -1267,7 +1267,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 443:                                              ; preds = %.loopexit235
   %444 = getelementptr float, ptr %393, i64 %442
   %445 = load float, ptr %444, align 4, !tbaa !24
-  %446 = trunc i64 %442 to i32
+  %446 = trunc nuw nsw i64 %442 to i32
   %447 = add i32 %389, %446
   %448 = shl i32 %447, 2
   %449 = add i32 %380, %446
@@ -1336,11 +1336,11 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %487 = phi i64 [ %530, %529 ], [ 0, %479 ]
   %488 = phi i16 [ %737, %529 ], [ 0, %479 ]
   %489 = phi i16 [ %736, %529 ], [ 0, %479 ]
-  %490 = trunc i64 %487 to i32
+  %490 = trunc nuw nsw i64 %487 to i32
   %491 = or i32 %490, 600
   %492 = urem i32 %491, 6
   %493 = zext nneg i32 %492 to i64
-  %494 = trunc i64 %487 to i16
+  %494 = trunc nuw nsw i64 %487 to i16
   %495 = add nuw nsw i32 %490, 601
   %496 = urem i32 %495, 6
   %497 = zext nneg i32 %496 to i64
@@ -1362,14 +1362,14 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %509 = phi i64 [ 0, %.preheader228 ], [ %776, %775 ]
   %510 = phi i16 [ %488, %.preheader228 ], [ %737, %775 ]
   %511 = phi i16 [ %489, %.preheader228 ], [ %736, %775 ]
-  %512 = trunc i64 %509 to i32
+  %512 = trunc nuw nsw i64 %509 to i32
   %513 = or i32 %512, 600
   %514 = urem i32 %513, 6
   %515 = zext nneg i32 %514 to i64
   %516 = getelementptr inbounds [6 x i8], ptr %21, i64 %493, i64 %515
   %517 = load i8, ptr %516, align 1, !tbaa !105
   %518 = icmp eq i8 %517, 1
-  %519 = trunc i64 %509 to i16
+  %519 = trunc nuw nsw i64 %509 to i16
   %520 = select i1 %518, i32 2, i32 1
   %521 = zext i1 %518 to i64
   %522 = add nuw nsw i32 %512, 600
@@ -3995,7 +3995,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2698 = phi i64 [ %3925, %3909 ], [ %2976, %2875 ]
   %2699 = sub nsw i64 %2698, %1057
   %2700 = getelementptr inbounds [122 x [122 x [3 x float]]], ptr %484, i64 0, i64 %3910, i64 %2699
-  %2701 = trunc i64 %2698 to i32
+  %2701 = trunc nsw i64 %2698 to i32
   %2702 = add i32 %3930, %2701
   %2703 = srem i32 %2702, 6
   %2704 = sext i32 %2703 to i64
@@ -4881,7 +4881,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 3454:                                             ; preds = %4396, %.loopexit185
   %indvars.iv = phi i64 [ 0, %4396 ], [ %indvars.iv.next, %.loopexit185 ]
   %3455 = phi i64 [ 13, %4396 ], [ %1115, %.loopexit185 ]
-  %3456 = trunc i64 %indvars.iv to i32
+  %3456 = trunc nuw nsw i64 %indvars.iv to i32
   %3457 = mul i32 %3456, 122
   %3458 = add i32 %3457, 1708
   %3459 = sext i32 %3458 to i64
@@ -5484,7 +5484,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 3909:                                             ; preds = %2693
   %3910 = sub nsw i64 %2694, %977
-  %3911 = trunc i64 %2694 to i32
+  %3911 = trunc nsw i64 %2694 to i32
   %3912 = add i32 %3929, %3911
   %3913 = srem i32 %3912, 6
   %3914 = sext i32 %3913 to i64
@@ -6068,7 +6068,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %4401 = getelementptr i8, ptr %955, i64 %1068
   %4402 = getelementptr i8, ptr %957, i64 %1067
   %4403 = icmp ult i64 %1066, 8
-  %4404 = trunc i64 %1072 to i32
+  %4404 = trunc nuw nsw i64 %1072 to i32
   %4405 = shl i32 %4404, 2
   %4406 = icmp ugt i64 %1072, 1073741823
   %4407 = shl nuw nsw i64 %1072, 4
@@ -6601,11 +6601,11 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %19 = phi i64 [ %3108, %3107 ], [ 0, %7 ]
   %20 = phi i16 [ %3308, %3107 ], [ 0, %7 ]
   %21 = phi i16 [ %3307, %3107 ], [ 0, %7 ]
-  %22 = trunc i64 %19 to i32
+  %22 = trunc nuw nsw i64 %19 to i32
   %23 = or i32 %22, 600
   %24 = urem i32 %23, 6
   %25 = zext nneg i32 %24 to i64
-  %26 = trunc i64 %19 to i16
+  %26 = trunc nuw nsw i64 %19 to i16
   %27 = add nuw nsw i32 %22, 601
   %28 = urem i32 %27, 6
   %29 = zext nneg i32 %28 to i64
@@ -7409,7 +7409,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %616 = phi float [ %1163, %.loopexit.us ], [ 0.000000e+00, %613 ]
   %617 = phi i8 [ %1162, %.loopexit.us ], [ 0, %613 ]
   %618 = icmp slt i64 %indvars.iv366, %80
-  %619 = trunc i64 %indvars.iv366 to i32
+  %619 = trunc nsw i64 %indvars.iv366 to i32
   %620 = sub i32 %56, %619
   %621 = tail call i32 @llvm.abs.i32(i32 %619, i1 true)
   br i1 %618, label %892, label %622
@@ -7669,7 +7669,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %863 = phi float [ %890, %888 ], [ %858, %857 ]
   %864 = phi i8 [ %889, %888 ], [ %859, %857 ]
   %865 = icmp slt i64 %indvars.iv362, %79
-  %866 = trunc i64 %indvars.iv362 to i32
+  %866 = trunc nsw i64 %indvars.iv362 to i32
   br i1 %865, label %869, label %867
 
 867:                                              ; preds = %862
@@ -7963,7 +7963,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %1133 = phi float [ %1160, %1158 ], [ %1128, %1127 ]
   %1134 = phi i8 [ %1159, %1158 ], [ %1129, %1127 ]
   %1135 = icmp slt i64 %indvars.iv364, %79
-  %1136 = trunc i64 %indvars.iv364 to i32
+  %1136 = trunc nsw i64 %indvars.iv364 to i32
   br i1 %1135, label %1139, label %1137
 
 1137:                                             ; preds = %1132
@@ -8067,7 +8067,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %1200 = phi float [ %1543, %.loopexit199 ], [ 0.000000e+00, %1193 ]
   %1201 = phi i8 [ %1542, %.loopexit199 ], [ 0, %1193 ]
   %1202 = icmp slt i64 %indvars.iv360, %80
-  %1203 = trunc i64 %indvars.iv360 to i32
+  %1203 = trunc nsw i64 %indvars.iv360 to i32
   %1204 = sub i32 %56, %1203
   %1205 = tail call i32 @llvm.abs.i32(i32 %1203, i1 true)
   br i1 %1202, label %1545, label %1302
@@ -8077,7 +8077,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %1207 = phi float [ %1538, %1537 ], [ %1234, %1232 ]
   %1208 = phi i8 [ %1539, %1537 ], [ %1233, %1232 ]
   %1209 = icmp slt i64 %indvars.iv, %79
-  %1210 = trunc i64 %indvars.iv to i32
+  %1210 = trunc nsw i64 %indvars.iv to i32
   br i1 %1209, label %1213, label %1211
 
 1211:                                             ; preds = %1206
@@ -8734,7 +8734,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %1786 = phi float [ %1813, %1811 ], [ %1781, %1780 ]
   %1787 = phi i8 [ %1812, %1811 ], [ %1782, %1780 ]
   %1788 = icmp slt i64 %indvars.iv354, %79
-  %1789 = trunc i64 %indvars.iv354 to i32
+  %1789 = trunc nsw i64 %indvars.iv354 to i32
   br i1 %1788, label %1792, label %1790
 
 1790:                                             ; preds = %1785
@@ -9330,7 +9330,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
 .preheader226:                                    ; preds = %.loopexit229, %2610
   %2266 = phi i64 [ %2611, %2610 ], [ %172, %.loopexit229 ]
   %2267 = sub nsw i64 %2266, %136
-  %2268 = trunc i64 %2266 to i32
+  %2268 = trunc nsw i64 %2266 to i32
   %2269 = add i32 %2268, 600
   br label %2270
 
@@ -9338,7 +9338,7 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %2271 = phi i64 [ %2608, %2281 ], [ %2811, %.preheader226 ]
   %2272 = sub nsw i64 %2271, %188
   %2273 = getelementptr inbounds [122 x [122 x [3 x float]]], ptr %363, i64 0, i64 %2267, i64 %2272
-  %2274 = trunc i64 %2271 to i32
+  %2274 = trunc nsw i64 %2271 to i32
   %2275 = add i32 %2274, 601
   br i1 %53, label %2281, label %2276
 
@@ -10306,14 +10306,14 @@ define internal fastcc void @xtrans_markesteijn_interpolate(ptr nocapture nounde
   %3087 = phi i64 [ 0, %.preheader238 ], [ %3342, %3341 ]
   %3088 = phi i16 [ %20, %.preheader238 ], [ %3308, %3341 ]
   %3089 = phi i16 [ %21, %.preheader238 ], [ %3307, %3341 ]
-  %3090 = trunc i64 %3087 to i32
+  %3090 = trunc nuw nsw i64 %3087 to i32
   %3091 = or i32 %3090, 600
   %3092 = urem i32 %3091, 6
   %3093 = zext nneg i32 %3092 to i64
   %3094 = getelementptr inbounds [6 x i8], ptr %5, i64 %25, i64 %3093
   %3095 = load i8, ptr %3094, align 1, !tbaa !105
   %3096 = icmp eq i8 %3095, 1
-  %3097 = trunc i64 %3087 to i16
+  %3097 = trunc nuw nsw i64 %3087 to i16
   %3098 = select i1 %3096, i32 2, i32 1
   %3099 = zext i1 %3096 to i64
   %3100 = add nuw nsw i32 %3090, 600
@@ -12611,21 +12611,21 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %1438 = icmp ult i32 %1422, 32
   %1439 = and i64 %1424, 2147483616
   %1440 = icmp eq i64 %1439, %1424
-  %1441 = trunc i64 %1436 to i32
+  %1441 = trunc nuw nsw i64 %1436 to i32
   %1442 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
-  %1443 = trunc i64 %1436 to i32
+  %1443 = trunc nuw nsw i64 %1436 to i32
   %1444 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
-  %1445 = trunc i64 %1436 to i32
+  %1445 = trunc nuw nsw i64 %1436 to i32
   %1446 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
-  %1447 = trunc i64 %1436 to i32
+  %1447 = trunc nuw nsw i64 %1436 to i32
   %1448 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
-  %1449 = trunc i64 %1436 to i32
+  %1449 = trunc nuw nsw i64 %1436 to i32
   %1450 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
-  %1451 = trunc i64 %1436 to i32
+  %1451 = trunc nuw nsw i64 %1436 to i32
   %1452 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
-  %1453 = trunc i64 %1436 to i32
+  %1453 = trunc nuw nsw i64 %1436 to i32
   %1454 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
-  %1455 = trunc i64 %1436 to i32
+  %1455 = trunc nuw nsw i64 %1436 to i32
   %1456 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
   %1457 = getelementptr inbounds [4 x float], ptr %15, i64 0, i64 %1436
   br label %1955
@@ -13331,7 +13331,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
   %1957 = phi ptr [ %1956, %.loopexit186 ], [ %1413, %1417 ]
   %1958 = phi ptr [ %1957, %.loopexit186 ], [ %1359, %1417 ]
   %1959 = phi i64 [ %3116, %.loopexit186 ], [ 2, %1417 ]
-  %1960 = trunc i64 %indvars.iv to i32
+  %1960 = trunc nuw nsw i64 %indvars.iv to i32
   %1961 = mul i32 %1378, %1960
   %1962 = add i32 %1961, 8
   %1963 = sext i32 %1962 to i64
@@ -16773,7 +16773,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %1105 = or disjoint i64 %1104, 1
   %1106 = shl nuw nsw i64 %1105, 2
   %1107 = getelementptr i8, ptr %36, i64 %1106
-  %1108 = trunc i64 %1105 to i32
+  %1108 = trunc nuw nsw i64 %1105 to i32
   %1109 = add nuw i32 %723, %1108
   %1110 = zext i32 %1109 to i64
   %1111 = shl nuw nsw i64 %1110, 2
@@ -16793,7 +16793,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
   %1123 = or disjoint i32 %1095, 3
   %1124 = zext i32 %1123 to i64
   %1125 = lshr i64 %1124, 1
-  %1126 = trunc i64 %1125 to i32
+  %1126 = trunc nuw nsw i64 %1125 to i32
   %1127 = add nuw i32 %723, %1126
   %1128 = zext i32 %1127 to i64
   %1129 = icmp ult i64 %1102, 8
@@ -17021,7 +17021,7 @@ define internal fastcc void @rcd_demosaic(ptr nocapture noundef readonly %0, ptr
 1307:                                             ; preds = %1291
   %1308 = and i64 %1289, 4294967288
   %1309 = add nsw i64 %1308, %1282
-  %1310 = trunc i64 %1308 to i32
+  %1310 = trunc nuw i64 %1308 to i32
   %1311 = shl i32 %1310, 1
   br label %1312
 
@@ -18179,7 +18179,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %253 = icmp slt i32 %212, 32
   %254 = and i64 %245, 224
   %255 = shl nuw nsw i64 %254, 2
-  %256 = trunc i64 %254 to i32
+  %256 = trunc nuw nsw i64 %254 to i32
   %257 = or disjoint i32 %256, 4
   %258 = icmp eq i64 %254, %245
   %259 = add nuw nsw i32 %244, 3
@@ -23552,7 +23552,7 @@ define internal fastcc void @demosaic_ppg(ptr nocapture noundef %0, ptr noundef 
   br label %735
 
 728:                                              ; preds = %682
-  %729 = trunc i32 %544 to i8
+  %729 = trunc nuw nsw i32 %544 to i8
   %730 = add nsw i8 %729, -1
   %731 = sdiv i8 %730, 2
   %732 = zext nneg i8 %731 to i64
@@ -24192,7 +24192,7 @@ define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocap
   %124 = select i1 %123, i64 32, i64 %122
   %125 = sub nsw i64 %109, %124
   %126 = shl nsw i64 %125, 4
-  %127 = trunc i64 %125 to i32
+  %127 = trunc nsw i64 %125 to i32
   %128 = icmp ult i32 %107, 25
   %129 = getelementptr i8, ptr %0, i64 %52
   %130 = getelementptr i8, ptr %129, i64 36
@@ -24274,7 +24274,7 @@ define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocap
   %206 = select i1 %205, i64 8, i64 %204
   %207 = sub nsw i64 %108, %206
   %208 = shl nsw i64 %207, 4
-  %209 = trunc i64 %207 to i32
+  %209 = trunc nsw i64 %207 to i32
   %210 = add nsw i32 %209, 1
   %211 = icmp ult ptr %56, %67
   %212 = icmp ult ptr %66, %64
@@ -25331,7 +25331,7 @@ define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocap
   %1071 = sub nsw i64 %1066, %1070
   %1072 = shl nsw i64 %1071, 4
   %1073 = getelementptr i8, ptr %0, i64 %1072
-  %1074 = trunc i64 %1071 to i32
+  %1074 = trunc nsw i64 %1071 to i32
   %1075 = icmp eq i32 %10, 1
   br label %1076
 

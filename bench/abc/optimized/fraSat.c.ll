@@ -534,7 +534,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %18 = getelementptr inbounds i8, ptr %2, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = lshr i64 %19, 32
-  %21 = trunc i64 %20 to i32
+  %21 = trunc nuw i64 %20 to i32
   %22 = and i32 %21, 16777215
   br label %23
 
@@ -547,14 +547,14 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %27, 32
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 16777215
   br label %31
 
 31:                                               ; preds = %23, %25
   %32 = phi i32 [ %30, %25 ], [ 0, %23 ]
   %33 = call i32 @llvm.umax.i32(i32 %24, i32 %32)
-  %34 = sitofp i32 %33 to double
+  %34 = uitofp nneg i32 %33 to double
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load double, ptr %36, align 8
@@ -1358,7 +1358,7 @@ define i32 @Fra_SetActivityFactors_rec(ptr nocapture noundef readonly %0, ptr no
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = lshr i64 %11, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 16777215
   %.not34 = icmp ule i32 %14, %2
   %15 = and i64 %11, 7
@@ -1385,7 +1385,7 @@ define i32 @Fra_SetActivityFactors_rec(ptr nocapture noundef readonly %0, ptr no
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre52, i64 536
   %.pre53 = load ptr, ptr %.phi.trans.insert, align 8
   %.pre54 = lshr i64 %.pre, 32
-  %.pre55 = trunc i64 %.pre54 to i32
+  %.pre55 = trunc nuw i64 %.pre54 to i32
   %.pre57 = and i32 %.pre55, 16777215
   br label %27
 

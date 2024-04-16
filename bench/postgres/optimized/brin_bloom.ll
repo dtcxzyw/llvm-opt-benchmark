@@ -138,7 +138,7 @@ brin_bloom_get_ndistinct.exit:                    ; preds = %26, %28, %32
 
 bloom_init.exit:                                  ; preds = %47
   %62 = shl nuw nsw i32 %57, 3
-  %63 = sitofp i32 %62 to double
+  %63 = uitofp nneg i32 %62 to double
   %64 = fmul double %63, 0x3FE62E42FEFA39EF
   %65 = fdiv double %64, %49
   %66 = tail call double @llvm.floor.f64(double %65)
@@ -243,7 +243,7 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
   %128 = mul nuw nsw i64 %indvars.iv.i, %122
   %129 = add nuw nsw i64 %128, %118
   %130 = urem i64 %129, %121
-  %131 = trunc i64 %130 to i32
+  %131 = trunc nuw i64 %130 to i32
   %132 = lshr i64 %130, 3
   %133 = and i32 %131, 7
   %134 = getelementptr [0 x i8], ptr %125, i64 0, i64 %132
@@ -255,7 +255,7 @@ bloom_get_procinfo.exit:                          ; preds = %88, %99, %107, %111
   br i1 %.not.i29, label %139, label %144
 
 139:                                              ; preds = %.lr.ph.split.i
-  %140 = trunc i32 %137 to i8
+  %140 = trunc nuw i32 %137 to i8
   %141 = or i8 %135, %140
   store i8 %141, ptr %134, align 1
   %142 = load i32, ptr %126, align 4
@@ -387,7 +387,7 @@ bloom_get_procinfo.exit:                          ; preds = %34, %48, %55, %59
 
 .lr.ph.i:                                         ; preds = %bloom_get_procinfo.exit
   %72 = zext i8 %70 to i64
-  %.lhs.trunc = trunc i64 %65 to i32
+  %.lhs.trunc = trunc nuw i64 %65 to i32
   %73 = urem i32 %.lhs.trunc, %67
   %74 = lshr i32 %73, 3
   %75 = zext nneg i32 %74 to i64
@@ -410,7 +410,7 @@ bloom_get_procinfo.exit:                          ; preds = %34, %48, %55, %59
   %83 = mul nuw nsw i64 %indvars.iv.next.i, %69
   %84 = add nuw nsw i64 %83, %65
   %85 = urem i64 %84, %68
-  %86 = trunc i64 %85 to i32
+  %86 = trunc nuw i64 %85 to i32
   %87 = lshr i64 %85, 3
   %88 = and i32 %86, 7
   %89 = getelementptr [0 x i8], ptr %26, i64 0, i64 %87

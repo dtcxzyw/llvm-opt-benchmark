@@ -743,7 +743,7 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
 rbound_bsearch.exit:                              ; preds = %.lr.ph.i, %5
   %.0.lcssa.i = phi i32 [ -1, %5 ], [ %.1.i, %.lr.ph.i ]
   %18 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 0)
-  %19 = sitofp i32 %18 to double
+  %19 = uitofp nneg i32 %18 to double
   %20 = sitofp i32 %7 to double
   %21 = fdiv double %19, %20
   %22 = icmp sgt i32 %.0.lcssa.i, -1
@@ -1503,7 +1503,7 @@ length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, 
 get_len_position.exit:                            ; preds = %53, %52, %51, %46, %43, %31
   %.080 = phi double [ 0.000000e+00, %31 ], [ 5.000000e-01, %53 ], [ %50, %46 ], [ 5.000000e-01, %43 ], [ 1.000000e+00, %51 ], [ 0.000000e+00, %52 ]
   %.078 = phi i32 [ 0, %31 ], [ %.0.lcssa.i, %53 ], [ %.0.lcssa.i, %46 ], [ %.0.lcssa.i, %43 ], [ %.0.lcssa.i, %51 ], [ %.0.lcssa.i, %52 ]
-  %54 = sitofp i32 %.078 to double
+  %54 = uitofp nneg i32 %.078 to double
   %55 = fadd double %.080, %54
   %56 = sitofp i32 %11 to double
   %57 = fdiv double %55, %56
@@ -1530,11 +1530,11 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %64 = fcmp ugt double %62, %3
   %or.cond94 = or i1 %64, %.not92
   %or.cond103 = and i1 %63, %or.cond94
-  %65 = trunc i64 %indvars.iv to i32
+  %65 = trunc nuw i64 %indvars.iv to i32
   br i1 %or.cond103, label %79, label %66
 
 66:                                               ; preds = %.lr.ph
-  %67 = sitofp i32 %65 to double
+  %67 = uitofp nneg i32 %65 to double
   %68 = fdiv double %67, %56
   %69 = fcmp ogt double %.082114, 0.000000e+00
   %70 = fcmp ogt double %68, 0.000000e+00
@@ -1550,7 +1550,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
 
 76:                                               ; preds = %71, %66
   %.1 = phi double [ %75, %71 ], [ %.077116, %66 ]
-  %77 = trunc i64 %indvars.iv.next to i32
+  %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
   br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
@@ -1573,12 +1573,12 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %.179108 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.078, %.preheader ], [ %77, %76 ]
   %.077106 = phi double [ %.077116, %86 ], [ %.077116, %79 ], [ 0.000000e+00, %.preheader ], [ %.1, %76 ]
   %.181 = phi double [ %87, %86 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
-  %88 = sitofp i32 %.179108 to double
+  %88 = uitofp nneg i32 %.179108 to double
   %89 = fadd double %.181, %88
   %90 = fdiv double %89, %56
   %91 = fcmp ogt double %.082110, 0.000000e+00
   %92 = fcmp ogt double %90, 0.000000e+00
-  %or.cond3 = or i1 %91, %92
+  %or.cond3 = select i1 %91, i1 true, i1 %92
   br i1 %or.cond3, label %93, label %98
 
 93:                                               ; preds = %.loopexit

@@ -3209,7 +3209,7 @@ _ZN6casadidvERKNS_2MXES2_.exit:                   ; preds = %17
 
 .lr.ph:                                           ; preds = %_ZN6casadidvERKNS_2MXES2_.exit, %_ZN6casadi2MXaSERKS0_.exit29
   %.040 = phi i64 [ %24, %_ZN6casadi2MXaSERKS0_.exit29 ], [ 1, %_ZN6casadidvERKNS_2MXES2_.exit ]
-  %19 = sitofp i64 %.040 to double
+  %19 = uitofp nneg i64 %.040 to double
   invoke void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %19)
           to label %20 unwind label %.loopexit
 
@@ -17183,7 +17183,7 @@ _ZN6casadi2MX3eyeEx.exit:                         ; preds = %195, %198
 
 206:                                              ; preds = %203
   %207 = lshr exact i64 %104, 1
-  %208 = sitofp i64 %207 to double
+  %208 = uitofp nneg i64 %207 to double
   call void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %38, double noundef %208)
   invoke void @_ZN6casadi13GenericMatrixINS_2MXEE6mpowerERKS1_S4_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %37, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %209 unwind label %211
@@ -41533,7 +41533,7 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i143: ; preds = %_ZSt8_Destro
 
 .lr.ph:                                           ; preds = %201, %_ZN6casadi2MXaSERKS0_.exit
   %.0150 = phi i64 [ %211, %_ZN6casadi2MXaSERKS0_.exit ], [ 0, %201 ]
-  %205 = sitofp i64 %.0150 to double
+  %205 = uitofp nneg i64 %.0150 to double
   invoke void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %29, double noundef %205)
           to label %206 unwind label %219
 
@@ -43215,7 +43215,7 @@ _ZN6casadimlERKNS_2MXES2_.exit:                   ; preds = %126
 
 .noexc73:                                         ; preds = %_ZN6casadimlERKNS_2MXES2_.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !638
-  %127 = sitofp i64 %storemerge to double
+  %127 = uitofp nneg i64 %storemerge to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %4, double noundef %127)
           to label %.noexc.i71 unwind label %133
 

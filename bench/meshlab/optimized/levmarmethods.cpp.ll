@@ -472,7 +472,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 50:                                               ; preds = %42
   %51 = fptosi float %47 to i32
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = tail call noundef double @pow(double noundef %53, double noundef 0x3FD5555560000000) #12
   %55 = fptrunc double %54 to float
   %56 = fneg float %55

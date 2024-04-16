@@ -3862,7 +3862,7 @@ define internal fastcc i32 @gauss_make_triangular(ptr nocapture noundef %0, ptr 
   br i1 %45, label %87, label %.loopexit10
 
 87:                                               ; preds = %86
-  %88 = trunc i64 %15 to i32
+  %88 = trunc nsw i64 %15 to i32
   %89 = sub i32 %2, %88
   %90 = and i32 %89, 3
   %91 = icmp eq i32 %90, 0
@@ -4928,8 +4928,8 @@ define internal noundef i32 @checker_draw(ptr noundef %0, ptr noundef %1, ptr no
   %31 = select i1 %29, i32 7, i32 4
   %32 = getelementptr inbounds i8, ptr %8, i64 196
   %33 = getelementptr inbounds i8, ptr %8, i64 392
-  %34 = sitofp i32 %30 to float
-  %35 = sitofp i32 %31 to float
+  %34 = uitofp nneg i32 %30 to float
+  %35 = uitofp nneg i32 %31 to float
   %36 = sitofp i32 %10 to float
   %37 = fdiv reassoc nsz arcp contract afn float %36, %34
   %38 = fpext float %37 to double
@@ -5298,7 +5298,7 @@ define internal noundef i32 @checker_button_press(ptr noundef %0, ptr nocapture 
   %35 = icmp sgt i32 %34, 24
   %36 = select i1 %35, float 7.000000e+00, float 4.000000e+00
   %37 = select i1 %35, i32 7, i32 6
-  %38 = sitofp i32 %37 to float
+  %38 = uitofp nneg i32 %37 to float
   %39 = fmul reassoc nsz arcp contract afn float %38, %22
   %40 = sitofp i32 %10 to float
   %41 = fdiv reassoc nsz arcp contract afn float %39, %40
@@ -5737,7 +5737,7 @@ define internal noundef i32 @checker_motion_notify(ptr noundef %0, ptr nocapture
   %36 = icmp sgt i32 %35, 24
   %37 = select i1 %36, float 7.000000e+00, float 4.000000e+00
   %38 = select i1 %36, i32 7, i32 6
-  %39 = sitofp i32 %38 to float
+  %39 = uitofp nneg i32 %38 to float
   %40 = fmul reassoc nsz arcp contract afn float %39, %23
   %41 = sitofp i32 %11 to float
   %42 = fdiv reassoc nsz arcp contract afn float %40, %41

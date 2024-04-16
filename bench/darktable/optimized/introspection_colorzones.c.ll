@@ -767,7 +767,7 @@ define hidden void @process_display(ptr nocapture noundef readonly %0, ptr nocap
   %77 = icmp slt i32 %72, 65535
   %78 = select i1 %77, i32 %76, i32 65535
   %79 = zext nneg i32 %78 to i64
-  %80 = sitofp i32 %74 to float
+  %80 = uitofp nneg i32 %74 to float
   %81 = fsub reassoc nsz arcp contract afn float %71, %80
   %82 = getelementptr inbounds float, ptr %36, i64 %79
   %83 = load float, ptr %82, align 4, !tbaa !14
@@ -888,7 +888,7 @@ define hidden void @process_v1(ptr nocapture readnone %0, ptr nocapture noundef 
   %63 = icmp slt i32 %58, 65535
   %64 = select i1 %63, i32 %62, i32 65535
   %65 = zext nneg i32 %64 to i64
-  %66 = sitofp i32 %60 to float
+  %66 = uitofp nneg i32 %60 to float
   %67 = fsub reassoc nsz arcp contract afn float %57, %66
   %68 = getelementptr inbounds float, ptr %23, i64 %65
   %69 = load float, ptr %68, align 4, !tbaa !14
@@ -1020,7 +1020,7 @@ define hidden void @process_v3(ptr nocapture readnone %0, ptr nocapture noundef 
   %65 = icmp slt i32 %60, 65535
   %66 = select i1 %65, i32 %64, i32 65535
   %67 = zext nneg i32 %66 to i64
-  %68 = sitofp i32 %62 to float
+  %68 = uitofp nneg i32 %62 to float
   %69 = fsub reassoc nsz arcp contract afn float %59, %68
   %70 = getelementptr inbounds float, ptr %23, i64 %67
   %71 = load float, ptr %70, align 4, !tbaa !14
@@ -5226,7 +5226,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 
 764:                                              ; preds = %774, %737
   %765 = phi i32 [ 0, %737 ], [ %775, %774 ]
-  %766 = sitofp i32 %765 to float
+  %766 = uitofp nneg i32 %765 to float
   %767 = fmul reassoc nsz arcp contract afn float %766, 0x3F9D41D420000000
   %768 = fsub reassoc nsz arcp contract afn float 0x3FF03A83A0000000, %767
   %769 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %767
@@ -5248,7 +5248,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %781 = fdiv reassoc nsz arcp contract afn float %768, %779
   %782 = fadd reassoc nsz arcp contract afn float %781, %780
   %783 = fdiv reassoc nsz arcp contract afn float %769, %779
-  %784 = sitofp i32 %778 to float
+  %784 = uitofp nneg i32 %778 to float
   %785 = fmul reassoc nsz arcp contract afn float %784, 0x3F90410420000000
   %786 = fadd reassoc nsz arcp contract afn float %785, 0x3F80410420000000
   %787 = load float, ptr %750, align 8, !tbaa !201
@@ -8758,7 +8758,7 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
 
 67:                                               ; preds = %dt_XYZ_to_sRGB.exit, %42
   %68 = phi i32 [ 0, %42 ], [ %230, %dt_XYZ_to_sRGB.exit ]
-  %69 = sitofp i32 %68 to float
+  %69 = uitofp nneg i32 %68 to float
   %70 = fmul reassoc nsz arcp contract afn float %69, 0x3F90410420000000
   %71 = fadd reassoc nsz arcp contract afn float %70, 0x3F80410420000000
   %72 = load float, ptr %52, align 4, !tbaa !200

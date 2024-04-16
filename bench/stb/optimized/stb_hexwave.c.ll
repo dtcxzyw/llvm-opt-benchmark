@@ -520,7 +520,7 @@ for.body68:                                       ; preds = %for.cond65
   br i1 %cmp72, label %for.end78.split.loop.exit, label %for.cond65, !llvm.loop !12
 
 for.end78.split.loop.exit:                        ; preds = %for.body68
-  %18 = trunc i64 %indvars.iv243 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv243 to i32
   br label %for.end78
 
 for.end78:                                        ; preds = %for.cond65, %for.end78.split.loop.exit
@@ -574,7 +574,7 @@ if.end89:                                         ; preds = %while.body
   br i1 %cmp84, label %while.body, label %while.end.loopexit, !llvm.loop !13
 
 while.end.loopexit:                               ; preds = %if.end89
-  %28 = trunc i64 %indvars.iv.next248 to i32
+  %28 = trunc nsw i64 %indvars.iv.next248 to i32
   br label %while.end
 
 while.end:                                        ; preds = %for.cond79.while.end_crit_edge, %while.end.loopexit
@@ -950,8 +950,8 @@ for.cond27.preheader:                             ; preds = %for.cond27.preheade
   %integrate_impulse.0115 = phi double [ 0.000000e+00, %for.cond27.preheader.lr.ph ], [ %.us-phi111, %for.end ]
   %integrate_step.0114 = phi double [ 0.000000e+00, %for.cond27.preheader.lr.ph ], [ %.us-phi, %for.end ]
   %cmp35 = icmp eq i64 %indvars.iv, %0
-  %2 = trunc i64 %indvars.iv to i32
-  %conv45 = sitofp i32 %2 to float
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv45 = uitofp nneg i32 %2 to float
   %mul46 = fmul float %conv45, 0x401921FB40000000
   %div49 = fdiv float %mul46, %conv48
   %conv50 = fpext float %div49 to double
@@ -1141,7 +1141,7 @@ for.body140.us:                                   ; preds = %for.body140.lr.ph.u
   br i1 %exitcond176.not, label %for.cond149.preheader.us, label %for.body140.us, !llvm.loop !22
 
 for.cond149.preheader.us:                         ; preds = %for.body140.us
-  %34 = trunc i64 %indvars.iv184 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv184 to i32
   %add154.us = sub i32 %34, %mul
   br label %for.body152.us
 

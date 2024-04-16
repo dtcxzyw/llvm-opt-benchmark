@@ -137,7 +137,7 @@ define i32 @Abc_NtkTestTimNodeStrash(ptr noundef %0, ptr noundef %1) local_unnam
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 64
   %29 = load i32, ptr %28, align 8
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %30) #11
   store i32 %29, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -393,7 +393,7 @@ Vec_FltAlloc.exit:                                ; preds = %1, %5
 .lr.ph:                                           ; preds = %Vec_FltAlloc.exit, %Vec_FltPush.exit
   %.06 = phi i32 [ %41, %Vec_FltPush.exit ], [ 0, %Vec_FltAlloc.exit ]
   %12 = urem i32 %.06, 10
-  %13 = sitofp i32 %12 to float
+  %13 = uitofp nneg i32 %12 to float
   %14 = load i32, ptr %4, align 4
   %15 = load i32, ptr %2, align 8
   %16 = icmp eq i32 %14, %15
@@ -636,7 +636,7 @@ Abc_NodeIsWhiteBox.exit:                          ; preds = %24
   br i1 %.not159, label %39, label %36
 
 36:                                               ; preds = %32
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %37, i32 noundef %.val3.i, i32 noundef 1)
   br label %39
 
@@ -718,7 +718,7 @@ Abc_NodeIsWhiteBox.exit:                          ; preds = %24
   br i1 %65, label %54, label %.critedge2.loopexit, !llvm.loop !13
 
 .critedge2.loopexit:                              ; preds = %54
-  %66 = trunc i64 %indvars.iv.next255 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv.next255 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %._crit_edge
@@ -1431,7 +1431,7 @@ Gia_ObjIsHead.exit:                               ; preds = %7
   br i1 %14, label %Gia_ObjIsHead.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Gia_ObjIsHead.exit
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
@@ -1522,7 +1522,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit.
 
 49:                                               ; preds = %45
   %50 = and i64 %.val55, 536870911
-  %51 = trunc i64 %indvars.iv84 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv84 to i32
   %52 = sub nsw i64 %indvars.iv84, %50
   %.val58 = load ptr, ptr %42, align 8
   %sext93 = shl i64 %52, 32
@@ -1575,7 +1575,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit.
   br i1 %.not72, label %80, label %77
 
 77:                                               ; preds = %70
-  %78 = trunc i64 %indvars.iv84 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv84 to i32
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %78)
   br label %80
 
@@ -1689,7 +1689,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %44, ptr %4, align 4
   %45 = sext i32 %20 to i64
   %46 = getelementptr inbounds i32, ptr %43, i64 %45
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %47, ptr %46, align 4
   %.val67.pre = load i32, ptr %7, align 8
   br label %Gia_ObjIsHead.exit.thread

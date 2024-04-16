@@ -402,7 +402,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 275:                                              ; preds = %274
   store i32 %258, ptr %31, align 4, !tbaa !3
-  %276 = sitofp i32 %259 to double
+  %276 = uitofp nneg i32 %259 to double
   store double %276, ptr %29, align 8, !tbaa !7
   %277 = sitofp i32 %257 to double
   %278 = getelementptr inbounds i8, ptr %29, i64 8

@@ -1123,7 +1123,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %292 = fadd reassoc nsz arcp contract afn float %291, -1.000000e+00
   %293 = fmul reassoc nsz arcp contract afn float %290, 5.000000e-01
   %294 = fmul reassoc nsz arcp contract afn float %293, %292
-  %295 = sitofp i32 %286 to float
+  %295 = uitofp nneg i32 %286 to float
   %296 = fadd reassoc nsz arcp contract afn float %294, %295
   %297 = fmul reassoc nsz arcp contract afn float %296, %289
   %298 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp2.f32(float %297)
@@ -4007,7 +4007,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %105 = shl nuw nsw i64 %99, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 4 %scevgep18, i64 %105, i1 false), !tbaa !12
   %106 = or disjoint i64 %97, %99
-  %107 = trunc i64 %99 to i8
+  %107 = trunc nuw nsw i64 %99 to i8
   %108 = add i8 %98, %107
   br label %.loopexit13
 
@@ -4500,7 +4500,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %64, label %.loopexit4.loopexit, label %.preheader3, !llvm.loop !219
 
 .loopexit4.loopexit:                              ; preds = %.preheader3
-  %65 = trunc i64 %indvars.iv.next to i8
+  %65 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit4
 
 .loopexit4:                                       ; preds = %.loopexit4.loopexit, %51
@@ -4916,7 +4916,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   br i1 %99, label %.loopexit27.loopexit, label %.preheader26, !llvm.loop !234
 
 .loopexit27.loopexit:                             ; preds = %.preheader26
-  %100 = trunc i64 %indvars.iv.next to i8
+  %100 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit27
 
 .loopexit27:                                      ; preds = %.loopexit27.loopexit, %86
@@ -6988,7 +6988,7 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   %309 = fadd reassoc nsz arcp contract afn <2 x float> %308, %307
   %310 = extractelement <2 x float> %309, i64 0
   %311 = fcmp reassoc nsz arcp contract afn olt float %310, %297
-  %312 = trunc i64 %295 to i32
+  %312 = trunc nuw nsw i64 %295 to i32
   %313 = select i1 %311, i32 %312, i32 %296
   br label %.loopexit24
 

@@ -4425,7 +4425,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 888:                                              ; preds = %735, %.loopexit348.i
   call void @free(ptr noundef %.0.i.i.i.i78342.i) #24
   %889 = add nuw nsw i32 %.040382.i, 1
-  %890 = sitofp i32 %889 to double
+  %890 = uitofp nneg i32 %889 to double
   %891 = getelementptr inbounds i8, ptr %677, i64 48
   %892 = load double, ptr %891, align 8
   %893 = fcmp ogt double %892, %890

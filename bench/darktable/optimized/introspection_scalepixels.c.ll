@@ -520,7 +520,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 44:                                               ; preds = %44, %29
   %45 = phi i32 [ 0, %29 ], [ %54, %44 ]
   %46 = phi ptr [ %33, %29 ], [ %55, %44 ]
-  %47 = sitofp i32 %45 to float
+  %47 = uitofp nneg i32 %45 to float
   %48 = load float, ptr %20, align 4, !tbaa !28
   %49 = fmul reassoc nsz arcp contract afn float %48, %47
   %50 = load float, ptr %21, align 4, !tbaa !34

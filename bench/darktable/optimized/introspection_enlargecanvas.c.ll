@@ -279,7 +279,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %49 = sub nsw <2 x i32> %40, %48
   %50 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %49, <2 x i32> zeroinitializer)
   %51 = load <2 x i32>, ptr %47, align 4, !tbaa !28
-  %52 = sitofp <2 x i32> %50 to <2 x float>
+  %52 = uitofp nneg <2 x i32> %50 to <2 x float>
   %53 = sitofp <2 x i32> %51 to <2 x float>
   %54 = fsub reassoc nsz arcp contract afn <2 x float> %53, %52
   %55 = fptosi <2 x float> %54 to <2 x i32>
@@ -297,7 +297,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %66 = fsub reassoc nsz arcp contract afn <2 x float> %65, %64
   %67 = fptosi <2 x float> %66 to <2 x i32>
   %68 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %67, <2 x i32> <i32 1, i32 1>)
-  %69 = sitofp <2 x i32> %68 to <2 x float>
+  %69 = uitofp nneg <2 x i32> %68 to <2 x float>
   %70 = fcmp reassoc nsz arcp contract afn olt <2 x float> %58, %69
   %71 = select <2 x i1> %70, <2 x float> %58, <2 x float> %69
   %72 = fptosi <2 x float> %71 to <2 x i32>

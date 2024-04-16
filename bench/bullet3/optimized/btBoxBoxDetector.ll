@@ -249,7 +249,7 @@ for.body116.us.preheader:                         ; preds = %for.body116.lr.ph
 for.body116.us:                                   ; preds = %for.body116.us.preheader, %for.cond126.for.end146_crit_edge.us
   %iret.addr.0103.us = phi ptr [ %iret.addr.0.us, %for.cond126.for.end146_crit_edge.us ], [ %iret.addr.0100, %for.body116.us.preheader ]
   %j.0102.us = phi i32 [ %inc151.us, %for.cond126.for.end146_crit_edge.us ], [ 1, %for.body116.us.preheader ]
-  %conv.us = sitofp i32 %j.0102.us to float
+  %conv.us = uitofp nneg i32 %j.0102.us to float
   %46 = tail call float @llvm.fmuladd.f32(float %conv.us, float %div118, float %45)
   %cmp122.us = fcmp ogt float %46, 0x400921FB60000000
   %sub124.us = fadd float %46, 0xC01921FB60000000
@@ -278,7 +278,7 @@ if.then131.us:                                    ; preds = %for.body128.us
   br i1 %cmp140.us, label %if.then141.us, label %for.inc144.us
 
 if.then141.us:                                    ; preds = %if.then131.us
-  %51 = trunc i64 %indvars.iv122 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv122 to i32
   store i32 %51, ptr %iret.addr.0103.us, align 4
   br label %for.inc144.us
 
@@ -1660,7 +1660,7 @@ for.body1291:                                     ; preds = %for.body1291.prehea
   %arrayidx1293 = getelementptr inbounds [8 x float], ptr %dep, i64 0, i64 %indvars.iv1058
   %429 = load float, ptr %arrayidx1293, align 4
   %cmp1294 = fcmp ogt float %429, %maxdepth.0997
-  %430 = trunc i64 %indvars.iv1058 to i32
+  %430 = trunc nuw nsw i64 %indvars.iv1058 to i32
   %i1.1 = select i1 %cmp1294, i32 %430, i32 %i1.0996
   %maxdepth.1 = select i1 %cmp1294, float %429, float %maxdepth.0997
   %indvars.iv.next1059 = add nuw nsw i64 %indvars.iv1058, 1

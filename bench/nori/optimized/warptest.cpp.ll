@@ -628,7 +628,7 @@ define hidden void @_Z15parse_argumentsiPPc(ptr dead_on_unwind noalias nocapture
   %14 = load ptr, ptr %10, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %14) #30
   %16 = icmp eq i32 %15, 0
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %16, i32 %17, i32 %.03538
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1890,11 +1890,11 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.pre119 = phi i32 [ %.pre119.pre, %.lr.ph111 ], [ %.pre119125, %.loopexit ]
   %124 = phi i32 [ %111, %.lr.ph111 ], [ %121, %.loopexit ]
   %.043109 = phi i32 [ 0, %.lr.ph111 ], [ %128, %.loopexit ]
-  %125 = sitofp i32 %.043109 to double
+  %125 = uitofp nneg i32 %.043109 to double
   %126 = sitofp i32 %124 to double
   %127 = fdiv double %125, %126
   %128 = add nuw nsw i32 %.043109, 1
-  %129 = sitofp i32 %128 to double
+  %129 = uitofp nneg i32 %128 to double
   %130 = fdiv double %129, %126
   br label %131
 
@@ -1924,10 +1924,10 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
           to label %.noexc unwind label %180
 
 .noexc:                                           ; preds = %133
-  %136 = sitofp i32 %134 to double
+  %136 = uitofp nneg i32 %134 to double
   %137 = sitofp i32 %.pre119125 to double
   %138 = fdiv double %136, %137
-  %139 = sitofp i32 %.040 to double
+  %139 = uitofp nneg i32 %.040 to double
   %140 = fdiv double %139, %137
   store ptr %11, ptr %135, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %135, i64 8
@@ -8118,8 +8118,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv719 = phi i64 [ 0, %.lr.ph695.preheader ], [ %indvars.iv.next720, %.lr.ph695 ]
   %332 = mul nuw nsw i64 %indvars.iv719, 3
   %333 = getelementptr inbounds float, ptr %325, i64 %332
-  %334 = trunc i64 %indvars.iv719 to i32
-  %335 = sitofp i32 %334 to float
+  %334 = trunc nuw nsw i64 %indvars.iv719 to i32
+  %335 = uitofp nneg i32 %334 to float
   %336 = fmul float %331, %335
   store float %336, ptr %333, align 4, !noalias !99
   %337 = fneg float %335
@@ -8324,7 +8324,7 @@ _ZN8WarpTestC2E8WarpTypefPN4nori4BSDFENS1_15BSDFQueryRecordEii.exit195: ; preds 
 .preheader685:                                    ; preds = %.preheader685.preheader, %._crit_edge701
   %.0123705 = phi i32 [ %678, %._crit_edge701 ], [ 0, %.preheader685.preheader ]
   %.0125704 = phi i32 [ %677, %._crit_edge701 ], [ 0, %.preheader685.preheader ]
-  %432 = sitofp i32 %.0123705 to float
+  %432 = uitofp nneg i32 %.0123705 to float
   %433 = fmul float %398, %432
   %434 = sext i32 %.0125704 to i64
   %435 = shl nsw i64 %434, 2
@@ -8349,7 +8349,7 @@ _ZN8WarpTestC2E8WarpTypefPN4nori4BSDFENS1_15BSDFQueryRecordEii.exit195: ; preds 
   %449 = sext i32 %448 to i64
   %450 = shl nuw nsw i64 %indvar, 4
   %451 = add nsw i64 %435, %450
-  %452 = sitofp i32 %indvars744 to float
+  %452 = uitofp nneg i32 %indvars744 to float
   %453 = fmul float %400, %452
   store float %453, ptr %38, align 4
   store float %433, ptr %414, align 4
@@ -8453,7 +8453,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit684:                                     ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i200.preheader, %._crit_edge.i.i.i.i.i.i.i.i.i.i199
   %indvar.next = add nuw nsw i64 %indvar, 1
   %indvars = trunc i64 %indvar.next to i32
-  %507 = sitofp i32 %indvars to float
+  %507 = uitofp nneg i32 %indvars to float
   %508 = fmul float %400, %507
   store float %508, ptr %41, align 4
   store float %433, ptr %420, align 4
@@ -8811,7 +8811,7 @@ _ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IfLi3
   br label %746
 
 ._crit_edge701:                                   ; preds = %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IfLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit249
-  %677 = trunc i64 %indvars.iv.next743 to i32
+  %677 = trunc nsw i64 %indvars.iv.next743 to i32
   %678 = add nuw i32 %.0123705, 1
   %exitcond750.not = icmp eq i32 %.0123705, %371
   br i1 %exitcond750.not, label %._crit_edge706, label %.preheader685, !llvm.loop !118
@@ -9038,12 +9038,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv755 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit279 ], [ %indvars.iv.next756, %758 ]
   %.0117710 = phi i32 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit279 ], [ %763, %758 ]
   %759 = shl nuw nsw i32 %.0117710, 1
-  %760 = sitofp i32 %759 to float
+  %760 = uitofp nneg i32 %759 to float
   %761 = fmul float %760, 0x400921FB60000000
   %762 = fdiv float %761, 5.000000e+01
   %763 = add nuw nsw i32 %.0117710, 1
   %764 = shl nuw nsw i32 %763, 1
-  %765 = sitofp i32 %764 to float
+  %765 = uitofp nneg i32 %764 to float
   %766 = fmul float %765, 0x400921FB60000000
   %767 = fdiv float %766, 5.000000e+01
   %768 = or disjoint i64 %indvars.iv755, 1
@@ -9664,7 +9664,7 @@ define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvN7nanogui5ArrayIiLm2
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 4
   %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %.sroa.22.0.extract.shift.i.i.i = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %.sroa.22.0.extract.trunc.i.i.i = trunc i64 %.sroa.22.0.extract.shift.i.i.i to i32
+  %.sroa.22.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.22.0.extract.shift.i.i.i to i32
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 548
   store i32 %.sroa.01.0.extract.trunc.i.i.i, ptr %4, align 4
@@ -10550,7 +10550,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 42:                                               ; preds = %.lr.ph, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IfLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IfLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
   %.sroa.038.045 = phi i64 [ -8846114313915602277, %.lr.ph ], [ %.sroa.038.1, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IfLi3ELi1ELi0ELi3ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   %44 = sdiv i32 %43, %12
   %45 = srem i32 %43, %12
   store <2 x float> zeroinitializer, ptr %6, align 8
@@ -10568,7 +10568,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %51 = xor i64 %49, %50
   %52 = trunc i64 %51 to i32
   %53 = lshr i64 %.sroa.038.045, 59
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = call noundef i32 @llvm.fshr.i32(i32 %52, i32 %52, i32 %54)
   %56 = lshr i32 %55, 9
   %57 = or disjoint i32 %56, 1065353216
@@ -10581,7 +10581,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %64 = xor i64 %62, %63
   %65 = trunc i64 %64 to i32
   %66 = lshr i64 %48, 59
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw nsw i64 %66 to i32
   %68 = call noundef i32 @llvm.fshr.i32(i32 %65, i32 %65, i32 %67)
   %69 = lshr i32 %68, 9
   %70 = or disjoint i32 %69, 1065353216
@@ -10591,7 +10591,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.sink.split
 
 73:                                               ; preds = %42
-  %74 = sitofp i32 %45 to float
+  %74 = uitofp nneg i32 %45 to float
   %75 = fadd float %74, 5.000000e-01
   %76 = fmul float %14, %75
   %77 = sitofp i32 %44 to float
@@ -10601,7 +10601,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.sink.split
 
 80:                                               ; preds = %42
-  %81 = sitofp i32 %45 to float
+  %81 = uitofp nneg i32 %45 to float
   %82 = mul i64 %.sroa.038.045, 6364136223846793005
   %83 = add i64 %82, -2720673578348880933
   %84 = lshr i64 %.sroa.038.045, 45
@@ -10609,7 +10609,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %86 = xor i64 %84, %85
   %87 = trunc i64 %86 to i32
   %88 = lshr i64 %.sroa.038.045, 59
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw nsw i64 %88 to i32
   %90 = call noundef i32 @llvm.fshr.i32(i32 %87, i32 %87, i32 %89)
   %91 = lshr i32 %90, 9
   %92 = or disjoint i32 %91, 1065353216
@@ -10625,7 +10625,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %102 = xor i64 %100, %101
   %103 = trunc i64 %102 to i32
   %104 = lshr i64 %83, 59
-  %105 = trunc i64 %104 to i32
+  %105 = trunc nuw nsw i64 %104 to i32
   %106 = call noundef i32 @llvm.fshr.i32(i32 %103, i32 %103, i32 %105)
   %107 = lshr i32 %106, 9
   %108 = or disjoint i32 %107, 1065353216
@@ -15737,7 +15737,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %50 = phi <2 x double> [ %46, %35 ], [ %52, %70 ]
   %51 = add nuw nsw i32 %.084, 1
   %52 = fadd <2 x double> %50, <double 2.000000e+00, double 1.000000e+00>
-  %53 = sitofp i32 %51 to double
+  %53 = uitofp nneg i32 %51 to double
   %54 = extractelement <2 x double> %52, i64 1
   %55 = fmul double %54, %53
   %56 = fneg <2 x double> %49

@@ -308,7 +308,7 @@ is_power_of_2.exit.i:                             ; preds = %30
   store ptr %11, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 24
   store i32 %10, ptr %44, align 8
-  %45 = sitofp i32 %29 to double
+  %45 = uitofp nneg i32 %29 to double
   %square.i = fmul double %45, %45
   %46 = fptosi double %square.i to i32
   %47 = load i32, ptr @verbose_level, align 4
@@ -470,7 +470,7 @@ ilog2.exit.i.i:                                   ; preds = %.lr.ph.i.i.i, %._cr
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i95.i ], [ %98, %ilog2.exit.i.i ]
   %.027.i.i = phi i32 [ %127, %.lr.ph.i95.i ], [ 0, %ilog2.exit.i.i ]
   %127 = add nuw i32 %.027.i.i, 1
-  %128 = sitofp i32 %.027.i.i to double
+  %128 = uitofp nneg i32 %.027.i.i to double
   %129 = getelementptr inbounds double, ptr %121, i64 %indvars.iv.i.i
   store double %128, ptr %129, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -509,7 +509,7 @@ built_pivot_tree.exit.thread.i:                   ; preds = %._crit_edge.i.threa
   %indvars.iv32.i.i = phi i64 [ 0, %.lr.ph29.preheader.i.i ], [ %indvars.iv.next33.i.i, %.lr.ph29.i.i ]
   %138 = getelementptr inbounds double, ptr %121, i64 %indvars.iv32.i.i
   %139 = load double, ptr %138, align 8
-  %140 = trunc i64 %indvars.iv32.i.i to i32
+  %140 = trunc nuw nsw i64 %indvars.iv32.i.i to i32
   %141 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %140, double noundef %139)
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next33.i.i, %wide.trip.count.i.i
@@ -559,7 +559,7 @@ built_pivot_tree.exit.i:                          ; preds = %.lr.ph29.i.i, %._cr
   br i1 %153, label %.lr.ph.i99.i, label %.loopexit.i.i
 
 .lr.ph.i99.i:                                     ; preds = %152
-  %154 = trunc i64 %indvars.iv22.i.i to i32
+  %154 = trunc nuw nsw i64 %indvars.iv22.i.i to i32
   br label %155
 
 155:                                              ; preds = %add_to_bucket.exit.i.i, %.lr.ph.i99.i
@@ -652,7 +652,7 @@ add_to_bucket.exit.i.i:                           ; preds = %195, %._crit_edge.i
   %209 = load i32, ptr %181, align 4
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds %struct.coord, ptr %208, i64 %210, i32 1
-  %212 = trunc i64 %indvars.iv19.i.i to i32
+  %212 = trunc nuw nsw i64 %indvars.iv19.i.i to i32
   store i32 %212, ptr %211, align 4
   %213 = load i32, ptr %181, align 4
   %214 = add nsw i32 %213, 1
@@ -697,7 +697,7 @@ partial_sort.exit:                                ; preds = %18, %21, %fill_buck
   %229 = load ptr, ptr %227, align 8
   %230 = getelementptr inbounds double, ptr %229, i64 %indvars.iv.i121
   %231 = load double, ptr %230, align 8
-  %232 = trunc i64 %indvars.iv.i121 to i32
+  %232 = trunc nuw nsw i64 %indvars.iv.i121 to i32
   %233 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %232, double noundef %231)
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
   %234 = load i32, ptr %224, align 8
@@ -905,7 +905,7 @@ display_pivots.exit:                              ; preds = %228, %223
   br label %325
 
 325:                                              ; preds = %323, %303
-  %326 = trunc i64 %indvars.iv176 to i32
+  %326 = trunc nuw nsw i64 %indvars.iv176 to i32
   %327 = tail call i32 @tm_submit_work(ptr noundef %319, i32 noundef %326) #15
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
   br i1 %exitcond180.not, label %.preheader, label %303, !llvm.loop !21
@@ -1046,7 +1046,7 @@ define internal fastcc void @next_bucket_elem(ptr noundef %0, ptr nocapture noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ %7, %.lr.ph ]
   store i32 0, ptr %10, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %16, ptr %5, align 4
   %17 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8

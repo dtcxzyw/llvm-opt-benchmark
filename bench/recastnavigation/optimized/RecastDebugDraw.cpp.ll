@@ -165,7 +165,7 @@ define void @_Z18duDebugDrawTriMeshP11duDebugDrawPKfiPKiS2_iPKhf(ptr noundef %0,
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %72, i32 noundef %.074, ptr noundef nonnull %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %127 = trunc i64 %indvars.iv.next to i32
+  %127 = trunc nuw i64 %indvars.iv.next to i32
   %128 = icmp sgt i32 %26, %127
   br i1 %128, label %30, label %._crit_edge, !llvm.loop !4
 
@@ -335,7 +335,7 @@ define void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef 
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %72, i32 noundef %.074, ptr noundef nonnull %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %127 = trunc i64 %indvars.iv.next to i32
+  %127 = trunc nuw i64 %indvars.iv.next to i32
   %128 = icmp sgt i32 %29, %127
   br i1 %128, label %33, label %._crit_edge, !llvm.loop !6
 
@@ -394,8 +394,8 @@ define void @_Z27duDebugDrawHeightfieldSolidP11duDebugDrawRK13rcHeightfield(ptr 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge48.us
   %indvars.iv53 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next54, %._crit_edge48.us ]
-  %21 = trunc i64 %indvars.iv53 to i32
-  %22 = sitofp i32 %21 to float
+  %21 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %22 = uitofp nneg i32 %21 to float
   %23 = trunc i64 %indvars.iv53 to i32
   %24 = mul i32 %10, %23
   %25 = zext i32 %24 to i64
@@ -404,8 +404,8 @@ define void @_Z27duDebugDrawHeightfieldSolidP11duDebugDrawRK13rcHeightfield(ptr 
 26:                                               ; preds = %.preheader.us, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %._crit_edge.us ]
   %27 = load float, ptr %5, align 8
-  %28 = trunc i64 %indvars.iv to i32
-  %29 = sitofp i32 %28 to float
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %29 = uitofp nneg i32 %28 to float
   %30 = call float @llvm.fmuladd.f32(float %29, float %7, float %27)
   %31 = load float, ptr %18, align 8
   %32 = call float @llvm.fmuladd.f32(float %22, float %7, float %31)
@@ -421,11 +421,11 @@ define void @_Z27duDebugDrawHeightfieldSolidP11duDebugDrawRK13rcHeightfield(ptr 
   %37 = load float, ptr %20, align 4
   %38 = load i32, ptr %.045.us, align 8
   %39 = and i32 %38, 8191
-  %40 = sitofp i32 %39 to float
+  %40 = uitofp nneg i32 %39 to float
   %41 = call float @llvm.fmuladd.f32(float %40, float %9, float %37)
   %42 = lshr i32 %38, 13
   %43 = and i32 %42, 8191
-  %44 = sitofp i32 %43 to float
+  %44 = uitofp nneg i32 %43 to float
   %45 = call float @llvm.fmuladd.f32(float %44, float %9, float %37)
   call void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef nonnull %0, float noundef %30, float noundef %41, float noundef %32, float noundef %47, float noundef %45, float noundef %48, ptr noundef nonnull %3)
   %46 = getelementptr inbounds i8, ptr %.045.us, i64 8
@@ -503,8 +503,8 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge53.us
   %indvars.iv58 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next59, %._crit_edge53.us ]
-  %21 = trunc i64 %indvars.iv58 to i32
-  %22 = sitofp i32 %21 to float
+  %21 = trunc nuw nsw i64 %indvars.iv58 to i32
+  %22 = uitofp nneg i32 %21 to float
   %23 = trunc i64 %indvars.iv58 to i32
   %24 = mul i32 %10, %23
   %25 = zext i32 %24 to i64
@@ -513,8 +513,8 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
 26:                                               ; preds = %.preheader.us, %._crit_edge.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %._crit_edge.us ]
   %27 = load float, ptr %5, align 8
-  %28 = trunc i64 %indvars.iv to i32
-  %29 = sitofp i32 %28 to float
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  %29 = uitofp nneg i32 %28 to float
   %30 = call float @llvm.fmuladd.f32(float %29, float %7, float %27)
   %31 = load float, ptr %18, align 8
   %32 = call float @llvm.fmuladd.f32(float %22, float %7, float %31)
@@ -571,11 +571,11 @@ define void @_Z30duDebugDrawHeightfieldWalkableP11duDebugDrawRK13rcHeightfield(p
   %65 = load float, ptr %20, align 4
   %66 = load i32, ptr %.050.us, align 8
   %67 = and i32 %66, 8191
-  %68 = sitofp i32 %67 to float
+  %68 = uitofp nneg i32 %67 to float
   %69 = call float @llvm.fmuladd.f32(float %68, float %9, float %65)
   %70 = lshr i32 %66, 13
   %71 = and i32 %70, 8191
-  %72 = sitofp i32 %71 to float
+  %72 = uitofp nneg i32 %71 to float
   %73 = call float @llvm.fmuladd.f32(float %72, float %9, float %65)
   call void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef nonnull %0, float noundef %30, float noundef %69, float noundef %32, float noundef %75, float noundef %73, float noundef %76, ptr noundef nonnull %3)
   %74 = getelementptr inbounds i8, ptr %.050.us, i64 8
@@ -648,7 +648,7 @@ define void @_Z34duDebugDrawCompactHeightfieldSolidP11duDebugDrawRK20rcCompactHe
   br i1 %25, label %.lr.ph69, label %._crit_edge70
 
 .lr.ph69:                                         ; preds = %.preheader
-  %26 = sitofp i32 %.071 to float
+  %26 = uitofp nneg i32 %.071 to float
   br label %27
 
 27:                                               ; preds = %.lr.ph69, %._crit_edge
@@ -656,7 +656,7 @@ define void @_Z34duDebugDrawCompactHeightfieldSolidP11duDebugDrawRK20rcCompactHe
   %29 = phi i32 [ %24, %.lr.ph69 ], [ %82, %._crit_edge ]
   %.06268 = phi i32 [ 0, %.lr.ph69 ], [ %83, %._crit_edge ]
   %30 = load float, ptr %14, align 4
-  %31 = sitofp i32 %.06268 to float
+  %31 = uitofp nneg i32 %.06268 to float
   %32 = tail call float @llvm.fmuladd.f32(float %31, float %5, float %30)
   %33 = load float, ptr %15, align 4
   %34 = tail call float @llvm.fmuladd.f32(float %26, float %5, float %33)
@@ -709,7 +709,7 @@ define void @_Z34duDebugDrawCompactHeightfieldSolidP11duDebugDrawRK20rcCompactHe
   %64 = load i16, ptr %51, align 4
   %65 = zext i16 %64 to i32
   %66 = add nuw nsw i32 %65, 1
-  %67 = sitofp i32 %66 to float
+  %67 = uitofp nneg i32 %66 to float
   %68 = tail call float @llvm.fmuladd.f32(float %67, float %7, float %63)
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 48
@@ -802,7 +802,7 @@ define void @_Z36duDebugDrawCompactHeightfieldRegionsP11duDebugDrawRK20rcCompact
   br i1 %24, label %.lr.ph66, label %._crit_edge67
 
 .lr.ph66:                                         ; preds = %.preheader
-  %25 = sitofp i32 %.05768 to float
+  %25 = uitofp nneg i32 %.05768 to float
   br label %26
 
 26:                                               ; preds = %.lr.ph66, %._crit_edge
@@ -810,7 +810,7 @@ define void @_Z36duDebugDrawCompactHeightfieldRegionsP11duDebugDrawRK20rcCompact
   %28 = phi i32 [ %23, %.lr.ph66 ], [ %74, %._crit_edge ]
   %.05865 = phi i32 [ 0, %.lr.ph66 ], [ %75, %._crit_edge ]
   %29 = load float, ptr %14, align 4
-  %30 = sitofp i32 %.05865 to float
+  %30 = uitofp nneg i32 %.05865 to float
   %31 = tail call float @llvm.fmuladd.f32(float %30, float %5, float %29)
   %32 = load float, ptr %15, align 4
   %33 = tail call float @llvm.fmuladd.f32(float %25, float %5, float %32)
@@ -959,7 +959,7 @@ define void @_Z37duDebugDrawCompactHeightfieldDistanceP11duDebugDrawRK20rcCompac
   br i1 %33, label %.lr.ph74, label %._crit_edge75
 
 .lr.ph74:                                         ; preds = %.preheader
-  %34 = sitofp i32 %.06576 to float
+  %34 = uitofp nneg i32 %.06576 to float
   br label %35
 
 35:                                               ; preds = %.lr.ph74, %._crit_edge
@@ -967,7 +967,7 @@ define void @_Z37duDebugDrawCompactHeightfieldDistanceP11duDebugDrawRK20rcCompac
   %37 = phi i32 [ %32, %.lr.ph74 ], [ %88, %._crit_edge ]
   %.06673 = phi i32 [ 0, %.lr.ph74 ], [ %89, %._crit_edge ]
   %38 = load float, ptr %23, align 4
-  %39 = sitofp i32 %.06673 to float
+  %39 = uitofp nneg i32 %.06673 to float
   %40 = tail call float @llvm.fmuladd.f32(float %39, float %8, float %38)
   %41 = load float, ptr %24, align 4
   %42 = tail call float @llvm.fmuladd.f32(float %34, float %8, float %41)
@@ -999,7 +999,7 @@ define void @_Z37duDebugDrawCompactHeightfieldDistanceP11duDebugDrawRK20rcCompac
   %61 = load i16, ptr %59, align 4
   %62 = zext i16 %61 to i32
   %63 = add nuw nsw i32 %62, 1
-  %64 = sitofp i32 %63 to float
+  %64 = uitofp nneg i32 %63 to float
   %65 = tail call float @llvm.fmuladd.f32(float %64, float %10, float %60)
   %66 = load ptr, ptr %4, align 8
   %67 = getelementptr inbounds i16, ptr %66, i64 %indvars.iv
@@ -1125,12 +1125,12 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
   %.lhs.trunc102 = mul nuw i16 %53, 223
   %54 = udiv i16 %.lhs.trunc102, 255
   %.zext103 = zext nneg i16 %54 to i32
-  %55 = trunc i32 %48 to i16
+  %55 = trunc nuw i32 %48 to i16
   %56 = and i16 %55, 255
   %.lhs.trunc104 = mul nuw i16 %56, 223
   %57 = udiv i16 %.lhs.trunc104, 255
   %.zext105 = zext nneg i16 %57 to i32
-  %58 = trunc i32 %49 to i16
+  %58 = trunc nuw nsw i32 %49 to i16
   %59 = mul nuw i16 %58, 223
   %.lhs.trunc106 = add nuw i16 %59, 2048
   %60 = udiv i16 %.lhs.trunc106, 255
@@ -1171,8 +1171,8 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.split.us112
   %indvars.iv117 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next118, %._crit_edge.split.us112 ]
-  %83 = trunc i64 %indvars.iv117 to i32
-  %84 = sitofp i32 %83 to float
+  %83 = trunc nuw nsw i64 %indvars.iv117 to i32
+  %84 = uitofp nneg i32 %83 to float
   %85 = trunc i64 %indvars.iv117 to i32
   %86 = mul i32 %9, %85
   %87 = zext i32 %86 to i64
@@ -1205,25 +1205,25 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
   %104 = shl i32 %103, 5
   %105 = and i32 %104, 8160
   %106 = add nuw nsw i32 %105, %78
-  %.lhs.trunc.us = trunc i32 %106 to i16
+  %.lhs.trunc.us = trunc nuw i32 %106 to i16
   %107 = udiv i16 %.lhs.trunc.us, 255
   %.zext.us = zext nneg i16 %107 to i32
   %108 = lshr i32 %103, 3
   %109 = and i32 %108, 8160
   %110 = add nuw nsw i32 %109, %79
-  %.lhs.trunc86.us = trunc i32 %110 to i16
+  %.lhs.trunc86.us = trunc nuw i32 %110 to i16
   %111 = udiv i16 %.lhs.trunc86.us, 255
   %.zext87.us = zext nneg i16 %111 to i32
   %112 = lshr i32 %103, 11
   %113 = and i32 %112, 8160
   %114 = add nuw nsw i32 %113, %80
-  %.lhs.trunc88.us = trunc i32 %114 to i16
+  %.lhs.trunc88.us = trunc nuw i32 %114 to i16
   %115 = udiv i16 %.lhs.trunc88.us, 255
   %.zext89.us = zext nneg i16 %115 to i32
   %116 = lshr i32 %103, 19
   %117 = and i32 %116, 8160
   %118 = add nuw nsw i32 %117, %81
-  %.lhs.trunc90.us = trunc i32 %118 to i16
+  %.lhs.trunc90.us = trunc nuw i32 %118 to i16
   %119 = udiv i16 %.lhs.trunc90.us, 255
   %.zext91.us = zext nneg i16 %119 to i32
   %120 = shl nuw nsw i32 %.zext87.us, 8
@@ -1237,12 +1237,12 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
 126:                                              ; preds = %88, %98, %97
   %.082.us = phi i32 [ %73, %97 ], [ %125, %98 ], [ %66, %88 ]
   %127 = load float, ptr %1, align 8
-  %128 = trunc i64 %indvars.iv to i32
-  %129 = sitofp i32 %128 to float
+  %128 = trunc nuw nsw i64 %indvars.iv to i32
+  %129 = uitofp nneg i32 %128 to float
   %130 = tail call float @llvm.fmuladd.f32(float %129, float %5, float %127)
   %131 = load float, ptr %19, align 4
   %132 = add nuw nsw i32 %93, 1
-  %133 = sitofp i32 %132 to float
+  %133 = uitofp nneg i32 %132 to float
   %134 = tail call float @llvm.fmuladd.f32(float %133, float %7, float %131)
   %135 = load float, ptr %21, align 8
   %136 = tail call float @llvm.fmuladd.f32(float %84, float %5, float %135)
@@ -1322,7 +1322,7 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
   %176 = getelementptr inbounds i8, ptr %175, i64 %169
   %177 = load i8, ptr %176, align 1
   %178 = zext i8 %177 to i32
-  %179 = trunc i64 %indvars.iv.i to i32
+  %179 = trunc nuw nsw i64 %indvars.iv.i to i32
   %180 = shl nuw nsw i32 16, %179
   %181 = and i32 %180, %178
   %.not.us.i = icmp eq i32 %181, 0
@@ -1377,8 +1377,8 @@ define void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayer
 .preheader.us.i:                                  ; preds = %168
   %215 = zext i8 %172 to i32
   %216 = add nuw nsw i32 %215, 2
-  %217 = sitofp i32 %216 to float
-  %218 = trunc i64 %indvars.iv66.i to i32
+  %217 = uitofp nneg i32 %216 to float
+  %218 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br label %174
 
 ._crit_edge.us.i:                                 ; preds = %.loopexit.us.i
@@ -1411,7 +1411,7 @@ define void @_Z28duDebugDrawHeightfieldLayersP11duDebugDrawRK21rcHeightfieldLaye
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds %struct.rcHeightfieldLayer, ptr %6, i64 %indvars.iv
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_Z27duDebugDrawHeightfieldLayerP11duDebugDrawRK18rcHeightfieldLayeri(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(88) %7, i32 noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %3, align 8
@@ -1809,14 +1809,14 @@ define void @_Z22duDebugDrawRawContoursP11duDebugDrawRK12rcContourSetf(ptr nound
   br i1 %30, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %21
-  %.pre = trunc i64 %indvars.iv111 to i32
+  %.pre = trunc nuw nsw i64 %indvars.iv111 to i32
   %.pre120 = and i32 %.pre, 1
   %.pre122 = add nuw nsw i32 %.pre120, 1
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %21
   %31 = getelementptr inbounds i8, ptr %23, i64 16
-  %32 = trunc i64 %indvars.iv111 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv111 to i32
   %33 = and i32 %32, 1
   %34 = add nuw nsw i32 %33, 1
   br label %35
@@ -1932,7 +1932,7 @@ define void @_Z22duDebugDrawRawContoursP11duDebugDrawRK12rcContourSetf(ptr nound
 
 .lr.ph104:                                        ; preds = %102
   %116 = getelementptr inbounds i8, ptr %104, i64 16
-  %117 = trunc i64 %indvars.iv117 to i32
+  %117 = trunc nuw nsw i64 %indvars.iv117 to i32
   %118 = and i32 %117, 1
   %119 = add nuw nsw i32 %118, 1
   br label %120
@@ -2048,7 +2048,7 @@ define void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef 
   %.lhs.trunc101 = add nuw i16 %39, 32640
   %40 = udiv i16 %.lhs.trunc101, 255
   %.zext102 = zext nneg i16 %40 to i32
-  %41 = trunc i32 %32 to i16
+  %41 = trunc nuw i32 %32 to i16
   %42 = and i16 %41, 255
   %43 = mul nuw nsw i16 %42, 127
   %.lhs.trunc103 = add nuw i16 %43, 32640
@@ -2056,7 +2056,7 @@ define void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef 
   %.zext104 = zext nneg i16 %44 to i32
   %45 = mul nuw nsw i32 %33, 127
   %46 = add nuw nsw i32 %45, %19
-  %.lhs.trunc105 = trunc i32 %46 to i16
+  %.lhs.trunc105 = trunc nuw i32 %46 to i16
   %47 = udiv i16 %.lhs.trunc105, 255
   %.zext106 = zext nneg i16 %47 to i32
   %48 = shl nuw nsw i32 %.zext102, 8
@@ -2071,7 +2071,7 @@ define void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef 
 
 .lr.ph:                                           ; preds = %27
   %56 = add nsw i32 %54, -1
-  %57 = trunc i64 %indvars.iv121 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv121 to i32
   %58 = and i32 %57, 1
   %59 = add nuw nsw i32 %58, 1
   br label %60
@@ -2132,7 +2132,7 @@ define void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef 
   %107 = load i32, ptr %25, align 8
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next, %108
-  %110 = trunc i64 %indvars.iv to i32
+  %110 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %109, label %60, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %60, %27, %22
@@ -2182,7 +2182,7 @@ define void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef 
   br i1 %141, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %128
-  %142 = trunc i64 %indvars.iv127 to i32
+  %142 = trunc nuw nsw i64 %indvars.iv127 to i32
   %143 = and i32 %142, 1
   %144 = add nuw nsw i32 %143, 1
   br label %145
@@ -2284,7 +2284,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
 .lr.ph185.split.us:                               ; preds = %.lr.ph185.split.us.preheader, %._crit_edge.us
   %indvars.iv218 = phi i64 [ 0, %.lr.ph185.split.us.preheader ], [ %indvars.iv.next219, %._crit_edge.us ]
   %26 = load ptr, ptr %18, align 8
-  %27 = trunc i64 %indvars.iv218 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv218 to i32
   %28 = mul i32 %19, %27
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i16, ptr %26, i64 %29
@@ -2349,7 +2349,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
   %65 = add nuw nsw i32 %64, 1
-  %66 = sitofp i32 %65 to float
+  %66 = uitofp nneg i32 %65 to float
   %67 = tail call float @llvm.fmuladd.f32(float %66, float %10, float %61)
   %68 = load float, ptr %25, align 8
   %69 = getelementptr inbounds i8, ptr %56, i64 4
@@ -2427,7 +2427,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
 .lr.ph.us194:                                     ; preds = %.lr.ph.us194.preheader, %._crit_edge.us195
   %indvars.iv229 = phi i64 [ 0, %.lr.ph.us194.preheader ], [ %indvars.iv.next230, %._crit_edge.us195 ]
   %108 = load ptr, ptr %101, align 8
-  %109 = trunc i64 %indvars.iv229 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv229 to i32
   %110 = mul i32 %102, %109
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i16, ptr %108, i64 %111
@@ -2487,7 +2487,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   %141 = load i16, ptr %140, align 2
   %142 = zext i16 %141 to i32
   %143 = add nuw nsw i32 %142, 1
-  %144 = sitofp i32 %143 to float
+  %144 = uitofp nneg i32 %143 to float
   %145 = tail call float @llvm.fmuladd.f32(float %144, float %10, float %139)
   %146 = fadd float %145, 0x3FB99999A0000000
   %147 = load float, ptr %105, align 8
@@ -2537,7 +2537,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
 .lr.ph.us203:                                     ; preds = %.lr.ph.us203.preheader, %._crit_edge.us204
   %indvars.iv240 = phi i64 [ 0, %.lr.ph.us203.preheader ], [ %indvars.iv.next241, %._crit_edge.us204 ]
   %173 = load ptr, ptr %166, align 8
-  %174 = trunc i64 %indvars.iv240 to i32
+  %174 = trunc nuw nsw i64 %indvars.iv240 to i32
   %175 = mul i32 %167, %174
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds i16, ptr %173, i64 %176
@@ -2596,7 +2596,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   %207 = load i16, ptr %206, align 2
   %208 = zext i16 %207 to i32
   %209 = add nuw nsw i32 %208, 1
-  %210 = sitofp i32 %209 to float
+  %210 = uitofp nneg i32 %209 to float
   %211 = tail call float @llvm.fmuladd.f32(float %210, float %10, float %205)
   %212 = fadd float %211, 0x3FB99999A0000000
   %213 = load float, ptr %170, align 8
@@ -2654,7 +2654,7 @@ define void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef %0,
   %245 = load i16, ptr %244, align 2
   %246 = zext i16 %245 to i32
   %247 = add nuw nsw i32 %246, 1
-  %248 = sitofp i32 %247 to float
+  %248 = uitofp nneg i32 %247 to float
   %249 = tail call float @llvm.fmuladd.f32(float %248, float %10, float %243)
   %250 = fadd float %249, 0x3FB99999A0000000
   %251 = load float, ptr %234, align 8
@@ -2721,7 +2721,7 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
   %26 = shl i32 %18, 2
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
-  %29 = trunc i64 %indvars.iv171 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv171 to i32
   %30 = tail call noundef i32 @_Z10duIntToColii(i32 noundef %29, i32 noundef 192)
   %31 = icmp sgt i32 %20, 0
   br i1 %31, label %.lr.ph.preheader, label %._crit_edge
@@ -2864,7 +2864,7 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
 
 122:                                              ; preds = %94, %108, %101
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %123 = trunc i64 %indvars.iv174 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv174 to i32
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, 3
   br i1 %exitcond177.not, label %124, label %94, !llvm.loop !54
 
@@ -2970,7 +2970,7 @@ define void @_Z25duDebugDrawPolyMeshDetailP11duDebugDrawRK16rcPolyMeshDetail(ptr
 
 184:                                              ; preds = %160, %166
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %185 = trunc i64 %indvars.iv186 to i32
+  %185 = trunc nuw nsw i64 %indvars.iv186 to i32
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 3
   br i1 %exitcond189.not, label %186, label %160, !llvm.loop !57
 

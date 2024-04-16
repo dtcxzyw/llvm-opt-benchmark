@@ -26633,7 +26633,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %23, label %28, label %59
 
 28:                                               ; preds = %27
-  %29 = sitofp i64 %spec.store.select to float
+  %29 = uitofp nneg i64 %spec.store.select to float
   br i1 %26, label %30, label %48
 
 30:                                               ; preds = %28
@@ -26678,7 +26678,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %60, label %72
 
 60:                                               ; preds = %59
-  %61 = sitofp i64 %spec.store.select to float
+  %61 = uitofp nneg i64 %spec.store.select to float
   %62 = fmul float %18, %61
   %63 = fdiv float %62, %24
   %64 = tail call noundef float @sqrtf(float noundef %63) #19
@@ -26704,7 +26704,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %76, label %88
 
 76:                                               ; preds = %75
-  %77 = sitofp i64 %spec.store.select to float
+  %77 = uitofp nneg i64 %spec.store.select to float
   %78 = fmul float %21, %77
   %79 = fdiv float %78, %24
   %80 = tail call noundef float @sqrtf(float noundef %79) #19

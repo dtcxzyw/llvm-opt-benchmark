@@ -5240,7 +5240,7 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr noc
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv113 = phi i64 [ %73, %.preheader.preheader ], [ %indvars.iv.next114, %._crit_edge ]
   %76 = trunc nuw nsw i64 %indvars.iv113 to i32
-  %77 = sitofp i32 %76 to float
+  %77 = uitofp nneg i32 %76 to float
   %78 = fadd float %77, 5.000000e-01
   %79 = fsub float %78, %37
   %80 = fmul float %79, %79
@@ -5251,7 +5251,7 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr noc
 83:                                               ; preds = %.preheader, %101
   %indvars.iv = phi i64 [ %71, %.preheader ], [ %indvars.iv.next, %101 ]
   %84 = trunc nuw nsw i64 %indvars.iv to i32
-  %85 = sitofp i32 %84 to float
+  %85 = uitofp nneg i32 %84 to float
   %86 = fadd float %85, 5.000000e-01
   %87 = fsub float %86, %33
   %88 = tail call float @llvm.fmuladd.f32(float %87, float %87, float %80)
@@ -5528,7 +5528,7 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noca
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv130 = phi i64 [ %87, %.preheader.preheader ], [ %indvars.iv.next131, %._crit_edge ]
   %92 = trunc nuw nsw i64 %indvars.iv130 to i32
-  %93 = sitofp i32 %92 to float
+  %93 = uitofp nneg i32 %92 to float
   %94 = fsub float %93, %90
   %95 = fmul float %94, 2.000000e+00
   %96 = mul nsw i64 %indvars.iv130, %88
@@ -5538,7 +5538,7 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noca
 98:                                               ; preds = %.preheader, %126
   %indvars.iv = phi i64 [ %85, %.preheader ], [ %indvars.iv.next, %126 ]
   %99 = trunc nuw nsw i64 %indvars.iv to i32
-  %100 = sitofp i32 %99 to float
+  %100 = uitofp nneg i32 %99 to float
   %101 = fsub float %100, %91
   %102 = fmul float %101, 2.000000e+00
   %103 = load float, ptr %80, align 4

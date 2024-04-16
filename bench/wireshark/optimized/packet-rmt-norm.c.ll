@@ -564,13 +564,13 @@ dissect_norm_hdrext.exit.i.i:                     ; preds = %170, %166
 
 202:                                              ; preds = %.lr.ph.i.i
   %203 = add nuw nsw i32 %200, 1
-  %204 = sitofp i32 %203 to double
+  %204 = uitofp nneg i32 %203 to double
   %205 = fmul double %204, 0x3EB0C6F7A0B5ED8D
   br label %UnquantizeRtt.exit.i.i
 
 206:                                              ; preds = %.lr.ph.i.i
   %207 = xor i32 %200, 255
-  %208 = sitofp i32 %207 to double
+  %208 = uitofp nneg i32 %207 to double
   %209 = fdiv double %208, 1.300000e+01
   %210 = call double @exp(double noundef %209) #6
   %211 = fdiv double 1.000000e+03, %210
@@ -929,13 +929,13 @@ define internal fastcc void @dissect_grrtetc(ptr noundef %0, ptr noundef %1) unn
 
 8:                                                ; preds = %2
   %9 = add nuw nsw i32 %6, 1
-  %10 = sitofp i32 %9 to double
+  %10 = uitofp nneg i32 %9 to double
   %11 = fmul double %10, 0x3EB0C6F7A0B5ED8D
   br label %UnquantizeRtt.exit
 
 12:                                               ; preds = %2
   %13 = xor i32 %6, 255
-  %14 = sitofp i32 %13 to double
+  %14 = uitofp nneg i32 %13 to double
   %15 = fdiv double %14, 1.300000e+01
   %16 = tail call double @exp(double noundef %15) #6
   %17 = fdiv double 1.000000e+03, %16
@@ -953,7 +953,7 @@ UnquantizeRtt.exit:                               ; preds = %8, %12
   %25 = and i8 %23, 7
   %narrow = add nuw nsw i8 %25, 1
   %26 = select i1 %.not.i.not.not, double 1.000000e+00, double 5.000000e+00
-  %27 = uitofp i8 %narrow to double
+  %27 = uitofp nneg i8 %narrow to double
   %28 = tail call double @pow(double noundef 1.000000e+01, double noundef %27) #6
   %29 = fmul double %28, %26
   %30 = load i32, ptr @hf_backoff, align 4

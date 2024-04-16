@@ -1995,9 +1995,9 @@ define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond3, label %19, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %11 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 256, ptr noundef %3, ptr noundef nonnull %6) #9
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br i1 %9, label %15, label %12
 
 12:                                               ; preds = %10
@@ -2024,14 +2024,8 @@ define internal void @write_pdu_label_and_info(ptr noundef %0, ptr noundef %1, p
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #4
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #4
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2765,9 +2759,9 @@ switch.edge:                                      ; preds = %312, %327
   %479 = and i32 %478, 15
   %480 = trunc i32 %477 to i16
   %481 = and i16 %480, 2047
-  %482 = uitofp i16 %481 to double
+  %482 = uitofp nneg i16 %481 to double
   %483 = shl nuw nsw i32 1, %479
-  %484 = sitofp i32 %483 to double
+  %484 = uitofp nneg i32 %483 to double
   %485 = fdiv double 1.000000e+00, %484
   %486 = fmul double %485, %482
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %476, ptr noundef nonnull @.str.683, double noundef %486) #9
@@ -2907,7 +2901,7 @@ switch.lookup:                                    ; preds = %542
   br i1 %.not953, label %566, label %561
 
 561:                                              ; preds = %557
-  %562 = trunc i32 %.09031075 to i8
+  %562 = trunc nuw nsw i32 %.09031075 to i8
   %563 = add nuw nsw i8 %558, 1
   %564 = zext nneg i8 %558 to i64
   %565 = getelementptr [28 x i8], ptr %311, i64 0, i64 %564
@@ -3118,13 +3112,13 @@ switch.lookup:                                    ; preds = %542
   br i1 %.not.i970, label %685, label %688
 
 685:                                              ; preds = %677
-  %686 = trunc i64 %indvars.iv1130 to i32
+  %686 = trunc nuw i64 %indvars.iv1130 to i32
   %687 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.716, i32 noundef %686) #9
   br label %690
 
 688:                                              ; preds = %677
   %689 = call i64 @g_strlcpy(ptr noundef nonnull %6, ptr noundef nonnull @.str.717, i64 noundef 32) #9
-  %.pre1140 = trunc i64 %indvars.iv1130 to i32
+  %.pre1140 = trunc nuw i64 %indvars.iv1130 to i32
   br label %690
 
 690:                                              ; preds = %688, %685
@@ -3338,7 +3332,7 @@ dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.
   br i1 %.not952, label %793, label %795
 
 793:                                              ; preds = %.lr.ph1052
-  %794 = trunc i64 %indvars.iv to i32
+  %794 = trunc nuw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %790, ptr noundef nonnull @.str.695, i32 noundef %794) #9
   br label %796
 
@@ -3922,7 +3916,7 @@ decompress_value.exit979:                         ; preds = %decompress_value.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3989,7 +3983,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @tfs_get_string(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #6 {
+define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #5 {
   %5 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %45, label %6
@@ -4094,7 +4088,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 
 57:                                               ; preds = %.lr.ph228, %67
   %indvars.iv263 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next264, %67 ]
-  %58 = trunc i64 %indvars.iv263 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv263 to i32
   %59 = mul i32 %58, %2
   %60 = add i32 %59, %0
   %61 = getelementptr [512 x %struct.anon.1], ptr %53, i64 0, i64 %indvars.iv263
@@ -4230,7 +4224,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 
 .lr.ph240.us:                                     ; preds = %.lr.ph240.us.preheader, %._crit_edge241.us
   %indvars.iv274 = phi i64 [ 0, %.lr.ph240.us.preheader ], [ %indvars.iv.next275, %._crit_edge241.us ]
-  %120 = trunc i64 %indvars.iv274 to i32
+  %120 = trunc nuw i64 %indvars.iv274 to i32
   %121 = mul i32 %111, %120
   %122 = getelementptr [128 x i32], ptr %117, i64 0, i64 %indvars.iv274
   %123 = zext i32 %121 to i64
@@ -4244,7 +4238,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 
 127:                                              ; preds = %124
   %128 = load i32, ptr %122, align 4
-  %129 = trunc i64 %indvars.iv271 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv271 to i32
   %130 = mul i32 %129, %2
   %131 = add i32 %130, %0
   %132 = add i32 %131, %128
@@ -4290,7 +4284,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 
 149:                                              ; preds = %.lr.ph247, %159
   %indvars.iv279 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next280, %159 ]
-  %150 = trunc i64 %indvars.iv279 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv279 to i32
   %151 = mul i32 %150, %2
   %152 = add i32 %151, %0
   %153 = getelementptr [512 x %struct.anon.1], ptr %145, i64 0, i64 %indvars.iv279
@@ -4318,6 +4312,12 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
@@ -4331,9 +4331,9 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

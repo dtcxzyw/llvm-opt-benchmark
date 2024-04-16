@@ -383,7 +383,7 @@ while.end:                                        ; preds = %while.body, %while.
   %lines_skipped.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %inc.us, %while.body.us ], [ %inc, %while.body ]
   %line.0.lcssa = phi ptr [ %spec.select61, %while.cond.preheader ], [ %add.ptr51.us, %while.body.us ], [ %add.ptr51, %while.body ]
   store float %cond.i118.lcssa, ptr %text_size25, align 8
-  %conv52 = sitofp i32 %lines_skipped.0.lcssa to float
+  %conv52 = uitofp nneg i32 %lines_skipped.0.lcssa to float
   %17 = tail call float @llvm.fmuladd.f32(float %conv52, float %call24, float %add)
   %pos.sroa.0.4.vec.insert = insertelement <2 x float> %12, float %17, i64 1
   br label %if.end55
@@ -486,7 +486,7 @@ while.body94:                                     ; preds = %while.body94.lr.ph,
 
 while.end115:                                     ; preds = %while.body94, %while.body94.us, %while.end90
   %lines_skipped91.0.lcssa = phi i32 [ 0, %while.end90 ], [ %inc114.us, %while.body94.us ], [ %inc114, %while.body94 ]
-  %conv116 = sitofp i32 %lines_skipped91.0.lcssa to float
+  %conv116 = uitofp nneg i32 %lines_skipped91.0.lcssa to float
   %pos.sroa.0.4.vec.extract107 = extractelement <2 x float> %pos.sroa.0.1.lcssa, i64 1
   %24 = call float @llvm.fmuladd.f32(float %conv116, float %call24, float %pos.sroa.0.4.vec.extract107)
   %pos.sroa.0.4.vec.insert105 = insertelement <2 x float> %pos.sroa.0.1.lcssa, float %24, i64 1
@@ -2435,7 +2435,7 @@ if.end16:                                         ; preds = %if.then7, %if.end4,
   %cond.i89 = tail call noundef i64 @llvm.smax.i64(i64 %size_contents_v, i64 %size_avail_v)
   %cond.i90 = tail call noundef i64 @llvm.smax.i64(i64 %cond.i89, i64 1)
   %conv34 = sitofp i64 %size_avail_v to float
-  %conv35 = sitofp i64 %cond.i90 to float
+  %conv35 = uitofp nneg i64 %cond.i90 to float
   %div36 = fdiv float %conv34, %conv35
   %mul37 = fmul float %div36, %cond
   %GrabMinSize = getelementptr inbounds i8, ptr %0, i64 14700
@@ -2452,7 +2452,7 @@ if.end16:                                         ; preds = %if.then7, %if.end4,
   %cond.i95 = call noundef i64 @llvm.smax.i64(i64 %sub42, i64 1)
   %27 = load i64, ptr %p_scroll_v, align 8
   %conv44 = sitofp i64 %27 to float
-  %conv45 = sitofp i64 %cond.i95 to float
+  %conv45 = uitofp nneg i64 %cond.i95 to float
   %sub48 = fsub float %cond, %cond5.i94
   %28 = load i8, ptr %held, align 1
   %tobool51 = trunc i8 %28 to i1
@@ -11915,7 +11915,7 @@ entry:
   %2 = icmp ne i32 %1, 8
   %sub6 = sub nsw i32 %v_min, %v_max
   %cond7 = tail call i32 @llvm.abs.i32(i32 %sub6, i1 true)
-  %conv = sitofp i32 %cond7 to float
+  %conv = uitofp nneg i32 %cond7 to float
   %Max = getelementptr inbounds i8, ptr %bb, i64 8
   %conv8 = zext nneg i32 %and.lobit to i64
   %arrayidx.i = getelementptr inbounds float, ptr %Max, i64 %conv8
@@ -13389,7 +13389,7 @@ entry:
   %2 = icmp ne i32 %1, 8
   %sub6 = sub nsw i64 %v_min, %v_max
   %cond7 = tail call i64 @llvm.abs.i64(i64 %sub6, i1 true)
-  %conv = sitofp i64 %cond7 to float
+  %conv = uitofp nneg i64 %cond7 to float
   %Max = getelementptr inbounds i8, ptr %bb, i64 8
   %conv8 = zext nneg i32 %and.lobit to i64
   %arrayidx.i = getelementptr inbounds float, ptr %Max, i64 %conv8
@@ -18672,7 +18672,7 @@ if.else776:                                       ; preds = %if.else757
 if.then780:                                       ; preds = %if.else776
   %or781 = or disjoint i32 %cond612, 2097166
   call void @_ZN19ImGuiInputTextState12OnKeyPressedEi(ptr noundef nonnull align 8 dereferenceable(3724) %state.01435, i32 noundef %or781)
-  %conv782 = sitofp i32 %cond.i1021 to float
+  %conv782 = uitofp nneg i32 %cond.i1021 to float
   %219 = load float, ptr %FontSize605, align 8
   %neg = fneg float %conv782
   %220 = call float @llvm.fmuladd.f32(float %neg, float %219, float %cond151)
@@ -18686,7 +18686,7 @@ if.else785:                                       ; preds = %if.else776
 if.then789:                                       ; preds = %if.else785
   %or790 = or disjoint i32 %cond612, 2097167
   call void @_ZN19ImGuiInputTextState12OnKeyPressedEi(ptr noundef nonnull align 8 dereferenceable(3724) %state.01435, i32 noundef %or790)
-  %conv791 = sitofp i32 %cond.i1021 to float
+  %conv791 = uitofp nneg i32 %cond.i1021 to float
   %221 = load float, ptr %FontSize605, align 8
   %222 = call float @llvm.fmuladd.f32(float %conv791, float %221, float %cond151)
   br label %if.end1026
@@ -20399,7 +20399,7 @@ if.then1783:                                      ; preds = %land.lhs.true1774
 
 if.end1788:                                       ; preds = %while.cond.i1275
   %inc8.i = add nuw nsw i32 %line_count.0.i.ph, 1
-  %conv1769 = sitofp i32 %inc8.i to float
+  %conv1769 = uitofp nneg i32 %inc8.i to float
   %FontSize1770 = getelementptr inbounds i8, ptr %0, i64 15680
   %424 = load float, ptr %FontSize1770, align 8
   %mul1771 = fmul float %424, %conv1769
@@ -24589,7 +24589,7 @@ if.then134:                                       ; preds = %if.end95
   %conv138 = sitofp i32 %sub137 to float
   %neg = fneg float %42
   %43 = call float @llvm.fmuladd.f32(float %neg, float %conv138, float %sub)
-  %conv139 = sitofp i32 %cond57 to float
+  %conv139 = uitofp nneg i32 %cond57 to float
   %div = fdiv float %43, %conv139
   %conv140 = fptosi float %div to i32
   %conv141 = sitofp i32 %conv140 to float
@@ -24625,7 +24625,7 @@ if.then159.us:                                    ; preds = %for.body.us
 if.end162.us:                                     ; preds = %if.then159.us, %for.body.us
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %45 = trunc nuw nsw i64 %indvars.iv.next223 to i32
-  %conv164.us = sitofp i32 %45 to float
+  %conv164.us = uitofp nneg i32 %45 to float
   %mul.us = fmul float %43, %conv164.us
   %div166.us = fdiv float %mul.us, %conv139
   %conv167.us = fptosi float %div166.us to i32
@@ -24672,7 +24672,7 @@ if.then159:                                       ; preds = %for.body
 if.end162:                                        ; preds = %if.then159, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %conv164 = sitofp i32 %51 to float
+  %conv164 = uitofp nneg i32 %51 to float
   %mul = fmul float %43, %conv164
   %div166 = fdiv float %mul, %conv139
   %conv167 = fptosi float %div166 to i32
@@ -25793,7 +25793,7 @@ if.end48:                                         ; preds = %if.then44, %if.end4
   store i64 %20, ptr %picker_pos, align 8
   %call57 = tail call noundef float @_ZN5ImGui14GetFrameHeightEv()
   %cond59 = select i1 %19, i32 2, i32 1
-  %conv = sitofp i32 %cond59 to float
+  %conv = uitofp nneg i32 %cond59 to float
   %ItemInnerSpacing = getelementptr inbounds i8, ptr %0, i64 14660
   %21 = load float, ptr %ItemInnerSpacing, align 4
   %add = fadd float %call57, %21
@@ -26789,7 +26789,7 @@ for.body:                                         ; preds = %if.then500, %for.bo
   %199 = phi i32 [ %191, %if.then500 ], [ %221, %for.body ]
   %indvars.iv = phi i64 [ 0, %if.then500 ], [ %indvars.iv.next, %for.body ]
   %200 = trunc nuw nsw i64 %indvars.iv to i32
-  %conv506 = sitofp i32 %200 to float
+  %conv506 = uitofp nneg i32 %200 to float
   %div507 = fdiv float %conv506, 6.000000e+00
   %mul508 = fmul float %div507, 2.000000e+00
   %201 = call float @llvm.fmuladd.f32(float %mul508, float 0x400921FB60000000, float %neg510)
@@ -27035,13 +27035,13 @@ for.body622:                                      ; preds = %if.then582, %for.bo
   %indvars.iv717 = phi i64 [ 0, %if.then582 ], [ %indvars.iv.next718, %for.body622 ]
   %321 = load float, ptr %y, align 4
   %322 = trunc nuw nsw i64 %indvars.iv717 to i32
-  %conv625 = sitofp i32 %322 to float
+  %conv625 = uitofp nneg i32 %322 to float
   %323 = call float @llvm.fmuladd.f32(float %conv625, float %div626, float %321)
   store float %add66, ptr %ref.tmp623, align 4
   store float %323, ptr %y.i643, align 4
   %indvars.iv.next718 = add nuw nsw i64 %indvars.iv717, 1
   %324 = trunc nuw nsw i64 %indvars.iv.next718 to i32
-  %conv632 = sitofp i32 %324 to float
+  %conv632 = uitofp nneg i32 %324 to float
   %325 = call float @llvm.fmuladd.f32(float %conv632, float %div626, float %321)
   store float %add67, ptr %ref.tmp628, align 4
   store float %325, ptr %y.i644, align 4

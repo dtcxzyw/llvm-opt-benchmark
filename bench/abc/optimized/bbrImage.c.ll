@@ -67,7 +67,7 @@ define noalias noundef ptr @Bbr_bddImageStart(ptr noundef %0, ptr noundef %1, i3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next.i, %.lr.ph35.i ]
   %27 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0, ptr noundef %28, ptr noundef %14, ptr noundef %15, i32 noundef %29)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -481,7 +481,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge176, %.p
   %214 = getelementptr inbounds i8, ptr %213, i64 16
   %215 = load i32, ptr %214, align 8
   %216 = mul nsw i32 %215, %215
-  %217 = sitofp i32 %216 to double
+  %217 = uitofp nneg i32 %216 to double
   %218 = fadd double %.062.i.i, %217
   %219 = getelementptr inbounds i8, ptr %.05163.i.i, i64 16
   %.051.i.i = load ptr, ptr %219, align 8
@@ -494,7 +494,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge176, %.p
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %._crit_edge.i.i
-  %222 = trunc i64 %indvars.iv.i.i to i32
+  %222 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %223
 
 223:                                              ; preds = %221, %._crit_edge.i.i, %201, %198
@@ -536,7 +536,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge176, %.p
   %236 = getelementptr inbounds i8, ptr %235, i64 16
   %237 = load i32, ptr %236, align 8
   %238 = mul nsw i32 %237, %237
-  %239 = sitofp i32 %238 to double
+  %239 = uitofp nneg i32 %238 to double
   %240 = fadd double %.174.i.i, %239
   %241 = getelementptr inbounds i8, ptr %.15275.i.i, i64 16
   %.152.i.i = load ptr, ptr %241, align 8
@@ -549,7 +549,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge176, %.p
   br i1 %242, label %243, label %245
 
 243:                                              ; preds = %._crit_edge78.i.i
-  %244 = trunc i64 %indvars.iv87.i.i to i32
+  %244 = trunc nuw nsw i64 %indvars.iv87.i.i to i32
   br label %245
 
 245:                                              ; preds = %243, %._crit_edge78.i.i, %.lr.ph83.i.i
@@ -869,7 +869,7 @@ Bbr_BuildTreeNode.exit:                           ; preds = %349, %321
 
 379:                                              ; preds = %.lr.ph.i139.us
   %380 = icmp eq i32 %.02732.i.us, -1
-  %381 = trunc i64 %indvars.iv.i140.us to i32
+  %381 = trunc nuw nsw i64 %indvars.iv.i140.us to i32
   br i1 %380, label %391, label %382
 
 382:                                              ; preds = %379
@@ -1201,7 +1201,7 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 
 .sink.split:                                      ; preds = %.lr.ph.us, %28
   %.str.11.sink = phi ptr [ @.str.11, %28 ], [ @.str.12, %.lr.ph.us ]
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.11.sink, i32 noundef %29)
   br label %31
 

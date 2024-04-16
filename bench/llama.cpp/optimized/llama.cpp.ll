@@ -27406,17 +27406,17 @@ entry:
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   tail call void (i32, ptr, ...) @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.204)
   tail call void (i32, ptr, ...) @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.205, ptr noundef nonnull @__func__.llama_print_timings, double noundef %mul4.i)
-  %conv = sitofp i32 %.sroa.speculated17.i to double
+  %conv = uitofp nneg i32 %.sroa.speculated17.i to double
   %div = fdiv double %mul6.i, %conv
   %div4 = fdiv double 1.000000e+03, %mul6.i
   %mul = fmul double %div4, %conv
   tail call void (i32, ptr, ...) @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.206, ptr noundef nonnull @__func__.llama_print_timings, double noundef %mul6.i, i32 noundef %.sroa.speculated17.i, double noundef %div, double noundef %mul)
-  %conv9 = sitofp i32 %.sroa.speculated14.i to double
+  %conv9 = uitofp nneg i32 %.sroa.speculated14.i to double
   %div10 = fdiv double %mul8.i, %conv9
   %div12 = fdiv double 1.000000e+03, %mul8.i
   %mul15 = fmul double %div12, %conv9
   tail call void (i32, ptr, ...) @_ZL18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.207, ptr noundef nonnull @__func__.llama_print_timings, double noundef %mul8.i, i32 noundef %.sroa.speculated14.i, double noundef %div10, double noundef %mul15)
-  %conv18 = sitofp i32 %.sroa.speculated.i to double
+  %conv18 = uitofp nneg i32 %.sroa.speculated.i to double
   %div19 = fdiv double %mul10.i, %conv18
   %div21 = fdiv double 1.000000e+03, %mul10.i
   %mul24 = fmul double %div21, %conv18

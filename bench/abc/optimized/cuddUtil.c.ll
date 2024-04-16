@@ -5860,7 +5860,7 @@ define double @Cudd_AverageDistance(ptr noundef readonly %0) local_unnamed_addr 
   %18 = ptrtoint ptr %17 to i64
   %19 = sub nsw i64 %15, %18
   %20 = tail call i64 @llvm.abs.i64(i64 %19, i1 true)
-  %21 = sitofp i64 %20 to double
+  %21 = uitofp nneg i64 %20 to double
   %22 = fadd double %.18495, %21
   %23 = getelementptr inbounds i8, ptr %.06799, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -5868,7 +5868,7 @@ define double @Cudd_AverageDistance(ptr noundef readonly %0) local_unnamed_addr 
   %26 = and i64 %25, -2
   %27 = sub nsw i64 %15, %26
   %28 = tail call i64 @llvm.abs.i64(i64 %27, i1 true)
-  %29 = sitofp i64 %28 to double
+  %29 = uitofp nneg i64 %28 to double
   %30 = fadd double %22, %29
   %31 = fadd double %.27697, 2.000000e+00
   %32 = getelementptr inbounds i8, ptr %.06799, i64 8
@@ -5880,7 +5880,7 @@ define double @Cudd_AverageDistance(ptr noundef readonly %0) local_unnamed_addr 
   %35 = ptrtoint ptr %33 to i64
   %36 = sub nsw i64 %15, %35
   %37 = tail call i64 @llvm.abs.i64(i64 %36, i1 true)
-  %38 = sitofp i64 %37 to double
+  %38 = uitofp nneg i64 %37 to double
   %39 = fadd double %.17896, %38
   %40 = fadd double %.298, 1.000000e+00
   br label %.lr.ph
@@ -5945,7 +5945,7 @@ define double @Cudd_AverageDistance(ptr noundef readonly %0) local_unnamed_addr 
   %53 = ptrtoint ptr %51 to i64
   %54 = sub nsw i64 %52, %53
   %55 = tail call i64 @llvm.abs.i64(i64 %54, i1 true)
-  %56 = sitofp i64 %55 to double
+  %56 = uitofp nneg i64 %55 to double
   %57 = fadd double %.481128176, %56
   %58 = fadd double %.5129175, 1.000000e+00
   %59 = getelementptr inbounds i8, ptr %51, i64 8

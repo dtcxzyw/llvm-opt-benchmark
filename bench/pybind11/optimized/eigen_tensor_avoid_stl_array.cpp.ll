@@ -28528,7 +28528,7 @@ define linkonce_odr hidden void @_ZZN17eigen_tensor_test18init_tensor_moduleILi0
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %23 = add i64 %21, %indvars.iv.i
   %24 = trunc i64 %23 to i32
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = load ptr, ptr %2, align 8
   %27 = load i64, ptr %3, align 8
   %28 = load i64, ptr %6, align 8
@@ -28658,7 +28658,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %23 = add i64 %21, %indvars.iv.i
   %24 = trunc i64 %23 to i32
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = load ptr, ptr %3, align 8
   %27 = load i64, ptr %4, align 8
   %28 = load i64, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
@@ -28822,7 +28822,7 @@ _ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElE9dimensionEm.exit21
 35:                                               ; preds = %_ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElE9dimensionEm.exit21
   %36 = or disjoint i64 %indvars.iv, %24
   %37 = trunc nuw nsw i64 %36 to i32
-  %38 = sitofp i32 %37 to double
+  %38 = uitofp nneg i32 %37 to double
   %39 = load atomic i8, ptr @_ZGVZN5Eigen13TensorStorageIdNS_5SizesIJLl3ELl5ELl2EEEELi0EE10dimensionsEvE20singleton_dimensions acquire, align 8
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %_ZN5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElEclIJiiEEERdlDpT_.exit, !prof !83
@@ -29004,7 +29004,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN17eigen_tensor_test18init_ten
   %22 = load double, ptr %gep.us.us.us.i, align 8
   %23 = add nuw nsw i64 %16, %indvars.iv50.i
   %24 = trunc nuw nsw i64 %23 to i32
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = fcmp une double %22, %25
   br i1 %26, label %_ZN17eigen_tensor_test12check_tensorIN5Eigen6TensorIdLi3ELi0ElEEEEbRT_.exit, label %17
 
@@ -29193,7 +29193,7 @@ _ZN5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi0ElEclIJiiEEERdlDpT_.exi
   %48 = load double, ptr %gep, align 8
   %49 = or disjoint i64 %indvars.iv, %24
   %50 = trunc nuw nsw i64 %49 to i32
-  %51 = sitofp i32 %50 to double
+  %51 = uitofp nneg i32 %50 to double
   %52 = fcmp une double %48, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %52, label %.loopexit, label %25, !llvm.loop !747
@@ -55317,7 +55317,7 @@ define linkonce_odr hidden void @_ZZN17eigen_tensor_test18init_tensor_moduleILi1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %24 = add i64 %21, %indvars.iv.i
   %25 = trunc i64 %24 to i32
-  %26 = sitofp i32 %25 to double
+  %26 = uitofp nneg i32 %25 to double
   %27 = load ptr, ptr %2, align 8
   %28 = load i64, ptr %6, align 8
   %29 = mul nsw i64 %28, %indvars.iv33.i
@@ -55447,7 +55447,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %24 = add i64 %21, %indvars.iv.i
   %25 = trunc i64 %24 to i32
-  %26 = sitofp i32 %25 to double
+  %26 = uitofp nneg i32 %25 to double
   %27 = load ptr, ptr %3, align 8
   %28 = load i64, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
   %29 = mul nsw i64 %28, %indvars.iv33.i
@@ -55613,7 +55613,7 @@ _ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElE9dimensionEm.exit21
 39:                                               ; preds = %_ZNK5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElE9dimensionEm.exit21
   %40 = or disjoint i64 %indvars.iv, %25
   %41 = trunc nuw nsw i64 %40 to i32
-  %42 = sitofp i32 %41 to double
+  %42 = uitofp nneg i32 %41 to double
   %43 = load atomic i8, ptr @_ZGVZN5Eigen13TensorStorageIdNS_5SizesIJLl3ELl5ELl2EEEELi1EE10dimensionsEvE20singleton_dimensions acquire, align 8
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %_ZN5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElEclIJiiEEERdlDpT_.exit, !prof !83
@@ -55787,7 +55787,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN17eigen_tensor_test18init_ten
   %24 = load double, ptr %23, align 8
   %25 = add nuw nsw i64 %20, %indvars.iv50.i
   %26 = trunc nuw nsw i64 %25 to i32
-  %27 = sitofp i32 %26 to double
+  %27 = uitofp nneg i32 %26 to double
   %28 = fcmp une double %24, %27
   br i1 %28, label %_ZN17eigen_tensor_test12check_tensorIN5Eigen6TensorIdLi3ELi1ElEEEEbRT_.exit, label %21
 
@@ -55976,7 +55976,7 @@ _ZN5Eigen15TensorFixedSizeIdNS_5SizesIJLl3ELl5ELl2EEEELi1ElEclIJiiEEERdlDpT_.exi
   %50 = load double, ptr %49, align 8
   %51 = or disjoint i64 %indvars.iv, %28
   %52 = trunc nuw nsw i64 %51 to i32
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = fcmp une double %50, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %54, label %.loopexit, label %29, !llvm.loop !1838

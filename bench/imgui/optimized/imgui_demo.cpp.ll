@@ -8236,7 +8236,7 @@ if.then260:                                       ; preds = %if.then252
 
 for.body268:                                      ; preds = %if.then260, %for.body268
   %n265.0180 = phi i32 [ 0, %if.then260 ], [ %inc291, %for.body268 ]
-  %conv269 = sitofp i32 %n265.0180 to float
+  %conv269 = uitofp nneg i32 %n265.0180 to float
   %mul270 = fmul float %conv269, 6.500000e+01
   %div = fdiv float %mul270, 7.000000e+00
   %add271 = fadd float %div, 5.000000e+00
@@ -9219,7 +9219,7 @@ if.then44:                                        ; preds = %for.body
 
 if.end45:                                         ; preds = %if.then44, %for.body
   call void @_ZN5ImGui6PushIDEi(i32 noundef %i.0759)
-  %conv = sitofp i32 %i.0759 to float
+  %conv = uitofp nneg i32 %i.0759 to float
   %div = fdiv float %conv, 7.000000e+00
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %r.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %g.i)
@@ -10362,7 +10362,7 @@ for.body512:                                      ; preds = %do.end508, %if.end5
   br i1 %cmp513.not, label %if.end520, label %if.then514
 
 if.then514:                                       ; preds = %for.body512
-  %conv516 = sitofp i32 %i509.0767 to float
+  %conv516 = uitofp nneg i32 %i509.0767 to float
   %sub517 = fadd float %conv516, -1.000000e+00
   store float %sub517, ptr %ref.tmp515, align 4
   store float %sub517, ptr %y.i441, align 4
@@ -11078,7 +11078,7 @@ _ZL10HelpMarkerPKc.exit490:                       ; preds = %if.then932, %if.the
 for.cond938.preheader:                            ; preds = %_ZL10HelpMarkerPKc.exit490, %for.inc964
   %indvars.iv851 = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit490 ], [ %indvars.iv.next852, %for.inc964 ]
   %188 = trunc nuw nsw i64 %indvars.iv851 to i32
-  %conv943 = sitofp i32 %188 to float
+  %conv943 = uitofp nneg i32 %188 to float
   %div944 = fmul float %conv943, 5.000000e-01
   %conv949 = fpext float %div944 to double
   %189 = mul nuw nsw i64 %indvars.iv851, 3
@@ -11087,7 +11087,7 @@ for.cond938.preheader:                            ; preds = %_ZL10HelpMarkerPKc.
 for.body940:                                      ; preds = %for.cond938.preheader, %if.end953
   %indvars.iv846 = phi i64 [ 0, %for.cond938.preheader ], [ %indvars.iv.next847, %if.end953 ]
   %190 = trunc nuw nsw i64 %indvars.iv846 to i32
-  %conv941 = sitofp i32 %190 to float
+  %conv941 = uitofp nneg i32 %190 to float
   %div942 = fmul float %conv941, 5.000000e-01
   store float %div942, ptr %alignment, align 4
   store float %div944, ptr %y.i491, align 4
@@ -12216,7 +12216,7 @@ do.end1391:                                       ; preds = %_ZL10HelpMarkerPKc.
 for.body1397:                                     ; preds = %do.end1391, %for.body1397
   %indvars.iv869 = phi i64 [ %indvars.iv.next870, %for.body1397 ], [ 0, %do.end1391 ]
   %315 = trunc nuw nsw i64 %indvars.iv869 to i32
-  %conv1398 = sitofp i32 %315 to float
+  %conv1398 = uitofp nneg i32 %315 to float
   %div1399 = fdiv float %conv1398, 3.100000e+01
   %arrayidx1401 = getelementptr inbounds [32 x %struct.ImVec4], ptr @_ZZL21ShowDemoWindowWidgetsvE13saved_palette, i64 0, i64 %indvars.iv869
   %y1405 = getelementptr inbounds i8, ptr %arrayidx1401, i64 4
@@ -12979,7 +12979,7 @@ if.then1883:                                      ; preds = %for.body1881
 if.end1884:                                       ; preds = %if.then1883, %for.body1881
   %386 = trunc nuw nsw i64 %indvars.iv877 to i32
   call void @_ZN5ImGui6PushIDEi(i32 noundef %386)
-  %conv1887 = sitofp i32 %386 to float
+  %conv1887 = uitofp nneg i32 %386 to float
   %div1888 = fdiv float %conv1887, 7.000000e+00
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %r.i642)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %g.i643)
@@ -15229,7 +15229,7 @@ if.then454:                                       ; preds = %if.end452
   %64 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, align 4
   %add458 = fadd float %ref.tmp455.sroa.0.4.vec.extract, %64
   %65 = trunc nuw nsw i64 %indvars.iv328 to i32
-  %conv459 = sitofp i32 %65 to float
+  %conv459 = uitofp nneg i32 %65 to float
   %mul460 = fmul float %conv459, 2.500000e-01
   call void @_ZN5ImGui17SetScrollFromPosYEff(float noundef %add458, float noundef %mul460)
   br label %if.end461
@@ -15239,7 +15239,7 @@ if.end461:                                        ; preds = %if.then454, %if.end
 
 for.cond464.preheader:                            ; preds = %if.end461
   %66 = trunc nuw nsw i64 %indvars.iv328 to i32
-  %conv472 = sitofp i32 %66 to float
+  %conv472 = uitofp nneg i32 %66 to float
   %mul473 = fmul float %conv472, 2.500000e-01
   br label %for.body466
 
@@ -15343,7 +15343,7 @@ if.then514:                                       ; preds = %if.end512
   %77 = load float, ptr @_ZZL20ShowDemoWindowLayoutvE16scroll_to_pos_px, align 4
   %add518 = fadd float %ref.tmp515.sroa.0.0.vec.extract, %77
   %78 = trunc nuw nsw i64 %indvars.iv333 to i32
-  %conv519 = sitofp i32 %78 to float
+  %conv519 = uitofp nneg i32 %78 to float
   %mul520 = fmul float %conv519, 2.500000e-01
   call void @_ZN5ImGui17SetScrollFromPosXEff(float noundef %add518, float noundef %mul520)
   br label %if.end521
@@ -15353,7 +15353,7 @@ if.end521:                                        ; preds = %if.then514, %if.end
 
 for.cond525.preheader:                            ; preds = %if.end521
   %79 = trunc nuw nsw i64 %indvars.iv333 to i32
-  %conv536 = sitofp i32 %79 to float
+  %conv536 = uitofp nneg i32 %79 to float
   %mul537 = fmul float %conv536, 2.500000e-01
   br label %for.body527
 
@@ -15492,7 +15492,7 @@ cond.false590:                                    ; preds = %cond.false586
 
 cond.end600:                                      ; preds = %cond.false590, %cond.false586, %if.end579
   %cond601 = phi ptr [ @.str.1103, %if.end579 ], [ %cond597, %cond.false590 ], [ @.str.1104, %cond.false586 ]
-  %conv602 = sitofp i32 %n573.0312 to float
+  %conv602 = uitofp nneg i32 %n573.0312 to float
   %mul603 = fmul float %conv602, 0x3FA99999A0000000
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %r.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %g.i)
@@ -15543,7 +15543,7 @@ cond.end600:                                      ; preds = %cond.false590, %con
   store <2 x float> %retval.sroa.3.12.vec.insert.i255, ptr %89, align 8
   call void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef 23, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp613)
   %add619 = add nuw nsw i32 %n573.0312, %line.0314
-  %conv620 = sitofp i32 %add619 to float
+  %conv620 = uitofp nneg i32 %add619 to float
   %call621 = call float @sinf(float noundef %conv620) #29
   %101 = call float @llvm.fmuladd.f32(float %call621, float 2.000000e+01, float 4.000000e+01)
   store float %101, ptr %ref.tmp618, align 4
@@ -18549,7 +18549,7 @@ for.cond798.preheader:                            ; preds = %_ZL10HelpMarkerPKc.
 
 for.body800:                                      ; preds = %for.cond798.preheader, %for.body800
   %row797.01205 = phi i32 [ 0, %for.cond798.preheader ], [ %inc809, %for.body800 ]
-  %conv802 = sitofp i32 %row797.01205 to float
+  %conv802 = uitofp nneg i32 %row797.01205 to float
   %mul803 = fmul float %mul801, %conv802
   %conv804 = fptosi float %mul803 to i32
   %conv805 = sitofp i32 %conv804 to float
@@ -18980,7 +18980,7 @@ for.body948:                                      ; preds = %for.cond946.prehead
   ]
 
 cond.false:                                       ; preds = %for.body948
-  %conv953 = sitofp i32 %row945.01214 to float
+  %conv953 = uitofp nneg i32 %row945.01214 to float
   %148 = call float @llvm.fmuladd.f32(float %conv953, float 0x3FB99999A0000000, float 0x3FC99999A0000000)
   br label %cond.end
 

@@ -434,7 +434,7 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   %.0.lcssa = phi i32 [ 0, %5 ], [ %15, %11 ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %23 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa, i32 1)
-  %24 = sitofp i32 %23 to double
+  %24 = uitofp nneg i32 %23 to double
   br label %25
 
 25:                                               ; preds = %._crit_edge, %37
@@ -447,8 +447,8 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
 29:                                               ; preds = %25
   %30 = sitofp i32 %27 to double
   %31 = fmul double %30, 1.000000e+02
-  %32 = trunc i64 %indvars.iv40 to i32
-  %33 = sitofp i32 %32 to double
+  %32 = trunc nuw nsw i64 %indvars.iv40 to i32
+  %33 = uitofp nneg i32 %32 to double
   %34 = fmul double %31, %33
   %35 = fdiv double %34, %24
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %32, i32 noundef %27, double noundef %35)
@@ -463,9 +463,9 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   %39 = sitofp i32 %2 to double
   %40 = fmul double %39, 1.000000e+02
   %41 = tail call noundef i32 @llvm.smax.i32(i32 %1, i32 1)
-  %42 = sitofp i32 %41 to double
+  %42 = uitofp nneg i32 %41 to double
   %43 = fdiv double %40, %42
-  %44 = sitofp i32 %.029.lcssa to double
+  %44 = uitofp nneg i32 %.029.lcssa to double
   %45 = fmul double %44, 1.000000e+02
   %46 = fdiv double %45, %42
   %47 = sitofp i32 %3 to double
@@ -672,8 +672,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %103 = mul nsw i32 %102, %.val92
   %104 = sdiv i32 %103, 2
   %105 = add nsw i32 %104, %.078173
-  %106 = trunc i64 %indvars.iv186 to i32
-  %107 = trunc i64 %indvars.iv186 to i32
+  %106 = trunc nuw nsw i64 %indvars.iv186 to i32
+  %107 = trunc nuw nsw i64 %indvars.iv186 to i32
   br label %.lr.ph169
 
 .critedge4.loopexit.loopexit:                     ; preds = %Vec_IntPush.exit114
@@ -1169,7 +1169,7 @@ Vec_IntPush.exit114:                              ; preds = %314, %Vec_IntGrow.e
   %319 = load ptr, ptr %17, align 8
   %320 = getelementptr i8, ptr %319, i64 4
   %.val96 = load i32, ptr %320, align 4
-  %321 = trunc i64 %indvars.iv.next181 to i32
+  %321 = trunc nuw i64 %indvars.iv.next181 to i32
   %322 = icmp sgt i32 %.val96, %321
   br i1 %322, label %.lr.ph166, label %.critedge4.loopexit.loopexit, !llvm.loop !12
 
@@ -1402,7 +1402,7 @@ Hash_IntObj.exit.i:                               ; preds = %69, %Hash_IntObj.ex
 
 Hash_Int2ManLookup.exit:                          ; preds = %65, %69, %.lr.ph
   %.0.lcssa.i = phi ptr [ %55, %.lr.ph ], [ %.018.i, %65 ], [ %70, %69 ]
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %72, ptr %.0.lcssa.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1862,7 +1862,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %53, ptr %4, align 4
   %54 = sext i32 %29 to i64
   %55 = getelementptr inbounds i32, ptr %52, i64 %54
-  %56 = trunc i64 %indvars.iv25 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv25 to i32
   store i32 %56, ptr %55, align 4
   br label %57
 
@@ -2337,7 +2337,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntFind.exit, label %92, !llvm.loop !21
 
 ._crit_edge.loopexit.split.loop.exit12.i:         ; preds = %92
-  %97 = trunc i64 %indvars.iv.i to i32
+  %97 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Vec_IntFind.exit
 
 Vec_IntFind.exit:                                 ; preds = %96, %._crit_edge.loopexit.split.loop.exit12.i
@@ -2357,7 +2357,7 @@ Vec_IntFind.exit:                                 ; preds = %96, %._crit_edge.lo
   br i1 %exitcond.not.i91, label %Vec_IntFind.exit93, label %98, !llvm.loop !21
 
 ._crit_edge.loopexit.split.loop.exit12.i92:       ; preds = %98
-  %103 = trunc i64 %indvars.iv.i89 to i32
+  %103 = trunc nuw nsw i64 %indvars.iv.i89 to i32
   br label %Vec_IntFind.exit93
 
 Vec_IntFind.exit93:                               ; preds = %102, %.critedge, %._crit_edge.loopexit.split.loop.exit12.i92
@@ -2901,7 +2901,7 @@ Abc_TtCheckDsdAnd.exit.sink.split:                ; preds = %360, %Vec_IntGrow.e
 Abc_TtCheckDsdAnd.exit:                           ; preds = %Abc_TtCheckDsdAnd.exit.sink.split, %153
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 3
   %.val76 = load i32, ptr %13, align 4
-  %365 = trunc i64 %indvars.iv.next162 to i32
+  %365 = trunc nuw i64 %indvars.iv.next162 to i32
   %366 = icmp sgt i32 %.val76, %365
   br i1 %366, label %20, label %._crit_edge.loopexit, !llvm.loop !22
 
@@ -3017,7 +3017,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_
 28:                                               ; preds = %25
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds i32, ptr %.val19.i, i64 %29
-  %31 = trunc i64 %indvars.iv.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %31, ptr %30, align 4
   br label %32
 

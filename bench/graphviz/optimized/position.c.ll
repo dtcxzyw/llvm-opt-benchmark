@@ -907,7 +907,7 @@ make_LR_constraints.exit.i:                       ; preds = %._crit_edge231.i.i,
   %530 = getelementptr inbounds i8, ptr %529, i64 56
   %531 = load ptr, ptr %530, align 8
   %532 = add nuw nsw i32 %.041.i.i, 1
-  %533 = sitofp i32 %532 to double
+  %533 = uitofp nneg i32 %532 to double
   %534 = getelementptr inbounds i8, ptr %516, i64 212
   %535 = load i32, ptr %534, align 4
   %536 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #16
@@ -1363,7 +1363,7 @@ nsiter2.exit36:                                   ; preds = %connectGraph.exit, 
 
 .lr.ph.i39:                                       ; preds = %.preheader.i37
   %789 = getelementptr inbounds i8, ptr %786, i64 8
-  %790 = trunc i64 %indvars.iv21.i to i32
+  %790 = trunc nsw i64 %indvars.iv21.i to i32
   br label %791
 
 791:                                              ; preds = %791, %.lr.ph.i39
@@ -2941,7 +2941,7 @@ gv_alloc.exit22.i:                                ; preds = %gv_alloc.exit.i
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %97 = getelementptr inbounds i8, ptr %96, i64 236
   %98 = load i32, ptr %97, align 4
-  %99 = trunc i64 %indvars.iv61 to i32
+  %99 = trunc nuw i64 %indvars.iv61 to i32
   %.not43.not = icmp sgt i32 %98, %99
   br i1 %.not43.not, label %.lr.ph52, label %._crit_edge
 
@@ -3008,7 +3008,7 @@ define internal fastcc void @contain_nodes(ptr noundef %0) unnamed_addr #0 {
 
 28:                                               ; preds = %23
   %29 = tail call ptr @agnameof(ptr noundef nonnull %0) #15
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nsw i64 %indvars.iv to i32
   %31 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %29, i32 noundef %30) #15
   br label %62
 

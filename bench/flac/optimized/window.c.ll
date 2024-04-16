@@ -48,8 +48,8 @@ for.body6.lr.ph:                                  ; preds = %for.cond3.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %5 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %5 to float
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %5 to float
   %mul = fmul reassoc nsz arcp float %conv, 2.000000e+00
   %6 = fmul reassoc nsz arcp float %mul, %1
   %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
@@ -60,8 +60,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %for.body6
   %indvars.iv39 = phi i64 [ %3, %for.body6.lr.ph ], [ %indvars.iv.next40, %for.body6 ]
-  %7 = trunc i64 %indvars.iv39 to i32
-  %conv7 = sitofp i32 %7 to float
+  %7 = trunc nuw nsw i64 %indvars.iv39 to i32
+  %conv7 = uitofp nneg i32 %7 to float
   %mul8 = fmul reassoc nsz arcp float %conv7, 2.000000e+00
   %8 = fmul reassoc nsz arcp float %mul8, %4
   %sub11 = fsub reassoc nsz arcp float 2.000000e+00, %8
@@ -85,8 +85,8 @@ for.body35.lr.ph:                                 ; preds = %for.cond32.preheade
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.body22
   %indvars.iv44 = phi i64 [ 0, %for.body22.lr.ph ], [ %indvars.iv.next45, %for.body22 ]
-  %11 = trunc i64 %indvars.iv44 to i32
-  %conv23 = sitofp i32 %11 to float
+  %11 = trunc nuw nsw i64 %indvars.iv44 to i32
+  %conv23 = uitofp nneg i32 %11 to float
   %mul24 = fmul reassoc nsz arcp float %conv23, 2.000000e+00
   %12 = fmul reassoc nsz arcp float %mul24, %2
   %arrayidx28 = getelementptr inbounds float, ptr %window, i64 %indvars.iv44
@@ -97,8 +97,8 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.body35
   %indvars.iv49 = phi i64 [ %9, %for.body35.lr.ph ], [ %indvars.iv.next50, %for.body35 ]
-  %13 = trunc i64 %indvars.iv49 to i32
-  %conv36 = sitofp i32 %13 to float
+  %13 = trunc nuw nsw i64 %indvars.iv49 to i32
+  %conv36 = uitofp nneg i32 %13 to float
   %mul37 = fmul reassoc nsz arcp float %conv36, 2.000000e+00
   %14 = fmul reassoc nsz arcp float %mul37, %10
   %sub40 = fsub reassoc nsz arcp float 2.000000e+00, %14
@@ -127,8 +127,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %1 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %1 to float
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %1 to float
   %2 = fmul reassoc nsz arcp float %conv, %0
   %sub2 = fadd reassoc nsz arcp float %2, -5.000000e-01
   %3 = tail call reassoc nsz arcp float @llvm.fabs.f32(float %sub2)
@@ -173,8 +173,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %2 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %2 to double
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %2 to double
   %mul = fmul reassoc nsz arcp double %conv, 0x401921FB54442D18
   %3 = fmul reassoc nsz arcp double %mul, %0
   %conv2 = fptrunc double %3 to float
@@ -212,8 +212,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %3 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %3 to double
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %3 to double
   %mul = fmul reassoc nsz arcp double %conv, 0x401921FB54442D18
   %4 = fmul reassoc nsz arcp double %mul, %0
   %conv2 = fptrunc double %4 to float
@@ -255,8 +255,8 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %1 = trunc i64 %indvars.iv to i32
-  %conv2 = sitofp i32 %1 to double
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv2 = uitofp nneg i32 %1 to double
   %sub3 = fsub reassoc nsz arcp double %conv2, %div
   %2 = fmul reassoc nsz arcp double %sub3, 2.000000e+00
   %3 = fmul reassoc nsz arcp double %2, %0
@@ -295,8 +295,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %4 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %4 to double
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %4 to double
   %mul = fmul reassoc nsz arcp double %conv, 0x401921FB54442D18
   %5 = fmul reassoc nsz arcp double %mul, %0
   %conv2 = fptrunc double %5 to float
@@ -359,8 +359,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.body.i ]
-  %2 = trunc i64 %indvars.iv to i32
-  %conv6.i = sitofp i32 %2 to double
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv6.i = uitofp nneg i32 %2 to double
   %sub7.i = fsub reassoc nsz arcp double %conv6.i, %div
   %3 = fmul reassoc nsz arcp double %sub7.i, 8.000000e+00
   %4 = fmul reassoc nsz arcp double %3, %0
@@ -376,8 +376,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv18 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next19, %for.body ]
-  %6 = trunc i64 %indvars.iv18 to i32
-  %conv6 = sitofp i32 %6 to double
+  %6 = trunc nuw nsw i64 %indvars.iv18 to i32
+  %conv6 = uitofp nneg i32 %6 to double
   %sub7 = fsub reassoc nsz arcp double %conv6, %div
   %7 = fmul reassoc nsz arcp double %sub7, %1
   %8 = fmul reassoc nsz arcp double %7, %7
@@ -412,8 +412,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %1 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %1 to double
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %1 to double
   %mul = fmul reassoc nsz arcp double %conv, 0x401921FB54442D18
   %2 = fmul reassoc nsz arcp double %mul, %0
   %conv2 = fptrunc double %2 to float
@@ -444,8 +444,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %1 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %1 to double
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %1 to double
   %mul = fmul reassoc nsz arcp double %conv, 0x401921FB54442D18
   %2 = fmul reassoc nsz arcp double %mul, %0
   %conv2 = fptrunc double %2 to float
@@ -478,8 +478,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %3 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %3 to double
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %3 to double
   %mul = fmul reassoc nsz arcp double %conv, 0x401921FB54442D18
   %4 = fmul reassoc nsz arcp double %mul, %0
   %conv2 = fptrunc double %4 to float
@@ -522,8 +522,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %3 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %3 to double
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %3 to double
   %mul = fmul reassoc nsz arcp double %conv, 0x401921FB54442D18
   %4 = fmul reassoc nsz arcp double %mul, %0
   %conv2 = fptrunc double %4 to float
@@ -622,8 +622,8 @@ for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %6 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %6 to float
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %6 to float
   %mul = fmul reassoc nsz arcp float %conv, 2.000000e+00
   %7 = fmul reassoc nsz arcp float %mul, %1
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
@@ -662,8 +662,8 @@ for.body40.lr.ph:                                 ; preds = %for.cond37.preheade
 
 for.body25:                                       ; preds = %for.body25.lr.ph, %for.body25
   %indvars.iv53 = phi i64 [ 1, %for.body25.lr.ph ], [ %indvars.iv.next54, %for.body25 ]
-  %14 = trunc i64 %indvars.iv53 to i32
-  %conv26 = sitofp i32 %14 to float
+  %14 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %conv26 = uitofp nneg i32 %14 to float
   %mul27 = fmul reassoc nsz arcp float %conv26, 2.000000e+00
   %15 = fmul reassoc nsz arcp float %mul27, %3
   %gep37 = getelementptr float, ptr %invariant.gep36, i64 %indvars.iv53
@@ -729,8 +729,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then5
 
 for.body.i26:                                     ; preds = %for.body.i26, %for.body.lr.ph.i
   %indvars.iv.i27 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i29, %for.body.i26 ]
-  %1 = trunc i64 %indvars.iv.i27 to i32
-  %conv.i = sitofp i32 %1 to double
+  %1 = trunc nuw nsw i64 %indvars.iv.i27 to i32
+  %conv.i = uitofp nneg i32 %1 to double
   %2 = fmul reassoc nsz arcp double %conv.i, 0x401921FB54442D18
   %3 = fmul reassoc nsz arcp double %2, %0
   %conv2.i = fptrunc double %3 to float
@@ -784,8 +784,8 @@ for.cond.i.preheader:                             ; preds = %FLAC__window_rectan
 
 for.body.i33:                                     ; preds = %for.cond.i.preheader, %for.body.i33
   %indvars.iv = phi i64 [ 0, %for.cond.i.preheader ], [ %indvars.iv.next, %for.body.i33 ]
-  %8 = trunc i64 %indvars.iv to i32
-  %conv20.i = sitofp i32 %8 to double
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv20.i = uitofp nneg i32 %8 to double
   %mul21.i = fmul reassoc nsz arcp double %conv20.i, 0x400921FB54442D18
   %9 = fmul reassoc nsz arcp double %mul21.i, %6
   %conv24.i = fptrunc double %9 to float
@@ -844,8 +844,8 @@ for.cond.preheader:                               ; preds = %FLAC__window_rectan
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv65 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next66, %for.body ]
-  %18 = trunc i64 %indvars.iv65 to i32
-  %conv20 = sitofp i32 %18 to double
+  %18 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %conv20 = uitofp nneg i32 %18 to double
   %mul21 = fmul reassoc nsz arcp double %conv20, 0x400921FB54442D18
   %19 = fmul reassoc nsz arcp double %mul21, %16
   %conv24 = fptrunc double %19 to float
@@ -925,7 +925,7 @@ for.body51.i.preheader:                           ; preds = %for.cond43.i.prehea
 for.body30.i:                                     ; preds = %for.body30.i.lr.ph, %for.body30.i
   %indvars.iv = phi i64 [ %4, %for.body30.i.lr.ph ], [ %indvars.iv.next, %for.body30.i ]
   %i.0.i196 = phi i32 [ 1, %for.body30.i.lr.ph ], [ %inc41.i, %for.body30.i ]
-  %conv31.i = sitofp i32 %i.0.i196 to double
+  %conv31.i = uitofp nneg i32 %i.0.i196 to double
   %mul32.i = fmul reassoc nsz arcp double %conv31.i, 0x400921FB54442D18
   %8 = fmul reassoc nsz arcp double %mul32.i, %5
   %conv35.i = fptrunc double %8 to float
@@ -955,7 +955,7 @@ for.body51.i:                                     ; preds = %for.body51.i.prehea
   %arrayidx53.i = getelementptr inbounds float, ptr %window, i64 %indvars.iv261
   store float 1.000000e+00, ptr %arrayidx53.i, align 4
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %13 = trunc i64 %indvars.iv.next262 to i32
+  %13 = trunc nuw i64 %indvars.iv.next262 to i32
   %14 = icmp sgt i32 %invariant.smin198, %13
   br i1 %14, label %for.body51.i, label %for.cond57.i.preheader, !llvm.loop !26
 
@@ -977,7 +977,7 @@ for.body64.i:                                     ; preds = %for.body64.i.lr.ph,
   store float %16, ptr %arrayidx73.i, align 4
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %dec.i = add nsw i32 %i.1.i203, -1
-  %17 = trunc i64 %indvars.iv.next265 to i32
+  %17 = trunc nuw i64 %indvars.iv.next265 to i32
   %18 = icmp sgt i32 %invariant.smin201, %17
   br i1 %18, label %for.body64.i, label %for.cond77.i.preheader, !llvm.loop !27
 
@@ -1027,7 +1027,7 @@ for.body51.i103.preheader:                        ; preds = %for.cond43.i75.preh
 for.body30.i107:                                  ; preds = %for.body30.i107.lr.ph, %for.body30.i107
   %indvars.iv275 = phi i64 [ %23, %for.body30.i107.lr.ph ], [ %indvars.iv.next276, %for.body30.i107 ]
   %i.0.i71212 = phi i32 [ 1, %for.body30.i107.lr.ph ], [ %inc41.i117, %for.body30.i107 ]
-  %conv31.i108 = sitofp i32 %i.0.i71212 to double
+  %conv31.i108 = uitofp nneg i32 %i.0.i71212 to double
   %mul32.i109 = fmul reassoc nsz arcp double %conv31.i108, 0x400921FB54442D18
   %27 = fmul reassoc nsz arcp double %mul32.i109, %24
   %conv35.i112 = fptrunc double %27 to float
@@ -1057,7 +1057,7 @@ for.body51.i103:                                  ; preds = %for.body51.i103.pre
   %arrayidx53.i105 = getelementptr inbounds float, ptr %window, i64 %indvars.iv280
   store float 1.000000e+00, ptr %arrayidx53.i105, align 4
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
-  %32 = trunc i64 %indvars.iv.next281 to i32
+  %32 = trunc nuw i64 %indvars.iv.next281 to i32
   %33 = icmp sgt i32 %invariant.smin214, %32
   br i1 %33, label %for.body51.i103, label %for.cond57.i80.preheader, !llvm.loop !26
 
@@ -1079,7 +1079,7 @@ for.body64.i92:                                   ; preds = %for.body64.i92.lr.p
   store float %35, ptr %arrayidx73.i100, align 4
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %dec.i102 = add nsw i32 %i.1.i82219, -1
-  %36 = trunc i64 %indvars.iv.next284 to i32
+  %36 = trunc nuw i64 %indvars.iv.next284 to i32
   %37 = icmp sgt i32 %invariant.smin217, %36
   br i1 %37, label %for.body64.i92, label %for.cond77.i85.preheader, !llvm.loop !27
 
@@ -1131,7 +1131,7 @@ for.body51.i170.preheader:                        ; preds = %for.cond43.i142.pre
 for.body30.i174:                                  ; preds = %for.body30.i174.lr.ph, %for.body30.i174
   %indvars.iv295 = phi i64 [ %42, %for.body30.i174.lr.ph ], [ %indvars.iv.next296, %for.body30.i174 ]
   %i.0.i138228 = phi i32 [ 1, %for.body30.i174.lr.ph ], [ %inc41.i184, %for.body30.i174 ]
-  %conv31.i175 = sitofp i32 %i.0.i138228 to double
+  %conv31.i175 = uitofp nneg i32 %i.0.i138228 to double
   %mul32.i176 = fmul reassoc nsz arcp double %conv31.i175, 0x400921FB54442D18
   %46 = fmul reassoc nsz arcp double %mul32.i176, %43
   %conv35.i179 = fptrunc double %46 to float
@@ -1161,7 +1161,7 @@ for.body51.i170:                                  ; preds = %for.body51.i170.pre
   %arrayidx53.i172 = getelementptr inbounds float, ptr %window, i64 %indvars.iv300
   store float 1.000000e+00, ptr %arrayidx53.i172, align 4
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
-  %51 = trunc i64 %indvars.iv.next301 to i32
+  %51 = trunc nuw i64 %indvars.iv.next301 to i32
   %52 = icmp sgt i32 %invariant.smin230, %51
   br i1 %52, label %for.body51.i170, label %for.cond57.i147.preheader, !llvm.loop !26
 
@@ -1183,7 +1183,7 @@ for.body64.i159:                                  ; preds = %for.body64.i159.lr.
   store float %54, ptr %arrayidx73.i167, align 4
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %dec.i169 = add nsw i32 %i.1.i149235, -1
-  %55 = trunc i64 %indvars.iv.next304 to i32
+  %55 = trunc nuw i64 %indvars.iv.next304 to i32
   %56 = icmp sgt i32 %invariant.smin233, %55
   br i1 %56, label %for.body64.i159, label %for.cond77.i152.preheader, !llvm.loop !27
 
@@ -1230,7 +1230,7 @@ for.body51.preheader:                             ; preds = %for.cond43.preheade
 for.body30:                                       ; preds = %for.body30.lr.ph, %for.body30
   %indvars.iv315 = phi i64 [ %61, %for.body30.lr.ph ], [ %indvars.iv.next316, %for.body30 ]
   %i.0244 = phi i32 [ 1, %for.body30.lr.ph ], [ %inc41, %for.body30 ]
-  %conv31 = sitofp i32 %i.0244 to double
+  %conv31 = uitofp nneg i32 %i.0244 to double
   %mul32 = fmul reassoc nsz arcp double %conv31, 0x400921FB54442D18
   %65 = fmul reassoc nsz arcp double %mul32, %62
   %conv35 = fptrunc double %65 to float
@@ -1260,7 +1260,7 @@ for.body51:                                       ; preds = %for.body51.preheade
   %arrayidx53 = getelementptr inbounds float, ptr %window, i64 %indvars.iv320
   store float 1.000000e+00, ptr %arrayidx53, align 4
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
-  %70 = trunc i64 %indvars.iv.next321 to i32
+  %70 = trunc nuw i64 %indvars.iv.next321 to i32
   %71 = icmp sgt i32 %invariant.smin246, %70
   br i1 %71, label %for.body51, label %for.cond57.preheader, !llvm.loop !26
 
@@ -1282,7 +1282,7 @@ for.body64:                                       ; preds = %for.body64.lr.ph, %
   store float %73, ptr %arrayidx73, align 4
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %dec = add nsw i32 %i.1251, -1
-  %74 = trunc i64 %indvars.iv.next324 to i32
+  %74 = trunc nuw i64 %indvars.iv.next324 to i32
   %75 = icmp sgt i32 %invariant.smin249, %74
   br i1 %75, label %for.body64, label %for.cond77.preheader, !llvm.loop !27
 
@@ -1366,7 +1366,7 @@ for.body42.preheader:                             ; preds = %for.cond34.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %i.081 = phi i32 [ 1, %for.body.lr.ph ], [ %inc33, %for.body ]
-  %conv27 = sitofp i32 %i.081 to double
+  %conv27 = uitofp nneg i32 %i.081 to double
   %mul28 = fmul reassoc nsz arcp double %conv27, 0x400921FB54442D18
   %4 = fmul reassoc nsz arcp double %mul28, %1
   %conv31 = fptrunc double %4 to float
@@ -1430,7 +1430,7 @@ for.body55:                                       ; preds = %for.body55.lr.ph, %
   store float %18, ptr %arrayidx64, align 4
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %dec = add nsw i32 %i.187, -1
-  %19 = trunc i64 %indvars.iv.next109 to i32
+  %19 = trunc nuw i64 %indvars.iv.next109 to i32
   %20 = icmp sgt i32 %invariant.smin85, %19
   br i1 %20, label %for.body55, label %for.cond68.preheader, !llvm.loop !30
 
@@ -1452,12 +1452,12 @@ for.body88.lr.ph:                                 ; preds = %for.cond81.preheade
 for.body75:                                       ; preds = %for.body75.preheader, %for.body75
   %indvars.iv111 = phi i64 [ %10, %for.body75.preheader ], [ %indvars.iv.next112, %for.body75 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %26 = trunc i64 %indvars.iv.next112 to i32
+  %26 = trunc nuw i64 %indvars.iv.next112 to i32
   %27 = icmp sgt i32 %invariant.smin89, %26
   br i1 %27, label %for.body75, label %for.cond81.preheader, !llvm.loop !31
 
 for.cond102.preheader.loopexit:                   ; preds = %for.body88
-  %28 = trunc i64 %indvars.iv.next115 to i32
+  %28 = trunc nuw i64 %indvars.iv.next115 to i32
   br label %for.cond102.preheader
 
 for.cond102.preheader:                            ; preds = %for.cond102.preheader.loopexit, %for.cond81.preheader
@@ -1474,7 +1474,7 @@ for.body110.preheader:                            ; preds = %for.cond102.prehead
 for.body88:                                       ; preds = %for.body88.lr.ph, %for.body88
   %indvars.iv114 = phi i64 [ %22, %for.body88.lr.ph ], [ %indvars.iv.next115, %for.body88 ]
   %i.294 = phi i32 [ 1, %for.body88.lr.ph ], [ %inc100, %for.body88 ]
-  %conv89 = sitofp i32 %i.294 to double
+  %conv89 = uitofp nneg i32 %i.294 to double
   %mul90 = fmul reassoc nsz arcp double %conv89, 0x400921FB54442D18
   %31 = fmul reassoc nsz arcp double %mul90, %25
   %conv93 = fptrunc double %31 to float
@@ -1504,7 +1504,7 @@ for.body110:                                      ; preds = %for.body110.prehead
   %arrayidx112 = getelementptr inbounds float, ptr %window, i64 %indvars.iv118
   store float 1.000000e+00, ptr %arrayidx112, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %35 = trunc i64 %indvars.iv.next119 to i32
+  %35 = trunc nuw i64 %indvars.iv.next119 to i32
   %36 = icmp sgt i32 %invariant.smin96, %35
   br i1 %36, label %for.body110, label %for.cond116.preheader, !llvm.loop !33
 
@@ -1544,8 +1544,8 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %1 = trunc i64 %indvars.iv to i32
-  %conv2 = sitofp i32 %1 to double
+  %1 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv2 = uitofp nneg i32 %1 to double
   %sub3 = fsub reassoc nsz arcp double %conv2, %div
   %2 = fmul reassoc nsz arcp double %sub3, 2.000000e+00
   %3 = fmul reassoc nsz arcp double %2, %0

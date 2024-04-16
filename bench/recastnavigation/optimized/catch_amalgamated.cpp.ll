@@ -26681,7 +26681,7 @@ define dso_local noundef double @_ZNK5Catch5Timer17getElapsedSecondsEv(ptr nocap
   %3 = load i64, ptr %0, align 8
   %4 = sub i64 %2, %3
   %5 = udiv i64 %4, 1000
-  %6 = uitofp i64 %5 to double
+  %6 = uitofp nneg i64 %5 to double
   %7 = fdiv double %6, 1.000000e+06
   ret double %7
 }
@@ -42011,7 +42011,7 @@ _ZN5Catch24translateActiveExceptionB5cxx11Ev.exit: ; preds = %.noexc29
   %142 = call noundef i64 @_ZNSt6chrono3_V212system_clock3nowEv() #52
   %143 = sub i64 %142, %.sroa.032.0
   %144 = udiv i64 %143, 1000
-  %145 = uitofp i64 %144 to double
+  %145 = uitofp nneg i64 %144 to double
   %146 = fdiv double %145, 1.000000e+06
   br label %42
 
@@ -44548,7 +44548,7 @@ define dso_local void @_ZN5Catch7SectionD2Ev(ptr noundef nonnull align 8 derefer
   %13 = load i64, ptr %11, align 8
   %14 = sub i64 %12, %13
   %15 = udiv i64 %14, 1000
-  %16 = uitofp i64 %15 to double
+  %16 = uitofp nneg i64 %15 to double
   %17 = fdiv double %16, 1.000000e+06
   %18 = getelementptr inbounds i8, ptr %2, i64 80
   store double %17, ptr %18, align 8
@@ -65407,7 +65407,7 @@ define dso_local void @_ZN5Catch13JunitReporter22testRunEndedCumulativeEv(ptr no
   %4 = load i64, ptr %2, align 8
   %5 = sub i64 %3, %4
   %6 = udiv i64 %5, 1000
-  %7 = uitofp i64 %6 to double
+  %7 = uitofp nneg i64 %6 to double
   %8 = fdiv double %7, 1.000000e+06
   %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
@@ -75200,7 +75200,7 @@ _ZN5Catch9XmlWriter13ScopedElement14writeAttributeImvEERS1_NS_9StringRefERKT_.ex
   %47 = load i64, ptr %45, align 8
   %48 = sub i64 %46, %47
   %49 = udiv i64 %48, 1000
-  %50 = uitofp i64 %49 to double
+  %50 = uitofp nneg i64 %49 to double
   %51 = fdiv double %50, 1.000000e+06
   store double %51, ptr %7, align 8
   %52 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter14writeAttributeIdvEERS0_NS_9StringRefERKT_(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr nonnull @.str.429, i64 17, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -79639,7 +79639,7 @@ _ZN5Catch9Benchmark6Detail4meanEN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaI
   br i1 %.not.i.i, label %_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !1163
 
 _ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit.loopexit: ; preds = %.lr.ph.i.i
-  %51 = sitofp i64 %spec.select.i.i to double
+  %51 = uitofp nneg i64 %spec.select.i.i to double
   br label %_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit
 
 _ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit: ; preds = %_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit.loopexit, %._crit_edge

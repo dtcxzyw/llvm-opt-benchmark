@@ -4025,7 +4025,7 @@ define internal noundef i32 @rt_wdbar_draw(ptr noundef %0, ptr noundef %1, ptr n
   %.sink = phi ptr [ @__const.rt_wdbar_draw.original, %67 ], [ @__const.rt_wdbar_draw.residual, %70 ], [ %spec.select, %74 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sink, i64 32, i1 false)
   call void @gdk_cairo_set_source_rgba(ptr noundef %35, ptr noundef nonnull %8) #28
-  %80 = sitofp i32 %68 to float
+  %80 = uitofp nneg i32 %68 to float
   %81 = fmul reassoc nsz arcp contract afn float %53, %80
   %82 = fadd reassoc nsz arcp contract afn float %81, %50
   %83 = fpext float %82 to double
@@ -6327,7 +6327,7 @@ rt_masks_point_calc_delta.exit:                   ; preds = %413
   %510 = fadd reassoc nsz arcp contract afn float %503, -1.000000e+00
   %511 = fcmp reassoc nsz arcp contract afn olt float %510, %509
   %512 = call i32 @llvm.smax.i32(i32 %508, i32 0)
-  %513 = sitofp i32 %512 to float
+  %513 = uitofp nneg i32 %512 to float
   %514 = select reassoc nsz arcp contract afn i1 %511, float %510, float %513
   %515 = fptosi float %514 to i32
   store i32 %515, ptr %3, align 4, !tbaa !217
@@ -6344,7 +6344,7 @@ rt_masks_point_calc_delta.exit:                   ; preds = %413
   %526 = insertelement <2 x float> %525, float %521, i64 1
   %527 = fcmp reassoc nsz arcp contract afn olt <2 x float> %526, %524
   %528 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %523, <2 x i32> <i32 0, i32 1>)
-  %529 = sitofp <2 x i32> %528 to <2 x float>
+  %529 = uitofp nneg <2 x i32> %528 to <2 x float>
   %530 = select <2 x i1> %527, <2 x float> %526, <2 x float> %529
   %531 = fptosi <2 x float> %530 to <2 x i32>
   store <2 x i32> %531, ptr %23, align 4, !tbaa !19
@@ -6357,7 +6357,7 @@ rt_masks_point_calc_delta.exit:                   ; preds = %413
   %538 = fsub reassoc nsz arcp contract afn float %536, %537
   %539 = fcmp reassoc nsz arcp contract afn olt float %538, %535
   %540 = call i32 @llvm.smax.i32(i32 %534, i32 1)
-  %541 = sitofp i32 %540 to float
+  %541 = uitofp nneg i32 %540 to float
   %542 = select reassoc nsz arcp contract afn i1 %539, float %538, float %541
   %543 = fptosi float %542 to i32
   store i32 %543, ptr %21, align 4, !tbaa !216

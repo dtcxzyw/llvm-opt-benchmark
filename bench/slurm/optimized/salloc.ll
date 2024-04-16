@@ -569,7 +569,7 @@ _set_rlimits.exit:                                ; preds = %192, %153
   %.not345 = icmp eq ptr %.0189417, null
   %spec.select = select i1 %.not345, ptr %202, ptr %.0189417
   %216 = add nuw nsw i32 %.0218413, 1
-  %217 = trunc i8 %.1215 to i1
+  %217 = trunc nuw i8 %.1215 to i1
   br i1 %217, label %218, label %51, !llvm.loop !10
 
 218:                                              ; preds = %215
@@ -2118,7 +2118,7 @@ define internal fastcc noundef i32 @_proc_alloc(ptr noundef %0) unnamed_addr #0 
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31
-  %34 = sitofp i32 %.032.i to double
+  %34 = uitofp nneg i32 %.032.i to double
   %35 = fmul double %34, 5.000000e-01
   br label %36
 

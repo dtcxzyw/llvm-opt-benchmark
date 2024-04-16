@@ -270,7 +270,7 @@ define internal fastcc float @calc_rank(ptr nocapture noundef readonly %0, ptr n
   br i1 %93, label %word_distance.exit.us.us.us.i, label %94
 
 94:                                               ; preds = %83
-  %95 = sitofp i32 %spec.store.select.us.us.us.i to double
+  %95 = uitofp nneg i32 %spec.store.select.us.us.us.i to double
   %96 = fdiv double %95, 1.500000e+00
   %97 = fadd double %96, -2.000000e+00
   %98 = call double @exp(double noundef %97) #11
@@ -1507,7 +1507,7 @@ fillQueryRepresentationData.exit71.i:             ; preds = %311, %.lr.ph88.i
   %355 = fdiv double %346, %354
   %356 = fadd double %.086, %355
   %357 = add nuw nsw i32 %326, %325
-  %358 = sitofp i32 %357 to double
+  %358 = uitofp nneg i32 %357 to double
   %359 = fmul double %358, 5.000000e-01
   %360 = icmp sgt i32 %.090, 0
   %361 = fcmp ogt double %359, %.089
@@ -1897,14 +1897,14 @@ define internal fastcc float @calc_rank_or(ptr nocapture noundef readonly %0, pt
   %44 = getelementptr float, ptr %0, i64 %43
   %45 = load float, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = trunc i64 %indvars.iv.next to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.next to i32
   %47 = mul i32 %46, %46
   %48 = sitofp i32 %47 to float
   %49 = fdiv float %45, %48
   %50 = fadd float %.04963, %49
   %51 = fcmp ogt float %45, %.04764
   %.148 = select i1 %51, float %45, float %.04764
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   %.1 = select i1 %51, i32 %52, i32 %.065
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !25

@@ -166,9 +166,9 @@ define noundef i32 @cuddExact(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 85:                                               ; preds = %83
   %86 = add nuw nsw i32 %82, 3
   %87 = lshr i32 %86, 1
-  %88 = sitofp i32 %87 to double
+  %88 = uitofp nneg i32 %87 to double
   %89 = add nuw nsw i32 %87, 1
-  %90 = uitofp i32 %89 to double
+  %90 = uitofp nneg i32 %89 to double
   %91 = sitofp i32 %82 to double
   %92 = fcmp ugt double %90, %91
   br i1 %92, label %getMaxBinomial.exit, label %.lr.ph.i
@@ -397,7 +397,7 @@ getMatrix.exit272:                                ; preds = %128, %.preheader.i2
   br i1 %194, label %.lr.ph511, label %._crit_edge512
 
 .lr.ph511:                                        ; preds = %191
-  %195 = trunc i64 %193 to i32
+  %195 = trunc nsw i64 %193 to i32
   %196 = add i32 %.0211.lcssa465, %195
   %.not53.i = icmp slt i64 %193, 0
   %smax.i = tail call i32 @llvm.smax.i32(i32 %.0211.lcssa465, i32 %196)
@@ -611,7 +611,7 @@ updateUB.exit:                                    ; preds = %292, %.thread, %284
   %.2228500 = phi i32 [ %.0.i288, %.lr.ph502 ], [ %.3229, %checkSymmInfo.exit ]
   %.1232499 = phi i32 [ %.0231507, %.lr.ph502 ], [ %.2233, %checkSymmInfo.exit ]
   %299 = load ptr, ptr %4, align 8
-  %300 = trunc i64 %indvars.iv575 to i32
+  %300 = trunc nsw i64 %indvars.iv575 to i32
   %301 = add i32 %188, %300
   %302 = sext i32 %301 to i64
   %303 = getelementptr inbounds %struct.DdSubtable, ptr %299, i64 %302, i32 3
@@ -714,7 +714,7 @@ updateUB.exit:                                    ; preds = %292, %.thread, %284
   br i1 %exitcond92.not.i, label %._crit_edge.thread.i, label %340, !llvm.loop !19
 
 ._crit_edge.thread.i:                             ; preds = %347
-  %348 = trunc i64 %indvars.iv93.i to i32
+  %348 = trunc nuw nsw i64 %indvars.iv93.i to i32
   br label %._crit_edge70.i
 
 ._crit_edge.i305:                                 ; preds = %340

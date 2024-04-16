@@ -61,7 +61,7 @@ define double @_php_math_round(double noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = sitofp i32 %7 to double
+  %10 = uitofp nneg i32 %7 to double
   %11 = tail call double @pow(double noundef 1.000000e+01, double noundef %10) #15
   br label %php_intpow10.exit
 

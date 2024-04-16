@@ -12557,7 +12557,7 @@ _ZNSt16allocator_traitsISaIN3vcg9Triangle2IfEEEE8allocateERS3_m.exit.i.i.i.i: ; 
   %.05501601 = phi i32 [ 0, %.lr.ph1605 ], [ %.2552.lcssa, %._crit_edge1594 ]
   %.05531600 = phi i32 [ 0, %.lr.ph1605 ], [ %.2555.lcssa, %._crit_edge1594 ]
   %.sroa.01188.01599 = phi ptr [ %656, %.lr.ph1605 ], [ %.sroa.01188.2.lcssa, %._crit_edge1594 ]
-  %659 = sitofp i32 %.05441603 to float
+  %659 = uitofp nneg i32 %.05441603 to float
   %660 = fneg float %659
   %661 = fdiv float %660, %657
   br label %.lr.ph1593
@@ -12575,7 +12575,7 @@ _ZNSt16allocator_traitsISaIN3vcg9Triangle2IfEEEE8allocateERS3_m.exit.i.i.i.i: ; 
   br i1 %665, label %.preheader.preheader, label %._crit_edge1582
 
 .preheader.preheader:                             ; preds = %.lr.ph1593
-  %666 = sitofp i32 %.05431591 to float
+  %666 = uitofp nneg i32 %.05431591 to float
   %667 = fdiv float %666, %657
   %668 = add nsw i32 %662, -2
   %669 = insertelement <2 x float> poison, float %667, i64 0
@@ -13172,7 +13172,7 @@ _ZNSt6vectorIN3vcg9Triangle2IfEESaIS2_EED2Ev.exit: ; preds = %.loopexit1390, %.l
   %.sroa.31167.01524 = phi float [ 1.000000e+00, %.lr.ph1529 ], [ %989, %.loopexit1400 ]
   %.sroa.01165.01523 = phi float [ undef, %.lr.ph1529 ], [ %.sroa.01165.3, %.loopexit1400 ]
   %986 = add nuw nsw i32 %.05101527, 1
-  %987 = sitofp i32 %986 to double
+  %987 = uitofp nneg i32 %986 to double
   %988 = call double @llvm.fmuladd.f64(double %978, double %987, double 1.000000e+00)
   %989 = fptrunc double %988 to float
   %990 = fadd float %974, %989
@@ -31443,7 +31443,7 @@ _ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EE6resizeEm.exit: ; preds = %_ZNSt6vect
   %.01456.i = phi float [ 0x47EFFFFFE0000000, %26 ], [ %.115.i, %91 ]
   %.sroa.035.055.i = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %26 ], [ %.sroa.035.1.i, %91 ]
   %.sroa.5.054.i = phi <2 x float> [ <float -1.000000e+00, float -1.000000e+00>, %26 ], [ %.sroa.5.1.i, %91 ]
-  %33 = sitofp i32 %.01357.i to double
+  %33 = uitofp nneg i32 %.01357.i to double
   %34 = fmul double %33, 0x3FF921FB54442D18
   %35 = fmul double %34, 3.125000e-02
   %36 = fptrunc double %35 to float
@@ -40314,10 +40314,10 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingINS0_12VoronoiAtlasI6CMesh
   %.sroa.031.sroa.0.0.insert.insert = or disjoint i64 %.sroa.031.sroa.3.0.insert.shift, %.sroa.031.sroa.0.0.insert.ext
   store <2 x float> %44, ptr %12, align 8
   store i64 %.sroa.031.sroa.0.0.insert.insert, ptr %11, align 4
-  %50 = sitofp <2 x i32> %47 to <2 x float>
+  %50 = uitofp nneg <2 x i32> %47 to <2 x float>
   %51 = fdiv <2 x float> %44, %50
   store <2 x float> %51, ptr %10, align 8
-  %52 = sitofp i32 %.sroa.speculated to float
+  %52 = uitofp nneg i32 %.sroa.speculated to float
   %53 = fdiv float %38, %52
   store float %53, ptr %13, align 8
   %54 = load ptr, ptr %14, align 8
@@ -45127,7 +45127,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %23, label %28, label %59
 
 28:                                               ; preds = %27
-  %29 = sitofp i64 %spec.store.select to float
+  %29 = uitofp nneg i64 %spec.store.select to float
   br i1 %26, label %30, label %48
 
 30:                                               ; preds = %28
@@ -45172,7 +45172,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %60, label %72
 
 60:                                               ; preds = %59
-  %61 = sitofp i64 %spec.store.select to float
+  %61 = uitofp nneg i64 %spec.store.select to float
   %62 = fmul float %18, %61
   %63 = fdiv float %62, %24
   %64 = tail call noundef float @sqrtf(float noundef %63) #33
@@ -45198,7 +45198,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %76, label %88
 
 76:                                               ; preds = %75
-  %77 = sitofp i64 %spec.store.select to float
+  %77 = uitofp nneg i64 %spec.store.select to float
   %78 = fmul float %21, %77
   %79 = fdiv float %78, %24
   %80 = tail call noundef float @sqrtf(float noundef %79) #33

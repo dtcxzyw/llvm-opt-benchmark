@@ -1000,7 +1000,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
   %indvars = trunc i64 %indvars.iv.next to i32
-  %191 = sitofp i32 %indvars to double
+  %191 = uitofp nneg i32 %indvars to double
   %192 = fdiv double %182, %191
   br label %._crit_edge
 
@@ -1196,7 +1196,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv2258.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next2259.i.i, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %106 = trunc i64 %indvars.iv.i.i to i32
+  %106 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %107 = mul i32 %13, %106
   %108 = add i32 %107, %77
   %109 = zext i32 %108 to i64
@@ -2041,7 +2041,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %471 = mul nsw i64 %indvars.iv2515.i.i, %171
   %472 = getelementptr double, ptr %gep2796.i.i, i64 %471
   %473 = load double, ptr %472, align 8
-  %474 = trunc i64 %indvars.iv2515.i.i to i32
+  %474 = trunc nuw nsw i64 %indvars.iv2515.i.i to i32
   %475 = add i32 %434, %474
   %476 = sext i32 %475 to i64
   %477 = getelementptr inbounds double, ptr %90, i64 %476
@@ -2446,7 +2446,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %.138595.i.i.i = phi double [ %.0384106.i.i.i, %._crit_edge87.i.i.i ], [ %.2386.i.i.i, %666 ]
   %.040894.i.i.i = phi i32 [ 0, %._crit_edge87.i.i.i ], [ %.1409.i.i.i, %666 ]
   %.893.i.i.i = phi i32 [ 1, %._crit_edge87.i.i.i ], [ %667, %666 ]
-  %651 = sitofp i32 %.893.i.i.i to double
+  %651 = uitofp nneg i32 %.893.i.i.i to double
   %652 = fmul double %651, 0x3FC015BF9217271A
   %653 = call double @cos(double noundef %652) #21
   %654 = call double @sin(double noundef %652) #21
@@ -2888,7 +2888,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   br i1 %857, label %858, label %860
 
 858:                                              ; preds = %._crit_edge997.i.i.i
-  %859 = trunc i64 %indvars.iv1224.i.i.i to i32
+  %859 = trunc nuw nsw i64 %indvars.iv1224.i.i.i to i32
   br label %860
 
 860:                                              ; preds = %858, %._crit_edge997.i.i.i, %.lr.ph1007.split.i.i.i
@@ -3104,7 +3104,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   br i1 %.not12541792.i.i, label %._crit_edge1075.i.i.i, label %.preheader958.i.thread.i.i
 
 .preheader958.i.thread.i.i:                       ; preds = %.preheader964.i.i.i
-  %966 = trunc i64 %indvars.iv1313.i.i.i to i32
+  %966 = trunc nuw nsw i64 %indvars.iv1313.i.i.i to i32
   %967 = mul i32 %15, %966
   %968 = add i32 %967, %192
   %969 = sext i32 %968 to i64
@@ -3160,7 +3160,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
 
 .preheader952.lr.ph.i.i.i:                        ; preds = %._crit_edge1058.i.i.i
   %980 = mul nsw i64 %indvars.iv1315.i.i.i, %171
-  %981 = trunc i64 %980 to i32
+  %981 = trunc nsw i64 %980 to i32
   %982 = add i32 %13, %981
   %invariant.gep1486.i.i.i = getelementptr double, ptr %181, i64 %980
   br i1 %.not1780.i.i, label %.preheader952.us.i.i.i, label %.preheader952.i.i.i
@@ -3186,7 +3186,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %986 = mul nsw i64 %indvars.iv1283.i.i.i, %171
   %gep1483.i.i.i = getelementptr double, ptr %invariant.gep1482.i.i.i, i64 %986
   %987 = load double, ptr %gep1483.i.i.i, align 8
-  %988 = trunc i64 %indvars.iv1283.i.i.i to i32
+  %988 = trunc nuw nsw i64 %indvars.iv1283.i.i.i to i32
   %989 = add i32 %982, %988
   %990 = sext i32 %989 to i64
   %991 = getelementptr inbounds double, ptr %182, i64 %990
@@ -3211,7 +3211,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
 .preheader.lr.ph.i.i.i:                           ; preds = %.loopexit.i.i.i
   %.not9401067.i.i.i = icmp slt i32 %spec.select.i, 1
   %996 = mul nsw i64 %indvars.iv1315.i.i.i, %171
-  %997 = trunc i64 %996 to i32
+  %997 = trunc nsw i64 %996 to i32
   %998 = add i32 %13, %997
   br i1 %.not9401067.i.i.i, label %.preheader.us.i.i.i, label %.preheader.preheader.i.i.i
 
@@ -3223,7 +3223,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
 
 .preheader.us.i.i.i:                              ; preds = %.preheader.lr.ph.i.i.i, %.preheader.us.i.i.i
   %indvars.iv1308.i.i.i = phi i64 [ %indvars.iv.next1309.i.i.i, %.preheader.us.i.i.i ], [ 1, %.preheader.lr.ph.i.i.i ]
-  %1000 = trunc i64 %indvars.iv1308.i.i.i to i32
+  %1000 = trunc nuw nsw i64 %indvars.iv1308.i.i.i to i32
   %1001 = add i32 %998, %1000
   %1002 = sext i32 %1001 to i64
   %1003 = getelementptr inbounds double, ptr %181, i64 %1002
@@ -3251,7 +3251,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   br i1 %exitcond1302.not.i.i.i, label %._crit_edge1071.i.i.i, label %1005, !llvm.loop !76
 
 ._crit_edge1071.i.i.i:                            ; preds = %1005
-  %1009 = trunc i64 %indvars.iv1303.i.i.i to i32
+  %1009 = trunc nuw nsw i64 %indvars.iv1303.i.i.i to i32
   %1010 = add i32 %998, %1009
   %1011 = sext i32 %1010 to i64
   %1012 = getelementptr inbounds double, ptr %181, i64 %1011
@@ -3500,7 +3500,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %.61110.i.i.i = phi double [ %1189, %1133 ], [ %1216, %1225 ]
   %.08761109.i.i.i = phi i32 [ 0, %1133 ], [ %.1877.i.i.i, %1225 ]
   %.109081108.i.i.i = phi i32 [ 1, %1133 ], [ %1226, %1225 ]
-  %1191 = sitofp i32 %.109081108.i.i.i to double
+  %1191 = uitofp nneg i32 %.109081108.i.i.i to double
   %1192 = fmul double %1191, 0x3FC015BF9217271A
   %1193 = call double @cos(double noundef %1192) #21
   store double %1193, ptr %160, align 8
@@ -3947,7 +3947,7 @@ _ZL7bigden_IdEiiiPT_S1_S1_S1_PiS2_S2_S2_S1_S1_S1_S1_S1_S1_S1_.exit.i.i: ; preds 
   %.315522050.i.i = phi i32 [ %.01549.i.i, %.lr.ph2092.i.i ], [ %.21551.i.i, %._crit_edge2035.i.i ]
   %1387 = call noundef double @_ZN6SolverclEiPd(ptr noundef nonnull align 8 dereferenceable(1000) %2, i32 noundef %0, ptr noundef %1)
   %.not1259.i.i = icmp sgt i64 %indvars.iv2594.i.i, %138
-  %1388 = trunc i64 %indvars.iv2594.i.i to i32
+  %1388 = trunc nsw i64 %indvars.iv2594.i.i to i32
   br i1 %.not1259.i.i, label %1392, label %1389
 
 1389:                                             ; preds = %1386
@@ -4177,7 +4177,7 @@ _ZL7bigden_IdEiiiPT_S1_S1_S1_PiS2_S2_S2_S1_S1_S1_S1_S1_S1_S1_.exit.i.i: ; preds 
   %.not12661627.i.i = icmp eq i64 %indvars.iv2343.i.i, %1461
   %.not1266.i.i = select i1 %1460, i1 %.not12661627.i.i, i1 false
   %or.cond1319.i.i = select i1 %1482, i1 true, i1 %.not1266.i.i
-  %1483 = trunc i64 %indvars.iv2343.i.i to i32
+  %1483 = trunc nuw nsw i64 %indvars.iv2343.i.i to i32
   %.51554.i.i = select i1 %or.cond1319.i.i, i32 %.415531839.i.i, i32 %1483
   %.21061.i.i = select i1 %or.cond1319.i.i, double %.110601841.i.i, double %.21108.i.i
   %indvars.iv.next2344.i.i = add nuw nsw i64 %indvars.iv2343.i.i, 1
@@ -4708,7 +4708,7 @@ _ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.thread.i.i: ; preds = %.loopexit26
 ._crit_edge1914.i.i:                              ; preds = %.lr.ph1913.i.i, %.preheader1639.i.i
   %.91129.lcssa.i.i = phi double [ 0.000000e+00, %.preheader1639.i.i ], [ %1656, %.lr.ph1913.i.i ]
   %1657 = fcmp ogt double %.91129.lcssa.i.i, %.110571919.i.i
-  %1658 = trunc i64 %indvars.iv2436.i.i to i32
+  %1658 = trunc nuw nsw i64 %indvars.iv2436.i.i to i32
   %.91558.i.i = select i1 %1657, i32 %1658, i32 %.815571917.i.i
   %.21058.i.i = select i1 %1657, double %.91129.lcssa.i.i, double %.110571919.i.i
   %indvars.iv.next2437.i.i = add nuw nsw i64 %indvars.iv2436.i.i, 1
@@ -5186,7 +5186,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %.0393532 = phi i32 [ 0, %._crit_edge527 ], [ %.1394, %206 ]
   %.7531 = phi i32 [ 1, %._crit_edge527 ], [ %208, %206 ]
   %190 = phi <2 x double> [ %261, %._crit_edge527 ], [ %207, %206 ]
-  %191 = sitofp i32 %.7531 to double
+  %191 = uitofp nneg i32 %.7531 to double
   %192 = fmul double %191, 0x3FC015BF9217271A
   %193 = tail call double @cos(double noundef %192) #21
   %194 = tail call double @sin(double noundef %192) #21
@@ -5649,21 +5649,21 @@ define void @_ZN6Solver5valueEPdS0_iiPv(ptr nocapture noundef readonly %0, ptr n
 .lr.ph140.us:                                     ; preds = %.lr.ph140.us.preheader, %..loopexit131_crit_edge.us
   %indvars.iv164 = phi i64 [ 0, %.lr.ph140.us.preheader ], [ %indvars.iv.next165, %..loopexit131_crit_edge.us ]
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, %41
-  %43 = trunc i64 %indvars.iv.next165 to i32
+  %43 = trunc nsw i64 %indvars.iv.next165 to i32
   %spec.select.us = call i32 @llvm.smin.i32(i32 %43, i32 %19)
   %44 = mul nsw i64 %indvars.iv164, 3
-  %45 = trunc i64 %indvars.iv164 to i32
+  %45 = trunc nsw i64 %indvars.iv164 to i32
   %invariant.gep = getelementptr double, ptr %1, i64 %44
   br label %46
 
 46:                                               ; preds = %.lr.ph140.us, %46
   %indvars.iv161 = phi i64 [ 0, %.lr.ph140.us ], [ %indvars.iv.next162, %46 ]
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, %39
-  %47 = trunc i64 %indvars.iv.next162 to i32
+  %47 = trunc nsw i64 %indvars.iv.next162 to i32
   %spec.select127.us = call i32 @llvm.smin.i32(i32 %47, i32 %21)
   %48 = load ptr, ptr %37, align 8
   %49 = load ptr, ptr %38, align 8
-  %50 = trunc i64 %indvars.iv161 to i32
+  %50 = trunc nsw i64 %indvars.iv161 to i32
   %51 = call noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %19, i32 noundef %21, ptr noundef %48, ptr noundef %49, i32 noundef %45, i32 noundef %spec.select.us, i32 noundef %50, i32 noundef %spec.select127.us)
   %52 = fsub double 2.000000e+00, %51
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv161
@@ -5696,21 +5696,21 @@ define void @_ZN6Solver5valueEPdS0_iiPv(ptr nocapture noundef readonly %0, ptr n
 .lr.ph146.us:                                     ; preds = %.lr.ph146.us.preheader, %..loopexit_crit_edge.us
   %indvars.iv170 = phi i64 [ 0, %.lr.ph146.us.preheader ], [ %indvars.iv.next171, %..loopexit_crit_edge.us ]
   %indvars.iv.next171 = add nsw i64 %indvars.iv170, %61
-  %63 = trunc i64 %indvars.iv.next171 to i32
+  %63 = trunc nsw i64 %indvars.iv.next171 to i32
   %spec.select128.us = call i32 @llvm.smin.i32(i32 %63, i32 %19)
   %64 = mul nsw i64 %indvars.iv170, 3
-  %65 = trunc i64 %indvars.iv170 to i32
+  %65 = trunc nsw i64 %indvars.iv170 to i32
   %invariant.gep179 = getelementptr double, ptr %1, i64 %64
   br label %66
 
 66:                                               ; preds = %.lr.ph146.us, %66
   %indvars.iv167 = phi i64 [ 0, %.lr.ph146.us ], [ %indvars.iv.next168, %66 ]
   %indvars.iv.next168 = add nsw i64 %indvars.iv167, %59
-  %67 = trunc i64 %indvars.iv.next168 to i32
+  %67 = trunc nsw i64 %indvars.iv.next168 to i32
   %spec.select129.us = call i32 @llvm.smin.i32(i32 %67, i32 %21)
   %68 = load ptr, ptr %57, align 8
   %69 = load ptr, ptr %58, align 8
-  %70 = trunc i64 %indvars.iv167 to i32
+  %70 = trunc nsw i64 %indvars.iv167 to i32
   %71 = call noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %19, i32 noundef %21, ptr noundef %68, ptr noundef %69, i32 noundef %65, i32 noundef %spec.select128.us, i32 noundef %70, i32 noundef %spec.select129.us)
   %72 = fsub double 2.000000e+00, %71
   %gep180 = getelementptr double, ptr %invariant.gep179, i64 %indvars.iv167
@@ -5931,7 +5931,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 50:                                               ; preds = %42
   %51 = fptosi float %47 to i32
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = tail call noundef double @pow(double noundef %53, double noundef 0x3FD5555560000000) #21
   %55 = fptrunc double %54 to float
   %56 = fneg float %55

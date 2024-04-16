@@ -14755,7 +14755,7 @@ _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible
 
 608:                                              ; preds = %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #20
-  %609 = trunc i8 %.0844 to i1
+  %609 = trunc nuw i8 %.0844 to i1
   %610 = load ptr, ptr %48, align 8
   br i1 %609, label %611, label %656
 
@@ -15061,7 +15061,7 @@ _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible
 
 703:                                              ; preds = %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit391
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #20
-  %704 = trunc i8 %.083843 to i1
+  %704 = trunc nuw i8 %.083843 to i1
   %705 = load ptr, ptr %57, align 8
   br i1 %704, label %706, label %727
 
@@ -15275,7 +15275,7 @@ _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible
 
 774:                                              ; preds = %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit419
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #20
-  %775 = trunc i8 %.085842 to i1
+  %775 = trunc nuw i8 %.085842 to i1
   %776 = load ptr, ptr %66, align 8
   br i1 %775, label %777, label %798
 
@@ -15489,7 +15489,7 @@ _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible
 
 845:                                              ; preds = %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit447
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #20
-  %846 = trunc i8 %.088840 to i1
+  %846 = trunc nuw i8 %.088840 to i1
   %847 = load ptr, ptr %75, align 8
   br i1 %846, label %848, label %869
 
@@ -15643,7 +15643,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i471:   ; preds = %.body
   br label %906
 
 ._crit_edge:                                      ; preds = %_ZN7QStringD2Ev.exit469
-  %895 = trunc i8 %.1 to i1
+  %895 = trunc nuw i8 %.1 to i1
   %896 = load ptr, ptr %84, align 8
   %897 = getelementptr inbounds i8, ptr %896, i64 312
   %898 = load ptr, ptr %897, align 8
@@ -15652,9 +15652,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i471:   ; preds = %.body
   br i1 %895, label %906, label %901
 
 901:                                              ; preds = %._crit_edge
-  %902 = trunc i8 %.186 to i1
-  %903 = trunc i8 %.189 to i1
-  %904 = trunc i8 %.184 to i1
+  %902 = trunc nuw i8 %.186 to i1
+  %903 = trunc nuw i8 %.189 to i1
+  %904 = trunc nuw i8 %.184 to i1
   %905 = select i1 %904, i1 true, i1 %902
   %spec.select1124 = select i1 %905, i1 true, i1 %903
   br label %906
@@ -19086,7 +19086,7 @@ define noundef zeroext i1 @_ZN15RtpPlayerDialog11eventFilterEP7QObjectP6QEvent(p
   %62 = getelementptr inbounds i8, ptr %53, i64 304
   %.sroa.0.0.copyload.i.i = load double, ptr %62, align 8
   %63 = fsub double %.sroa.2.0.copyload.i.i, %.sroa.0.0.copyload.i.i
-  %64 = sitofp i32 %47 to double
+  %64 = uitofp nneg i32 %47 to double
   %65 = fmul double %63, %64
   %66 = sitofp i32 %61 to double
   %67 = fdiv double %65, %66
@@ -19532,7 +19532,7 @@ define void @_ZN15RtpPlayerDialog38on_actionGoToSetupPacketPlot_triggeredEv(ptr 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i = trunc i64 %11 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %11, 32
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift.i to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 312
   %14 = load ptr, ptr %13, align 8
@@ -20197,7 +20197,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %.lr.ph
   br i1 %48, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !127
 
 ._crit_edge.loopexit:                             ; preds = %42
-  %49 = trunc i8 %.124 to i1
+  %49 = trunc nuw i8 %.124 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5QListIP15QTreeWidgetItemED2Ev.exit
@@ -21226,7 +21226,7 @@ define noundef ptr @_ZN15RtpPlayerDialog16findItemByCoordsE6QPoint(ptr nocapture
   %3 = alloca %class.QPointF, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 312
@@ -21327,7 +21327,7 @@ define noundef i32 @_ZN15RtpPlayerDialog16getHoveredPacketEv(ptr nocapture nound
   %.sroa.0.0.extract.trunc = trunc i64 %10 to i32
   %.sroa.2.0.extract.shift = lshr i64 %10, 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 312
   %13 = load ptr, ptr %12, align 8
@@ -21583,7 +21583,7 @@ define void @_ZN15RtpPlayerDialog22getFormatedHoveredTimeEv(ptr dead_on_unwind n
   %.sroa.0.0.extract.trunc = trunc i64 %10 to i32
   %.sroa.2.0.extract.shift = lshr i64 %10, 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %.sroa.2.0.extract.trunc.i = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 312
   %13 = load ptr, ptr %12, align 8
@@ -23851,7 +23851,7 @@ _ZN15RtpPlayerDialog6lockUIEv.exit:               ; preds = %2, %13
   %18 = tail call noundef i64 @_ZN7QString17toIntegral_helperE11QStringViewPbi(i64 %17, ptr %15, ptr noundef null, i32 noundef 10)
   %19 = add i64 %18, 2147483648
   %.not.i.i = icmp ult i64 %19, 4294967296
-  %20 = trunc i64 %18 to i32
+  %20 = trunc nsw i64 %18 to i32
   %21 = select i1 %.not.i.i, i32 %20, i32 0
   %22 = getelementptr inbounds i8, ptr %0, i64 136
   %23 = load ptr, ptr %22, align 8
@@ -24183,7 +24183,7 @@ define noundef i64 @_ZN15RtpPlayerDialog17saveAudioHeaderAUEP5QFilejj(ptr nocapt
 
 16:                                               ; preds = %14
   %17 = lshr i32 %3, 24
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw i32 %17 to i8
   store i8 %18, ptr %5, align 4
   %19 = lshr i32 %3, 16
   %20 = trunc i32 %19 to i8
@@ -24199,7 +24199,7 @@ define noundef i64 @_ZN15RtpPlayerDialog17saveAudioHeaderAUEP5QFilejj(ptr nocapt
 
 25:                                               ; preds = %16
   %26 = lshr i32 %2, 24
-  %27 = trunc i32 %26 to i8
+  %27 = trunc nuw i32 %26 to i8
   store i8 %27, ptr %5, align 4
   %28 = lshr i32 %2, 16
   %29 = trunc i32 %28 to i8
@@ -24433,7 +24433,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us: ; pre
 24:                                               ; preds = %21
   %25 = load i16, ptr %5, align 2
   %26 = lshr i16 %25, 8
-  %27 = trunc i16 %26 to i8
+  %27 = trunc nuw i16 %26 to i8
   store i8 %27, ptr %6, align 1
   %28 = trunc i16 %25 to i8
   br label %29
@@ -24512,7 +24512,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit: ; preds = 
 49:                                               ; preds = %47
   %50 = load i16, ptr %5, align 2
   %51 = lshr i16 %50, 8
-  %52 = trunc i16 %51 to i8
+  %52 = trunc nuw i16 %51 to i8
   store i8 %52, ptr %9, align 1
   %53 = trunc i16 %50 to i8
   br label %55
@@ -33223,7 +33223,7 @@ _ZNK15QTreeWidgetItem4textEi.exit:                ; preds = %16
 .noexc:                                           ; preds = %_ZNK15QTreeWidgetItem4textEi.exit
   %29 = add i64 %28, 2147483648
   %.not.i.i = icmp ult i64 %29, 4294967296
-  %30 = trunc i64 %28 to i32
+  %30 = trunc nsw i64 %28 to i32
   %31 = select i1 %.not.i.i, i32 %30, i32 0
   %32 = load ptr, ptr %13, align 8
   %33 = invoke noundef i32 @_ZNK11QTreeWidget10sortColumnEv(ptr noundef nonnull align 8 dereferenceable(40) %32)
@@ -33260,7 +33260,7 @@ _ZNK15QTreeWidgetItem4textEi.exit:                ; preds = %16
 .noexc22:                                         ; preds = %40
   %46 = add i64 %45, 2147483648
   %.not.i.i20 = icmp ult i64 %46, 4294967296
-  %47 = trunc i64 %45 to i32
+  %47 = trunc nsw i64 %45 to i32
   %48 = select i1 %.not.i.i20, i32 %47, i32 0
   %49 = icmp slt i32 %31, %48
   %50 = load ptr, ptr %8, align 8
@@ -33360,7 +33360,7 @@ _ZNK15QTreeWidgetItem4textEi.exit37:              ; preds = %70
 .noexc40:                                         ; preds = %_ZNK15QTreeWidgetItem4textEi.exit37
   %83 = add i64 %82, 2147483648
   %.not.i.i38 = icmp ult i64 %83, 4294967296
-  %84 = trunc i64 %82 to i32
+  %84 = trunc nsw i64 %82 to i32
   %85 = select i1 %.not.i.i38, i32 %84, i32 0
   %86 = load ptr, ptr %13, align 8
   %87 = invoke noundef i32 @_ZNK11QTreeWidget10sortColumnEv(ptr noundef nonnull align 8 dereferenceable(40) %86)
@@ -33397,7 +33397,7 @@ _ZNK15QTreeWidgetItem4textEi.exit37:              ; preds = %70
 .noexc48:                                         ; preds = %94
   %100 = add i64 %99, 2147483648
   %.not.i.i46 = icmp ult i64 %100, 4294967296
-  %101 = trunc i64 %99 to i32
+  %101 = trunc nsw i64 %99 to i32
   %102 = select i1 %.not.i.i46, i32 %101, i32 0
   %103 = icmp slt i32 %85, %102
   %104 = load ptr, ptr %10, align 8

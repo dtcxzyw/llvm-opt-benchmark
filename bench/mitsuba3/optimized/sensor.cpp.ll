@@ -2902,7 +2902,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %218 = fptosi double %217 to i64
   %219 = add nsw i64 %218, 1
   %220 = and i64 %219, 4294967294
-  %221 = sitofp i64 %220 to double
+  %221 = uitofp nneg i64 %220 to double
   %222 = fmul contract double %221, 0x3FE921FB40000000
   %223 = fsub contract double %216, %222
   %224 = fmul contract double %221, 0x3E64442D00000000
@@ -3002,7 +3002,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %294 = fptosi double %293 to i64
   %295 = add nsw i64 %294, 1
   %296 = and i64 %295, 4294967294
-  %297 = sitofp i64 %296 to double
+  %297 = uitofp nneg i64 %296 to double
   %298 = fmul contract double %297, 0x3FE921FB40000000
   %299 = fsub contract double %292, %298
   %300 = fmul contract double %297, 0x3E64442D00000000

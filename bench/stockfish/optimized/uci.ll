@@ -2933,7 +2933,7 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   store i8 %32, ptr %6, align 1, !noalias !28
   %33 = getelementptr inbounds i8, ptr %6, i64 1
   %34 = lshr i16 %18, 3
-  %35 = trunc i16 %34 to i8
+  %35 = trunc nuw nsw i16 %34 to i8
   %36 = add nuw nsw i8 %35, 49
   store i8 %36, ptr %33, align 1, !noalias !28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21, !noalias !28
@@ -2943,13 +2943,13 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %37 = trunc i32 %.0 to i8
+  %37 = trunc nuw nsw i32 %.0 to i8
   %38 = and i8 %37, 7
   %39 = add nuw nsw i8 %38, 97
   store i8 %39, ptr %4, align 1, !noalias !31
   %40 = getelementptr inbounds i8, ptr %4, i64 1
   %41 = lshr i32 %.0, 3
-  %42 = trunc i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   %43 = add nuw nsw i8 %42, 49
   store i8 %43, ptr %40, align 1, !noalias !31
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21, !noalias !31
@@ -3009,7 +3009,7 @@ define dso_local void @_ZN9Stockfish3UCI3wdlB5cxx11Eii(ptr dead_on_unwind noalia
   %6 = call i32 @llvm.smax.i32(i32 %5, i32 7)
   %7 = call i32 @llvm.umin.i32(i32 %6, i32 119)
   %.sroa.speculated.i = add nuw nsw i32 %7, 1
-  %8 = sitofp i32 %.sroa.speculated.i to double
+  %8 = uitofp nneg i32 %.sroa.speculated.i to double
   %9 = fmul double %8, 3.125000e-02
   %10 = call double @llvm.fmuladd.f64(double %9, double 0xBFF0FFFCE00FF596, double 0x401DAE40E11BB944)
   %11 = call double @llvm.fmuladd.f64(double %10, double %9, double 0x3FEC9DBF5DF95A74)

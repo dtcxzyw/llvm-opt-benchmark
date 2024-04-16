@@ -78,7 +78,7 @@ define void @Gia_ManFalseRebuildOne(ptr noundef %0, ptr noundef %1, ptr nocaptur
 
 35:                                               ; preds = %29
   %36 = lshr i64 %20, 61
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = and i32 %37, 1
   br label %39
 
@@ -122,7 +122,7 @@ define void @Gia_ManFalseRebuildOne(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %61 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %44, i64 %60, i32 1
   %62 = load i32, ptr %61, align 4
   %63 = lshr i64 %49, 61
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = and i32 %64, 1
   %66 = xor i32 %65, %62
   %67 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %57, i32 noundef %66) #17
@@ -314,7 +314,7 @@ Abc_UtilStrsav.exit58:                            ; preds = %Abc_UtilStrsav.exit
   %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %31, i64 %53, i32 1
   %55 = load i32, ptr %54, align 4
   %56 = lshr i64 %.val50, 61
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %58 = and i32 %57, 1
   %59 = xor i32 %55, %58
   %60 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %8, i32 noundef %50, i32 noundef %59) #17
@@ -923,7 +923,7 @@ Abc_Clock.exit:                                   ; preds = %Gia_ManCollectPath.
   %71 = getelementptr inbounds i32, ptr %.val190, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
-  %74 = trunc i64 %indvars.iv to i32
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
   %75 = xor i32 %74, -1
   %76 = add i32 %.val215284, %75
   %77 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val194, i64 %73, i32 1
@@ -1026,7 +1026,7 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   %133 = lshr i32 %132, 29
   %134 = and i32 %133, 1
   %135 = lshr i64 %.val231, 61
-  %136 = trunc i64 %135 to i32
+  %136 = trunc nuw nsw i64 %135 to i32
   %137 = and i32 %136, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
   %138 = shl nsw i32 %121, 1
@@ -1066,7 +1066,7 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   %164 = lshr i32 %163, 29
   %165 = and i32 %164, 1
   %166 = lshr i64 %151, 61
-  %167 = trunc i64 %166 to i32
+  %167 = trunc nuw nsw i64 %166 to i32
   %168 = and i32 %167, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
   %169 = shl nsw i32 %150, 1
@@ -1156,9 +1156,9 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   br i1 %219, label %220, label %275
 
 220:                                              ; preds = %211
-  %221 = trunc i64 %indvars.iv309 to i32
+  %221 = trunc nuw nsw i64 %indvars.iv309 to i32
   %222 = add nsw i32 %.val207292, %221
-  %223 = trunc i64 %212 to i32
+  %223 = trunc nsw i64 %212 to i32
   %224 = add nsw i32 %.val207292, %223
   %225 = lshr i64 %.val230, 32
   %226 = and i64 %225, 536870911
@@ -1170,7 +1170,7 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   %232 = lshr i32 %231, 29
   %233 = and i32 %232, 1
   %234 = lshr i64 %.val230, 61
-  %235 = trunc i64 %234 to i32
+  %235 = trunc nuw nsw i64 %234 to i32
   %236 = and i32 %235, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
   %237 = shl nsw i32 %222, 1
@@ -1206,7 +1206,7 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   %259 = lshr i32 %258, 29
   %260 = and i32 %259, 1
   %261 = lshr i64 %251, 61
-  %262 = trunc i64 %261 to i32
+  %262 = trunc nuw nsw i64 %261 to i32
   %263 = and i32 %262, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
   %264 = shl nsw i32 %249, 1
@@ -1236,7 +1236,7 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   %278 = sub nsw i64 0, %277
   %279 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %206, i64 %278
   %280 = icmp eq ptr %216, %279
-  %281 = trunc i64 %indvars.iv309 to i32
+  %281 = trunc nuw nsw i64 %indvars.iv309 to i32
   %282 = add nsw i32 %.val207292, %281
   br i1 %280, label %283, label %._crit_edge326
 
@@ -1249,13 +1249,13 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   %284 = getelementptr inbounds i8, ptr %218, i64 8
   %285 = load i32, ptr %284, align 4
   %286 = add i32 %285, %97
-  %287 = trunc i64 %212 to i32
+  %287 = trunc nsw i64 %212 to i32
   %288 = add nsw i32 %.val207292, %287
   %289 = trunc i64 %.val230 to i32
   %290 = lshr i32 %289, 29
   %291 = and i32 %290, 1
   %292 = lshr i64 %.val230, 61
-  %293 = trunc i64 %292 to i32
+  %293 = trunc nuw nsw i64 %292 to i32
   %294 = and i32 %293, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
   %295 = shl nsw i32 %282, 1
@@ -1290,7 +1290,7 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   %316 = lshr i32 %315, 29
   %317 = and i32 %316, 1
   %318 = lshr i64 %308, 61
-  %319 = trunc i64 %318 to i32
+  %319 = trunc nuw nsw i64 %318 to i32
   %320 = and i32 %319, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   %321 = shl nsw i32 %307, 1
@@ -1374,7 +1374,7 @@ Abc_Clock.exit241:                                ; preds = %81, %86
   store i32 %354, ptr %199, align 4
   store i32 %356, ptr %200, align 4
   %359 = call i32 @sat_solver_addclause(ptr noundef %80, ptr noundef nonnull %8, ptr noundef nonnull %201) #17
-  %360 = trunc i64 %351 to i32
+  %360 = trunc nsw i64 %351 to i32
   store i32 %360, ptr %8, align 4
   store i32 %355, ptr %199, align 4
   store i32 %356, ptr %200, align 4
@@ -1448,7 +1448,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %388, ptr %31, align 4
   %389 = sext i32 %364 to i64
   %390 = getelementptr inbounds i32, ptr %387, i64 %389
-  %391 = trunc i64 %.pre-phi329 to i32
+  %391 = trunc nsw i64 %.pre-phi329 to i32
   store i32 %391, ptr %390, align 4
   %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
   %.val207 = load i32, ptr %39, align 4
@@ -1931,7 +1931,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
   store i32 %92, ptr %62, align 4
   %93 = sext i32 %88 to i64
   %94 = getelementptr inbounds i32, ptr %91, i64 %93
-  %95 = trunc i64 %indvars.iv81106 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv81106 to i32
   store i32 %95, ptr %94, align 4
   %.val.i.i = load ptr, ptr %70, align 8
   %.val.val.i.i = load ptr, ptr %.val.i.i, align 8
@@ -1944,7 +1944,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
   br label %Vec_QuePrio.exit.i.i
 
 99:                                               ; preds = %87
-  %100 = sitofp i32 %95 to float
+  %100 = uitofp nneg i32 %95 to float
   br label %Vec_QuePrio.exit.i.i
 
 Vec_QuePrio.exit.i.i:                             ; preds = %99, %96
@@ -2206,7 +2206,7 @@ Vec_QuePop.exit:                                  ; preds = %164, %Vec_QueMoveDo
   br label %139, !llvm.loop !20
 
 225:                                              ; preds = %Vec_QueTopPriority.exit
-  %226 = trunc i64 %indvars.iv84 to i32
+  %226 = trunc nsw i64 %indvars.iv84 to i32
   store i32 %226, ptr %62, align 4
   %.not46 = icmp eq i32 %3, 0
   br i1 %.not46, label %.split, label %.split42
@@ -2407,7 +2407,7 @@ Abc_UtilStrsav.exit51:                            ; preds = %Abc_UtilStrsav.exit
   %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %36, i64 %53, i32 1
   %55 = load i32, ptr %54, align 4
   %56 = lshr i64 %.val44, 61
-  %57 = trunc i64 %56 to i32
+  %57 = trunc nuw nsw i64 %56 to i32
   %58 = and i32 %57, 1
   %59 = xor i32 %55, %58
   %60 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %14, i32 noundef %50, i32 noundef %59) #17
@@ -2568,7 +2568,7 @@ Abc_Clock.exit:                                   ; preds = %Gia_ManCollectPath.
   %57 = getelementptr inbounds i32, ptr %.val167, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
   %61 = xor i32 %60, -1
   %62 = add i32 %.val195253, %61
   %63 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val171, i64 %59, i32 1
@@ -2671,7 +2671,7 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   %119 = lshr i32 %118, 29
   %120 = and i32 %119, 1
   %121 = lshr i64 %.val210, 61
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nuw nsw i64 %121 to i32
   %123 = and i32 %122, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
   %124 = shl nsw i32 %107, 1
@@ -2711,7 +2711,7 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   %150 = lshr i32 %149, 29
   %151 = and i32 %150, 1
   %152 = lshr i64 %137, 61
-  %153 = trunc i64 %152 to i32
+  %153 = trunc nuw nsw i64 %152 to i32
   %154 = and i32 %153, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
   %155 = shl nsw i32 %136, 1
@@ -2798,9 +2798,9 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   br i1 %202, label %203, label %258
 
 203:                                              ; preds = %194
-  %204 = trunc i64 %indvars.iv273 to i32
+  %204 = trunc nuw nsw i64 %indvars.iv273 to i32
   %205 = add nsw i32 %.val187284, %204
-  %206 = trunc i64 %195 to i32
+  %206 = trunc nsw i64 %195 to i32
   %207 = add nsw i32 %.val187284, %206
   %208 = lshr i64 %.val209, 32
   %209 = and i64 %208, 536870911
@@ -2812,7 +2812,7 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   %215 = lshr i32 %214, 29
   %216 = and i32 %215, 1
   %217 = lshr i64 %.val209, 61
-  %218 = trunc i64 %217 to i32
+  %218 = trunc nuw nsw i64 %217 to i32
   %219 = and i32 %218, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
   %220 = shl nsw i32 %205, 1
@@ -2848,7 +2848,7 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   %242 = lshr i32 %241, 29
   %243 = and i32 %242, 1
   %244 = lshr i64 %234, 61
-  %245 = trunc i64 %244 to i32
+  %245 = trunc nuw nsw i64 %244 to i32
   %246 = and i32 %245, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
   %247 = shl nsw i32 %232, 1
@@ -2878,7 +2878,7 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   %261 = sub nsw i64 0, %260
   %262 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %189, i64 %261
   %263 = icmp eq ptr %199, %262
-  %264 = trunc i64 %indvars.iv273 to i32
+  %264 = trunc nuw nsw i64 %indvars.iv273 to i32
   %265 = add nsw i32 %.val187284, %264
   br i1 %263, label %266, label %._crit_edge
 
@@ -2891,13 +2891,13 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   %267 = getelementptr inbounds i8, ptr %201, i64 8
   %268 = load i32, ptr %267, align 4
   %269 = add i32 %268, %83
-  %270 = trunc i64 %195 to i32
+  %270 = trunc nsw i64 %195 to i32
   %271 = add nsw i32 %.val187284, %270
   %272 = trunc i64 %.val209 to i32
   %273 = lshr i32 %272, 29
   %274 = and i32 %273, 1
   %275 = lshr i64 %.val209, 61
-  %276 = trunc i64 %275 to i32
+  %276 = trunc nuw nsw i64 %275 to i32
   %277 = and i32 %276, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   %278 = shl nsw i32 %265, 1
@@ -2932,7 +2932,7 @@ Abc_Clock.exit214:                                ; preds = %67, %72
   %299 = lshr i32 %298, 29
   %300 = and i32 %299, 1
   %301 = lshr i64 %291, 61
-  %302 = trunc i64 %301 to i32
+  %302 = trunc nuw nsw i64 %301 to i32
   %303 = and i32 %302, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   %304 = shl nsw i32 %290, 1
@@ -3471,7 +3471,7 @@ define ptr @Gia_ManCheckFalseAll(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
   store ptr %39, ptr %31, align 8
-  %40 = trunc i64 %20 to i32
+  %40 = trunc nuw nsw i64 %20 to i32
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 41:                                               ; preds = %24
@@ -3523,7 +3523,7 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %53, !llvm.loop !29
 
 ._crit_edge.i.i.i:                                ; preds = %53, %Vec_IntGrow.exit.i.i.i
-  %56 = trunc i64 %20 to i32
+  %56 = trunc nuw nsw i64 %20 to i32
   store i32 %56, ptr %21, align 4
   br label %Gia_ObjLevelId.exit
 
@@ -3537,7 +3537,7 @@ Gia_ObjLevelId.exit:                              ; preds = %18, %._crit_edge.i.
 
 61:                                               ; preds = %Gia_ObjLevelId.exit
   %62 = add nsw i32 %.12941, 1
-  %63 = trunc i64 %indvars.iv to i32
+  %63 = trunc nuw nsw i64 %indvars.iv to i32
   %64 = tail call ptr @Gia_ManCheckOne(ptr noundef %.143, i32 noundef -1, i32 noundef %63, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %65 = icmp eq ptr %64, null
   br i1 %65, label %69, label %66
@@ -3787,7 +3787,7 @@ Gia_ObjLevelId.exit:                              ; preds = %42, %._crit_edge.i.
   %101 = trunc i64 %.val3.i to i32
   %102 = and i32 %101, 536870911
   %103 = sub nsw i32 %100, %102
-  %104 = trunc i64 %indvars.iv to i32
+  %104 = trunc nuw nsw i64 %indvars.iv to i32
   %105 = tail call ptr @Gia_ManCheckOne(ptr noundef %.166, i32 noundef %104, i32 noundef %103, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %109
@@ -4040,7 +4040,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #17
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -4059,7 +4059,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4070,25 +4070,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #10
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #10
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_QueGrow(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #13 {
+define internal fastcc void @Vec_QueGrow(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #12 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %3, %1
   br i1 %.not, label %4, label %39
@@ -4154,6 +4148,12 @@ define internal fastcc void @Vec_QueGrow(ptr nocapture noundef %0, i32 noundef %
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #13
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
 
@@ -4179,10 +4179,10 @@ attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

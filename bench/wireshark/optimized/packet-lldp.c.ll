@@ -1839,7 +1839,7 @@ define internal void @latitude_base(ptr nocapture noundef writeonly %0, i64 noun
   %.lobit19.i = and i64 %11, 1
   %spec.select.i.i = add nuw nsw i64 %.lobit19.i, %10
   %12 = lshr i64 %.0.i, 25
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = lshr i64 %3, 25
   %15 = and i64 %1, 33554431
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.957..str.956.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
@@ -1864,7 +1864,7 @@ define internal void @longitude_base(ptr nocapture noundef writeonly %0, i64 nou
   %.lobit19.i = and i64 %11, 1
   %spec.select.i.i = add nuw nsw i64 %.lobit19.i, %10
   %12 = lshr i64 %.0.i, 25
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = lshr i64 %3, 25
   %15 = and i64 %1, 33554431
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.962, ptr noundef nonnull %spec.select14.i, i32 noundef %13, i64 noundef %spec.select.i.i, ptr noundef nonnull %.str.960..str.959.i, i64 noundef %3, i32 noundef 9, i64 noundef %14, i32 noundef 25, i64 noundef %15) #8
@@ -1935,7 +1935,7 @@ get2sComplementAbsoluteValue.exit:
   %spec.select.i = add nuw nsw i64 %.lobit, %6
   %8 = select i1 %.not.i, ptr @.str.967, ptr @.str.966
   %9 = lshr i64 %.0, 8
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %11 = lshr i64 %3, 8
   %12 = and i64 %3, 255
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.968, ptr noundef nonnull %8, i32 noundef %10, i64 noundef %spec.select.i, i64 noundef %3, i32 noundef 22, i64 noundef %11, i32 noundef 8, i64 noundef %12) #8
@@ -3279,7 +3279,7 @@ define internal fastcc void @dissect_dcbx_tlv(ptr noundef %0, ptr noundef %1) un
   br i1 %12, label %switch.hole_check, label %19
 
 switch.hole_check:                                ; preds = %.lr.ph8
-  %switch.maskindex = trunc i16 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw nsw i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %19
@@ -3415,7 +3415,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 117:                                              ; preds = %39
   %.lhs.trunc = add nsw i16 %11, -4
   %118 = sdiv i16 %.lhs.trunc, 6
-  %119 = trunc i16 %118 to i8
+  %119 = trunc nuw nsw i16 %118 to i8
   %.not4 = icmp eq i8 %119, 0
   br i1 %.not4, label %.loopexit1, label %.lr.ph
 
@@ -5164,19 +5164,19 @@ define internal fastcc void @dissect_hytec_tlv(ptr noundef %0, ptr noundef %1, p
 110:                                              ; preds = %107
   %111 = xor i32 %108, -1
   %112 = lshr i32 %111, 8
-  %113 = sitofp i32 %112 to float
+  %113 = uitofp nneg i32 %112 to float
   %114 = fneg float %113
   br label %118
 
 115:                                              ; preds = %107
   %116 = lshr i32 %108, 8
-  %117 = sitofp i32 %116 to float
+  %117 = uitofp nneg i32 %116 to float
   br label %118
 
 118:                                              ; preds = %115, %110
   %.0 = phi float [ %114, %110 ], [ %117, %115 ]
   %119 = and i32 %108, 255
-  %120 = sitofp i32 %119 to float
+  %120 = uitofp nneg i32 %119 to float
   %121 = tail call float @llvm.fmuladd.f32(float %120, float 3.906250e-03, float %.0)
   %122 = load i32, ptr @hf_hytec_rx_input_snr, align 4
   %123 = tail call ptr @proto_tree_add_float(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef 2, i32 noundef 4, float noundef %121) #8
@@ -5205,19 +5205,19 @@ define internal fastcc void @dissect_hytec_tlv(ptr noundef %0, ptr noundef %1, p
 135:                                              ; preds = %132
   %136 = xor i32 %133, -1
   %137 = lshr i32 %136, 8
-  %138 = sitofp i32 %137 to float
+  %138 = uitofp nneg i32 %137 to float
   %139 = fneg float %138
   br label %143
 
 140:                                              ; preds = %132
   %141 = lshr i32 %133, 8
-  %142 = sitofp i32 %141 to float
+  %142 = uitofp nneg i32 %141 to float
   br label %143
 
 143:                                              ; preds = %140, %135
   %.1 = phi float [ %139, %135 ], [ %142, %140 ]
   %144 = and i32 %133, 255
-  %145 = sitofp i32 %144 to float
+  %145 = uitofp nneg i32 %144 to float
   %146 = tail call float @llvm.fmuladd.f32(float %145, float 3.906250e-03, float %.1)
   %147 = load i32, ptr @hf_hytec_lineloss, align 4
   %148 = tail call ptr @proto_tree_add_float(ptr noundef %2, i32 noundef %147, ptr noundef %0, i32 noundef 2, i32 noundef 4, float noundef %146) #8

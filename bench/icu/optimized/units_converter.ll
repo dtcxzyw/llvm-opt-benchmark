@@ -635,7 +635,7 @@ for.end:                                          ; preds = %for.body
   %cmp2 = icmp slt i32 %power, 0
   %1 = load double, ptr %this, align 8
   %2 = tail call i32 @llvm.abs.i32(i32 %power, i1 true)
-  %conv.i = sitofp i32 %2 to double
+  %conv.i = uitofp nneg i32 %2 to double
   %call.i = tail call noundef double @pow(double noundef %1, double noundef %conv.i) #16
   store double %call.i, ptr %this, align 8
   %factorDen = getelementptr inbounds i8, ptr %this, i64 8
@@ -668,7 +668,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i32 @umeas_getPrefixBase_75(i32 noundef %unitPrefix)
   %conv = sitofp i32 %call2 to double
   %0 = tail call i32 @llvm.abs.i32(i32 %call, i1 true)
-  %conv3 = sitofp i32 %0 to double
+  %conv3 = uitofp nneg i32 %0 to double
   %call4 = tail call double @pow(double noundef %conv, double noundef %conv3) #16
   %1 = lshr i32 %call, 28
   %2 = and i32 %1, 8
@@ -707,7 +707,7 @@ if.end:                                           ; preds = %for.body
   %1 = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
   %arrayidx11 = getelementptr inbounds [15 x double], ptr @_ZN6icu_755unitsL15constantsValuesE, i64 0, i64 %indvars.iv
   %2 = load double, ptr %arrayidx11, align 8
-  %conv.i = sitofp i32 %1 to double
+  %conv.i = uitofp nneg i32 %1 to double
   %call.i = tail call noundef double @pow(double noundef %2, double noundef %conv.i) #16
   %3 = lshr i32 %0, 28
   %4 = and i32 %3, 8
@@ -2903,7 +2903,7 @@ if.end.i:                                         ; preds = %for.body.i50
   %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
   %arrayidx11.i = getelementptr inbounds [15 x double], ptr @_ZN6icu_755unitsL15constantsValuesE, i64 0, i64 %indvars.iv.i51
   %22 = load double, ptr %arrayidx11.i, align 8
-  %conv.i.i = sitofp i32 %21 to double
+  %conv.i.i = uitofp nneg i32 %21 to double
   %call.i.i = tail call noundef double @pow(double noundef %22, double noundef %conv.i.i) #16
   %23 = lshr i32 %20, 28
   %24 = and i32 %23, 8
@@ -3049,7 +3049,7 @@ if.end.i:                                         ; preds = %for.body.i
   %6 = tail call i32 @llvm.abs.i32(i32 %5, i1 true)
   %arrayidx11.i = getelementptr inbounds [15 x double], ptr @_ZN6icu_755unitsL15constantsValuesE, i64 0, i64 %indvars.iv.i
   %7 = load double, ptr %arrayidx11.i, align 8
-  %conv.i.i = sitofp i32 %6 to double
+  %conv.i.i = uitofp nneg i32 %6 to double
   %call.i.i = tail call noundef double @pow(double noundef %7, double noundef %conv.i.i) #16
   %8 = lshr i32 %5, 28
   %9 = and i32 %8, 8
@@ -3081,7 +3081,7 @@ if.end.i23:                                       ; preds = %for.body.i19
   %12 = tail call i32 @llvm.abs.i32(i32 %11, i1 true)
   %arrayidx11.i24 = getelementptr inbounds [15 x double], ptr @_ZN6icu_755unitsL15constantsValuesE, i64 0, i64 %indvars.iv.i20
   %13 = load double, ptr %arrayidx11.i24, align 8
-  %conv.i.i25 = sitofp i32 %12 to double
+  %conv.i.i25 = uitofp nneg i32 %12 to double
   %call.i.i26 = tail call noundef double @pow(double noundef %13, double noundef %conv.i.i25) #16
   %14 = lshr i32 %11, 28
   %15 = and i32 %14, 8
@@ -3247,7 +3247,7 @@ for.body.i.i:                                     ; preds = %if.end14.i.i, %for.
   ]
 
 if.then.i.i:                                      ; preds = %for.body.i.i, %for.body.i.i
-  %18 = trunc i64 %indvars.iv.i.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %sub.i.i = sub nsw i32 %18, %start.023.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !24
   call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %sub.i.i), !noalias !24
@@ -3309,7 +3309,7 @@ for.inc.i.i:                                      ; preds = %for.body.i16.i
   br i1 %exitcond.not.i20.i, label %if.end10.i.i, label %for.body.i16.i, !llvm.loop !26
 
 if.then4.i.i:                                     ; preds = %for.body.i16.i
-  %24 = trunc i64 %indvars.iv.i17.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv.i17.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i14.i), !noalias !18
   call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i14.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef 0, i32 noundef %24), !noalias !18
   %.fca.0.load.i.i21.i = load ptr, ptr %retval.i.i14.i, align 8, !noalias !18
@@ -3402,7 +3402,7 @@ if.end.i9:                                        ; preds = %if.end
   %call2.i = call i32 @umeas_getPrefixBase_75(i32 noundef %28)
   %conv.i11 = sitofp i32 %call2.i to double
   %29 = call i32 @llvm.abs.i32(i32 %call.i10, i1 true)
-  %conv3.i = sitofp i32 %29 to double
+  %conv3.i = uitofp nneg i32 %29 to double
   %call4.i = call double @pow(double noundef %conv.i11, double noundef %conv3.i) #16
   %30 = lshr i32 %call.i10, 28
   %31 = and i32 %30, 8
@@ -3431,7 +3431,7 @@ for.end.i:                                        ; preds = %for.body.i
   %cmp2.i = icmp slt i32 %33, 0
   %35 = load double, ptr %singleFactor, align 16
   %36 = call i32 @llvm.abs.i32(i32 %33, i1 true)
-  %conv.i.i = sitofp i32 %36 to double
+  %conv.i.i = uitofp nneg i32 %36 to double
   %call.i.i = call noundef double @pow(double noundef %35, double noundef %conv.i.i) #16
   store double %call.i.i, ptr %singleFactor, align 16
   %37 = load double, ptr %factorDen.i.i, align 8
@@ -3697,7 +3697,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %if.end10, label %for.body, !llvm.loop !28
 
 if.then4:                                         ; preds = %for.body
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i, ptr noundef nonnull align 8 dereferenceable(12) %elementStr, i32 noundef 0, i32 noundef %2)
   %.fca.0.load.i = load ptr, ptr %retval.i, align 8

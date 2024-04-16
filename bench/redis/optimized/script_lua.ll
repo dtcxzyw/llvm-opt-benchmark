@@ -1576,7 +1576,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
   %retval.0.i.i = phi i64 [ %8, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %for.body.i ]
   tail call void @lua_pushlstring(ptr noundef %lua, ptr noundef nonnull %3, i64 noundef %retval.0.i.i) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %9 = trunc i64 %indvars.iv.next.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   tail call void @lua_rawseti(ptr noundef %lua, i32 noundef -2, i32 noundef %9) #11
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %luaCreateArray.exit, label %for.body.i, !llvm.loop !12
@@ -1654,7 +1654,7 @@ sdslen.exit.i48:                                  ; preds = %sw.bb13.i.i46, %sw.
   %retval.0.i.i49 = phi i64 [ %18, %sw.bb13.i.i46 ], [ %conv12.i.i54, %sw.bb9.i.i52 ], [ %conv8.i.i57, %sw.bb5.i.i55 ], [ %conv4.i.i60, %sw.bb3.i.i58 ], [ %conv2.i.i63, %sw.bb.i.i61 ], [ 0, %for.body.i39 ]
   tail call void @lua_pushlstring(ptr noundef %lua, ptr noundef nonnull %13, i64 noundef %retval.0.i.i49) #11
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i40, 1
-  %19 = trunc i64 %indvars.iv.next.i50 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i50 to i32
   tail call void @lua_rawseti(ptr noundef %lua, i32 noundef -2, i32 noundef %19) #11
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i38
   br i1 %exitcond.not.i51, label %luaCreateArray.exit64, label %for.body.i39, !llvm.loop !12
@@ -2184,7 +2184,7 @@ if.end97:                                         ; preds = %if.end86, %if.end97
   %inc91 = add nuw nsw i32 %j.0121, 1
   tail call fastcc void @luaReplyToRedisReply(ptr noundef %c, ptr noundef %script_client, ptr noundef %lua)
   %inc98 = add nuw nsw i32 %mbulklen.0122, 1
-  %conv92 = sitofp i32 %inc91 to double
+  %conv92 = uitofp nneg i32 %inc91 to double
   tail call void @lua_pushnumber(ptr noundef %lua, double noundef %conv92) #11
   tail call void @lua_rawget(ptr noundef %lua, i32 noundef -2) #11
   %call93 = tail call i32 @lua_type(ptr noundef %lua, i32 noundef -1) #11
@@ -2556,7 +2556,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp18, label %if.else.for.end.loopexit_crit_edge, label %if.end22
 
 if.else.for.end.loopexit_crit_edge:               ; preds = %if.else
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre37.pre = load i32, ptr %argc, align 4
   br label %for.end
 

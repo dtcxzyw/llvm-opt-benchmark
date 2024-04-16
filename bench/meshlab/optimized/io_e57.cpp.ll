@@ -2148,7 +2148,7 @@ _ZN7QStringD2Ev.exit117:                          ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not87, label %264, label %238
 
 238:                                              ; preds = %_ZN7QStringD2Ev.exit117
-  %239 = trunc i64 %indvars.iv to i32
+  %239 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN11E57IOPlugin16extractMeshImageERKN3e576ReaderEib(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.138") align 8 %28, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %239, i1 noundef zeroext false)
           to label %240 unwind label %245
 
@@ -14075,8 +14075,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %56 = phi i32 [ %69, %.lr.ph29 ], [ %55, %.preheader ]
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
-  %59 = trunc i64 %indvars.iv32 to i32
-  %60 = sitofp i32 %59 to float
+  %59 = trunc nuw nsw i64 %indvars.iv32 to i32
+  %60 = uitofp nneg i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -14097,8 +14097,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %71 = phi i32 [ %84, %.lr.ph ], [ %55, %.preheader23 ]
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
-  %74 = trunc i64 %indvars.iv to i32
-  %75 = sitofp i32 %74 to float
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
+  %75 = uitofp nneg i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #25

@@ -253,7 +253,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %len to i8
+  %0 = trunc nuw nsw i64 %len to i8
   %conv = or disjoint i8 %0, -96
   store i8 %conv, ptr %hdr, align 1, !tbaa !4
   br label %if.end36
@@ -264,7 +264,7 @@ if.else:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.else
   store i8 -39, ptr %hdr, align 1, !tbaa !4
-  %conv5 = trunc i64 %len to i8
+  %conv5 = trunc nuw i64 %len to i8
   %hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %hdr, i64 1
   store i8 %conv5, ptr %hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.arrayidx6.sroa_idx, align 1, !tbaa !4
   br label %if.end36
@@ -276,7 +276,7 @@ if.else7:                                         ; preds = %if.else
 if.then10:                                        ; preds = %if.else7
   store i8 -38, ptr %hdr, align 1, !tbaa !4
   %shr = lshr i64 %len, 8
-  %conv13 = trunc i64 %shr to i8
+  %conv13 = trunc nuw i64 %shr to i8
   %hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %hdr, i64 1
   store i8 %conv13, ptr %hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.hdr.1.arrayidx14.sroa_idx, align 1, !tbaa !4
   %conv16 = trunc i64 %len to i8
@@ -533,7 +533,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %0 = trunc i64 %n to i8
+  %0 = trunc nuw nsw i64 %n to i8
   store i8 %0, ptr %b, align 1, !tbaa !4
   br label %if.end160
 
@@ -543,7 +543,7 @@ if.else:                                          ; preds = %if.then
 
 if.then5:                                         ; preds = %if.else
   store i8 -52, ptr %b, align 1, !tbaa !4
-  %conv8 = trunc i64 %n to i8
+  %conv8 = trunc nuw i64 %n to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx9.sroa_idx = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv8, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx9.sroa_idx, align 1, !tbaa !4
   br label %if.end160
@@ -555,7 +555,7 @@ if.else10:                                        ; preds = %if.else
 if.then13:                                        ; preds = %if.else10
   store i8 -51, ptr %b, align 1, !tbaa !4
   %and15 = lshr i64 %n, 8
-  %conv16 = trunc i64 %and15 to i8
+  %conv16 = trunc nuw i64 %and15 to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx17.sroa_idx = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv16, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx17.sroa_idx, align 1, !tbaa !4
   %conv19 = trunc i64 %n to i8
@@ -570,7 +570,7 @@ if.else21:                                        ; preds = %if.else10
 if.then24:                                        ; preds = %if.else21
   store i8 -50, ptr %b, align 1, !tbaa !4
   %and26 = lshr i64 %n, 24
-  %conv28 = trunc i64 %and26 to i8
+  %conv28 = trunc nuw i64 %and26 to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv28, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx29.sroa_idx, align 1, !tbaa !4
   %and30 = lshr i64 %n, 16
@@ -589,7 +589,7 @@ if.then24:                                        ; preds = %if.else21
 if.else41:                                        ; preds = %if.else21
   store i8 -49, ptr %b, align 1, !tbaa !4
   %shr44 = lshr i64 %n, 56
-  %conv45 = trunc i64 %shr44 to i8
+  %conv45 = trunc nuw nsw i64 %shr44 to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx29.sroa_idx20 = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv45, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx29.sroa_idx20, align 1, !tbaa !4
   %and47 = lshr i64 %n, 48
@@ -626,7 +626,7 @@ if.else77:                                        ; preds = %entry
   br i1 %cmp78, label %if.then80, label %if.else83
 
 if.then80:                                        ; preds = %if.else77
-  %conv81 = trunc i64 %n to i8
+  %conv81 = trunc nsw i64 %n to i8
   store i8 %conv81, ptr %b, align 1, !tbaa !4
   br label %if.end160
 
@@ -636,7 +636,7 @@ if.else83:                                        ; preds = %if.else77
 
 if.then86:                                        ; preds = %if.else83
   store i8 -48, ptr %b, align 1, !tbaa !4
-  %conv89 = trunc i64 %n to i8
+  %conv89 = trunc nsw i64 %n to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx90.sroa_idx = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv89, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx90.sroa_idx, align 1, !tbaa !4
   br label %if.end160
@@ -682,7 +682,7 @@ if.then106:                                       ; preds = %if.else103
 if.else123:                                       ; preds = %if.else103
   store i8 -45, ptr %b, align 1, !tbaa !4
   %shr126 = lshr i64 %n, 56
-  %conv127 = trunc i64 %shr126 to i8
+  %conv127 = trunc nuw i64 %shr126 to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx111.sroa_idx21 = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv127, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx111.sroa_idx21, align 1, !tbaa !4
   %and129 = lshr i64 %n, 48
@@ -781,7 +781,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %n to i8
+  %0 = trunc nuw nsw i64 %n to i8
   %conv = or disjoint i8 %0, -112
   store i8 %conv, ptr %b, align 1, !tbaa !4
   br label %if.end28
@@ -793,7 +793,7 @@ if.else:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.else
   store i8 -36, ptr %b, align 1, !tbaa !4
   %shr = lshr i64 %n, 8
-  %conv6 = trunc i64 %shr to i8
+  %conv6 = trunc nuw i64 %shr to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv6, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx7.sroa_idx, align 1, !tbaa !4
   %conv9 = trunc i64 %n to i8
@@ -887,7 +887,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %0 = trunc i64 %n to i8
+  %0 = trunc nuw nsw i64 %n to i8
   %conv = or disjoint i8 %0, -128
   store i8 %conv, ptr %b, align 1, !tbaa !4
   br label %if.end28
@@ -899,7 +899,7 @@ if.else:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.else
   store i8 -34, ptr %b, align 1, !tbaa !4
   %shr = lshr i64 %n, 8
-  %conv6 = trunc i64 %shr to i8
+  %conv6 = trunc nuw i64 %shr to i8
   %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %b, i64 1
   store i8 %conv6, ptr %b.1.b.1.b.1.b.1.b.1.b.1.b.1.arrayidx7.sroa_idx, align 1, !tbaa !4
   %conv9 = trunc i64 %n to i8
@@ -1612,7 +1612,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %if.end, %while.body.lr.ph
   %dec10.in = phi i64 [ %len, %while.body.lr.ph ], [ %dec10, %if.end ]
   %index.09 = phi i32 [ 1, %while.body.lr.ph ], [ %inc, %if.end ]
-  %conv = sitofp i32 %index.09 to double
+  %conv = uitofp nneg i32 %index.09 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #9
   tail call void @mp_decode_to_lua_type(ptr noundef %L, ptr noundef %c)
   %0 = load i32, ptr %err, align 8, !tbaa !22

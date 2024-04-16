@@ -620,7 +620,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 347:                                              ; preds = %341, %335, %321
   %348 = phi float [ %340, %335 ], [ %346, %341 ], [ 1.000000e+00, %321 ]
-  %349 = sitofp i32 %314 to float
+  %349 = uitofp nneg i32 %314 to float
   %350 = insertelement <2 x float> poison, float %349, i64 0
   %351 = insertelement <2 x float> %350, float %316, i64 1
   %352 = fmul reassoc nsz arcp contract afn <2 x float> %351, %295
@@ -1750,7 +1750,7 @@ define internal fastcc void @blur_line(ptr noundef %0, i32 noundef %1, i32 nound
   %41 = shl nuw nsw i64 %40, 4
   %42 = and i64 %36, 4294967288
   %43 = mul nsw i64 %42, %12
-  %44 = trunc i64 %42 to i32
+  %44 = trunc nuw i64 %42 to i32
   %45 = or disjoint i32 %44, 2
   %46 = getelementptr %struct.dt_iop_colorreconstruct_Lab_t, ptr %0, i64 %12
   %47 = icmp eq i64 %42, %36

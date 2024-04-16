@@ -656,7 +656,7 @@ float8_lt.exit.thread:                            ; preds = %102, %109, %float8_
   br i1 %110, label %97, label %.critedge, !llvm.loop !9
 
 111:                                              ; preds = %97
-  %112 = trunc i64 %indvars.iv to i32
+  %112 = trunc nsw i64 %indvars.iv to i32
   %sext374 = shl i64 %indvars.iv, 32
   %113 = ashr exact i64 %sext374, 32
   %114 = getelementptr %struct.SplitInterval, ptr %15, i64 %113
@@ -685,7 +685,7 @@ float8_lt.exit.thread:                            ; preds = %102, %109, %float8_
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph321.split, !llvm.loop !10
 
 .critedge2.loopexit.split.loop.exit383:           ; preds = %.lr.ph321.split
-  %123 = trunc i64 %indvars.iv365 to i32
+  %123 = trunc nsw i64 %indvars.iv365 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %122, %.critedge2.loopexit.split.loop.exit383, %.lr.ph321, %111
@@ -739,12 +739,12 @@ float8_gt.exit:                                   ; preds = %135
 float8_gt.exit.thread:                            ; preds = %135, %141, %float8_gt.exit
   %.3231 = phi double [ %136, %141 ], [ %.2230328, %float8_gt.exit ], [ %.2230328, %135 ]
   %indvars.iv.next369 = add nsw i64 %indvars.iv368, -1
-  %142 = trunc i64 %indvars.iv368 to i32
+  %142 = trunc nuw i64 %indvars.iv368 to i32
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %129, label %._crit_edge332, !llvm.loop !11
 
 .critedge4:                                       ; preds = %129
-  %144 = trunc i64 %indvars.iv368 to i32
+  %144 = trunc nuw i64 %indvars.iv368 to i32
   %145 = and i64 %indvars.iv368, 4294967295
   %146 = getelementptr %struct.SplitInterval, ptr %16, i64 %145, i32 1
   %147 = load double, ptr %146, align 8
@@ -770,7 +770,7 @@ float8_gt.exit.thread:                            ; preds = %135, %141, %float8_
   br i1 %156, label %.lr.ph335, label %.critedge6, !llvm.loop !12
 
 .critedge6.loopexit.split.loop.exit385:           ; preds = %.lr.ph335
-  %157 = trunc i64 %indvars.iv371 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv371 to i32
   br label %.critedge6
 
 .critedge6:                                       ; preds = %155, %.critedge6.loopexit.split.loop.exit385, %.critedge4
@@ -1267,7 +1267,7 @@ adjustBox.exit270:                                ; preds = %390, %float8_gt.exi
   br i1 %400, label %401, label %.loopexit
 
 401:                                              ; preds = %._crit_edge349
-  %402 = sitofp i32 %11 to double
+  %402 = uitofp nneg i32 %11 to double
   %403 = fmul double %402, 3.000000e-01
   %404 = tail call double @llvm.ceil.f64(double %403)
   %405 = fptosi double %404 to i32

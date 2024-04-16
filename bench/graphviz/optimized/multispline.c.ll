@@ -220,13 +220,13 @@ bbox.exit:                                        ; preds = %gv_alloc.exit, %._c
   %indvars.iv178 = phi i64 [ %64, %.lr.ph.preheader ], [ %71, %.lr.ph ]
   %indvars.iv176 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next177, %.lr.ph ]
   %66 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv180
-  %67 = trunc i64 %indvars.iv178 to i32
+  %67 = trunc nsw i64 %indvars.iv178 to i32
   store i32 %67, ptr %66, align 4
   %68 = load i32, ptr %62, align 8
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv176, %69
   %71 = add nsw i64 %indvars.iv178, 1
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nsw i64 %71 to i32
   %.085138.sink = select i1 %70, i32 %72, i32 %.085138
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv180
   store i32 %.085138.sink, ptr %gep, align 4
@@ -243,8 +243,8 @@ bbox.exit:                                        ; preds = %gv_alloc.exit, %._c
   br i1 %.not.not, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %79 = trunc i64 %indvars.iv.next181 to i32
-  %80 = trunc i64 %71 to i32
+  %79 = trunc nsw i64 %indvars.iv.next181 to i32
+  %80 = trunc nsw i64 %71 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph141
@@ -443,7 +443,7 @@ gv_alloc.exit.i:                                  ; preds = %mapSegToTri.exit
   %179 = load ptr, ptr %152, align 8
   %180 = mul nuw nsw i64 %indvars.iv102.i, 3
   %181 = getelementptr inbounds i32, ptr %179, i64 %180
-  %182 = trunc i64 %indvars.iv102.i to i32
+  %182 = trunc nuw nsw i64 %indvars.iv102.i to i32
   br label %183
 
 183:                                              ; preds = %320, %176
@@ -1295,7 +1295,7 @@ edgeToSeg.exit.i:                                 ; preds = %271, %284, %._crit_
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %284 ], [ 0, %._crit_edge.i67 ], [ 0, %271 ]
   %.sroa.0158.0.extract.trunc168.i = trunc i64 %.sroa.0.0.i.i to i32
   %.sroa.12.0.extract.shift169.i = lshr i64 %.sroa.0.0.i.i, 32
-  %.sroa.12.0.extract.trunc170.i = trunc i64 %.sroa.12.0.extract.shift169.i to i32
+  %.sroa.12.0.extract.trunc170.i = trunc nuw i64 %.sroa.12.0.extract.shift169.i to i32
   %286 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #20
   %287 = icmp eq ptr %286, null
   br i1 %287, label %288, label %addTri.exit.i
@@ -1389,7 +1389,7 @@ edgeToSeg.exit234.i:                              ; preds = %311, %324, %303
   %.sroa.0.0.i232.i = phi i64 [ %.sroa.0.0.copyload.i233.i, %324 ], [ 0, %303 ], [ 0, %311 ]
   %.sroa.0158.0.extract.trunc.i = trunc i64 %.sroa.0.0.i232.i to i32
   %.sroa.12.0.extract.shift.i = lshr i64 %.sroa.0.0.i232.i, 32
-  %.sroa.12.0.extract.trunc.i = trunc i64 %.sroa.12.0.extract.shift.i to i32
+  %.sroa.12.0.extract.trunc.i = trunc nuw i64 %.sroa.12.0.extract.shift.i to i32
   %326 = sext i32 %.0220284.i to i64
   %327 = getelementptr %struct.side_t, ptr %259, i64 %326
   %328 = getelementptr i8, ptr %327, i64 -16
@@ -1748,7 +1748,7 @@ addTri.exit248.i:                                 ; preds = %addTri.exit247.i
   %495 = load i32, ptr %494, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   store i32 %495, ptr %490, align 8
-  %496 = trunc i64 %indvars.iv313.i to i32
+  %496 = trunc nuw nsw i64 %indvars.iv313.i to i32
   store i32 %496, ptr %491, align 4
   %497 = load ptr, ptr %477, align 8
   %498 = call ptr %497(ptr noundef nonnull %477, ptr noundef nonnull %14, i32 noundef 1) #19
@@ -1798,7 +1798,7 @@ addTri.exit248.i:                                 ; preds = %addTri.exit247.i
   %513 = load i32, ptr %512, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   store i32 %513, ptr %507, align 8
-  %514 = trunc i64 %indvars.iv.next321.i to i32
+  %514 = trunc nuw i64 %indvars.iv.next321.i to i32
   store i32 %514, ptr %508, align 4
   %515 = load ptr, ptr %477, align 8
   %516 = call ptr %515(ptr noundef nonnull %477, ptr noundef nonnull %13, i32 noundef 1) #19
@@ -2089,7 +2089,7 @@ mkPoly.exit:                                      ; preds = %538
   br i1 %exitcond.not.i.i.i, label %mkCtrlPts.exit.thread.i, label %677
 
 683:                                              ; preds = %680
-  %684 = trunc i64 %indvars.iv.i.i.i to i32
+  %684 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %685 = call fastcc ptr @gv_calloc(i64 noundef %649, i64 noundef 16)
   %686 = fsub double %671, %676
   %687 = fsub double %669, %675
@@ -2200,8 +2200,8 @@ triPoint.exit.i.i:                                ; preds = %raySegIntersect.exi
 
 .lr.ph107.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph107.i.i
   %indvars.iv113.i.i = phi i64 [ %indvars.iv.next114.i.i, %.lr.ph107.i.i ], [ 0, %.preheader.i.i ]
-  %744 = trunc i64 %indvars.iv113.i.i to i32
-  %745 = sitofp i32 %744 to double
+  %744 = trunc nuw nsw i64 %indvars.iv113.i.i to i32
+  %745 = uitofp nneg i32 %744 to double
   %746 = fmul double %.090.i.i, %745
   %747 = getelementptr inbounds %struct.pointf_s, ptr %685, i64 %indvars.iv113.i.i
   %748 = insertelement <2 x double> poison, double %746, i64 0
@@ -2214,8 +2214,8 @@ triPoint.exit.i.i:                                ; preds = %raySegIntersect.exi
 
 .lr.ph.i.i83:                                     ; preds = %.lr.ph.i.i83, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i83 ]
-  %751 = trunc i64 %indvars.iv.i.i to i32
-  %752 = sitofp i32 %751 to double
+  %751 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %752 = uitofp nneg i32 %751 to double
   %753 = fmul double %.090.i.i, %752
   %754 = xor i64 %indvars.iv.i.i, -1
   %gep.i.i = getelementptr %struct.pointf_s, ptr %invariant.gep.i.i, i64 %754
@@ -2663,7 +2663,7 @@ define internal fastcc void @addEndpoint(ptr nocapture noundef readonly %0, doub
   %.sroa.5.0 = select i1 %73, i32 %74, i32 %11
   %75 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %76 = trunc i64 %indvars.iv to i32
+  %76 = trunc nsw i64 %indvars.iv to i32
   %spec.select.i = call i32 @llvm.smax.i32(i32 %76, i32 %.sroa.5.0)
   %spec.select13.i = call i32 @llvm.smin.i32(i32 %76, i32 %.sroa.5.0)
   store i32 %spec.select13.i, ptr %68, align 8

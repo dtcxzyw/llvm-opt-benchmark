@@ -57,7 +57,7 @@ define void @Abc_NtkDelayTraceSortPins(ptr nocapture noundef readonly %0, ptr no
   %14 = getelementptr inbounds ptr, ptr %.val45.val.val, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4
   %.val47 = load ptr, ptr %15, align 8
   %18 = getelementptr i8, ptr %15, i64 16
@@ -86,7 +86,7 @@ define void @Abc_NtkDelayTraceSortPins(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %27 = sext i32 %.val4270 to i64
   %28 = icmp slt i64 %indvars.iv.next67, %27
-  %29 = trunc i64 %indvars.iv66 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv66 to i32
   br i1 %28, label %.lr.ph53.preheader, label %._crit_edge
 
 .lr.ph53.preheader:                               ; preds = %.lr.ph57
@@ -108,7 +108,7 @@ define void @Abc_NtkDelayTraceSortPins(ptr nocapture noundef readonly %0, ptr no
   %39 = getelementptr inbounds float, ptr %2, i64 %38
   %40 = load float, ptr %39, align 4
   %41 = fcmp ogt float %34, %40
-  %42 = trunc i64 %indvars.iv63 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv63 to i32
   %.140 = select i1 %41, i32 %42, i32 %.03952
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
@@ -382,7 +382,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %118 = getelementptr inbounds ptr, ptr %.val45.val.val.i, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
-  %121 = trunc i64 %indvars.iv.i to i32
+  %121 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %121, ptr %120, align 4
   %.val47.i = load ptr, ptr %119, align 8
   %122 = getelementptr i8, ptr %119, i64 16
@@ -404,7 +404,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.critedge.i ], [ 1, %.lr.ph57.i.preheader ]
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %129 = icmp ult i64 %indvars.iv.next67.i, %111
-  %130 = trunc i64 %indvars.iv66.i to i32
+  %130 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br i1 %129, label %.lr.ph53.i, label %._crit_edge.i
 
 .lr.ph53.i:                                       ; preds = %.lr.ph57.i, %.lr.ph53.i
@@ -422,7 +422,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %140 = getelementptr inbounds float, ptr %4, i64 %139
   %141 = load float, ptr %140, align 4
   %142 = fcmp ogt float %135, %141
-  %143 = trunc i64 %indvars.iv63.i to i32
+  %143 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %.140.i = select i1 %142, i32 %143, i32 %.03952.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next64.i, %111
@@ -802,7 +802,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %318 = getelementptr inbounds ptr, ptr %.val45.val.val.i315, i64 %317
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i311
-  %321 = trunc i64 %indvars.iv.i311 to i32
+  %321 = trunc nuw nsw i64 %indvars.iv.i311 to i32
   store i32 %321, ptr %320, align 4
   %.val47.i316 = load ptr, ptr %319, align 8
   %322 = getelementptr i8, ptr %319, i64 16
@@ -824,7 +824,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %indvars.iv61.i325 = phi i64 [ %indvars.iv.next62.i332, %.critedge.i330 ], [ 1, %.lr.ph57.i322.preheader ]
   %indvars.iv.next67.i326 = add nuw nsw i64 %indvars.iv66.i324, 1
   %329 = icmp ult i64 %indvars.iv.next67.i326, %311
-  %330 = trunc i64 %indvars.iv66.i324 to i32
+  %330 = trunc nuw nsw i64 %indvars.iv66.i324 to i32
   br i1 %329, label %.lr.ph53.i335, label %._crit_edge.i327
 
 .lr.ph53.i335:                                    ; preds = %.lr.ph57.i322, %.lr.ph53.i335
@@ -842,7 +842,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %340 = getelementptr inbounds float, ptr %4, i64 %339
   %341 = load float, ptr %340, align 4
   %342 = fcmp ogt float %335, %341
-  %343 = trunc i64 %indvars.iv63.i336 to i32
+  %343 = trunc nuw nsw i64 %indvars.iv63.i336 to i32
   %.140.i338 = select i1 %342, i32 %343, i32 %.03952.i337
   %indvars.iv.next64.i339 = add nuw nsw i64 %indvars.iv63.i336, 1
   %exitcond.not.i340 = icmp eq i64 %indvars.iv.next64.i339, %311
@@ -1110,9 +1110,9 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %.val55.us = load i32, ptr %62, align 4
   %68 = sitofp i32 %.val55.us to double
   %69 = fdiv double %67, %68
-  %70 = trunc i64 %indvars.iv.next69 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.next69 to i32
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %70, ptr noundef nonnull %61, i32 noundef %65, double noundef %69)
-  %72 = sitofp i32 %70 to float
+  %72 = uitofp nneg i32 %70 to float
   %73 = fcmp ogt float %18, %72
   br i1 %73, label %.lr.ph62.split.us, label %._crit_edge.thread, !llvm.loop !20
 
@@ -1122,7 +1122,7 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %74 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv65
   %75 = load i32, ptr %74, align 4
   %76 = add nsw i32 %75, %.04360
-  %77 = trunc i64 %indvars.iv65 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv65 to i32
   %78 = mul i32 %77, 5
   %79 = add i32 %78, 5
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
@@ -1132,8 +1132,8 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %82 = sitofp i32 %.val55 to double
   %83 = fdiv double %81, %82
   %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %79, ptr noundef nonnull %61, i32 noundef %76, double noundef %83)
-  %85 = trunc i64 %indvars.iv.next66 to i32
-  %86 = sitofp i32 %85 to float
+  %85 = trunc nuw i64 %indvars.iv.next66 to i32
+  %86 = uitofp nneg i32 %85 to float
   %87 = fcmp ogt float %18, %86
   br i1 %87, label %.lr.ph62.split, label %._crit_edge.thread, !llvm.loop !20
 
@@ -1655,7 +1655,7 @@ Vec_PtrFree.exit:                                 ; preds = %87, %89
   br i1 %97, label %.critedge6.preheader168, label %.critedge8.preheader
 
 .critedge6.preheader168:                          ; preds = %.critedge6.preheader
-  %98 = trunc i64 %indvars.iv187 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv187 to i32
   br label %.critedge6
 
 .lr.ph149:                                        ; preds = %.preheader, %.lr.ph149
@@ -1690,7 +1690,7 @@ Vec_PtrFree.exit:                                 ; preds = %87, %89
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr @Abc_AigConst1(ptr noundef %1) #13
   %115 = ptrtoint ptr %114 to i64
-  %116 = trunc i64 %indvars.iv181 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv181 to i32
   %117 = shl nuw i32 1, %116
   %118 = and i32 %117, %98
   %119 = icmp eq i32 %118, 0
@@ -1803,7 +1803,7 @@ Vec_PtrFree.exit139:                              ; preds = %._crit_edge, %173
   %.val116.us = load ptr, ptr %175, align 8
   %178 = getelementptr inbounds ptr, ptr %.val116.us, i64 %indvars.iv195
   %179 = load ptr, ptr %178, align 8
-  %180 = trunc i64 %indvars.iv195 to i32
+  %180 = trunc nuw nsw i64 %indvars.iv195 to i32
   %181 = shl nuw i32 1, %180
   %182 = getelementptr inbounds i8, ptr %179, i64 64
   %183 = shl i32 2, %180
@@ -1949,7 +1949,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %39 = fadd double %38, 1.000000e+00
   %40 = fadd double %39, %25
   %41 = fcmp ogt double %40, %24
-  %42 = trunc i64 %indvars.iv95 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv95 to i32
   %43 = shl nuw i32 1, %42
   %44 = select i1 %41, i32 %43, i32 0
   %.148 = or i32 %44, %.04781
@@ -2003,7 +2003,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %70 = fadd float %69, %57
   %71 = fadd float %70, %2
   %72 = fcmp olt float %17, %71
-  %73 = trunc i64 %indvars.iv90 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv90 to i32
   %74 = shl nuw i32 1, %73
   %75 = select i1 %72, i32 %74, i32 0
   %.3 = or i32 %75, %.24977
@@ -2048,7 +2048,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %92 = getelementptr inbounds ptr, ptr %.val45.val.val.i, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
-  %95 = trunc i64 %indvars.iv.i to i32
+  %95 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %95, ptr %94, align 4
   %.val47.i = load ptr, ptr %93, align 8
   %96 = getelementptr i8, ptr %93, i64 16
@@ -2070,7 +2070,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.critedge.i ], [ 1, %.lr.ph57.i.preheader ]
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %103 = icmp ult i64 %indvars.iv.next67.i, %85
-  %104 = trunc i64 %indvars.iv66.i to i32
+  %104 = trunc nuw nsw i64 %indvars.iv66.i to i32
   br i1 %103, label %.lr.ph53.i, label %._crit_edge.i
 
 .lr.ph53.i:                                       ; preds = %.lr.ph57.i, %.lr.ph53.i
@@ -2088,7 +2088,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %114 = getelementptr inbounds float, ptr %6, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = fcmp ogt float %109, %115
-  %117 = trunc i64 %indvars.iv63.i to i32
+  %117 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %.140.i = select i1 %116, i32 %117, i32 %.03952.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next64.i, %85
@@ -2479,7 +2479,7 @@ define ptr @Abc_NtkSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 166:                                              ; preds = %158
   %167 = load i32, ptr %157, align 4
-  %168 = trunc i64 %indvars.iv426 to i32
+  %168 = trunc nuw nsw i64 %indvars.iv426 to i32
   %169 = lshr i32 %167, %168
   %170 = and i32 %169, 1
   %spec.select = add nsw i32 %170, %.0388
@@ -2534,7 +2534,7 @@ define ptr @Abc_NtkSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds i32, ptr %calloc, i64 %188
   %190 = load i32, ptr %189, align 4
-  %191 = trunc i64 %indvars.iv434 to i32
+  %191 = trunc nuw nsw i64 %indvars.iv434 to i32
   %192 = shl nuw i32 1, %191
   %193 = and i32 %190, %192
   %.not245 = icmp eq i32 %193, 0
@@ -2569,7 +2569,7 @@ define ptr @Abc_NtkSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %calloc, i64 %207
   %209 = load i32, ptr %208, align 4
-  %210 = trunc i64 %indvars.iv431 to i32
+  %210 = trunc nuw nsw i64 %indvars.iv431 to i32
   %211 = shl nuw i32 1, %210
   %212 = and i32 %209, %211
   %.not246 = icmp eq i32 %212, 0
@@ -2892,7 +2892,7 @@ Vec_PtrPushUnique.exit349:                        ; preds = %284, %Vec_PtrPush.e
   %341 = sext i32 %340 to i64
   %342 = getelementptr inbounds i32, ptr %calloc, i64 %341
   %343 = load i32, ptr %342, align 4
-  %344 = trunc i64 %indvars.iv443 to i32
+  %344 = trunc nuw nsw i64 %indvars.iv443 to i32
   %345 = shl nuw i32 1, %344
   %346 = and i32 %343, %345
   %.not242 = icmp eq i32 %346, 0
@@ -3587,7 +3587,7 @@ define void @Abc_NtkPowerPrint(ptr nocapture noundef readonly %0, ptr nocapture 
   %96 = sitofp i32 %95 to double
   %97 = fmul double %96, 1.000000e+02
   %98 = fdiv double %97, %.048.lcssa
-  %99 = trunc i64 %indvars.iv110 to i32
+  %99 = trunc nuw nsw i64 %indvars.iv110 to i32
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %99, i32 noundef %indvars, double noundef %98)
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, 6
   br i1 %exitcond113.not, label %101, label %93, !llvm.loop !50
@@ -3607,7 +3607,7 @@ define void @Abc_NtkPowerPrint(ptr nocapture noundef readonly %0, ptr nocapture 
   %107 = fpext float %106 to double
   %108 = fmul double %107, 1.000000e+02
   %109 = fdiv double %108, %103
-  %110 = trunc i64 %indvars.iv114 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv114 to i32
   %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %110, i32 noundef %indvars116, double noundef %109)
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, 6
   br i1 %exitcond118.not, label %112, label %104, !llvm.loop !51
@@ -3658,7 +3658,7 @@ define i32 @Abc_NtkPowerCriticalEdges(ptr nocapture noundef readnone %0, ptr noc
   %21 = getelementptr inbounds float, ptr %6, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp ult float %22, %2
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = shl nuw i32 1, %24
   %26 = select i1 %23, i32 0, i32 %25
   %.1 = or i32 %26, %.01114
@@ -3758,7 +3758,7 @@ define ptr @Abc_NtkPowerdown(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %51 = getelementptr inbounds float, ptr %13, i64 %50
   %52 = load float, ptr %51, align 4
   %53 = fcmp ult float %52, %10
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   %55 = shl nuw i32 1, %54
   %56 = select i1 %53, i32 0, i32 %55
   %.1.i = or i32 %56, %.01114.i
@@ -3859,7 +3859,7 @@ Abc_NtkPowerCriticalEdges.exit:                   ; preds = %42, %36
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i32, ptr %calloc, i64 %97
   %99 = load i32, ptr %98, align 4
-  %100 = trunc i64 %indvars.iv338 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv338 to i32
   %101 = lshr i32 %99, %100
   %102 = and i32 %101, 1
   %spec.select = add nsw i32 %102, %.0310
@@ -3915,7 +3915,7 @@ Abc_NtkPowerCriticalEdges.exit:                   ; preds = %42, %36
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i32, ptr %calloc, i64 %121
   %123 = load i32, ptr %122, align 4
-  %124 = trunc i64 %indvars.iv346 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv346 to i32
   %125 = shl nuw i32 1, %124
   %126 = and i32 %123, %125
   %.not209 = icmp eq i32 %126, 0
@@ -3950,7 +3950,7 @@ Abc_NtkPowerCriticalEdges.exit:                   ; preds = %42, %36
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i32, ptr %calloc, i64 %140
   %142 = load i32, ptr %141, align 4
-  %143 = trunc i64 %indvars.iv343 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv343 to i32
   %144 = shl nuw i32 1, %143
   %145 = and i32 %142, %144
   %.not210 = icmp eq i32 %145, 0
@@ -4269,7 +4269,7 @@ Vec_PtrPushUnique.exit288:                        ; preds = %217, %Vec_PtrPush.e
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds i32, ptr %calloc, i64 %272
   %274 = load i32, ptr %273, align 4
-  %275 = trunc i64 %indvars.iv355 to i32
+  %275 = trunc nuw nsw i64 %indvars.iv355 to i32
   %276 = shl nuw i32 1, %275
   %277 = and i32 %274, %276
   %.not206 = icmp eq i32 %277, 0

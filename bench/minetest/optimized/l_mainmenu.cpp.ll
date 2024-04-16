@@ -3385,7 +3385,7 @@ lpad52:                                           ; preds = %invoke.cont51
 for.body64:                                       ; preds = %invoke.cont53, %invoke.cont71
   %__begin2.sroa.0.0166 = phi ptr [ %__begin2.sroa.0.0, %invoke.cont71 ], [ %__begin2.sroa.0.0163, %invoke.cont53 ]
   %internal_index.0165 = phi i32 [ %inc, %invoke.cont71 ], [ 1, %invoke.cont53 ]
-  %conv66 = sitofp i32 %internal_index.0165 to double
+  %conv66 = uitofp nneg i32 %internal_index.0165 to double
   invoke void @lua_pushnumber(ptr noundef %L, double noundef %conv66)
           to label %invoke.cont68 unwind label %lpad67
 

@@ -108,7 +108,7 @@ define ptr @Nwk_ManStrashNode(ptr noundef %0, ptr nocapture noundef readonly %1)
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %25) #6
   store ptr %24, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -268,12 +268,12 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %75 = getelementptr i8, ptr %74, i64 24
   %.val56 = load i64, ptr %75, align 8
   %76 = lshr i64 %.val56, 32
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   %78 = and i32 %77, 16777215
   %79 = load ptr, ptr %23, align 8
   %80 = load i32, ptr %48, align 8
   %81 = lshr i32 %80, 7
-  %82 = sitofp i32 %78 to float
+  %82 = uitofp nneg i32 %78 to float
   tail call void @Tim_ManSetCoArrival(ptr noundef %79, i32 noundef %81, float noundef %82) #6
   br label %113
 
@@ -309,7 +309,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
 101:                                              ; preds = %.lr.ph.i
   %102 = getelementptr inbounds i8, ptr %100, i64 16
   %103 = load ptr, ptr %102, align 8
-  %104 = trunc i64 %indvars.iv.i to i32
+  %104 = trunc nuw nsw i64 %indvars.iv.i to i32
   %105 = tail call ptr @Hop_IthVar(ptr noundef %86, i32 noundef %104) #6
   store ptr %103, ptr %105, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -2228,7 +2228,7 @@ _ZN7testing15AssertionResultD2Ev.exit127:         ; preds = %if.end120, %_ZNKSt1
 
 for.cond126.preheader:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit127, %for.inc153
   %i.0151 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit127 ], [ %inc, %for.inc153 ]
-  %conv = sitofp i32 %i.0151 to double
+  %conv = uitofp nneg i32 %i.0151 to double
   br label %for.body128
 
 for.body128:                                      ; preds = %for.cond126.preheader, %_ZN7testing15AssertionResultD2Ev.exit148
@@ -2806,7 +2806,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %num.054 = phi i64 [ %conv.lcssa, %for.cond.preheader ], [ %div, %for.body ]
   %dec14 = add nsw i64 %pos.055, -1
   %rem = srem i64 %num.054, 10
-  %3 = trunc i64 %rem to i8
+  %3 = trunc nsw i64 %rem to i8
   %conv16 = add nsw i8 %3, 48
   %arrayidx = getelementptr inbounds [1105 x i8], ptr %buf, i64 0, i64 %dec14
   store i8 %conv16, ptr %arrayidx, align 1
@@ -2840,7 +2840,7 @@ for.body24:                                       ; preds = %for.cond22.preheade
   %add28 = add nsw i32 %mul27, %carry.057
   %div29 = sdiv i32 %add28, 10
   %rem30 = srem i32 %add28, 10
-  %6 = trunc i32 %rem30 to i8
+  %6 = trunc nsw i32 %rem30 to i8
   %conv32 = add nsw i8 %6, 48
   store i8 %conv32, ptr %incdec.ptr58, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr58, i64 -1
@@ -5197,7 +5197,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ -100, %entry ], [ %indvars.iv.next, %for.body ]
-  %0 = trunc i64 %indvars.iv to i32
+  %0 = trunc nsw i64 %indvars.iv to i32
   tail call fastcc void @_ZN12_GLOBAL__N_110CheckInt32Ei(i32 noundef %0)
   tail call fastcc void @_ZN12_GLOBAL__N_110CheckInt64El(i64 noundef %indvars.iv)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -5206,7 +5206,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.body5:                                        ; preds = %for.body, %for.body5
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %for.body5 ], [ 0, %for.body ]
-  %1 = trunc i64 %indvars.iv13 to i32
+  %1 = trunc nuw nsw i64 %indvars.iv13 to i32
   tail call fastcc void @_ZN12_GLOBAL__N_111CheckUInt32Ej(i32 noundef %1)
   tail call fastcc void @_ZN12_GLOBAL__N_111CheckUInt64Em(i64 noundef %indvars.iv13)
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
@@ -7135,7 +7135,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %for.body.i.i.i.i
   %or.i.i.i.i = or i64 %v, 1
   %4 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !71
-  %div.neg5.lhs.trunc.i.i.i.i = trunc i64 %4 to i32
+  %div.neg5.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %4 to i32
   %div.neg567.i.i.i.i = lshr i32 %div.neg5.lhs.trunc.i.i.i.i, 2
   %narrow.i.i.i.i = sub nuw nsw i32 16, %div.neg567.i.i.i.i
   %sub3.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
@@ -7632,7 +7632,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -7819,7 +7819,7 @@ if.end16.i:                                       ; preds = %if.end12.i
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
   %retval.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add11.i, %if.then10.i ], [ %add15.i, %if.then14.i ], [ 1, %entry ], [ %add17.i, %if.end16.i ]
   %__val.lobit = lshr i64 %__val, 63
-  %conv = trunc i64 %__val.lobit to i32
+  %conv = trunc nuw nsw i64 %__val.lobit to i32
   %add2 = add i32 %retval.0.i, %conv
   %conv3 = zext i32 %add2 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #27
@@ -7892,7 +7892,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -8125,7 +8125,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -8264,7 +8264,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -12612,7 +12612,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i1009
   %not.i.i = xor i128 %coerce.sroa.0.0.insert.insert.i.i, -1
   %coerce1.sroa.0.0.extract.trunc.i.i = trunc i128 %not.i.i to i64
   %coerce1.sroa.2.0.extract.shift.i.i = lshr i128 %not.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i.i, ptr %x.i995, align 16
   %363 = getelementptr inbounds i8, ptr %x.i995, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i.i, ptr %363, align 8
@@ -12893,7 +12893,7 @@ invoke.cont58.i1074:                              ; preds = %_ZNKSt14default_del
   %not.i57.i = xor i128 %coerce.sroa.0.0.insert.insert.i56.i, -1
   %coerce1.sroa.0.0.extract.trunc.i58.i = trunc i128 %not.i57.i to i64
   %coerce1.sroa.2.0.extract.shift.i59.i = lshr i128 %not.i57.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i60.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i59.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i60.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i59.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i58.i, ptr %x.i995, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i60.i, ptr %363, align 8
   %call63.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i993) #27
@@ -13508,7 +13508,7 @@ invoke.cont3.i1199:                               ; preds = %invoke.cont.i1195
   %not.i.i1206 = xor i128 %coerce.sroa.0.0.insert.insert.i.i1205, -1
   %coerce1.sroa.0.0.extract.trunc.i.i1207 = trunc i128 %not.i.i1206 to i64
   %coerce1.sroa.2.0.extract.shift.i.i1208 = lshr i128 %not.i.i1206, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i1209 = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i1208 to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i1209 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i1208 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i.i1207, ptr %x.i1170, align 16
   %437 = getelementptr inbounds i8, ptr %x.i1170, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i.i1209, ptr %437, align 8
@@ -13789,7 +13789,7 @@ invoke.cont58.i1312:                              ; preds = %_ZNKSt14default_del
   %not.i57.i1319 = xor i128 %coerce.sroa.0.0.insert.insert.i56.i1318, -1
   %coerce1.sroa.0.0.extract.trunc.i58.i1320 = trunc i128 %not.i57.i1319 to i64
   %coerce1.sroa.2.0.extract.shift.i59.i1321 = lshr i128 %not.i57.i1319, 64
-  %coerce1.sroa.2.0.extract.trunc.i60.i1322 = trunc i128 %coerce1.sroa.2.0.extract.shift.i59.i1321 to i64
+  %coerce1.sroa.2.0.extract.trunc.i60.i1322 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i59.i1321 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i58.i1320, ptr %x.i1170, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i60.i1322, ptr %437, align 8
   %call63.i1323 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1168) #27
@@ -14114,7 +14114,7 @@ invoke.cont3.i1441:                               ; preds = %invoke.cont.i1437
   %not.i.i1448 = xor i128 %coerce.sroa.0.0.insert.insert.i.i1447, -1
   %coerce1.sroa.0.0.extract.trunc.i.i1449 = trunc i128 %not.i.i1448 to i64
   %coerce1.sroa.2.0.extract.shift.i.i1450 = lshr i128 %not.i.i1448, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i1451 = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i1450 to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i1451 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i1450 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i.i1449, ptr %x.i1412, align 16
   %488 = getelementptr inbounds i8, ptr %x.i1412, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i.i1451, ptr %488, align 8
@@ -14395,7 +14395,7 @@ invoke.cont58.i1554:                              ; preds = %_ZNKSt14default_del
   %not.i57.i1561 = xor i128 %coerce.sroa.0.0.insert.insert.i56.i1560, -1
   %coerce1.sroa.0.0.extract.trunc.i58.i1562 = trunc i128 %not.i57.i1561 to i64
   %coerce1.sroa.2.0.extract.shift.i59.i1563 = lshr i128 %not.i57.i1561, 64
-  %coerce1.sroa.2.0.extract.trunc.i60.i1564 = trunc i128 %coerce1.sroa.2.0.extract.shift.i59.i1563 to i64
+  %coerce1.sroa.2.0.extract.trunc.i60.i1564 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i59.i1563 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i58.i1562, ptr %x.i1412, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i60.i1564, ptr %488, align 8
   %call63.i1565 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1410) #27
@@ -14719,7 +14719,7 @@ invoke.cont3.i1682:                               ; preds = %invoke.cont.i1678
   %not.i.i1689 = xor i128 %coerce.sroa.0.0.insert.insert.i.i1688, -1
   %coerce1.sroa.0.0.extract.trunc.i.i1690 = trunc i128 %not.i.i1689 to i64
   %coerce1.sroa.2.0.extract.shift.i.i1691 = lshr i128 %not.i.i1689, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i1692 = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i1691 to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i1692 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i1691 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i.i1690, ptr %x.i1653, align 16
   %539 = getelementptr inbounds i8, ptr %x.i1653, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i.i1692, ptr %539, align 8
@@ -15000,7 +15000,7 @@ invoke.cont58.i1768:                              ; preds = %_ZNKSt14default_del
   %not.i64.i = xor i128 %coerce.sroa.0.0.insert.insert.i63.i, -1
   %coerce1.sroa.0.0.extract.trunc.i65.i = trunc i128 %not.i64.i to i64
   %coerce1.sroa.2.0.extract.shift.i66.i = lshr i128 %not.i64.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i67.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i66.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i67.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i66.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i65.i, ptr %x.i1653, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i67.i, ptr %539, align 8
   %call63.i1771 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1651) #27
@@ -20535,7 +20535,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %not.i = xor i128 %coerce.sroa.0.0.insert.insert.i, -1
   %coerce1.sroa.0.0.extract.trunc.i = trunc i128 %not.i to i64
   %coerce1.sroa.2.0.extract.shift.i = lshr i128 %not.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i, ptr %x, align 16
   %4 = getelementptr inbounds i8, ptr %x, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i, ptr %4, align 8
@@ -20816,7 +20816,7 @@ invoke.cont58:                                    ; preds = %_ZNKSt14default_del
   %not.i57 = xor i128 %coerce.sroa.0.0.insert.insert.i56, -1
   %coerce1.sroa.0.0.extract.trunc.i58 = trunc i128 %not.i57 to i64
   %coerce1.sroa.2.0.extract.shift.i59 = lshr i128 %not.i57, 64
-  %coerce1.sroa.2.0.extract.trunc.i60 = trunc i128 %coerce1.sroa.2.0.extract.shift.i59 to i64
+  %coerce1.sroa.2.0.extract.trunc.i60 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i59 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i58, ptr %x, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i60, ptr %4, align 8
   %call63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #27
@@ -47705,7 +47705,7 @@ invoke.cont16.i:                                  ; preds = %invoke.cont2.i1070
   %not.i.i = xor i128 %coerce.sroa.0.0.insert.insert.i.i, -1
   %coerce1.sroa.0.0.extract.trunc.i.i = trunc i128 %not.i.i to i64
   %coerce1.sroa.2.0.extract.shift.i.i = lshr i128 %not.i.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i.i, ptr %x.i1051, align 16
   %370 = getelementptr inbounds i8, ptr %x.i1051, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i.i, ptr %370, align 8
@@ -47981,7 +47981,7 @@ invoke.cont75.i1133:                              ; preds = %_ZNKSt14default_del
   %not.i59.i = xor i128 %coerce.sroa.0.0.insert.insert.i58.i, -1
   %coerce1.sroa.0.0.extract.trunc.i60.i = trunc i128 %not.i59.i to i64
   %coerce1.sroa.2.0.extract.shift.i61.i = lshr i128 %not.i59.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i62.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i61.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i62.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i61.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i60.i, ptr %x.i1051, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i62.i, ptr %370, align 8
   %call80.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1049) #27
@@ -48637,7 +48637,7 @@ invoke.cont16.i1269:                              ; preds = %invoke.cont2.i1267
   %not.i.i1275 = xor i128 %coerce.sroa.0.0.insert.insert.i.i1274, -1
   %coerce1.sroa.0.0.extract.trunc.i17.i = trunc i128 %not.i.i1275 to i64
   %coerce1.sroa.2.0.extract.shift.i18.i = lshr i128 %not.i.i1275, 64
-  %coerce1.sroa.2.0.extract.trunc.i19.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i18.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i19.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i18.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i17.i, ptr %x.i1235, align 16
   %445 = getelementptr inbounds i8, ptr %x.i1235, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i19.i, ptr %445, align 8
@@ -48913,7 +48913,7 @@ invoke.cont75.i1359:                              ; preds = %_ZNKSt14default_del
   %not.i65.i = xor i128 %coerce.sroa.0.0.insert.insert.i64.i, -1
   %coerce1.sroa.0.0.extract.trunc.i66.i = trunc i128 %not.i65.i to i64
   %coerce1.sroa.2.0.extract.shift.i67.i = lshr i128 %not.i65.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i68.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i67.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i68.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i67.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i66.i, ptr %x.i1235, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i68.i, ptr %445, align 8
   %call80.i1362 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1233) #27
@@ -49262,7 +49262,7 @@ invoke.cont16.i1437:                              ; preds = %invoke.cont2.i1435
   %not.i.i1444 = xor i128 %coerce.sroa.0.0.insert.insert.i.i1443, -1
   %coerce1.sroa.0.0.extract.trunc.i.i1445 = trunc i128 %not.i.i1444 to i64
   %coerce1.sroa.2.0.extract.shift.i.i1446 = lshr i128 %not.i.i1444, 64
-  %coerce1.sroa.2.0.extract.trunc.i.i1447 = trunc i128 %coerce1.sroa.2.0.extract.shift.i.i1446 to i64
+  %coerce1.sroa.2.0.extract.trunc.i.i1447 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i.i1446 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i.i1445, ptr %x.i1404, align 16
   %497 = getelementptr inbounds i8, ptr %x.i1404, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i.i1447, ptr %497, align 8
@@ -49538,7 +49538,7 @@ invoke.cont75.i1553:                              ; preds = %_ZNKSt14default_del
   %not.i59.i1560 = xor i128 %coerce.sroa.0.0.insert.insert.i58.i1559, -1
   %coerce1.sroa.0.0.extract.trunc.i60.i1561 = trunc i128 %not.i59.i1560 to i64
   %coerce1.sroa.2.0.extract.shift.i61.i1562 = lshr i128 %not.i59.i1560, 64
-  %coerce1.sroa.2.0.extract.trunc.i62.i1563 = trunc i128 %coerce1.sroa.2.0.extract.shift.i61.i1562 to i64
+  %coerce1.sroa.2.0.extract.trunc.i62.i1563 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i61.i1562 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i60.i1561, ptr %x.i1404, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i62.i1563, ptr %497, align 8
   %call80.i1564 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1402) #27
@@ -49886,7 +49886,7 @@ invoke.cont21.i:                                  ; preds = %invoke.cont5.i1669
   %not.i.i1674 = xor i128 %coerce.sroa.0.0.insert.insert.i.i1673, -1
   %coerce1.sroa.0.0.extract.trunc.i17.i1675 = trunc i128 %not.i.i1674 to i64
   %coerce1.sroa.2.0.extract.shift.i18.i1676 = lshr i128 %not.i.i1674, 64
-  %coerce1.sroa.2.0.extract.trunc.i19.i1677 = trunc i128 %coerce1.sroa.2.0.extract.shift.i18.i1676 to i64
+  %coerce1.sroa.2.0.extract.trunc.i19.i1677 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i18.i1676 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i17.i1675, ptr %x.i1652, align 16
   %549 = getelementptr inbounds i8, ptr %x.i1652, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i19.i1677, ptr %549, align 8
@@ -50162,7 +50162,7 @@ invoke.cont80.i:                                  ; preds = %_ZNKSt14default_del
   %not.i69.i = xor i128 %coerce.sroa.0.0.insert.insert.i68.i, -1
   %coerce1.sroa.0.0.extract.trunc.i70.i = trunc i128 %not.i69.i to i64
   %coerce1.sroa.2.0.extract.shift.i71.i = lshr i128 %not.i69.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i72.i = trunc i128 %coerce1.sroa.2.0.extract.shift.i71.i to i64
+  %coerce1.sroa.2.0.extract.trunc.i72.i = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i71.i to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i70.i, ptr %x.i1652, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i72.i, ptr %549, align 8
   %call85.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s.i1650) #27
@@ -55331,7 +55331,7 @@ invoke.cont16:                                    ; preds = %invoke.cont2, %invo
   %not.i = xor i128 %coerce.sroa.0.0.insert.insert.i, -1
   %coerce1.sroa.0.0.extract.trunc.i17 = trunc i128 %not.i to i64
   %coerce1.sroa.2.0.extract.shift.i18 = lshr i128 %not.i, 64
-  %coerce1.sroa.2.0.extract.trunc.i19 = trunc i128 %coerce1.sroa.2.0.extract.shift.i18 to i64
+  %coerce1.sroa.2.0.extract.trunc.i19 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i18 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i17, ptr %x, align 16
   %6 = getelementptr inbounds i8, ptr %x, i64 8
   store i64 %coerce1.sroa.2.0.extract.trunc.i19, ptr %6, align 8
@@ -55607,7 +55607,7 @@ invoke.cont75:                                    ; preds = %_ZNKSt14default_del
   %not.i65 = xor i128 %coerce.sroa.0.0.insert.insert.i64, -1
   %coerce1.sroa.0.0.extract.trunc.i66 = trunc i128 %not.i65 to i64
   %coerce1.sroa.2.0.extract.shift.i67 = lshr i128 %not.i65, 64
-  %coerce1.sroa.2.0.extract.trunc.i68 = trunc i128 %coerce1.sroa.2.0.extract.shift.i67 to i64
+  %coerce1.sroa.2.0.extract.trunc.i68 = trunc nuw i128 %coerce1.sroa.2.0.extract.shift.i67 to i64
   store i64 %coerce1.sroa.0.0.extract.trunc.i66, ptr %x, align 16
   store i64 %coerce1.sroa.2.0.extract.trunc.i68, ptr %6, align 8
   %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #27
@@ -69742,7 +69742,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nuw nsw i64 %sub, 1
-  %div.rhs.trunc = trunc i64 %add to i32
+  %div.rhs.trunc = trunc nuw i64 %add to i32
   %div22 = udiv i32 2147483645, %div.rhs.trunc
   %div.zext = zext nneg i32 %div22 to i64
   %mul = mul nuw nsw i64 %add, %div.zext
@@ -70711,7 +70711,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nuw nsw i64 %sub, 1
-  %div.rhs.trunc = trunc i64 %add to i32
+  %div.rhs.trunc = trunc nuw i64 %add to i32
   %div22 = udiv i32 2147483645, %div.rhs.trunc
   %div.zext = zext nneg i32 %div22 to i64
   %mul = mul nuw nsw i64 %add, %div.zext
@@ -71651,7 +71651,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nuw nsw i64 %sub, 1
-  %div.rhs.trunc = trunc i64 %add to i32
+  %div.rhs.trunc = trunc nuw i64 %add to i32
   %div22 = udiv i32 2147483645, %div.rhs.trunc
   %div.zext = zext nneg i32 %div22 to i64
   %mul = mul nuw nsw i64 %add, %div.zext
@@ -72597,7 +72597,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nuw nsw i64 %sub, 1
-  %div.rhs.trunc = trunc i64 %add to i32
+  %div.rhs.trunc = trunc nuw i64 %add to i32
   %div22 = udiv i32 2147483645, %div.rhs.trunc
   %div.zext = zext nneg i32 %div22 to i64
   %mul = mul nuw nsw i64 %add, %div.zext
@@ -74670,7 +74670,7 @@ invoke.cont36:                                    ; preds = %if.else33
 invoke.cont38:                                    ; preds = %invoke.cont36
   %23 = load ptr, ptr %ref.tmp34, align 8
   %add.ptr.i35 = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = trunc i64 %indvars.iv to i32
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i35, i32 noundef %24)
           to label %invoke.cont40 unwind label %lpad37
 
@@ -75165,7 +75165,7 @@ invoke.cont48:                                    ; preds = %if.else45
 invoke.cont50:                                    ; preds = %invoke.cont48
   %26 = load ptr, ptr %ref.tmp46, align 8
   %add.ptr.i44 = getelementptr inbounds i8, ptr %26, i64 16
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   %call2.i45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i44, i32 noundef %27)
           to label %invoke.cont52 unwind label %lpad49
 
@@ -76590,9 +76590,9 @@ invoke.cont67.i:                                  ; preds = %invoke.cont64.i
 for.body83.lr.ph.i:                               ; preds = %invoke.cont67.i
   %31 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %div.i = udiv i64 5000000, %31
-  %conv70.i = trunc i64 %div.i to i32
+  %conv70.i = trunc nuw nsw i64 %div.i to i32
   %spec.store.select.i = call i32 @llvm.umax.i32(i32 %conv70.i, i32 1)
-  %conv103.i = sitofp i32 %spec.store.select.i to double
+  %conv103.i = uitofp nneg i32 %spec.store.select.i to double
   br label %for.body83.i
 
 for.body83.i:                                     ; preds = %for.inc140.i, %for.body83.lr.ph.i
@@ -86271,7 +86271,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 _ZN4absl16numbers_internal24FastHexToBufferZeroPad16EmPc.exit: ; preds = %for.body.i
   %or.i = or i64 %v, 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !71
-  %div.neg5.lhs.trunc.i = trunc i64 %4 to i32
+  %div.neg5.lhs.trunc.i = trunc nuw nsw i64 %4 to i32
   %div.neg567.i = lshr i32 %div.neg5.lhs.trunc.i, 2
   %narrow.i = sub nuw nsw i32 16, %div.neg567.i
   %sub3.i = zext nneg i32 %narrow.i to i64
@@ -86747,7 +86747,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 false), !range !71
-  %cast.i.i.i.i.i.i = trunc i64 %3 to i32
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %3 to i32
   %sub.i.i.i.i = sub nuw nsw i32 64, %cast.i.i.i.i.i.i
   br label %_ZN4absl28log_uniform_int_distributionImEC2Emmm.exit
 
@@ -86773,7 +86773,7 @@ _ZN4absl28log_uniform_int_distributionImEC2Emmm.exit: ; preds = %if.then.i.i, %i
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %ref.tmp.i.i.i, align 8
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i.i.i.i to i32
   %ref.tmp.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 32
-  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i = trunc i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i to i32
+  %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %ref.tmp.sroa.2.0.extract.shift.i.i.i.i to i32
   %call3.i.i.i.i.i = call noundef i32 @_ZN4absl24uniform_int_distributionIiE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEjRT_j(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(288) %urbg, i32 noundef %ref.tmp.sroa.2.0.extract.trunc.i.i.i.i)
   %add.i.i.i.i.i = add i32 %call3.i.i.i.i.i, %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i
   %cmp.i.i.i = icmp eq i32 %add.i.i.i.i.i, 0
@@ -86935,7 +86935,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
   %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
   %shr.i = lshr i64 %product.1, 32
-  %conv.i32 = trunc i64 %shr.i to i32
+  %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 
 return:                                           ; preds = %if.end13, %if.then
@@ -86999,7 +86999,7 @@ if.end:                                           ; preds = %_ZN4absl15random_in
   %mul.i.i = mul nuw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %mul.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i = lshr i128 %mul.i.i, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i to i64
   %cmp5 = icmp ugt i64 %add, %coerce3.sroa.0.0.extract.trunc.i.i
   br i1 %cmp5, label %if.then6, label %return
 
@@ -87048,7 +87048,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 while.cond.return.loopexit_crit_edge:             ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit27
   %coerce3.sroa.2.0.extract.shift.i.i32.le = lshr i128 %mul.i.i30, 64
-  %coerce3.sroa.2.0.extract.trunc.i.i33.le = trunc i128 %coerce3.sroa.2.0.extract.shift.i.i32.le to i64
+  %coerce3.sroa.2.0.extract.trunc.i.i33.le = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i.i32.le to i64
   br label %return
 
 return:                                           ; preds = %if.then6, %while.cond.return.loopexit_crit_edge, %if.end, %if.then

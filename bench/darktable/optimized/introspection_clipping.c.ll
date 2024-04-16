@@ -2478,10 +2478,10 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
   br label %651
 
 651:                                              ; preds = %649, %646
-  %652 = sitofp i32 %635 to float
+  %652 = uitofp nneg i32 %635 to float
   %653 = getelementptr inbounds i8, ptr %11, i64 80
   store float %652, ptr %653, align 4, !tbaa !73
-  %654 = sitofp i32 %641 to float
+  %654 = uitofp nneg i32 %641 to float
   %655 = getelementptr inbounds i8, ptr %11, i64 84
   store float %654, ptr %655, align 4, !tbaa !75
   ret void
@@ -4403,8 +4403,8 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #4 {
   %76 = tail call i32 @llvm.abs.i32(i32 %75, i1 true)
   %77 = load i32, ptr %44, align 4, !tbaa !186
   %78 = tail call i32 @llvm.abs.i32(i32 %77, i1 true)
-  %79 = sitofp i32 %76 to float
-  %80 = sitofp i32 %78 to float
+  %79 = uitofp nneg i32 %76 to float
+  %80 = uitofp nneg i32 %78 to float
   %81 = fdiv reassoc nsz arcp contract afn float %79, %80
   %82 = fpext float %81 to double
   %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %76, i32 noundef %78, double noundef %82) #26
@@ -5157,8 +5157,8 @@ define internal void @aspect_presets_changed(ptr noundef %0, ptr noundef %1) #4 
   %207 = tail call i32 @llvm.abs.i32(i32 %206, i1 true)
   %208 = load i32, ptr %12, align 4, !tbaa !186
   %209 = tail call i32 @llvm.abs.i32(i32 %208, i1 true)
-  %210 = sitofp i32 %207 to float
-  %211 = sitofp i32 %209 to float
+  %210 = uitofp nneg i32 %207 to float
+  %211 = uitofp nneg i32 %209 to float
   %212 = fdiv reassoc nsz arcp contract afn float %210, %211
   %213 = fpext float %212 to double
   %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.18, i32 noundef %207, i32 noundef %209, double noundef %213) #26

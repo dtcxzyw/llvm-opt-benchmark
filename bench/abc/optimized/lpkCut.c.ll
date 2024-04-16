@@ -101,7 +101,7 @@ define ptr @Lpk_CutTruthBdd(ptr nocapture noundef readonly %0, ptr nocapture nou
   %23 = getelementptr inbounds ptr, ptr %.val.val, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %14, align 8
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = xor i32 %26, -1
   %28 = add nsw i32 %16, %27
   %29 = sext i32 %28 to i64
@@ -443,7 +443,7 @@ define ptr @Lpk_CutTruth(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %37 = getelementptr inbounds ptr, ptr %.val56.val, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %12, align 8
-  %40 = trunc i64 %indvars.iv to i32
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = xor i32 %40, -1
   %42 = add nsw i32 %30, %41
   %43 = getelementptr i8, ptr %39, i64 8
@@ -1082,7 +1082,7 @@ define noundef i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr nocapture
   br i1 %exitcond.not, label %.critedge6._crit_edge, label %96, !llvm.loop !24
 
 .critedge6.loopexit:                              ; preds = %96
-  %110 = trunc i64 %indvars.iv110 to i32
+  %110 = trunc nuw nsw i64 %indvars.iv110 to i32
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge6.loopexit, %85
@@ -1192,7 +1192,7 @@ define noundef i32 @Lpk_NodeCutsOneFilter(ptr nocapture noundef %0, i32 noundef 
   br i1 %exitcond.not, label %Lpk_NodeCutsOneDominance.exit, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = icmp eq i32 %11, %33
   br i1 %34, label %Lpk_NodeCutsOneDominance.exit, label %Lpk_NodeCutsOneDominance.exit.thread
 
@@ -1622,7 +1622,7 @@ define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef rea
   br i1 %exitcond171.not, label %.loopexit125, label %100, !llvm.loop !36
 
 104:                                              ; preds = %100
-  %105 = trunc i64 %indvars.iv167 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv167 to i32
   %106 = and i64 %indvars.iv167, 4294967295
   %107 = getelementptr inbounds [100 x i32], ptr %68, i64 0, i64 %106
   %108 = load i32, ptr %107, align 4
@@ -1766,7 +1766,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
   br i1 %176, label %.preheader, label %189
 
 .preheader:                                       ; preds = %.lr.ph150
-  %177 = trunc i64 %indvars.iv181 to i32
+  %177 = trunc nuw nsw i64 %indvars.iv181 to i32
   %178 = lshr i32 %163, 6
   %179 = and i32 %178, 63
   %180 = add nsw i32 %179, -1
@@ -2339,7 +2339,7 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   %87 = sub nsw i32 %84, %86
   %88 = sitofp i32 %87 to float
   %89 = and i32 %78, 63
-  %90 = sitofp i32 %89 to float
+  %90 = uitofp nneg i32 %89 to float
   %91 = fdiv float %88, %90
   %92 = getelementptr inbounds i8, ptr %64, i64 12
   store float %91, ptr %92, align 4
@@ -2363,7 +2363,7 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   store i32 %103, ptr %60, align 4
   %104 = sext i32 %102 to i64
   %105 = getelementptr inbounds [10000 x i32], ptr %62, i64 0, i64 %104
-  %106 = trunc i64 %indvars.iv108 to i32
+  %106 = trunc nuw nsw i64 %indvars.iv108 to i32
   store i32 %106, ptr %105, align 4
   br label %107
 

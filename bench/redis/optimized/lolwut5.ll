@@ -42,7 +42,7 @@ entry:
   %conv2 = sitofp i32 %squares_per_row to float
   %div = fdiv float %conv, %conv2
   %conv3 = sitofp i32 %squares_per_col to float
-  %conv6 = sitofp i32 %mul1 to float
+  %conv6 = uitofp nneg i32 %mul1 to float
   %0 = tail call float @llvm.fmuladd.f32(float %div, float %conv3, float %conv6)
   %conv7 = fptosi float %0 to i32
   %call = tail call ptr @lwCreateCanvas(i32 noundef %mul, i32 noundef %conv7, i32 noundef 0) #6
@@ -52,12 +52,12 @@ entry:
 for.cond10.preheader.lr.ph:                       ; preds = %entry
   %cmp1132 = icmp sgt i32 %squares_per_row, 0
   %div16 = fmul float %div, 5.000000e-01
-  %conv17 = sitofp i32 %cond to float
+  %conv17 = uitofp nneg i32 %cond to float
   br i1 %cmp1132, label %for.cond10.preheader.us, label %for.end75
 
 for.cond10.preheader.us:                          ; preds = %for.cond10.preheader.lr.ph, %for.cond10.for.inc73_crit_edge.us
   %y.035.us = phi i32 [ %inc74.us, %for.cond10.for.inc73_crit_edge.us ], [ 0, %for.cond10.preheader.lr.ph ]
-  %conv19.us = sitofp i32 %y.035.us to float
+  %conv19.us = uitofp nneg i32 %y.035.us to float
   %1 = tail call float @llvm.fmuladd.f32(float %conv19.us, float %div, float %div16)
   %add23.us = fadd float %1, %conv17
   %conv24.us = fptosi float %add23.us to i32
@@ -67,7 +67,7 @@ for.cond10.preheader.us:                          ; preds = %for.cond10.preheade
 
 for.body13.us36:                                  ; preds = %for.cond10.preheader.us, %for.body13.us36
   %x.033.us37 = phi i32 [ %inc.us41, %for.body13.us36 ], [ 0, %for.cond10.preheader.us ]
-  %conv14.us38 = sitofp i32 %x.033.us37 to float
+  %conv14.us38 = uitofp nneg i32 %x.033.us37 to float
   %2 = tail call float @llvm.fmuladd.f32(float %conv14.us38, float %div, float %div16)
   %add.us39 = fadd float %2, %conv17
   %conv18.us40 = fptosi float %add.us39 to i32
@@ -83,7 +83,7 @@ for.cond10.for.inc73_crit_edge.us:                ; preds = %for.body13.us36, %f
 
 for.body13.us.us:                                 ; preds = %for.cond10.preheader.us, %for.body13.us.us
   %x.033.us.us = phi i32 [ %inc.us.us, %for.body13.us.us ], [ 0, %for.cond10.preheader.us ]
-  %conv14.us.us = sitofp i32 %x.033.us.us to float
+  %conv14.us.us = uitofp nneg i32 %x.033.us.us to float
   %3 = tail call float @llvm.fmuladd.f32(float %conv14.us.us, float %div, float %div16)
   %add.us.us = fadd float %3, %conv17
   %conv18.us.us = fptosi float %add.us.us to i32
@@ -250,9 +250,9 @@ if.then36:                                        ; preds = %if.end34
 
 if.end37:                                         ; preds = %if.end34.thread, %if.then36, %if.end34
   %12 = phi i64 [ 1, %if.end34.thread ], [ 200, %if.then36 ], [ %11, %if.end34 ]
-  %conv = trunc i64 %8 to i32
-  %conv38 = trunc i64 %10 to i32
-  %conv39 = trunc i64 %12 to i32
+  %conv = trunc nuw i64 %8 to i32
+  %conv38 = trunc nuw i64 %10 to i32
+  %conv39 = trunc nuw i64 %12 to i32
   %call40 = call ptr @lwDrawSchotter(i32 noundef %conv, i32 noundef %conv38, i32 noundef %conv39)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %unicode.i)
   %call.i = call ptr @sdsempty() #6
@@ -317,10 +317,10 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   %byte.7.i = select i1 %tobool45.not.i, i32 %byte.6.i, i32 %or47.i
   store i8 -30, ptr %unicode.i, align 1
   %16 = lshr i32 %byte.7.i, 6
-  %17 = trunc i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %conv3.i.i = xor i8 %17, -96
   store i8 %conv3.i.i, ptr %arrayidx4.i.i, align 1
-  %18 = trunc i32 %byte.7.i to i8
+  %18 = trunc nuw i32 %byte.7.i to i8
   %19 = and i8 %18, 63
   %conv7.i.i = or disjoint i8 %19, -128
   store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1

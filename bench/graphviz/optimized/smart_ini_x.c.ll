@@ -70,7 +70,7 @@ define i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
   %31 = fsub double %22, %30
   %32 = tail call double @llvm.fabs.f64(double %31)
   %33 = mul nsw i32 %26, %26
-  %34 = sitofp i32 %33 to double
+  %34 = uitofp nneg i32 %33 to double
   %35 = fdiv double 1.000000e+00, %34
   %36 = fmul double %35, %32
   %37 = insertelement <2 x double> poison, double %28, i64 0
@@ -179,7 +179,7 @@ define i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
 
 .preheader.preheader.i.i:                         ; preds = %._crit_edge.us.i.i.i
   %81 = fptrunc double %80 to float
-  %82 = sitofp i32 %55 to float
+  %82 = uitofp nneg i32 %55 to float
   %83 = fdiv float %81, %82
   br label %.preheader.i.i
 
@@ -345,7 +345,7 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i5
   tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %123, ptr noundef nonnull %3) #12
   %147 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %117) #12
   %148 = fcmp olt double %147, 1.000000e-10
-  br i1 %148, label %.lr.ph182.us.i.i, label %149
+  br i1 %148, label %.loopexit.i.i, label %149
 
 149:                                              ; preds = %mat_mult_vec_orthog.exit.i.i
   %150 = fdiv double 1.000000e+00, %147
@@ -359,8 +359,8 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i5
   %154 = fmul double %147, %151
   br label %power_iteration_orthog.exit.i
 
-.lr.ph182.us.i.i:                                 ; preds = %mat_mult_vec_orthog.exit.i.i, %.lr.ph182.us.i.i
-  %indvars.iv194.i.i = phi i64 [ %indvars.iv.next195.i.i, %.lr.ph182.us.i.i ], [ 0, %mat_mult_vec_orthog.exit.i.i ]
+.loopexit.i.i:                                    ; preds = %mat_mult_vec_orthog.exit.i.i, %.loopexit.i.i
+  %indvars.iv194.i.i = phi i64 [ %indvars.iv.next195.i.i, %.loopexit.i.i ], [ 0, %mat_mult_vec_orthog.exit.i.i ]
   %155 = tail call i32 @rand() #12
   %156 = srem i32 %155, 100
   %157 = sitofp i32 %156 to double
@@ -368,9 +368,9 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i5
   store double %157, ptr %158, align 8
   %indvars.iv.next195.i.i = add nuw nsw i64 %indvars.iv194.i.i, 1
   %exitcond198.not.i.i = icmp eq i64 %indvars.iv.next195.i.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond198.not.i.i, label %._crit_edge.us186.i.i, label %.lr.ph182.us.i.i
+  br i1 %exitcond198.not.i.i, label %._crit_edge.us186.i.i, label %.loopexit.i.i
 
-._crit_edge.us186.i.i:                            ; preds = %.lr.ph182.us.i.i
+._crit_edge.us186.i.i:                            ; preds = %.loopexit.i.i
   %159 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %117) #12
   %160 = fdiv double 1.000000e+00, %159
   tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %160, ptr noundef nonnull %3) #12

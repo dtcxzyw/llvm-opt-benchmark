@@ -806,10 +806,10 @@ entry:
   %reass.sub12 = sub nsw i32 %conv12, %conv14
   %add16 = add nsw i32 %reass.sub12, 1
   %sh.diff = lshr i48 %nmax.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv17 = ashr i32 %tr.sh.diff, 16
   %sh.diff185 = lshr i48 %nmin.coerce, 16
-  %tr.sh.diff186 = trunc i48 %sh.diff185 to i32
+  %tr.sh.diff186 = trunc nuw i48 %sh.diff185 to i32
   %conv19 = ashr i32 %tr.sh.diff186, 16
   %reass.sub = sub nsw i32 %conv17, %conv19
   %add21 = add nsw i32 %reass.sub, 1
@@ -1244,11 +1244,11 @@ entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %0 = trunc i48 %nmin.coerce to i32
   %nmin.sroa.7.0.extract.shift = lshr i48 %nmin.coerce, 32
-  %nmin.sroa.7.0.extract.trunc = trunc i48 %nmin.sroa.7.0.extract.shift to i16
+  %nmin.sroa.7.0.extract.trunc = trunc nuw i48 %nmin.sroa.7.0.extract.shift to i16
   %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i16
   %1 = trunc i48 %nmax.coerce to i32
   %nmax.sroa.6.0.extract.shift = lshr i48 %nmax.coerce, 32
-  %nmax.sroa.6.0.extract.trunc = trunc i48 %nmax.sroa.6.0.extract.shift to i16
+  %nmax.sroa.6.0.extract.trunc = trunc nuw i48 %nmax.sroa.6.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pr) #21
   %add = add i32 %blockseed, 4234
   %conv = zext i32 %add to i64
@@ -1442,7 +1442,7 @@ if.end61:                                         ; preds = %for.cond.i.i.i.i, %
   %conv69 = fptosi float %add68 to i32
   %conv73 = sitofp i32 %conv69 to float
   %conv74 = and i32 %call65, 65535
-  %conv75 = sitofp i32 %conv74 to float
+  %conv75 = uitofp nneg i32 %conv74 to float
   %26 = load float, ptr %column_midpoint_factor, align 4, !tbaa !104
   %sub76 = fsub nsz float 1.000000e+00, %26
   %neg = fneg nsz float %conv75
@@ -1907,11 +1907,11 @@ entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %0 = trunc i48 %nmin.coerce to i32
   %nmin.sroa.7.0.extract.shift = lshr i48 %nmin.coerce, 32
-  %nmin.sroa.7.0.extract.trunc = trunc i48 %nmin.sroa.7.0.extract.shift to i16
+  %nmin.sroa.7.0.extract.trunc = trunc nuw i48 %nmin.sroa.7.0.extract.shift to i16
   %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i16
   %1 = trunc i48 %nmax.coerce to i32
   %nmax.sroa.4.0.extract.shift = lshr i48 %nmax.coerce, 32
-  %nmax.sroa.4.0.extract.trunc = trunc i48 %nmax.sroa.4.0.extract.shift to i16
+  %nmax.sroa.4.0.extract.trunc = trunc nuw i48 %nmax.sroa.4.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pr) #21
   %add = add i32 %blockseed, 4234
   %conv = zext i32 %add to i64
@@ -2469,10 +2469,10 @@ entry:
   %reass.sub12 = sub nsw i32 %conv13, %conv15
   %add17 = add nsw i32 %reass.sub12, 1
   %sh.diff = lshr i48 %nmax.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv18 = ashr i32 %tr.sh.diff, 16
   %sh.diff226 = lshr i48 %nmin.coerce, 16
-  %tr.sh.diff227 = trunc i48 %sh.diff226 to i32
+  %tr.sh.diff227 = trunc nuw i48 %sh.diff226 to i32
   %conv20 = ashr i32 %tr.sh.diff227, 16
   %reass.sub = sub nsw i32 %conv18, %conv20
   %add22 = add nsw i32 %reass.sub, 1
@@ -3047,10 +3047,10 @@ entry:
   %nmin.sroa.6.0.extract.shift = lshr i48 %nmin.coerce, 16
   %nmin.sroa.6.0.extract.trunc = trunc i48 %nmin.sroa.6.0.extract.shift to i16
   %nmin.sroa.10.0.extract.shift = lshr i48 %nmin.coerce, 32
-  %nmin.sroa.10.0.extract.trunc = trunc i48 %nmin.sroa.10.0.extract.shift to i16
+  %nmin.sroa.10.0.extract.trunc = trunc nuw i48 %nmin.sroa.10.0.extract.shift to i16
   %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i32
   %nmax.sroa.5.0.extract.shift = lshr i48 %nmax.coerce, 32
-  %nmax.sroa.5.0.extract.trunc = trunc i48 %nmax.sroa.5.0.extract.shift to i16
+  %nmax.sroa.5.0.extract.trunc = trunc nuw i48 %nmax.sroa.5.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pr) #21
   %add = add i32 %blockseed, 520
   %conv = zext i32 %add to i64
@@ -3687,12 +3687,12 @@ entry:
   %nmin.sroa.6.0.extract.shift = lshr i48 %nmin.coerce, 16
   %nmin.sroa.6.0.extract.trunc = trunc i48 %nmin.sroa.6.0.extract.shift to i16
   %nmin.sroa.9.0.extract.shift = lshr i48 %nmin.coerce, 32
-  %nmin.sroa.9.0.extract.trunc = trunc i48 %nmin.sroa.9.0.extract.shift to i16
+  %nmin.sroa.9.0.extract.trunc = trunc nuw i48 %nmin.sroa.9.0.extract.shift to i16
   %nmax.sroa.0.0.extract.trunc = trunc i48 %nmax.coerce to i16
   %nmax.sroa.4.0.extract.shift = lshr i48 %nmax.coerce, 16
   %nmax.sroa.4.0.extract.trunc = trunc i48 %nmax.sroa.4.0.extract.shift to i16
   %nmax.sroa.7.0.extract.shift = lshr i48 %nmax.coerce, 32
-  %nmax.sroa.7.0.extract.trunc = trunc i48 %nmax.sroa.7.0.extract.shift to i16
+  %nmax.sroa.7.0.extract.trunc = trunc nuw i48 %nmax.sroa.7.0.extract.shift to i16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pr) #21
   %add = add i32 %blockseed, 4234
   %conv = zext i32 %add to i64

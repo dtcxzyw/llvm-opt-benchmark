@@ -10511,7 +10511,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
   %59 = trunc nuw nsw i64 %indvars.iv32 to i32
-  %60 = sitofp i32 %59 to float
+  %60 = uitofp nneg i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -10533,7 +10533,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
   %74 = trunc nuw nsw i64 %indvars.iv to i32
-  %75 = sitofp i32 %74 to float
+  %75 = uitofp nneg i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #23
@@ -11722,7 +11722,7 @@ _ZN3vcg9HistogramIfED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %80 = fadd float %79, -1.000000e+01
   %81 = fmul float %80, 5.000000e-01
   %82 = trunc nuw nsw i64 %indvars.iv to i32
-  %83 = sitofp i32 %82 to float
+  %83 = uitofp nneg i32 %82 to float
   %84 = fmul float %81, %83
   %85 = fpext float %84 to double
   %86 = fadd double %85, 1.000000e+01
@@ -12040,7 +12040,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i21:  ; preds = %_ZN9QtPrivate8RefCo
 84:                                               ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i, %62
   %.015.i = phi i32 [ 0, %62 ], [ %123, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i ]
   %.01214.i = phi i32 [ 0, %62 ], [ %spec.select.i, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i ]
-  %85 = sitofp i32 %.015.i to float
+  %85 = uitofp nneg i32 %.015.i to float
   %86 = tail call float @llvm.fmuladd.f32(float %85, float %72, float %69)
   %87 = fpext float %86 to double
   %88 = fsub double %87, %74
@@ -12126,7 +12126,7 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit.i:          ; preds = %118, %_ZN3vcg9Histo
   br i1 %exitcond.not.i, label %124, label %84, !llvm.loop !123
 
 124:                                              ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i
-  %125 = sitofp i32 %spec.select.i to float
+  %125 = uitofp nneg i32 %spec.select.i to float
   store ptr %65, ptr %63, align 8
   %126 = getelementptr inbounds i8, ptr %63, i64 24
   store i32 100, ptr %126, align 8
@@ -12168,7 +12168,7 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit.i:          ; preds = %118, %_ZN3vcg9Histo
 152:                                              ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i32, %132
   %.015.i27 = phi i32 [ 0, %132 ], [ %191, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i32 ]
   %.01214.i28 = phi i32 [ 0, %132 ], [ %spec.select.i34, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i32 ]
-  %153 = sitofp i32 %.015.i27 to float
+  %153 = uitofp nneg i32 %.015.i27 to float
   %154 = tail call float @llvm.fmuladd.f32(float %153, float %140, float %137)
   %155 = fpext float %154 to double
   %156 = fsub double %155, %142
@@ -12254,7 +12254,7 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit.i32:        ; preds = %186, %_ZN3vcg9Histo
   br i1 %exitcond.not.i35, label %_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit61, label %152, !llvm.loop !123
 
 _ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit61: ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i32
-  %192 = sitofp i32 %spec.select.i34 to float
+  %192 = uitofp nneg i32 %spec.select.i34 to float
   %193 = getelementptr inbounds i8, ptr %134, i64 24
   store i32 100, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %134, i64 28
@@ -12357,7 +12357,7 @@ _ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit61: ; 
 258:                                              ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i67, %242
   %.015.i62 = phi i32 [ 0, %242 ], [ %297, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i67 ]
   %.01214.i63 = phi i32 [ 0, %242 ], [ %spec.select.i69, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i67 ]
-  %259 = sitofp i32 %.015.i62 to float
+  %259 = uitofp nneg i32 %.015.i62 to float
   %260 = tail call float @llvm.fmuladd.f32(float %259, float %246, float %226)
   %261 = fpext float %260 to double
   %262 = fsub double %261, %248
@@ -12443,7 +12443,7 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit.i67:        ; preds = %292, %_ZN3vcg9Histo
   br i1 %exitcond.not.i70, label %_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit96, label %258, !llvm.loop !123
 
 _ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit96: ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i67
-  %298 = sitofp i32 %spec.select.i69 to float
+  %298 = uitofp nneg i32 %spec.select.i69 to float
   %299 = load ptr, ptr %210, align 8
   %300 = getelementptr inbounds i8, ptr %299, i64 20
   store float %298, ptr %300, align 4
@@ -12773,7 +12773,7 @@ define void @_ZN19QualityMapperDialog22drawTransferFunctionBGEv(ptr noundef nonn
 30:                                               ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i, %6
   %.015.i = phi i32 [ 0, %6 ], [ %69, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i ]
   %.01214.i = phi i32 [ 0, %6 ], [ %spec.select.i, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i ]
-  %31 = sitofp i32 %.015.i to float
+  %31 = uitofp nneg i32 %.015.i to float
   %32 = tail call float @llvm.fmuladd.f32(float %31, float %18, float %12)
   %33 = fpext float %32 to double
   %34 = fsub double %33, %20
@@ -12859,7 +12859,7 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit.i:          ; preds = %64, %_ZN3vcg9Histog
   br i1 %exitcond.not.i, label %_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit, label %30, !llvm.loop !123
 
 _ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit: ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i
-  %70 = sitofp i32 %spec.select.i to float
+  %70 = uitofp nneg i32 %spec.select.i to float
   %71 = getelementptr inbounds i8, ptr %0, i64 696
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 20
@@ -12913,7 +12913,7 @@ define noundef i32 @_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9Histog
 18:                                               ; preds = %4, %_ZN3vcg9HistogramIfE8BinCountEff.exit
   %.015 = phi i32 [ 0, %4 ], [ %57, %_ZN3vcg9HistogramIfE8BinCountEff.exit ]
   %.01214 = phi i32 [ 0, %4 ], [ %spec.select, %_ZN3vcg9HistogramIfE8BinCountEff.exit ]
-  %19 = sitofp i32 %.015 to float
+  %19 = uitofp nneg i32 %.015 to float
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %6, float %2)
   %21 = fpext float %20 to double
   %22 = fsub double %21, %8
@@ -13068,7 +13068,7 @@ define void @_ZN19QualityMapperDialog17drawHistogramBarsER14QGraphicsSceneP10CHA
   %58 = fadd float %57, -1.000000e+01
   %59 = fadd float %58, -1.000000e+01
   %60 = load ptr, ptr %33, align 8
-  %61 = sitofp i32 %.039 to float
+  %61 = uitofp nneg i32 %.039 to float
   %62 = call float @llvm.fmuladd.f32(float %61, float %32, float %3)
   %63 = fpext float %62 to double
   %64 = fsub double %63, %35
@@ -13494,7 +13494,7 @@ define void @_ZN19QualityMapperDialog20drawTransferFunctionEv(ptr noundef nonnul
 53:                                               ; preds = %49
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %54 = trunc nuw nsw i64 %indvars.iv.next71 to i32
-  %55 = sitofp i32 %54 to float
+  %55 = uitofp nneg i32 %54 to float
   %56 = fmul float %55, 2.000000e+00
   %57 = fpext float %56 to double
   %58 = sext i32 %48 to i64
@@ -13942,7 +13942,7 @@ define void @_ZN19QualityMapperDialog15updateColorBandEv(ptr nocapture noundef n
   br i1 %31, label %32, label %41
 
 32:                                               ; preds = %30
-  %33 = sitofp i32 %.09 to float
+  %33 = uitofp nneg i32 %.09 to float
   %34 = fmul float %27, %33
   %35 = fptosi float %34 to i32
   %36 = sext i32 %35 to i64
@@ -16128,7 +16128,7 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP8TFHandleEEENS_17QForeachContainer
   %53 = icmp eq i64 %indvars.iv, %10
   %54 = trunc i64 %indvars.iv to i32
   %55 = add i32 %54, 1
-  %56 = sitofp i32 %55 to float
+  %56 = uitofp nneg i32 %55 to float
   %57 = call float @llvm.fmuladd.f32(float %56, float 2.000000e+00, float 1.000000e+00)
   %58 = fpext float %57 to double
   br i1 %53, label %.lr.ph.us, label %.lr.ph

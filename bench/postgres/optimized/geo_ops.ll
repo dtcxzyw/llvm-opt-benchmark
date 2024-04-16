@@ -19933,7 +19933,7 @@ define dso_local noundef i64 @circle_poly(ptr nocapture noundef readonly %0) loc
 45:                                               ; preds = %.lr.ph, %float8_pl.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_pl.exit ]
   %46 = trunc nuw nsw i64 %indvars.iv to i32
-  %47 = sitofp i32 %46 to double
+  %47 = uitofp nneg i32 %46 to double
   %48 = fmul double %36, %47
   %49 = tail call double @llvm.fabs.f64(double %48)
   %50 = fcmp une double %49, 0x7FF0000000000000

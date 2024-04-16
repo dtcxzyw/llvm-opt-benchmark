@@ -647,7 +647,7 @@ extract_adjacency.exit:                           ; preds = %._crit_edge220.i, %
 318:                                              ; preds = %307
   %319 = sext i32 %.0144183 to i64
   %320 = getelementptr inbounds %struct.term_sgd, ptr %35, i64 %319
-  %321 = trunc i64 %indvars.iv217 to i32
+  %321 = trunc nuw nsw i64 %indvars.iv217 to i32
   %322 = tail call i32 @dijkstra_sgd(ptr noundef nonnull %52, i32 noundef %321, ptr noundef %320) #15
   %323 = add nsw i32 %322, %.0144183
   br label %324
@@ -830,7 +830,7 @@ gv_calloc.exit:                                   ; preds = %363
 
 fisheryates_shuffle.exit:                         ; preds = %.lr.ph.i167, %401
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %407 = sitofp i32 %.0153201 to float
+  %407 = uitofp nneg i32 %.0153201 to float
   %408 = fmul float %399, %407
   %409 = fpext float %408 to double
   %410 = tail call double @exp(double noundef %409) #15

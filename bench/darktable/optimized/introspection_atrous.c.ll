@@ -680,7 +680,7 @@ define internal fastcc i32 @get_scales(ptr nocapture noundef writeonly %0, ptr n
   %42 = trunc i64 %41 to i32
   %43 = shl nuw nsw i32 4, %42
   %44 = or disjoint i32 %43, 1
-  %45 = sitofp i32 %44 to float
+  %45 = uitofp nneg i32 %44 to float
   %46 = fmul reassoc nsz arcp contract afn float %32, %45
   %47 = fmul reassoc nsz arcp contract afn float %46, %38
   %48 = fadd reassoc nsz arcp contract afn float %47, -5.000000e-01

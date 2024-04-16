@@ -959,11 +959,11 @@ Abc_ObjDelayDegree.exit:                          ; preds = %139, %.lr.ph.split.
   %171 = getelementptr inbounds [7 x float], ptr %170, i64 0, i64 %indvars.iv168
   %172 = load float, ptr %171, align 4
   %173 = fpext float %172 to double
-  %174 = trunc i64 %indvars.iv168 to i32
+  %174 = trunc nuw nsw i64 %indvars.iv168 to i32
   %175 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %174, double noundef %173)
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %176 = trunc i64 %indvars.iv.next169 to i32
-  %177 = sitofp i32 %176 to float
+  %176 = trunc nuw i64 %indvars.iv.next169 to i32
+  %177 = uitofp nneg i32 %176 to float
   %178 = fcmp ult float %.087, %177
   br i1 %178, label %._crit_edge137, label %168, !llvm.loop !14
 
@@ -1074,7 +1074,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %183
   br i1 %exitcond186.not, label %.critedge6.loopexit, label %210, !llvm.loop !16
 
 .critedge6.loopexit:                              ; preds = %210
-  %224 = sitofp i32 %.1 to double
+  %224 = uitofp nneg i32 %.1 to double
   %225 = fmul double %224, 1.000000e+02
   br label %.critedge6
 

@@ -4681,7 +4681,7 @@ if.then954:                                       ; preds = %sw.default951
 
 sw.bb956:                                         ; preds = %sw.default951, %sw.epilog247, %sw.epilog247
   %errinfo = getelementptr inbounds i8, ptr %J, i64 3088
-  %conv.i = sitofp i32 %and136 to double
+  %conv.i = uitofp nneg i32 %and136 to double
   store double %conv.i, ptr %errinfo, align 8
   tail call void @lj_trace_err_info(ptr noundef nonnull %J, i32 noundef 7) #8
   unreachable

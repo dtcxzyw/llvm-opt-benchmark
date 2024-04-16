@@ -3175,7 +3175,7 @@ for.body7:                                        ; preds = %for.body3, %for.bod
   %1 = extractvalue { ptr, i64 } %call9, 0
   %arrayidx.i14 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
   %2 = load float, ptr %arrayidx.i14, align 4
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call13 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %m2, i32 noundef %3)
   %4 = extractvalue { ptr, i64 } %call13, 0
   %arrayidx.i15 = getelementptr inbounds float, ptr %4, i64 %indvars.iv22
@@ -3407,7 +3407,7 @@ if.then66:                                        ; preds = %for.body
 for.body72:                                       ; preds = %if.then66, %_ZN4pbrt12AtomicDouble3AddEd.exit
   %indvars.iv = phi i64 [ 0, %if.then66 ], [ %indvars.iv.next, %_ZN4pbrt12AtomicDouble3AddEd.exit ]
   %arrayidx = getelementptr inbounds %"struct.pbrt::RGBFilm::Pixel", ptr %53, i64 %idxprom.i, i32 2, i64 %indvars.iv
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %55, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
@@ -4686,7 +4686,7 @@ if.then11:                                        ; preds = %land.lhs.true
 for.body:                                         ; preds = %if.then11, %_ZN4pbrt3RGBixEi.exit
   %indvars.iv = phi i64 [ 0, %if.then11 ], [ %indvars.iv.next, %_ZN4pbrt3RGBixEi.exit ]
   %arrayidx = getelementptr inbounds [3 x %"class.pbrt::VarianceEstimator"], ptr %rgbVariance, i64 0, i64 %indvars.iv
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %16, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
@@ -5042,7 +5042,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %for.body.i.i
 
 for.body162:                                      ; preds = %_ZNK4pbrt15SampledSpectrummlERKS0_.exit, %_ZN4pbrt3RGBixEi.exit206
   %indvars.iv235 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrummlERKS0_.exit ], [ %indvars.iv.next236, %_ZN4pbrt3RGBixEi.exit206 ]
-  %83 = trunc i64 %indvars.iv235 to i32
+  %83 = trunc nuw nsw i64 %indvars.iv235 to i32
   switch i32 %83, label %if.end4.i204 [
     i32 0, label %_ZN4pbrt3RGBixEi.exit206
     i32 1, label %if.then3.i201
@@ -5073,7 +5073,7 @@ if.end172:                                        ; preds = %_ZN4pbrt3RGBixEi.ex
 
 for.body176:                                      ; preds = %if.end172, %_ZN4pbrt3RGBixEi.exit212
   %indvars.iv239 = phi i64 [ 0, %if.end172 ], [ %indvars.iv.next240, %_ZN4pbrt3RGBixEi.exit212 ]
-  %85 = trunc i64 %indvars.iv239 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv239 to i32
   switch i32 %85, label %if.end4.i210 [
     i32 0, label %_ZN4pbrt3RGBixEi.exit212
     i32 1, label %if.then3.i207
@@ -5510,7 +5510,7 @@ if.then69:                                        ; preds = %for.body
 for.body75:                                       ; preds = %if.then69, %_ZN4pbrt12AtomicDouble3AddEd.exit
   %indvars.iv = phi i64 [ 0, %if.then69 ], [ %indvars.iv.next, %_ZN4pbrt12AtomicDouble3AddEd.exit ]
   %arrayidx = getelementptr inbounds %"struct.pbrt::GBufferFilm::Pixel", ptr %53, i64 %idxprom.i, i32 3, i64 %indvars.iv
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %55, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
@@ -9062,7 +9062,7 @@ for.body:                                         ; preds = %if.end, %_ZN4pbrt3R
   %13 = load float, ptr %filterIntegral, align 4
   %conv15 = fpext float %13 to double
   %div = fdiv double %mul, %conv15
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %14, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
@@ -9368,7 +9368,7 @@ for.cond96.preheader:                             ; preds = %_ZN4pbrt12AtomicDou
 for.body93:                                       ; preds = %if.then87, %_ZN4pbrt12AtomicDouble3AddEd.exit
   %indvars.iv = phi i64 [ 0, %if.then87 ], [ %indvars.iv.next, %_ZN4pbrt12AtomicDouble3AddEd.exit ]
   %arrayidx = getelementptr inbounds [3 x %"class.pbrt::AtomicDouble"], ptr %rgbSplat, i64 0, i64 %indvars.iv
-  %62 = trunc i64 %indvars.iv to i32
+  %62 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %62, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
@@ -9736,7 +9736,7 @@ for.body.lr.ph:                                   ; preds = %arraydestroy.done13
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont49
   %13 = phi i32 [ %12, %for.body.lr.ph ], [ %21, %invoke.cont49 ]
   %i.099 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont49 ]
-  %conv = sitofp i32 %i.099 to float
+  %conv = uitofp nneg i32 %i.099 to float
   %add = fadd float %conv, 5.000000e-01
   %conv31 = sitofp i32 %13 to float
   %div = fdiv float %add, %conv31
@@ -16631,7 +16631,7 @@ for.body3.us:                                     ; preds = %_ZNK4pbrt3RGBixEi.e
   %1 = extractvalue { ptr, i64 } %call4.us, 0
   %arrayidx.i.us = getelementptr inbounds float, ptr %1, i64 %indvars.iv48
   %2 = load float, ptr %arrayidx.i.us, align 4
-  %3 = trunc i64 %indvars.iv48 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv48 to i32
   switch i32 %3, label %if.end4.i13.us [
     i32 0, label %_ZNK4pbrt3RGBixEi.exit.us
     i32 1, label %if.then3.i10.us
@@ -16661,7 +16661,7 @@ for.body3.us26:                                   ; preds = %_ZNK4pbrt3RGBixEi.e
   %5 = extractvalue { ptr, i64 } %call4.us28, 0
   %arrayidx.i.us30 = getelementptr inbounds float, ptr %5, i64 %indvars.iv
   %6 = load float, ptr %arrayidx.i.us30, align 4
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %7, label %if.end4.i13.us32 [
     i32 0, label %_ZNK4pbrt3RGBixEi.exit.us33
     i32 1, label %if.then3.i10.us31
@@ -16690,7 +16690,7 @@ for.body3:                                        ; preds = %for.body, %_ZNK4pbr
   %8 = extractvalue { ptr, i64 } %call4, 0
   %arrayidx.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv52
   %9 = load float, ptr %arrayidx.i, align 4
-  %10 = trunc i64 %indvars.iv52 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv52 to i32
   switch i32 %10, label %if.end4.i13 [
     i32 0, label %_ZNK4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i10
@@ -19816,7 +19816,7 @@ for.body.preheader:                               ; preds = %do.end
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont7
   %indvars.iv = phi i64 [ %10, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont7 ]
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nsw i64 %indvars.iv to i32
   %conv6 = sitofp i32 %12 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
@@ -20890,7 +20890,7 @@ for.body3.us:                                     ; preds = %_ZNK4pbrt3XYZixEi.e
   %1 = extractvalue { ptr, i64 } %call4.us, 0
   %arrayidx.i.us = getelementptr inbounds float, ptr %1, i64 %indvars.iv48
   %2 = load float, ptr %arrayidx.i.us, align 4
-  %3 = trunc i64 %indvars.iv48 to i32
+  %3 = trunc nuw nsw i64 %indvars.iv48 to i32
   switch i32 %3, label %if.end4.i13.us [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit.us
     i32 1, label %if.then3.i10.us
@@ -20920,7 +20920,7 @@ for.body3.us26:                                   ; preds = %_ZNK4pbrt3XYZixEi.e
   %5 = extractvalue { ptr, i64 } %call4.us28, 0
   %arrayidx.i.us30 = getelementptr inbounds float, ptr %5, i64 %indvars.iv
   %6 = load float, ptr %arrayidx.i.us30, align 4
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %7, label %if.end4.i13.us32 [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit.us33
     i32 1, label %if.then3.i10.us31
@@ -20949,7 +20949,7 @@ for.body3:                                        ; preds = %for.body, %_ZNK4pbr
   %8 = extractvalue { ptr, i64 } %call4, 0
   %arrayidx.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv52
   %9 = load float, ptr %arrayidx.i, align 4
-  %10 = trunc i64 %indvars.iv52 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv52 to i32
   switch i32 %10, label %if.end4.i13 [
     i32 0, label %_ZNK4pbrt3XYZixEi.exit
     i32 1, label %if.then3.i10
@@ -21068,7 +21068,7 @@ invoke.cont29:                                    ; preds = %invoke.cont28
 
 for.body32:                                       ; preds = %invoke.cont29, %_ZN4pbrt3RGBixEi.exit
   %indvars.iv = phi i64 [ 0, %invoke.cont29 ], [ %indvars.iv.next, %_ZN4pbrt3RGBixEi.exit ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %8, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
@@ -21146,7 +21146,7 @@ invoke.cont45:                                    ; preds = %for.inc38
 for.body.i:                                       ; preds = %call3.i.i11.i.noexc, %invoke.cont45
   %lambda.013.int.i = phi i32 [ 360, %invoke.cont45 ], [ %inc.int.i, %call3.i.i11.i.noexc ]
   %integral.012.i = phi float [ 0.000000e+00, %invoke.cont45 ], [ %add.i, %call3.i.i11.i.noexc ]
-  %indvar.conv.i = sitofp i32 %lambda.013.int.i to float
+  %indvar.conv.i = uitofp nneg i32 %lambda.013.int.i to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i)
   store float %indvar.conv.i, ptr %lambda.addr.i.i, align 4
@@ -21193,7 +21193,7 @@ invoke.cont52:                                    ; preds = %call3.i.i11.i.noexc
 for.body.i29:                                     ; preds = %call3.i.i11.i.noexc47, %invoke.cont52
   %lambda.013.int.i30 = phi i32 [ 360, %invoke.cont52 ], [ %inc.int.i43, %call3.i.i11.i.noexc47 ]
   %integral.012.i31 = phi float [ 0.000000e+00, %invoke.cont52 ], [ %add.i42, %call3.i.i11.i.noexc47 ]
-  %indvar.conv.i32 = sitofp i32 %lambda.013.int.i30 to float
+  %indvar.conv.i32 = uitofp nneg i32 %lambda.013.int.i30 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i28)
   store float %indvar.conv.i32, ptr %lambda.addr.i.i27, align 4
@@ -21257,7 +21257,7 @@ invoke.cont77:                                    ; preds = %invoke.cont73
 
 for.body83:                                       ; preds = %invoke.cont77, %_ZN4pbrt3XYZixEi.exit
   %indvars.iv83 = phi i64 [ 0, %invoke.cont77 ], [ %indvars.iv.next84, %_ZN4pbrt3XYZixEi.exit ]
-  %29 = trunc i64 %indvars.iv83 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv83 to i32
   switch i32 %29, label %if.end4.i58 [
     i32 0, label %_ZN4pbrt3XYZixEi.exit
     i32 1, label %if.then3.i55
@@ -21363,7 +21363,7 @@ for.body:                                         ; preds = %entry, %for.body
   %lambda.095.int = phi i32 [ 360, %entry ], [ %inc.int, %for.body ]
   %result.sroa.0.094 = phi <2 x float> [ zeroinitializer, %entry ], [ %24, %for.body ]
   %result.sroa.7.093 = phi float [ 0.000000e+00, %entry ], [ %add22, %for.body ]
-  %indvar.conv = sitofp i32 %lambda.095.int to float
+  %indvar.conv = uitofp nneg i32 %lambda.095.int to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
   store float %indvar.conv, ptr %lambda.addr.i, align 4
@@ -21567,7 +21567,7 @@ for.body:                                         ; preds = %entry, %for.body
   %lambda.095.int = phi i32 [ 360, %entry ], [ %inc.int, %for.body ]
   %result.sroa.0.094 = phi <2 x float> [ zeroinitializer, %entry ], [ %24, %for.body ]
   %result.sroa.7.093 = phi float [ 0.000000e+00, %entry ], [ %add22, %for.body ]
-  %indvar.conv = sitofp i32 %lambda.095.int to float
+  %indvar.conv = uitofp nneg i32 %lambda.095.int to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
   store float %indvar.conv, ptr %lambda.addr.i, align 4
@@ -21758,7 +21758,7 @@ for.cond1.preheader.us.preheader:                 ; preds = %entry
 
 for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.inc31.split.us.us
   %indvars.iv42 = phi i64 [ 0, %for.cond1.preheader.us.preheader ], [ %indvars.iv.next43, %for.inc31.split.us.us ]
-  %0 = trunc i64 %indvars.iv42 to i32
+  %0 = trunc nuw nsw i64 %indvars.iv42 to i32
   br label %for.cond4.preheader.us.us
 
 for.cond4.preheader.us.us:                        ; preds = %for.cond4.for.inc28_crit_edge.us.us, %for.cond1.preheader.us
@@ -21820,12 +21820,12 @@ invoke.cont37:                                    ; preds = %for.end33
 
 for.cond1.preheader.i:                            ; preds = %invoke.cont37, %for.inc9.i
   %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %for.inc9.i ], [ 0, %invoke.cont37 ]
-  %10 = trunc i64 %indvars.iv11.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv11.i to i32
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body3.i, %for.cond1.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %indvars.iv.next.i, %for.body3.i ]
-  %11 = trunc i64 %indvars.iv.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i23 = call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %ref.tmp36, i32 noundef %11)
   %12 = extractvalue { ptr, i64 } %call.i23, 0
   %arrayidx.i.i = getelementptr inbounds float, ptr %12, i64 %indvars.iv11.i
@@ -22699,7 +22699,7 @@ for.body:                                         ; preds = %if.end, %_ZN4pbrt3R
   %13 = load float, ptr %filterIntegral, align 8
   %conv16 = fpext float %13 to double
   %div = fdiv double %mul, %conv16
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %14, label %if.end4.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit
     i32 1, label %if.then3.i
@@ -23390,7 +23390,7 @@ for.body.i.i.i:                                   ; preds = %_ZN4pbrt3RGBixEi.ex
   %34 = load float, ptr %filterIntegral.i.i.i, align 8
   %conv33.i.i.i = fpext float %34 to double
   %div34.i.i.i = fdiv double %mul.i.i.i, %conv33.i.i.i
-  %35 = trunc i64 %indvars.iv.i.i.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   switch i32 %35, label %if.end4.i.i.i.i [
     i32 0, label %_ZN4pbrt3RGBixEi.exit.i.i.i
     i32 1, label %if.then3.i.i.i.i

@@ -2865,7 +2865,7 @@ define float @If_LutDecPinRequired(ptr nocapture noundef readnone %0, ptr nocapt
   %16 = and i32 %15, %13
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 2, i32 1
-  %19 = sitofp i32 %18 to float
+  %19 = uitofp nneg i32 %18 to float
   br label %20
 
 20:                                               ; preds = %9, %4, %11

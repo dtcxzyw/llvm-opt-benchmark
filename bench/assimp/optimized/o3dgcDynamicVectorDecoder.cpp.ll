@@ -1054,7 +1054,7 @@ delete.notnull.i:                                 ; preds = %if.then.i152
 delete.end.i:                                     ; preds = %delete.notnull.i, %if.then.i152
   store i64 %mul, ptr %m_maxNumVectors, align 8
   %78 = icmp ugt i64 %mul, 2305843009213693951
-  %79 = shl i64 %mul, 3
+  %79 = shl nuw i64 %mul, 3
   %80 = select i1 %78, i64 -1, i64 %79
   %call.i154 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %80) #11
           to label %call.i.noexc153 unwind label %lpad31.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1070,7 +1070,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %sh_prom.i = trunc i64 %75 to i32
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %sub9.i = xor i32 %notmask.i, -1
-  %conv.i151 = sitofp i32 %sub9.i to float
+  %conv.i151 = uitofp nneg i32 %sub9.i to float
   %cmp1216.not.i = icmp eq i64 %3, 0
   %m_quantVectors14.i = getelementptr inbounds i8, ptr %this, i64 40
   br i1 %cmp1216.not.i, label %invoke.cont101, label %for.body.us.i
@@ -1315,7 +1315,7 @@ delete.notnull:                                   ; preds = %if.then
 delete.end:                                       ; preds = %delete.notnull, %if.then
   store i64 %mul, ptr %m_maxNumVectors, align 8
   %2 = icmp ugt i64 %mul, 2305843009213693951
-  %3 = shl i64 %mul, 3
+  %3 = shl nuw i64 %mul, 3
   %4 = select i1 %2, i64 -1, i64 %3
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #11
   store ptr %call, ptr %m_quantVectors, align 8
@@ -1329,7 +1329,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sh_prom = trunc i64 %nQBits to i32
   %notmask = shl nsw i32 -1, %sh_prom
   %sub9 = xor i32 %notmask, -1
-  %conv = sitofp i32 %sub9 to float
+  %conv = uitofp nneg i32 %sub9 to float
   %cmp1216.not = icmp eq i64 %numFloatArray, 0
   %m_quantVectors14 = getelementptr inbounds i8, ptr %this, i64 40
   br i1 %cmp1216.not, label %for.end25, label %for.body.us

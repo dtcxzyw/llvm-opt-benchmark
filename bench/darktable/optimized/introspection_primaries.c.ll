@@ -556,7 +556,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr nocapture 
 
 70:                                               ; preds = %70, %49
   %71 = phi i32 [ 0, %49 ], [ %88, %70 ]
-  %72 = sitofp i32 %71 to float
+  %72 = uitofp nneg i32 %71 to float
   %73 = fmul reassoc nsz arcp contract afn float %72, 0x3FAAF286C0000000
   %74 = fmul reassoc nsz arcp contract afn float %73, %66
   %75 = fadd reassoc nsz arcp contract afn float %74, %64
@@ -604,7 +604,7 @@ _paint_purity_slider.exit:                        ; preds = %70
 
 102:                                              ; preds = %102, %_paint_purity_slider.exit
   %103 = phi i32 [ 0, %_paint_purity_slider.exit ], [ %120, %102 ]
-  %104 = sitofp i32 %103 to float
+  %104 = uitofp nneg i32 %103 to float
   %105 = fmul reassoc nsz arcp contract afn float %104, 0x3FAAF286C0000000
   %106 = fmul reassoc nsz arcp contract afn float %105, %98
   %107 = fadd reassoc nsz arcp contract afn float %106, %96
@@ -651,7 +651,7 @@ _paint_purity_slider.exit5:                       ; preds = %102
 
 133:                                              ; preds = %133, %_paint_purity_slider.exit5
   %134 = phi i32 [ 0, %_paint_purity_slider.exit5 ], [ %151, %133 ]
-  %135 = sitofp i32 %134 to float
+  %135 = uitofp nneg i32 %134 to float
   %136 = fmul reassoc nsz arcp contract afn float %135, 0x3FAAF286C0000000
   %137 = fmul reassoc nsz arcp contract afn float %136, %129
   %138 = fadd reassoc nsz arcp contract afn float %137, %127
@@ -745,7 +745,7 @@ _paint_purity_slider.exit6:                       ; preds = %133
 
 192:                                              ; preds = %192, %179
   %193 = phi i32 [ 0, %179 ], [ %210, %192 ]
-  %194 = sitofp i32 %193 to float
+  %194 = uitofp nneg i32 %193 to float
   %195 = fmul reassoc nsz arcp contract afn float %194, 0x3FAAF286C0000000
   %196 = fmul reassoc nsz arcp contract afn float %188, %195
   %197 = fadd reassoc nsz arcp contract afn float %196, %185
@@ -807,7 +807,7 @@ define internal fastcc void @_paint_hue_slider(ptr noundef %0, ptr nocapture nou
 
 16:                                               ; preds = %16, %5
   %17 = phi i32 [ 0, %5 ], [ %25, %16 ]
-  %18 = sitofp i32 %17 to float
+  %18 = uitofp nneg i32 %17 to float
   %19 = fmul reassoc nsz arcp contract afn float %18, 0x3FAAF286C0000000
   %20 = fmul reassoc nsz arcp contract afn float %19, %10
   %21 = fadd reassoc nsz arcp contract afn float %20, %8
@@ -854,7 +854,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %22, %7
   %23 = phi i32 [ 0, %7 ], [ %40, %22 ]
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp nneg i32 %23 to float
   %25 = fmul reassoc nsz arcp contract afn float %24, 0x3FAAF286C0000000
   %26 = fmul reassoc nsz arcp contract afn float %15, %25
   %27 = fadd reassoc nsz arcp contract afn float %26, %12

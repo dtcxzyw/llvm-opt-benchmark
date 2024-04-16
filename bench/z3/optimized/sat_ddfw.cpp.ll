@@ -1180,7 +1180,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 2531011
   store i32 %add.i.i.i.i, ptr %m_rand.i.i, align 8
   %shr.i.i.i.i = lshr i32 %add.i.i.i.i, 16
-  %17 = trunc i32 %shr.i.i.i.i to i16
+  %17 = trunc nuw i32 %shr.i.i.i.i to i16
   %rem.i.lhs.trunc.i.i = and i16 %17, 32767
   %rem.i3.i.i = urem i16 %rem.i.lhs.trunc.i.i, 100
   %rem.i.zext.i.i = zext nneg i16 %rem.i3.i.i to i32
@@ -2095,7 +2095,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %add.i.i.i = add i32 %mul.i.i.i, 2531011
   store i32 %add.i.i.i, ptr %m_rand.i, align 8
   %shr.i.i.i = lshr i32 %add.i.i.i, 16
-  %2 = trunc i32 %shr.i.i.i to i16
+  %2 = trunc nuw i32 %shr.i.i.i to i16
   %rem.i.lhs.trunc.i = and i16 %2, 32767
   %rem.i5.i = urem i16 %rem.i.lhs.trunc.i, 100
   %rem.i.zext.i = zext nneg i16 %rem.i5.i to i32
@@ -2770,7 +2770,7 @@ for.body14.lr.ph:                                 ; preds = %_ZNK6vectorIS_IN3sa
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc37
   %indvars.iv56 = phi i64 [ 0, %for.body14.lr.ph ], [ %indvars.iv.next57, %for.inc37 ]
-  %18 = trunc i64 %indvars.iv56 to i32
+  %18 = trunc nuw i64 %indvars.iv56 to i32
   %xor.i = xor i32 %18, 1
   %19 = load ptr, ptr %m_watches, align 8
   %arrayidx.i28 = getelementptr inbounds %class.vector.64, ptr %19, i64 %indvars.iv56
@@ -3298,7 +3298,7 @@ _ZN3sat4ddfw8inc_makeENS_7literalE.exit:          ; preds = %for.body26, %_ZN16i
   br i1 %cmp25.not, label %for.end34, label %for.body26
 
 for.end34:                                        ; preds = %_ZN3sat4ddfw8inc_makeENS_7literalE.exit, %sw.bb
-  %49 = trunc i64 %indvars.iv101 to i32
+  %49 = trunc nuw i64 %indvars.iv101 to i32
   tail call void @_ZN16indexed_uint_set12insert_freshEj(ptr noundef nonnull align 8 dereferenceable(24) %m_unsat, i32 noundef %49)
   br label %for.inc43
 
@@ -5393,7 +5393,7 @@ _ZNK3sat4ddfw8num_varsEv.exit:                    ; preds = %for.cond11, %if.end
   br i1 %cmp13, label %for.body14, label %for.end22
 
 for.body14:                                       ; preds = %_ZNK3sat4ddfw8num_varsEv.exit
-  %10 = trunc i64 %indvars.iv26 to i32
+  %10 = trunc nuw i64 %indvars.iv26 to i32
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %10)
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.7)
   %11 = load ptr, ptr %m_vars.i, align 8
@@ -5558,7 +5558,7 @@ _ZNK3sat4ddfw8num_varsEv.exit:                    ; preds = %for.cond46, %if.end
 for.body49:                                       ; preds = %_ZNK3sat4ddfw8num_varsEv.exit
   %arrayidx.i.i46 = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %12, i64 %indvars.iv
   %15 = load i8, ptr %arrayidx.i.i46, align 1
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   %shl.i = shl i32 %16, 1
   %17 = and i8 %15, 1
   %18 = xor i8 %17, 1
@@ -6272,7 +6272,7 @@ if.then14:                                        ; preds = %for.end
 for.body26.lr.ph:                                 ; preds = %if.then14
   %shr.i25 = lshr i32 %add.i24, 16
   %and.i26 = and i32 %shr.i25, 32767
-  %conv = sitofp i32 %and.i26 to double
+  %conv = uitofp nneg i32 %and.i26 to double
   %div = fmul double %conv, 0x3F00000000000000
   %mul = fmul double %sum_pos.1, %div
   %m_vars.i31 = getelementptr inbounds i8, ptr %this, i64 664
@@ -6439,7 +6439,7 @@ if.then14:                                        ; preds = %for.end
 for.body26.lr.ph:                                 ; preds = %if.then14
   %shr.i26 = lshr i32 %add.i25, 16
   %and.i27 = and i32 %shr.i26, 32767
-  %conv = sitofp i32 %and.i27 to double
+  %conv = uitofp nneg i32 %and.i27 to double
   %div = fmul double %conv, 0x3F00000000000000
   %mul = fmul double %sum_pos.1, %div
   %m_vars.i = getelementptr inbounds i8, ptr %this, i64 664

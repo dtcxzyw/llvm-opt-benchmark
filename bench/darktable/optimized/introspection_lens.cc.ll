@@ -5634,7 +5634,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 276:                                              ; preds = %287, %266
   %277 = phi i32 [ 0, %266 ], [ %289, %287 ]
   %278 = phi float [ 0.000000e+00, %266 ], [ %288, %287 ]
-  %279 = sitofp i32 %277 to float
+  %279 = uitofp nneg i32 %277 to float
   %280 = fmul reassoc nsz arcp contract afn float %279, 0x3F649539E0000000
   %281 = fadd reassoc nsz arcp contract afn float %280, 5.000000e-01
   %282 = fcmp reassoc nsz arcp contract afn ogt float %252, %281
@@ -5778,7 +5778,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 377:                                              ; preds = %396, %258
   %378 = phi i32 [ 0, %258 ], [ %398, %396 ]
   %379 = phi float [ 0.000000e+00, %258 ], [ %397, %396 ]
-  %380 = sitofp i32 %378 to float
+  %380 = uitofp nneg i32 %378 to float
   %381 = fmul reassoc nsz arcp contract afn float %380, 0x3F649539E0000000
   %382 = fadd reassoc nsz arcp contract afn float %381, 5.000000e-01
   %383 = fcmp reassoc nsz arcp contract afn ogt float %252, %382
@@ -6665,7 +6665,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 1019:                                             ; preds = %1157, %.loopexit69
   %1020 = phi i32 [ 0, %.loopexit69 ], [ %1159, %1157 ]
   %1021 = phi float [ 0.000000e+00, %.loopexit69 ], [ %1158, %1157 ]
-  %1022 = sitofp i32 %1020 to float
+  %1022 = uitofp nneg i32 %1020 to float
   %1023 = fmul reassoc nsz arcp contract afn float %1004, %1022
   %1024 = fadd reassoc nsz arcp contract afn float %1023, %1002
   %1025 = fcmp reassoc nsz arcp contract afn ogt float %1005, %1024

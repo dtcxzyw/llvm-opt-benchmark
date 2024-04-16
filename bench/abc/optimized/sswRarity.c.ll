@@ -185,7 +185,7 @@ Vec_IntAlloc.exit.i:
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.068 = phi i32 [ %3, %.lr.ph ], [ %27, %20 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = trunc i64 %indvars.iv.next to i32
+  %21 = trunc nuw nsw i64 %indvars.iv.next to i32
   %22 = mul nsw i32 %.pre84, %21
   %23 = sdiv i32 %.068, 64
   %24 = add nsw i32 %22, %23
@@ -378,7 +378,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #19
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #19
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -397,7 +397,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -806,7 +806,7 @@ define void @Ssw_RarTranspose(ptr nocapture noundef readonly %0) local_unnamed_a
   %.val32 = load i32, ptr %23, align 8
   %29 = getelementptr i8, ptr %.val31, i64 8
   %.val31.val = load ptr, ptr %29, align 8
-  %30 = trunc i64 %26 to i32
+  %30 = trunc nuw nsw i64 %26 to i32
   %31 = add nsw i32 %.val32, %30
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %.val31.val, i64 %32
@@ -1059,7 +1059,7 @@ Ssw_RarManAssingRandomPis.exit:                   ; preds = %._crit_edge.i, %._c
   %74 = load ptr, ptr %3, align 8
   %75 = getelementptr i8, ptr %74, i64 104
   %.val68 = load i32, ptr %75, align 8
-  %76 = trunc i64 %indvars.iv92 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv92 to i32
   %77 = mul nsw i32 %.val68, %76
   %78 = add nsw i32 %77, %.080
   %.val63 = load ptr, ptr %53, align 8
@@ -1356,7 +1356,7 @@ define i32 @Ssw_RarManObjWhichOne(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %.not, label %20, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %13
 
 13:                                               ; preds = %.preheader, %16
@@ -1372,7 +1372,7 @@ define i32 @Ssw_RarManObjWhichOne(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %exitcond30.not, label %.split.loop.exit33, label %13, !llvm.loop !35
 
 .split.loop.exit:                                 ; preds = %13
-  %17 = trunc i64 %indvars.iv27 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv27 to i32
   br label %.split.loop.exit33
 
 .split.loop.exit33:                               ; preds = %16, %.split.loop.exit
@@ -1473,7 +1473,7 @@ define i32 @Ssw_RarManCheckNonConstOutputs(ptr nocapture noundef %0, i32 noundef
   br i1 %.not.i, label %38, label %Ssw_RarManPoIsConst0.exit
 
 Ssw_RarManPoIsConst0.exit:                        ; preds = %.lr.ph.i
-  %41 = trunc i64 %indvars.iv to i32
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %41, ptr %4, align 8
   %.val.i60 = load i32, ptr %32, align 4
   %.val19.val.i = load i32, ptr %33, align 4
@@ -1495,7 +1495,7 @@ Ssw_RarManPoIsConst0.exit:                        ; preds = %.lr.ph.i
   br i1 %.not.i65, label %56, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i63
-  %48 = trunc i64 %indvars.iv.i64 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv.i64 to i32
   br label %49
 
 49:                                               ; preds = %52, %.preheader.i
@@ -1511,7 +1511,7 @@ Ssw_RarManPoIsConst0.exit:                        ; preds = %.lr.ph.i
   br i1 %exitcond30.not.i, label %.split.loop.exit33.i, label %49, !llvm.loop !35
 
 .split.loop.exit.i:                               ; preds = %49
-  %53 = trunc i64 %indvars.iv27.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv27.i to i32
   br label %.split.loop.exit33.i
 
 .split.loop.exit33.i:                             ; preds = %52, %.split.loop.exit.i
@@ -3491,7 +3491,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %.val70 = load ptr, ptr %10, align 8
   %28 = getelementptr i8, ptr %.val69, i64 8
   %.val69.val = load i32, ptr %28, align 8
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = shl i32 %29, %.val69.val
   %31 = add nsw i32 %30, %27
   %32 = sext i32 %31 to i64
@@ -3523,7 +3523,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %indvars.iv109 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next110, %._crit_edge88 ]
   %.val65 = load i32, ptr %14, align 4
   %.val66 = load ptr, ptr %15, align 8
-  %47 = trunc i64 %indvars.iv109 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv109 to i32
   %48 = mul nsw i32 %.val65, %47
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i64, ptr %.val66, i64 %49
@@ -3543,14 +3543,14 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %.val72 = load ptr, ptr %18, align 8
   %58 = getelementptr i8, ptr %.val71, i64 8
   %.val71.val = load i32, ptr %58, align 8
-  %59 = trunc i64 %indvars.iv106 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv106 to i32
   %60 = shl i32 %59, %.val71.val
   %61 = add nsw i32 %60, %57
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %.val72, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = mul nsw i32 %64, %64
-  %66 = sitofp i32 %65 to double
+  %66 = uitofp nneg i32 %65 to double
   %67 = fdiv double 1.000000e+00, %66
   %68 = load ptr, ptr %16, align 8
   %69 = getelementptr inbounds double, ptr %68, i64 %indvars.iv109
@@ -3611,7 +3611,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %95 = getelementptr inbounds double, ptr %.pre115, i64 %indvars.iv112
   %96 = load double, ptr %95, align 8
   %97 = fcmp olt double %.094, %96
-  %98 = trunc i64 %indvars.iv112 to i32
+  %98 = trunc nuw nsw i64 %indvars.iv112 to i32
   %.156 = select i1 %97, i32 %98, i32 %.05593
   %.1 = select i1 %97, double %96, double %.094
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
@@ -4006,7 +4006,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %2
 13:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv.i
-  %15 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %15, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5248,32 +5248,32 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #12
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #12
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 declare void @Ssw_ClassesStop(ptr noundef) local_unnamed_addr #3
 
 declare void @Aig_ManCleanMarkB(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
@@ -5299,10 +5299,10 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, argm
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -1264,8 +1264,8 @@ _ZNKSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEEclES4_S6_m.exit: ; preds = %_ZN
   %212 = load i32, ptr %94, align 4
   %213 = add nsw i32 %212, %204
   %214 = sitofp i32 %213 to float
-  %215 = trunc i64 %indvars.iv to i32
-  %216 = sitofp i32 %215 to float
+  %215 = trunc nuw nsw i64 %indvars.iv to i32
+  %216 = uitofp nneg i32 %215 to float
   %217 = fadd float %216, -1.500000e+00
   %218 = call float @llvm.fmuladd.f32(float %217, float %112, float %214)
   %219 = getelementptr inbounds [4 x ptr], ptr %6, i64 0, i64 %indvars.iv
@@ -1494,7 +1494,7 @@ _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit: ; preds = %91
   br i1 %exitcond.not.i.i, label %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit, label %99, !llvm.loop !17
 
 _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit: ; preds = %99
-  %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %102 = sitofp i32 %.sroa.2.0.extract.trunc to float
   %103 = fsub float 0.000000e+00, %102
   %104 = getelementptr inbounds i8, ptr %9, i64 20

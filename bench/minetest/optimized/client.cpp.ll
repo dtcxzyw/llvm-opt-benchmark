@@ -12801,7 +12801,7 @@ call2.i10.i.noexc1013:                            ; preds = %if.then368
   %arrayidx.i.i.i1009 = getelementptr inbounds i8, ptr %180, i64 %179
   store i8 0, ptr %arrayidx.i.i.i1009, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i1004) #37
-  %conv373 = sitofp i32 %num_processed_meshes.0 to float
+  %conv373 = uitofp nneg i32 %num_processed_meshes.0 to float
   invoke void @_ZN8Profiler8graphAddERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(192) %177, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369, float noundef %conv373)
           to label %invoke.cont375 unwind label %lpad374
 
@@ -20311,7 +20311,7 @@ if.then:                                          ; preds = %entry
   %conv8.i.i = sext i16 %sub13.i to i32
   %mul11.i.i = mul nsw i32 %conv8.i.i, %conv8.i.i
   %add12.i.i = add nuw nsw i32 %add.i.i, %mul11.i.i
-  %conv.i.i.i = sitofp i32 %add12.i.i to float
+  %conv.i.i.i = uitofp nneg i32 %add12.i.i to float
   %14 = tail call nsz noundef float @llvm.sqrt.f32(float %conv.i.i.i)
   %conv1.i.i.i = fptosi float %14 to i32
   %sext = shl i32 %conv1.i.i.i, 16
@@ -20380,7 +20380,7 @@ if.end:                                           ; preds = %entry
   %conv8.i.i = sext i16 %sub13.i to i32
   %mul11.i.i = mul nsw i32 %conv8.i.i, %conv8.i.i
   %add12.i.i = add nuw nsw i32 %add.i.i, %mul11.i.i
-  %conv.i.i.i = sitofp i32 %add12.i.i to float
+  %conv.i.i.i = uitofp nneg i32 %add12.i.i to float
   %14 = tail call nsz noundef float @llvm.sqrt.f32(float %conv.i.i.i)
   %conv1.i.i.i = fptosi float %14 to i32
   %sext = shl i32 %conv1.i.i.i, 16
@@ -25061,7 +25061,7 @@ if.then.i.i629:                                   ; preds = %invoke.cont96
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633: ; preds = %if.then.i.i629, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i630
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #37
   %cond111 = call i32 @llvm.umin.i32(i32 %call97, i32 100)
-  %conv = uitofp i32 %cond111 to double
+  %conv = uitofp nneg i32 %cond111 to double
   %div = fdiv nsz double %conv, 1.000000e+02
   %mul = fmul nsz double %div, 2.550000e+02
   %conv112 = fptoui double %mul to i32

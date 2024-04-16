@@ -1191,7 +1191,7 @@ define { i64, ptr } @jv_sort(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr 
   %17 = load i64, ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.015.0, ptr %.sroa.4.0, i32 noundef %20, i64 %17, ptr %19) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1939,7 +1939,7 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
   %.06077 = phi i32 [ %41, %.lr.ph ], [ 0, %32 ]
   %.sroa.8.1 = extractvalue { i64, ptr } %.pn78, 1
   %.sroa.054.1 = extractvalue { i64, ptr } %.pn78, 0
-  %36 = sitofp i32 %.06077 to double
+  %36 = uitofp nneg i32 %.06077 to double
   %37 = tail call { i64, ptr } @jv_number(double noundef %36) #6
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1
@@ -2223,7 +2223,7 @@ define internal fastcc ptr @sort_items(i64 %0, ptr %1, i64 %2, ptr %3) unnamed_a
   %13 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #6
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call { i64, ptr } @jv_array_get(i64 %14, ptr %15, i32 noundef %16) #6
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1

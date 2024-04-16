@@ -1492,8 +1492,8 @@ define internal fastcc double @conc_slope(ptr nocapture noundef readonly %0) unn
   br i1 %.not42, label %.preheader, label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %7 = trunc i64 %indvars.iv.next to i32
-  %8 = sitofp i32 %7 to double
+  %7 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %8 = uitofp nneg i32 %7 to double
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %1
@@ -1550,8 +1550,8 @@ define internal fastcc double @conc_slope(ptr nocapture noundef readonly %0) unn
   br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph51
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph51
-  %40 = trunc i64 %indvars.iv.next59 to i32
-  %41 = sitofp i32 %40 to double
+  %40 = trunc nuw nsw i64 %indvars.iv.next59 to i32
+  %41 = uitofp nneg i32 %40 to double
   %42 = fdiv double %37, %41
   br label %._crit_edge
 
@@ -2330,7 +2330,7 @@ define void @makeSelfEdge(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   br i1 %exitcond.not.i.i, label %.split.loop.exit26.i.i, label %61
 
 .split.loop.exit.i.i:                             ; preds = %61
-  %66 = trunc i64 %indvars.iv.i.i to i32
+  %66 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %.split.loop.exit26.i.i
 
 .split.loop.exit26.i.i:                           ; preds = %65, %.split.loop.exit.i.i
@@ -2350,7 +2350,7 @@ define void @makeSelfEdge(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   br i1 %exitcond25.not.i.i, label %.split.loop.exit29.i.i, label %67
 
 .split.loop.exit28.i.i:                           ; preds = %67
-  %72 = trunc i64 %indvars.iv22.i.i to i32
+  %72 = trunc nuw nsw i64 %indvars.iv22.i.i to i32
   br label %.split.loop.exit29.i.i
 
 .split.loop.exit29.i.i:                           ; preds = %71, %.split.loop.exit28.i.i
@@ -2581,7 +2581,7 @@ selfRight.exit:                                   ; preds = %165, %convert_sides
   br i1 %exitcond.not.i.i67, label %.split.loop.exit26.i.i68, label %207
 
 .split.loop.exit.i.i103:                          ; preds = %207
-  %212 = trunc i64 %indvars.iv.i.i65 to i32
+  %212 = trunc nuw nsw i64 %indvars.iv.i.i65 to i32
   br label %.split.loop.exit26.i.i68
 
 .split.loop.exit26.i.i68:                         ; preds = %211, %.split.loop.exit.i.i103
@@ -2601,7 +2601,7 @@ selfRight.exit:                                   ; preds = %165, %convert_sides
   br i1 %exitcond25.not.i.i72, label %.split.loop.exit29.i.i73, label %213
 
 .split.loop.exit28.i.i102:                        ; preds = %213
-  %218 = trunc i64 %indvars.iv22.i.i70 to i32
+  %218 = trunc nuw nsw i64 %indvars.iv22.i.i70 to i32
   br label %.split.loop.exit29.i.i73
 
 .split.loop.exit29.i.i73:                         ; preds = %217, %.split.loop.exit28.i.i102
@@ -2831,7 +2831,7 @@ selfLeft.exit:                                    ; preds = %312, %convert_sides
   br i1 %exitcond.not.i.i110, label %.split.loop.exit26.i.i111, label %353
 
 .split.loop.exit.i.i134:                          ; preds = %353
-  %358 = trunc i64 %indvars.iv.i.i108 to i32
+  %358 = trunc nuw nsw i64 %indvars.iv.i.i108 to i32
   br label %.split.loop.exit26.i.i111
 
 .split.loop.exit26.i.i111:                        ; preds = %357, %.split.loop.exit.i.i134
@@ -2851,7 +2851,7 @@ selfLeft.exit:                                    ; preds = %312, %convert_sides
   br i1 %exitcond25.not.i.i115, label %.split.loop.exit29.i.i116, label %359
 
 .split.loop.exit28.i.i133:                        ; preds = %359
-  %364 = trunc i64 %indvars.iv22.i.i113 to i32
+  %364 = trunc nuw nsw i64 %indvars.iv22.i.i113 to i32
   br label %.split.loop.exit29.i.i116
 
 .split.loop.exit29.i.i116:                        ; preds = %363, %.split.loop.exit28.i.i133
@@ -3074,7 +3074,7 @@ define internal fastcc void @selfTop(ptr nocapture noundef readonly %0, i32 noun
   br i1 %exitcond.not.i, label %.split.loop.exit26.i, label %45
 
 .split.loop.exit.i:                               ; preds = %45
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.split.loop.exit26.i
 
 .split.loop.exit26.i:                             ; preds = %49, %.split.loop.exit.i
@@ -3094,7 +3094,7 @@ define internal fastcc void @selfTop(ptr nocapture noundef readonly %0, i32 noun
   br i1 %exitcond25.not.i, label %.split.loop.exit29.i, label %51
 
 .split.loop.exit28.i:                             ; preds = %51
-  %56 = trunc i64 %indvars.iv22.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv22.i to i32
   br label %.split.loop.exit29.i
 
 .split.loop.exit29.i:                             ; preds = %55, %.split.loop.exit28.i

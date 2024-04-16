@@ -1564,7 +1564,7 @@ define noundef zeroext i1 @_ZN8AlignSet15RenderShadowMapEv(ptr noundef nonnull a
   %.040.i = phi i1 [ true, %1 ], [ false, %25 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %41, %25 ]
   %.zext.i = and i32 %.02339.i, 1
-  %26 = sitofp i32 %.zext.i to float
+  %26 = uitofp nneg i32 %.zext.i to float
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %22, float %.sroa.0.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
@@ -2169,7 +2169,7 @@ define noundef zeroext i1 @_ZN8AlignSet20RenderMultiShadowMapEv(ptr nocapture no
   %.040.i = phi i1 [ true, %1 ], [ false, %30 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %46, %30 ]
   %.zext.i = and i32 %.02339.i, 1
-  %31 = sitofp i32 %.zext.i to float
+  %31 = uitofp nneg i32 %.zext.i to float
   %32 = tail call float @llvm.fmuladd.f32(float %31, float %27, float %.sroa.0257.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
@@ -2528,7 +2528,7 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6v
   %.040.i81 = phi i1 [ true, %.noexc64 ], [ false, %174 ]
   %.02339.i82 = phi i32 [ 0, %.noexc64 ], [ %190, %174 ]
   %.zext.i83 = and i32 %.02339.i82, 1
-  %175 = sitofp i32 %.zext.i83 to float
+  %175 = uitofp nneg i32 %.zext.i83 to float
   %176 = call float @llvm.fmuladd.f32(float %175, float %171, float %.sroa.0251.0.copyload)
   %.zext38.i84 = lshr i32 %.02339.i82, 1
   %.urem.i85 = add nsw i32 %.zext38.i84, -2
@@ -2886,7 +2886,7 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit152: ; preds = %_ZNS
   %.040.i171 = phi i1 [ true, %.noexc153 ], [ false, %313 ]
   %.02339.i172 = phi i32 [ 0, %.noexc153 ], [ %329, %313 ]
   %.zext.i173 = and i32 %.02339.i172, 1
-  %314 = sitofp i32 %.zext.i173 to float
+  %314 = uitofp nneg i32 %.zext.i173 to float
   %315 = call float @llvm.fmuladd.f32(float %314, float %310, float %.sroa.0.0.copyload)
   %.zext38.i174 = lshr i32 %.02339.i172, 1
   %.urem.i175 = add nsw i32 %.zext38.i174, -2
@@ -3473,7 +3473,7 @@ define void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr no
   %.040.i = phi i1 [ true, %15 ], [ false, %26 ]
   %.02339.i = phi i32 [ 0, %15 ], [ %42, %26 ]
   %.zext.i = and i32 %.02339.i, 1
-  %27 = sitofp i32 %.zext.i to float
+  %27 = uitofp nneg i32 %.zext.i to float
   %28 = call float @llvm.fmuladd.f32(float %27, float %23, float %.sroa.0.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
@@ -3577,16 +3577,16 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit: ; preds = %.no
   br label %334
 
 switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE7SetViewERKS4_ff.exit
-  %switch.cast = trunc i32 %58 to i8
+  %switch.cast = trunc nuw i32 %58 to i8
   %switch.downshift = lshr i8 -27, %switch.cast
   %switch.masked = trunc i8 %switch.downshift to i1
-  %switch.cast96 = trunc i32 %58 to i8
+  %switch.cast96 = trunc nuw i32 %58 to i8
   %switch.downshift98 = lshr i8 -21, %switch.cast96
   %switch.masked99 = trunc i8 %switch.downshift98 to i1
-  %switch.cast100 = trunc i32 %58 to i8
+  %switch.cast100 = trunc nuw i32 %58 to i8
   %switch.downshift102 = lshr i8 64, %switch.cast100
   %switch.masked103 = trunc i8 %switch.downshift102 to i1
-  %switch.cast104 = trunc i32 %58 to i8
+  %switch.cast104 = trunc nuw i32 %58 to i8
   %switch.downshift106 = lshr exact i8 -128, %switch.cast104
   %switch.masked107 = trunc i8 %switch.downshift106 to i1
   br label %63

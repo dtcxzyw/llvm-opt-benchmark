@@ -459,8 +459,8 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %144 = and i64 %113, 30
   %145 = sub nuw nsw i64 %141, %144
   %146 = shl nuw nsw i64 %145, 3
-  %147 = trunc i64 %145 to i32
-  %148 = sitofp i64 %145 to float
+  %147 = trunc nuw nsw i64 %145 to i32
+  %148 = uitofp nneg i64 %145 to float
   %149 = fmul reassoc nsz arcp contract afn float %135, %148
   %150 = fadd reassoc nsz arcp contract afn float %149, %135
   %151 = insertelement <8 x float> poison, float %135, i64 0
@@ -1877,7 +1877,7 @@ define hidden void @_hit_paths(ptr nocapture readnone %0, ptr noundef %1, ptr no
   %107 = phi float [ 0.000000e+00, %92 ], [ %140, %106 ]
   %108 = phi float [ %105, %92 ], [ %139, %106 ]
   %109 = phi i32 [ 0, %92 ], [ %141, %106 ]
-  %110 = sitofp i32 %109 to double
+  %110 = uitofp nneg i32 %109 to double
   %111 = fmul reassoc nsz arcp contract afn double %110, 1.000000e-02
   %112 = fptrunc double %111 to float
   %113 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %112
@@ -2114,7 +2114,7 @@ define internal fastcc float @find_nearest_on_curve_t(<2 x float> noundef %0, <2
   %10 = phi float [ 0.000000e+00, %5 ], [ %43, %9 ]
   %11 = phi float [ %7, %5 ], [ %42, %9 ]
   %12 = phi i32 [ 0, %5 ], [ %44, %9 ]
-  %13 = sitofp i32 %12 to double
+  %13 = uitofp nneg i32 %12 to double
   %14 = fmul reassoc nsz arcp contract afn double %13, 1.000000e-02
   %15 = fptrunc double %14 to float
   %16 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %15

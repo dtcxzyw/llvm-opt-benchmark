@@ -591,8 +591,8 @@ entry:
   %and21 = lshr i32 %i, 2
   %shr22 = and i32 %and21, 1
   %sub23 = xor i32 %shr22, 1
-  %conv24 = sitofp i32 %sub23 to float
-  %conv28 = sitofp i32 %shr22 to float
+  %conv24 = uitofp nneg i32 %sub23 to float
+  %conv28 = uitofp nneg i32 %shr22 to float
   %0 = fneg float %halfExtents.sroa.5.0.copyload
   %neg30 = fmul float %conv28, %0
   %1 = tail call float @llvm.fmuladd.f32(float %halfExtents.sroa.5.0.copyload, float %conv24, float %neg30)
@@ -601,8 +601,8 @@ entry:
   %4 = insertelement <2 x i32> %3, i32 %and10, i64 1
   %5 = and <2 x i32> %4, <i32 1, i32 1>
   %6 = xor <2 x i32> %5, <i32 1, i32 1>
-  %7 = sitofp <2 x i32> %6 to <2 x float>
-  %8 = sitofp <2 x i32> %5 to <2 x float>
+  %7 = uitofp nneg <2 x i32> %6 to <2 x float>
+  %8 = uitofp nneg <2 x i32> %5 to <2 x float>
   %9 = fneg <2 x float> %2
   %10 = fmul <2 x float> %8, %9
   %11 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2, <2 x float> %7, <2 x float> %10)

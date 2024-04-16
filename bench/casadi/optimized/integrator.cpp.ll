@@ -3753,7 +3753,7 @@ define linkonce_odr hidden void @_ZN6casadi10Integrator10map2oracleINS_6MatrixIN
 
 235:                                              ; preds = %233
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %234) #29
-  %236 = trunc i64 %.0147348 to i32
+  %236 = trunc nuw i64 %.0147348 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %38, i32 noundef %236)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit unwind label %260
 
@@ -3975,7 +3975,7 @@ _ZN6casadi6dyn_inB5cxx11Ex.exit:                  ; preds = %235
 
 300:                                              ; preds = %298
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %299) #29
-  %301 = trunc i64 %.0147348 to i32
+  %301 = trunc nuw i64 %.0147348 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %51, i32 noundef %301)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit221 unwind label %316
 
@@ -4230,7 +4230,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN6ca
 
 376:                                              ; preds = %374
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %375) #29
-  %377 = trunc i64 %.063349 to i32
+  %377 = trunc nuw i64 %.063349 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_6DynOutE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %64, i32 noundef %377)
           to label %_ZN6casadi7dyn_outB5cxx11Ex.exit unwind label %399
 
@@ -5284,7 +5284,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %.invoke
 
 225:                                              ; preds = %223
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %224) #29
-  %226 = trunc i64 %.0147333 to i32
+  %226 = trunc nuw i64 %.0147333 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, i32 noundef %226)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit unwind label %250
 
@@ -5506,7 +5506,7 @@ _ZN6casadi6dyn_inB5cxx11Ex.exit:                  ; preds = %225
 
 290:                                              ; preds = %288
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %289) #29
-  %291 = trunc i64 %.0147333 to i32
+  %291 = trunc nuw i64 %.0147333 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %52, i32 noundef %291)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit228 unwind label %306
 
@@ -5735,7 +5735,7 @@ _ZN6casadi2MXaSERKS0_.exit238:                    ; preds = %_ZN6casadi3vecERKNS
 
 359:                                              ; preds = %357
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %358) #29
-  %360 = trunc i64 %.063334 to i32
+  %360 = trunc nuw i64 %.063334 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_6DynOutE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %65, i32 noundef %360)
           to label %_ZN6casadi7dyn_outB5cxx11Ex.exit unwind label %382
 
@@ -7153,7 +7153,7 @@ define linkonce_odr hidden void @_ZN6casadi10enum_namesINS_5DynInEEESt6vectorINS
 
 9:                                                ; preds = %8, %11
   %.09 = phi i64 [ 0, %8 ], [ %14, %11 ]
-  %10 = trunc i64 %.09 to i32
+  %10 = trunc nuw nsw i64 %.09 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %1, i32 noundef %10)
           to label %11 unwind label %15
 
@@ -7208,7 +7208,7 @@ define linkonce_odr hidden void @_ZN6casadi10enum_namesINS_6DynOutEEESt6vectorIN
 
 9:                                                ; preds = %8, %11
   %.09 = phi i64 [ 0, %8 ], [ %14, %11 ]
-  %10 = trunc i64 %.09 to i32
+  %10 = trunc nuw nsw i64 %.09 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_6DynOutE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %1, i32 noundef %10)
           to label %11 unwind label %15
 
@@ -11253,7 +11253,7 @@ _ZNSt6vectorIdSaIdEE5eraseEN9__gnu_cxx17__normal_iteratorIPKdS1_EE.exit: ; preds
 
 678:                                              ; preds = %676
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %677) #29
-  %679 = trunc i64 %.02581201 to i32
+  %679 = trunc nuw i64 %.02581201 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %70, i32 noundef %679)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit unwind label %703
 
@@ -11475,7 +11475,7 @@ _ZN6casadi6dyn_inB5cxx11Ex.exit:                  ; preds = %678
 
 743:                                              ; preds = %741
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %742) #29
-  %744 = trunc i64 %.02581201 to i32
+  %744 = trunc nuw i64 %.02581201 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %83, i32 noundef %744)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit829 unwind label %759
 
@@ -11652,7 +11652,7 @@ _ZN6casadi6dyn_inB5cxx11Ex.exit829:               ; preds = %743
 
 793:                                              ; preds = %791
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %792) #29
-  %794 = trunc i64 %.02241202 to i32
+  %794 = trunc nuw i64 %.02241202 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_6DynOutE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %95, i32 noundef %794)
           to label %_ZN6casadi7dyn_outB5cxx11Ex.exit unwind label %816
 
@@ -11858,7 +11858,7 @@ _ZN6casadi7dyn_outB5cxx11Ex.exit:                 ; preds = %793
 
 853:                                              ; preds = %851
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %852) #29
-  %854 = trunc i64 %.02241202 to i32
+  %854 = trunc nuw i64 %.02241202 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_6DynOutE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %108, i32 noundef %854)
           to label %_ZN6casadi7dyn_outB5cxx11Ex.exit848 unwind label %869
 
@@ -17880,7 +17880,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_D
   br label %264
 
 217:                                              ; preds = %199
-  %218 = trunc i64 %.070372 to i32
+  %218 = trunc nuw i64 %.070372 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, i32 noundef %218)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit unwind label %.loopexit.split-lp339
 
@@ -19465,7 +19465,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN6ca
   br label %239
 
 200:                                              ; preds = %182
-  %201 = trunc i64 %.070382 to i32
+  %201 = trunc nuw i64 %.070382 to i32
   invoke void @_ZN6casadi9to_stringB5cxx11ENS_5DynInE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, i32 noundef %201)
           to label %_ZN6casadi6dyn_inB5cxx11Ex.exit unwind label %.loopexit.split-lp349
 
@@ -24891,7 +24891,7 @@ _ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i: ; preds = %366
 
 _ZNK6casadi16FunctionInternal8size1_inEx.exit:    ; preds = %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i
   %376 = icmp sgt i64 %375, 0
-  %377 = trunc i64 %.0109757 to i32
+  %377 = trunc nuw i64 %.0109757 to i32
   %.off.i = add nsw i32 %377, -3
   %switch.i = icmp ult i32 %.off.i, 4
   %or.cond = select i1 %376, i1 %switch.i, i1 false
@@ -25418,7 +25418,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit317: ; preds = %_ZSt8_DestroyIPN
 
 534:                                              ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit317, %_ZNSt6vectorIxSaIxEED2Ev.exit
   %.0106771 = phi i64 [ 0, %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit317 ], [ %663, %_ZNSt6vectorIxSaIxEED2Ev.exit ]
-  %535 = trunc i64 %.0106771 to i32
+  %535 = trunc nuw i64 %.0106771 to i32
   switch i32 %535, label %_ZN6casadi10Integrator8grid_outEx.exit [
     i32 0, label %536
     i32 1, label %536
@@ -28277,7 +28277,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit298: ; preds = %.noexc296, 
 
 .preheader786.split:                              ; preds = %.preheader786, %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit393
   %.01411040 = phi i64 [ %582, %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit393 ], [ 0, %.preheader786 ]
-  %406 = trunc i64 %.01411040 to i32
+  %406 = trunc nuw i64 %.01411040 to i32
   switch i32 %406, label %412 [
     i32 0, label %_ZN6casadi10Integrator10adjmap_outEx.exit
     i32 1, label %407
@@ -29075,7 +29075,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit431: ; preds = %_ZSt8_DestroyIPN
 
 619:                                              ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit431, %_ZNSt6vectorIxSaIxEED2Ev.exit
   %.01391067 = phi i64 [ 0, %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit431 ], [ %810, %_ZNSt6vectorIxSaIxEED2Ev.exit ]
-  %620 = trunc i64 %.01391067 to i32
+  %620 = trunc nuw i64 %.01391067 to i32
   switch i32 %620, label %626 [
     i32 0, label %_ZN6casadi10Integrator8grid_outEx.exit
     i32 1, label %621
@@ -32643,7 +32643,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %6, %.pre
 47:                                               ; preds = %.lr.ph, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit100
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %131, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit100 ]
   %48 = load double, ptr %29, align 8
-  %49 = sitofp i64 %.0134 to double
+  %49 = uitofp nneg i64 %.0134 to double
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %33, double %48)
   %51 = load ptr, ptr %35, align 8
   %52 = load i64, ptr %36, align 8

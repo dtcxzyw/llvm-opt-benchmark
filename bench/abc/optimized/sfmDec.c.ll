@@ -330,7 +330,7 @@ Abc_Clock.exit67:                                 ; preds = %Abc_Clock.exit65, %
 
 126:                                              ; preds = %126, %.preheader20.i
   %indvars.iv.i = phi i64 [ 0, %.preheader20.i ], [ %indvars.iv.next.i, %126 ]
-  %127 = trunc i64 %indvars.iv.i to i32
+  %127 = trunc nuw nsw i64 %indvars.iv.i to i32
   %128 = and i32 %118, %127
   %.not.i = icmp ne i32 %128, 0
   %129 = sext i1 %.not.i to i64
@@ -422,7 +422,7 @@ define void @Sfm_DecStop(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not63, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %20)
   br label %22
 
@@ -1131,7 +1131,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %66, ptr %38, align 4
   %67 = sext i32 %65 to i64
   %68 = getelementptr inbounds i32, ptr %64, i64 %67
-  %69 = trunc i64 %indvars.iv190 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv190 to i32
   store i32 %69, ptr %68, align 4
   %.val132 = load ptr, ptr %19, align 8
   %70 = sext i32 %34 to i64
@@ -1273,14 +1273,14 @@ Vec_IntPush.exit152:                              ; preds = %.Vec_IntGrow.exit10
 
 .critedge6:                                       ; preds = %Vec_IntPush.exit152
   %.pre = load i32, ptr %25, align 4
-  %133 = trunc i64 %indvars.iv199 to i32
+  %133 = trunc nsw i64 %indvars.iv199 to i32
   %134 = add i32 %26, %133
   %135 = load i32, ptr %3, align 8
   %136 = icmp eq i32 %.pre, %135
   br i1 %136, label %142, label %.Vec_IntGrow.exit10_crit_edge.i153
 
 .critedge6.thread:                                ; preds = %90
-  %137 = trunc i64 %indvars.iv199 to i32
+  %137 = trunc nsw i64 %indvars.iv199 to i32
   %138 = add i32 %26, %137
   %139 = load i32, ptr %3, align 8
   %140 = icmp eq i32 %139, 0
@@ -2927,7 +2927,7 @@ define i32 @Sfm_DecCombineDec(ptr nocapture noundef readonly %0, ptr noundef %1,
 
 ._crit_edge.us.i:                                 ; preds = %36
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, %35
-  %39 = trunc i64 %indvars.iv.next28.i to i32
+  %39 = trunc nuw i64 %indvars.iv.next28.i to i32
   %40 = icmp sgt i32 %31, %39
   br i1 %40, label %.preheader.us.i, label %Abc_TtStretch6.exit, !llvm.loop !41
 
@@ -3108,7 +3108,7 @@ Vec_IntPushOrder.exit:                            ; preds = %.lr.ph.i64, %91, %V
 
 ._crit_edge.us.i77:                               ; preds = %112
   %indvars.iv.next28.i78 = add nuw nsw i64 %indvars.iv27.i71, %111
-  %115 = trunc i64 %indvars.iv.next28.i78 to i32
+  %115 = trunc nuw i64 %indvars.iv.next28.i78 to i32
   %116 = icmp sgt i32 %107, %115
   br i1 %116, label %.preheader.us.i70, label %Abc_TtStretch6.exit79, !llvm.loop !41
 
@@ -3153,7 +3153,7 @@ Abc_TtStretch6.exit79:                            ; preds = %._crit_edge.us.i77,
 
 ._crit_edge.us.i90:                               ; preds = %131
   %indvars.iv.next28.i91 = add nuw nsw i64 %indvars.iv27.i84, %130
-  %134 = trunc i64 %indvars.iv.next28.i91 to i32
+  %134 = trunc nuw i64 %indvars.iv.next28.i91 to i32
   %135 = icmp sgt i32 %126, %134
   br i1 %135, label %.preheader.us.i83, label %Abc_TtStretch6.exit92, !llvm.loop !41
 
@@ -3265,7 +3265,7 @@ Abc_TtMux.exit:                                   ; preds = %.lr.ph.i99, %Vec_In
 
 ._crit_edge.us.i113:                              ; preds = %178
   %indvars.iv.next28.i114 = add nuw nsw i64 %indvars.iv27.i107, %177
-  %181 = trunc i64 %indvars.iv.next28.i114 to i32
+  %181 = trunc nuw i64 %indvars.iv.next28.i114 to i32
   %182 = icmp sgt i32 %174, %181
   br i1 %182, label %.preheader.us.i106, label %Abc_TtStretch6.exit, !llvm.loop !41
 
@@ -3319,7 +3319,7 @@ define internal fastcc void @Abc_TtStretch6(ptr nocapture noundef %0, i32 nounde
 
 ._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, %17
-  %21 = trunc i64 %indvars.iv.next28 to i32
+  %21 = trunc nuw i64 %indvars.iv.next28 to i32
   %22 = icmp sgt i32 %13, %21
   br i1 %22, label %.preheader.us, label %.loopexit, !llvm.loop !41
 
@@ -3366,7 +3366,7 @@ define internal fastcc void @Abc_TtExpand(ptr noundef %0, i32 noundef %1, ptr no
 25:                                               ; preds = %23
   %26 = load i64, ptr %0, align 8
   %27 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %19, i64 %indvars.iv30
-  %28 = trunc i64 %indvars.iv30 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv30 to i32
   %29 = shl nuw i32 1, %28
   %.neg.i.i.us = shl nsw i32 -1, %.020.us
   %30 = add i32 %29, %.neg.i.i.us
@@ -3423,7 +3423,7 @@ Abc_TtSwapVars.exit.us:                           ; preds = %25, %23
 
 .lr.ph.i:                                         ; preds = %59
   %.neg.i = shl nsw i32 -1, %.020
-  %60 = trunc i64 %indvars.iv to i32
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
   %61 = shl nuw nsw i32 1, %60
   %62 = add nsw i32 %.neg.i, %61
   %63 = getelementptr inbounds [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %51, i64 %indvars.iv
@@ -3575,7 +3575,7 @@ Abc_TtSwapVars.exit:                              ; preds = %._crit_edge124.spli
   %134 = icmp sgt i64 %indvars.iv, 0
   %135 = icmp sgt i32 %.1, -1
   %136 = select i1 %134, i1 %135, i1 false
-  %137 = trunc i64 %indvars.iv to i32
+  %137 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %136, label %.lr.ph.split, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %133, %45, %6
@@ -3716,7 +3716,7 @@ define i32 @Sfm_DecPeformDec_rec(ptr noundef %0, ptr nocapture noundef %1, ptr n
   store i32 %85, ptr %61, align 8
   %86 = load i32, ptr %62, align 8
   %87 = shl nsw i32 %86, 1
-  %88 = trunc i64 %indvars.iv599 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv599 to i32
   %89 = or disjoint i32 %87, %88
   store i32 %89, ptr %63, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
@@ -4015,7 +4015,7 @@ Abc_TtIntersect.exit411.thread:                   ; preds = %227, %213, %Abc_TtI
   %.015.i410468 = phi i32 [ 1, %Abc_TtIntersect.exit411 ], [ 0, %213 ], [ 0, %227 ]
   %233 = load i32, ptr %62, align 8
   %234 = shl nsw i32 %233, 1
-  %235 = trunc i64 %indvars.iv605 to i32
+  %235 = trunc nuw nsw i64 %indvars.iv605 to i32
   %236 = or disjoint i32 %234, %235
   store i32 %236, ptr %63, align 4
   %237 = or disjoint i32 %.015.i410468, %212
@@ -4037,7 +4037,7 @@ Abc_Clock.exit413:                                ; preds = %Abc_TtIntersect.exi
   %.0.i412.neg567 = phi i64 [ %.neg566, %240 ], [ 1, %Abc_TtIntersect.exit411.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %243 = load i64, ptr %211, align 8
-  %indvars.iv605.tr = trunc i64 %indvars.iv605 to i32
+  %indvars.iv605.tr = trunc nuw nsw i64 %indvars.iv605 to i32
   %244 = shl nuw nsw i32 %indvars.iv605.tr, 1
   %245 = or disjoint i32 %244, %.masked473
   %246 = or disjoint i32 %.015.i410468, %245
@@ -4379,7 +4379,7 @@ Abc_TtUnit.exit:                                  ; preds = %387, %376
 418:                                              ; preds = %.preheader482, %587
   %419 = phi i1 [ true, %.preheader482 ], [ false, %587 ]
   %indvars.iv618 = phi i64 [ 0, %.preheader482 ], [ 1, %587 ]
-  %420 = trunc i64 %indvars.iv618 to i32
+  %420 = trunc nuw nsw i64 %indvars.iv618 to i32
   %421 = xor i64 %indvars.iv618, 1
   %422 = getelementptr inbounds [2 x %struct.Vec_Int_t_], ptr %195, i64 0, i64 %421
   %423 = getelementptr i8, ptr %422, i64 4
@@ -5130,7 +5130,7 @@ define i32 @Sfm_DecPeformDec2(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %51
-  %55 = trunc i64 %52 to i32
+  %55 = trunc nuw nsw i64 %52 to i32
   %reass.sub = sub i32 %55, %47
   %56 = add i32 %reass.sub, 64
   %57 = zext nneg i32 %56 to i64
@@ -5162,7 +5162,7 @@ Abc_TtMask.exit:                                  ; preds = %59
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %65
-  %69 = trunc i64 %66 to i32
+  %69 = trunc nuw nsw i64 %66 to i32
   %reass.sub146 = sub i32 %69, %61
   %70 = add i32 %reass.sub146, 64
   %71 = zext nneg i32 %70 to i64
@@ -5192,7 +5192,7 @@ Abc_TtMask.exit120:                               ; preds = %73
 82:                                               ; preds = %81
   %83 = load i32, ptr %32, align 8
   %84 = load i32, ptr %34, align 4
-  %85 = trunc i64 %indvar to i32
+  %85 = trunc nuw nsw i64 %indvar to i32
   %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %85, i32 noundef %83, i32 noundef %84)
   br label %159
 
@@ -5202,7 +5202,7 @@ Abc_TtMask.exit120:                               ; preds = %73
 88:                                               ; preds = %87
   %89 = load i32, ptr %32, align 8
   %90 = load i32, ptr %34, align 4
-  %91 = trunc i64 %indvar to i32
+  %91 = trunc nuw nsw i64 %indvar to i32
   %92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %91, i32 noundef %89, i32 noundef %90, i32 noundef %78)
   call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %76, i32 noundef %78) #24
   br label %.critedge
@@ -5340,7 +5340,7 @@ Sfm_DecMffcAreaReal.exit:                         ; preds = %144, %.critedge.i
 
 156:                                              ; preds = %153
   %157 = load i32, ptr %8, align 4
-  %158 = trunc i64 %indvar to i32
+  %158 = trunc nuw nsw i64 %indvar to i32
   br label %159
 
 159:                                              ; preds = %153, %156, %150, %152, %Abc_TtCopy.exit127, %81, %82
@@ -5683,7 +5683,7 @@ Vec_WrdFill.exit90:                               ; preds = %45, %Vec_WrdGrow.ex
   store i32 %100, ptr %98, align 4
   %101 = sext i32 %99 to i64
   %102 = getelementptr inbounds [2 x [64 x i32]], ptr %2, i64 0, i64 %97, i64 %101
-  %103 = trunc i64 %indvars.iv102 to i32
+  %103 = trunc nuw nsw i64 %indvars.iv102 to i32
   store i32 %103, ptr %102, align 4
   br label %104
 
@@ -5919,7 +5919,7 @@ Sfm_ManReadObjDelay.exit:                         ; preds = %67, %69
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %80
-  %84 = trunc i64 %81 to i32
+  %84 = trunc nuw nsw i64 %81 to i32
   %reass.sub = sub i32 %84, %76
   %85 = add i32 %reass.sub, 64
   %86 = zext nneg i32 %85 to i64
@@ -5951,7 +5951,7 @@ Abc_TtMask.exit:                                  ; preds = %88
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %94
-  %98 = trunc i64 %95 to i32
+  %98 = trunc nuw nsw i64 %95 to i32
   %reass.sub299 = sub i32 %98, %90
   %99 = add i32 %reass.sub299, 64
   %100 = zext nneg i32 %99 to i64
@@ -5984,7 +5984,7 @@ Abc_TtMask.exit244:                               ; preds = %102
 112:                                              ; preds = %111
   %113 = load i32, ptr %41, align 8
   %114 = load i32, ptr %43, align 4
-  %115 = trunc i64 %indvar to i32
+  %115 = trunc nuw nsw i64 %indvar to i32
   %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %115, i32 noundef %113, i32 noundef %114, i32 noundef %107)
   call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %105, i32 noundef %107) #24
   br label %.critedge
@@ -6161,7 +6161,7 @@ Sfm_DecMffcAreaReal.exit:                         ; preds = %193, %.critedge.i
 
 .lr.ph.preheader:                                 ; preds = %Sfm_DecMffcAreaReal.exit
   %wide.trip.count = zext nneg i32 %197 to i64
-  %199 = trunc i64 %indvar to i32
+  %199 = trunc nuw nsw i64 %indvar to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %264
@@ -6314,7 +6314,7 @@ Abc_Clock.exit257:                                ; preds = %252, %255
 .loopexit.sink.split:                             ; preds = %141, %135, %110
   %265 = load i32, ptr %41, align 8
   %266 = load i32, ptr %43, align 4
-  %267 = trunc i64 %indvar to i32
+  %267 = trunc nuw nsw i64 %indvar to i32
   %268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %267, i32 noundef %265, i32 noundef %266)
   br label %.loopexit
 
@@ -6699,7 +6699,7 @@ define void @Abc_NtkDfsReverseOne_rec(ptr nocapture noundef %0, ptr nocapture no
   br i1 %exitcond.not, label %.preheader, label %31, !llvm.loop !93
 
 .critedge.loopexit:                               ; preds = %31
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader54
@@ -10420,7 +10420,7 @@ Vec_WecClear.exit:                                ; preds = %350, %.critedge20
 
 366:                                              ; preds = %358
   %367 = getelementptr inbounds i8, ptr %364, i64 64
-  %368 = trunc i64 %indvars.iv465 to i32
+  %368 = trunc nuw nsw i64 %indvars.iv465 to i32
   store i32 %368, ptr %367, align 8
   %369 = load i32, ptr %347, align 4
   %370 = load i32, ptr %5, align 8
@@ -11640,7 +11640,7 @@ Abc_Clock.exit:                                   ; preds = %1, %54
   br i1 %.not121, label %172, label %169
 
 169:                                              ; preds = %166
-  %170 = trunc i64 %indvars.iv to i32
+  %170 = trunc nuw nsw i64 %indvars.iv to i32
   %171 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %170, i32 noundef %168)
   br label %172
 
@@ -11663,7 +11663,7 @@ Abc_Clock.exit:                                   ; preds = %1, %54
   br i1 %.not120, label %183, label %180
 
 180:                                              ; preds = %177
-  %181 = trunc i64 %indvars.iv133 to i32
+  %181 = trunc nuw nsw i64 %indvars.iv133 to i32
   %182 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %181, i32 noundef %179)
   br label %183
 
@@ -11682,7 +11682,7 @@ Abc_Clock.exit:                                   ; preds = %1, %54
   %190 = sitofp i32 %189 to double
   %191 = fmul double %190, 1.000000e+02
   %192 = call noundef i32 @llvm.smax.i32(i32 %186, i32 1)
-  %193 = sitofp i32 %192 to double
+  %193 = uitofp nneg i32 %192 to double
   %194 = fdiv double %191, %193
   %195 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %189, i32 noundef %186, double noundef %194)
   %196 = getelementptr inbounds i8, ptr %0, i64 1124
@@ -11693,7 +11693,7 @@ Abc_Clock.exit:                                   ; preds = %1, %54
   %201 = sitofp i32 %200 to double
   %202 = fmul double %201, 1.000000e+02
   %203 = call noundef i32 @llvm.smax.i32(i32 %197, i32 1)
-  %204 = sitofp i32 %203 to double
+  %204 = uitofp nneg i32 %203 to double
   %205 = fdiv double %202, %204
   %206 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %200, i32 noundef %197, double noundef %205)
   %putchar119 = call i32 @putchar(i32 10)
@@ -11709,7 +11709,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #24
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #24
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -11728,7 +11728,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -12306,7 +12306,7 @@ define void @Abc_NtkAreaOpt(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %or.cond, label %.critedge, label %24
 
 24:                                               ; preds = %18
-  %25 = trunc i64 %indvars.iv to i32
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call ptr @Abc_NtkAreaOptOne(ptr noundef nonnull %0, i32 noundef %25)
   %.pre = load ptr, ptr %2, align 8
   br label %27
@@ -13178,7 +13178,7 @@ Abc_Clock.exit198:                                ; preds = %229, %232
   br i1 %241, label %.sink.split, label %242
 
 242:                                              ; preds = %Abc_Clock.exit198
-  %243 = trunc i64 %indvars.iv245 to i32
+  %243 = trunc nuw nsw i64 %indvars.iv245 to i32
   %244 = load i32, ptr %57, align 4
   %245 = add nsw i32 %244, 1
   store i32 %245, ptr %57, align 4
@@ -13933,7 +13933,7 @@ Sfm_NtkSimulate.exit:                             ; preds = %.critedge2.i, %191
   br i1 %or.cond.i, label %Abc_NtkAreaOpt.exit, label %229
 
 229:                                              ; preds = %223
-  %230 = trunc i64 %indvars.iv.i98 to i32
+  %230 = trunc nuw nsw i64 %indvars.iv.i98 to i32
   %231 = call ptr @Abc_NtkAreaOptOne(ptr noundef nonnull %6, i32 noundef %230)
   %.pre.i = load ptr, ptr %207, align 8
   br label %232
@@ -14347,19 +14347,13 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #4
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #17
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #17
 
 declare i32 @Sfm_MitReadNtkDelay(ptr noundef) local_unnamed_addr #4
 
@@ -14370,6 +14364,12 @@ declare i32 @Sfm_MitReadNtkMinSlack(ptr noundef) local_unnamed_addr #4
 declare i64 @Gia_ManRandomW(i32 noundef) local_unnamed_addr #4
 
 declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
@@ -14409,8 +14409,8 @@ attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #19 = { nofree nounwind }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }

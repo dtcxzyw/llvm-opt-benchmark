@@ -362,7 +362,7 @@ define noundef double @_ZNK5faiss27ReproduceDistancesObjective11cost_updateEPKii
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %44, double %.1120)
   %47 = icmp eq i64 %indvars.iv131, %19
   %48 = icmp eq i64 %indvars.iv131, %18
-  %49 = trunc i64 %indvars.iv131 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv131 to i32
   %50 = select i1 %48, i32 %2, i32 %49
   %51 = select i1 %47, i32 %3, i32 %50
   %52 = sext i32 %51 to i64
@@ -410,7 +410,7 @@ define noundef double @_ZNK5faiss27ReproduceDistancesObjective11cost_updateEPKii
   %83 = tail call double @llvm.fmuladd.f64(double %82, double %81, double %.2118)
   %84 = icmp eq i64 %indvars.iv, %19
   %85 = icmp eq i64 %indvars.iv, %18
-  %86 = trunc i64 %indvars.iv to i32
+  %86 = trunc nuw nsw i64 %indvars.iv to i32
   %87 = select i1 %85, i32 %2, i32 %86
   %88 = select i1 %84, i32 %3, i32 %87
   %89 = sext i32 %88 to i64
@@ -753,7 +753,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %21, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -768,7 +768,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc32
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %29 ], [ 0, %._crit_edge ]
   %24 = phi i32 [ %36, %29 ], [ %12, %._crit_edge ]
   %25 = load ptr, ptr %8, align 8
-  %26 = trunc i64 %indvars.iv64 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv64 to i32
   %27 = sub nsw i32 %24, %26
   %28 = invoke noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull align 8 dereferenceable(5000) %25, i32 noundef %27)
           to label %29 unwind label %.thread
@@ -1130,7 +1130,7 @@ define void @_ZN5faiss27ReproduceDistancesObjective21set_affine_target_disEPKd(p
 _ZN5faiss27ReproduceDistancesObjective18compute_mean_stdevEPKdmPdS3_.exit: ; preds = %.lr.ph.i, %2
   %.022.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %10, %.lr.ph.i ]
   %.0.lcssa.i = phi double [ 0.000000e+00, %2 ], [ %9, %.lr.ph.i ]
-  %11 = uitofp i32 %5 to double
+  %11 = uitofp nneg i32 %5 to double
   %12 = fdiv double %.0.lcssa.i, %11
   %13 = fdiv double %.022.lcssa.i, %11
   %14 = fneg double %12
@@ -1859,7 +1859,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %128, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %128
-  %133 = sitofp i32 %109 to double
+  %133 = uitofp nneg i32 %109 to double
   %134 = fdiv double %131, %133
   %135 = fdiv double %132, %133
   %136 = fneg double %134
@@ -2118,7 +2118,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %229, %.loopexit.spl
 
 236:                                              ; preds = %234
   %237 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #16
-  %238 = trunc i64 %indvars.iv160 to i32
+  %238 = trunc nsw i64 %indvars.iv160 to i32
   %239 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 256, ptr noundef %237, i32 noundef %238) #16
   %240 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %15)
   %241 = call noalias ptr @fopen(ptr noundef nonnull %15, ptr noundef nonnull @.str.16)
@@ -2160,7 +2160,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %229, %.loopexit.spl
 
 258:                                              ; preds = %255
   %259 = load double, ptr %42, align 8
-  %260 = trunc i64 %indvars.iv160 to i32
+  %260 = trunc nsw i64 %indvars.iv160 to i32
   %261 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %260, double noundef %259, double noundef %254)
   br label %262
 
@@ -2269,7 +2269,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   %306 = mul nsw i32 %305, %304
   %307 = sext i32 %306 to i64
   %308 = getelementptr inbounds float, ptr %50, i64 %307
-  %309 = trunc i64 %indvars.iv157 to i32
+  %309 = trunc nuw nsw i64 %indvars.iv157 to i32
   %310 = mul nsw i32 %305, %309
   %311 = sext i32 %310 to i64
   %312 = getelementptr inbounds float, ptr %.sroa.0.1.lcssa, i64 %311
@@ -2460,8 +2460,8 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %23 = xor i32 %22, %11
   %24 = sext i32 %23 to i64
   %25 = tail call i64 @llvm.ctpop.i64(i64 %24), !range !27
-  %26 = trunc i64 %25 to i32
-  %27 = sitofp i32 %26 to double
+  %26 = trunc nuw nsw i64 %25 to i32
+  %27 = uitofp nneg i32 %26 to double
   %28 = fsub double %18, %27
   %29 = fmul double %28, %28
   %30 = tail call double @llvm.fmuladd.f64(double %20, double %29, double %.121.us)
@@ -2529,15 +2529,15 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %35 = xor i32 %34, %25
   %36 = sext i32 %35 to i64
   %37 = tail call i64 @llvm.ctpop.i64(i64 %36), !range !27
-  %38 = trunc i64 %37 to i32
-  %39 = sitofp i32 %38 to double
+  %38 = trunc nuw nsw i64 %37 to i32
+  %39 = uitofp nneg i32 %38 to double
   %40 = fsub double %30, %39
   %41 = fmul double %40, %40
   %42 = fneg double %32
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %41, double %.1120)
   %44 = icmp eq i64 %indvars.iv131, %17
   %45 = icmp eq i64 %indvars.iv131, %16
-  %46 = trunc i64 %indvars.iv131 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv131 to i32
   %47 = select i1 %45, i32 %2, i32 %46
   %48 = select i1 %44, i32 %3, i32 %47
   %49 = sext i32 %48 to i64
@@ -2546,8 +2546,8 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %52 = xor i32 %51, %26
   %53 = sext i32 %52 to i64
   %54 = tail call i64 @llvm.ctpop.i64(i64 %53), !range !27
-  %55 = trunc i64 %54 to i32
-  %56 = sitofp i32 %55 to double
+  %55 = trunc nuw nsw i64 %54 to i32
+  %56 = uitofp nneg i32 %55 to double
   %57 = fsub double %30, %56
   %58 = fmul double %57, %57
   %59 = tail call double @llvm.fmuladd.f64(double %32, double %58, double %43)
@@ -2577,15 +2577,15 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %72 = xor i32 %71, %62
   %73 = sext i32 %72 to i64
   %74 = tail call i64 @llvm.ctpop.i64(i64 %73), !range !27
-  %75 = trunc i64 %74 to i32
-  %76 = sitofp i32 %75 to double
+  %75 = trunc nuw nsw i64 %74 to i32
+  %76 = uitofp nneg i32 %75 to double
   %77 = fsub double %67, %76
   %78 = fmul double %77, %77
   %79 = fneg double %69
   %80 = tail call double @llvm.fmuladd.f64(double %79, double %78, double %.2118)
   %81 = icmp eq i64 %indvars.iv, %17
   %82 = icmp eq i64 %indvars.iv, %16
-  %83 = trunc i64 %indvars.iv to i32
+  %83 = trunc nuw nsw i64 %indvars.iv to i32
   %84 = select i1 %82, i32 %2, i32 %83
   %85 = select i1 %81, i32 %3, i32 %84
   %86 = sext i32 %85 to i64
@@ -2594,8 +2594,8 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %89 = xor i32 %88, %63
   %90 = sext i32 %89 to i64
   %91 = tail call i64 @llvm.ctpop.i64(i64 %90), !range !27
-  %92 = trunc i64 %91 to i32
-  %93 = sitofp i32 %92 to double
+  %92 = trunc nuw nsw i64 %91 to i32
+  %93 = uitofp nneg i32 %92 to double
   %94 = fsub double %67, %93
   %95 = fmul double %94, %94
   %96 = tail call double @llvm.fmuladd.f64(double %69, double %95, double %80)
@@ -2616,8 +2616,8 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %107 = xor i32 %106, %105
   %108 = sext i32 %107 to i64
   %109 = tail call i64 @llvm.ctpop.i64(i64 %108), !range !27
-  %110 = trunc i64 %109 to i32
-  %111 = sitofp i32 %110 to double
+  %110 = trunc nuw nsw i64 %109 to i32
+  %111 = uitofp nneg i32 %110 to double
   %112 = fsub double %101, %111
   %113 = fmul double %112, %112
   %114 = fneg double %103
@@ -2626,8 +2626,8 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %117 = xor i32 %116, %105
   %118 = sext i32 %117 to i64
   %119 = tail call i64 @llvm.ctpop.i64(i64 %118), !range !27
-  %120 = trunc i64 %119 to i32
-  %121 = sitofp i32 %120 to double
+  %120 = trunc nuw nsw i64 %119 to i32
+  %121 = uitofp nneg i32 %120 to double
   %122 = fsub double %101, %121
   %123 = fmul double %122, %122
   %124 = tail call double @llvm.fmuladd.f64(double %103, double %123, double %115)
@@ -3041,7 +3041,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit107:            ; preds = %84, %.noexc106
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %.lr.ph234 ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit107 ]
   %93 = add i64 %indvars.iv272, %85
   %94 = getelementptr inbounds i32, ptr %.sroa.0197.4, i64 %93
-  %95 = trunc i64 %indvars.iv272 to i32
+  %95 = trunc nuw nsw i64 %indvars.iv272 to i32
   store i32 %95, ptr %94, align 4
   %96 = getelementptr inbounds i32, ptr %.sroa.0197.4, i64 %indvars.iv272
   store i32 %95, ptr %96, align 4
@@ -3162,7 +3162,7 @@ _ZN5faiss13RankingScore2C2EiiiPKjS2_PKf.exit:     ; preds = %_ZNSt6vectorIfSaIfE
 
 140:                                              ; preds = %138
   %141 = fsub double %139, %110
-  %142 = trunc i64 %indvars.iv282 to i32
+  %142 = trunc nsw i64 %indvars.iv282 to i32
   %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %142, i64 noundef %.082, i64 noundef %.083, double noundef %141)
   br label %144
 
@@ -3177,7 +3177,7 @@ _ZN5faiss13RankingScore2C2EiiiPKjS2_PKf.exit:     ; preds = %_ZNSt6vectorIfSaIfE
 
 147:                                              ; preds = %145
   %148 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #16
-  %149 = trunc i64 %indvars.iv282 to i32
+  %149 = trunc nsw i64 %indvars.iv282 to i32
   %150 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 256, ptr noundef %148, i32 noundef %149) #16
   %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %15)
   %152 = call noalias ptr @fopen(ptr noundef nonnull %15, ptr noundef nonnull @.str.16)
@@ -3240,7 +3240,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 174:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %175 = load double, ptr %33, align 8
-  %176 = trunc i64 %indvars.iv282 to i32
+  %176 = trunc nsw i64 %indvars.iv282 to i32
   %177 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %176, double noundef %175, double noundef %173)
   %178 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #16
   %.not100 = icmp eq i64 %178, 0
@@ -3352,7 +3352,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   %225 = mul nsw i32 %224, %223
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds float, ptr %188, i64 %226
-  %228 = trunc i64 %indvars.iv279 to i32
+  %228 = trunc nuw nsw i64 %indvars.iv279 to i32
   %229 = mul nsw i32 %224, %228
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds float, ptr %.sroa.0.1.lcssa, i64 %230
@@ -3567,7 +3567,7 @@ define linkonce_odr void @_ZN5faiss13RankingScore29init_n_gtEv(ptr noundef nonnu
   %12 = phi i32 [ %3, %.lr.ph119 ], [ %162, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 8
-  %15 = trunc i64 %indvars.iv150 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv150 to i32
   %16 = mul nsw i32 %14, %15
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds float, ptr %13, i64 %17
@@ -3650,7 +3650,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS2_.exit:    ; preds = %.noexc43, %_ZNSt6ve
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %46 = getelementptr inbounds i32, ptr %.sroa.074.1, i64 %indvars.iv
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %47, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3708,7 +3708,7 @@ _ZSt4sortIPiN5faiss12IndirectSortEEvT_S3_T0_.exit: ; preds = %.noexc44
   br i1 %.not.i, label %71, label %67
 
 67:                                               ; preds = %.lr.ph109
-  %68 = trunc i64 %indvars.iv141 to i32
+  %68 = trunc nuw nsw i64 %indvars.iv141 to i32
   store i32 %68, ptr %64, align 4
   %69 = load ptr, ptr %63, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 4
@@ -3748,7 +3748,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %71
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %83, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %86 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %85, %83 ]
   %87 = getelementptr inbounds i32, ptr %86, i64 %78
-  %88 = trunc i64 %indvars.iv141 to i32
+  %88 = trunc nuw nsw i64 %indvars.iv141 to i32
   store i32 %88, ptr %87, align 4
   %89 = icmp sgt i64 %75, 0
   br i1 %89, label %90, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
@@ -3837,7 +3837,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
 
 .lr.ph112:                                        ; preds = %.lr.ph115.split
   %105 = getelementptr inbounds i8, ptr %103, i64 8
-  %106 = trunc i64 %indvars.iv147 to i32
+  %106 = trunc nuw nsw i64 %indvars.iv147 to i32
   br label %107
 
 107:                                              ; preds = %.lr.ph112, %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit
@@ -3918,7 +3918,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
 _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit: ; preds = %._crit_edge.i, %107
   %.026.lcssa.i = phi double [ 0.000000e+00, %107 ], [ %141, %._crit_edge.i ]
   %143 = mul nsw i32 %108, %106
-  %144 = trunc i64 %indvars.iv144 to i32
+  %144 = trunc nuw nsw i64 %indvars.iv144 to i32
   %145 = add nsw i32 %143, %144
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds float, ptr %28, i64 %146
@@ -5066,7 +5066,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i64 %indvars.iv, %10
   %16 = icmp eq i64 %indvars.iv, %11
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = select i1 %16, i32 %spec.select, i32 %17
   %19 = select i1 %15, i32 %spec.select37, i32 %18
   %20 = sext i32 %19 to i64
@@ -5212,7 +5212,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i64 %indvars.iv, %30
   %37 = icmp eq i64 %indvars.iv, %29
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = select i1 %37, i32 %2, i32 %38
   %40 = select i1 %36, i32 %3, i32 %39
   %41 = sext i32 %40 to i64

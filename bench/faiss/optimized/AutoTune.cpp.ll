@@ -655,7 +655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %37 = phi ptr [ %.pre, %32 ], [ %67, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %.073272 = phi i32 [ 0, %32 ], [ %68, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %38 = shl nuw nsw i32 1, %.073272
-  %39 = sitofp i32 %38 to double
+  %39 = uitofp nneg i32 %38 to double
   %40 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %37, %40
   br i1 %.not.i.i, label %44, label %41
@@ -825,7 +825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit118: ;
   br label %360
 
 101:                                              ; preds = %93
-  %102 = uitofp i32 %94 to double
+  %102 = uitofp nneg i32 %94 to double
   %103 = load ptr, ptr %91, align 8
   %104 = load ptr, ptr %92, align 8
   %.not.i.i119 = icmp eq ptr %103, %104
@@ -1150,7 +1150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit143: ;
   %200 = phi ptr [ %.pre285, %195 ], [ %230, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152 ]
   %.072276 = phi i32 [ 8, %195 ], [ %231, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152 ]
   %201 = shl nuw nsw i32 1, %.072276
-  %202 = sitofp i32 %201 to double
+  %202 = uitofp nneg i32 %201 to double
   %203 = load ptr, ptr %198, align 8
   %.not.i.i144 = icmp eq ptr %200, %203
   br i1 %.not.i.i144, label %207, label %204
@@ -1347,7 +1347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166: ;
   %276 = phi ptr [ %.pre286, %271 ], [ %306, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit175 ]
   %.059277 = phi i32 [ 0, %271 ], [ %307, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit175 ]
   %277 = shl nuw nsw i32 1, %.059277
-  %278 = sitofp i32 %277 to double
+  %278 = uitofp nneg i32 %277 to double
   %279 = load ptr, ptr %274, align 8
   %.not.i.i167 = icmp eq ptr %276, %279
   br i1 %.not.i.i167, label %283, label %280
@@ -1477,7 +1477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180: ;
   %324 = phi ptr [ %.pre287, %319 ], [ %354, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit189 ]
   %.0278 = phi i32 [ 2, %319 ], [ %355, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit189 ]
   %325 = shl nuw nsw i32 1, %.0278
-  %326 = sitofp i32 %325 to double
+  %326 = uitofp nneg i32 %325 to double
   %327 = load ptr, ptr %322, align 8
   %.not.i.i181 = icmp eq ptr %324, %327
   br i1 %.not.i.i181, label %331, label %328
@@ -4513,8 +4513,8 @@ define internal fastcc void @_ZN5faissL22init_pq_ParameterRangeERKNS_16ProductQu
 11:                                               ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
   %12 = phi ptr [ %.pre, %.lr.ph ], [ %42, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
-  %13 = trunc i64 %indvars.iv to i32
-  %14 = sitofp i32 %13 to double
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %14 = uitofp nneg i32 %13 to double
   %15 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %12, %15
   br i1 %.not.i.i, label %19, label %16
@@ -4999,7 +4999,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE10runOnIndexESt8fu
 _ZNSt8functionIFviPN5faiss5IndexEEEC2ERKS4_.exit: ; preds = %40, %31
   %51 = phi ptr [ %42, %40 ], [ null, %31 ]
   %52 = phi ptr [ %41, %40 ], [ null, %31 ]
-  %53 = trunc i64 %indvars.iv72 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv72 to i32
   store i32 %53, ptr %24, align 8
   store ptr %34, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -5349,7 +5349,7 @@ _ZSt8_DestroyIPSt6futureIbES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
   %196 = load ptr, ptr %195, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %197 = trunc i64 %indvars.iv to i32
+  %197 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %197, ptr %3, align 4
   store ptr %196, ptr %4, align 8
   %198 = load ptr, ptr %190, align 8
@@ -5629,7 +5629,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEE20waitAndHandleFut
   %16 = call ptr @__cxa_begin_catch(ptr %15) #14
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %4) #14
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %3, align 8, !alias.scope !64
   %18 = load ptr, ptr %4, align 8, !noalias !64
   store ptr %18, ptr %8, align 8, !alias.scope !64
@@ -7759,7 +7759,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i166: ; preds = %.noexc170
   br i1 %392, label %.preheader247, label %393, !llvm.loop !97
 
 393:                                              ; preds = %387
-  %394 = sitofp i32 %388 to double
+  %394 = uitofp nneg i32 %388 to double
   %395 = fdiv double %390, %394
   %396 = load ptr, ptr %16, align 8
   %397 = load ptr, ptr %15, align 8

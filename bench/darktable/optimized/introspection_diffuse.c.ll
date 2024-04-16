@@ -610,7 +610,7 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 1)
   %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 10)
   %40 = shl nuw nsw i32 1, %39
-  %41 = sitofp i32 %39 to float
+  %41 = uitofp nneg i32 %39 to float
   %42 = fadd reassoc nsz arcp contract afn float %41, 6.250000e+00
   store float %42, ptr %4, align 4, !tbaa !38
   %43 = getelementptr inbounds i8, ptr %4, i64 4
@@ -944,7 +944,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %223 = xor i64 %222, %221
   %224 = mul i64 %223, -3808689974395783757
   %225 = lshr i64 %224, 32
-  %226 = trunc i64 %225 to i32
+  %226 = trunc nuw i64 %225 to i32
   %227 = add nuw i64 %217, 3
   %228 = and i64 %227, 4294967295
   %229 = mul nuw i64 %220, %228
@@ -955,7 +955,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %234 = xor i64 %233, %232
   %235 = mul i64 %234, -3808689974395783757
   %236 = lshr i64 %235, 32
-  %237 = trunc i64 %236 to i32
+  %237 = trunc nuw i64 %236 to i32
   %238 = shl i32 %237, 9
   %239 = xor i32 %226, 635086878
   %240 = xor i32 %237, -1171427716
@@ -1005,7 +1005,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %284 = xor i32 %280, %279
   %285 = call noundef i32 @llvm.fshl.i32(i32 %281, i32 %281, i32 11)
   %286 = lshr i32 %278, 8
-  %287 = uitofp i32 %286 to float
+  %287 = uitofp nneg i32 %286 to float
   %288 = fmul reassoc nsz arcp contract afn float %287, 0x3E70000000000000
   %289 = fpext float %288 to double
   %290 = fmul reassoc nsz arcp contract afn double %289, 0x401921FB54442D18
@@ -1024,7 +1024,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %297 = phi float [ %295, %294 ], [ %293, %292 ]
   %298 = add i32 %263, %265
   %299 = lshr i32 %298, 8
-  %300 = uitofp i32 %299 to float
+  %300 = uitofp nneg i32 %299 to float
   %301 = fmul reassoc nsz arcp contract afn float %300, 0x3E70000000000000
   %302 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %301, float 0x3810000000000000)
   %303 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %302)
@@ -1055,7 +1055,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %327 = xor i32 %323, %322
   %328 = call noundef i32 @llvm.fshl.i32(i32 %324, i32 %324, i32 11)
   %329 = lshr i32 %321, 8
-  %330 = uitofp i32 %329 to float
+  %330 = uitofp nneg i32 %329 to float
   %331 = fmul reassoc nsz arcp contract afn float %330, 0x3E70000000000000
   %332 = fpext float %331 to double
   %333 = fmul reassoc nsz arcp contract afn double %332, 0x401921FB54442D18
@@ -1074,7 +1074,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %340 = phi float [ %338, %337 ], [ %336, %335 ]
   %341 = add i32 %283, %285
   %342 = lshr i32 %341, 8
-  %343 = uitofp i32 %342 to float
+  %343 = uitofp nneg i32 %342 to float
   %344 = fmul reassoc nsz arcp contract afn float %343, 0x3E70000000000000
   %345 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %344, float 0x3810000000000000)
   %346 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %345)
@@ -1103,7 +1103,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %368 = xor i32 %366, %361
   %369 = call noundef i32 @llvm.fshl.i32(i32 %366, i32 %366, i32 11)
   %370 = lshr i32 %364, 8
-  %371 = uitofp i32 %370 to float
+  %371 = uitofp nneg i32 %370 to float
   %372 = fmul reassoc nsz arcp contract afn float %371, 0x3E70000000000000
   %373 = fpext float %372 to double
   %374 = fmul reassoc nsz arcp contract afn double %373, 0x401921FB54442D18
@@ -1122,7 +1122,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %381 = phi float [ %379, %378 ], [ %377, %376 ]
   %382 = add i32 %326, %328
   %383 = lshr i32 %382, 8
-  %384 = uitofp i32 %383 to float
+  %384 = uitofp nneg i32 %383 to float
   %385 = fmul reassoc nsz arcp contract afn float %384, 0x3E70000000000000
   %386 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %385, float 0x3810000000000000)
   %387 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %386)
@@ -1142,7 +1142,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %400 = call noundef i32 @llvm.fshl.i32(i32 %398, i32 %398, i32 11)
   %401 = add i32 %400, %399
   %402 = lshr i32 %401, 8
-  %403 = uitofp i32 %402 to float
+  %403 = uitofp nneg i32 %402 to float
   %404 = fmul reassoc nsz arcp contract afn float %403, 0x3E70000000000000
   %405 = fpext float %404 to double
   %406 = fmul reassoc nsz arcp contract afn double %405, 0x401921FB54442D18
@@ -1161,7 +1161,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %413 = phi float [ %411, %410 ], [ %409, %408 ]
   %414 = add i32 %368, %369
   %415 = lshr i32 %414, 8
-  %416 = uitofp i32 %415 to float
+  %416 = uitofp nneg i32 %415 to float
   %417 = fmul reassoc nsz arcp contract afn float %416, 0x3E70000000000000
   %418 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %417, float 0x3810000000000000)
   %419 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %418)

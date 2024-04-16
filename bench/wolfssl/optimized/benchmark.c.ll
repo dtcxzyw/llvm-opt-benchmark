@@ -1315,7 +1315,7 @@ while.body:                                       ; preds = %while.body.preheade
   %12 = call i64 @llvm.umin.i64(i64 %remain.035, i64 65536)
   %13 = load ptr, ptr %8, align 8
   %arrayidx = getelementptr inbounds i8, ptr %13, i64 %pos.034
-  %conv9 = trunc i64 %12 to i32
+  %conv9 = trunc nuw nsw i64 %12 to i32
   %call10 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %myrng, ptr noundef %arrayidx, i32 noundef %conv9) #16
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %exit_rng, label %if.end14
@@ -7217,7 +7217,7 @@ current_time.exit.i:                              ; preds = %entry
   %each.0.i = select i1 %cmp.i, double %5, double 0.000000e+00
   %count.addr.0.i = call i32 @llvm.smax.i32(i32 %count, i32 0)
   %cmp2.i = fcmp ogt double %sub.i, 0.000000e+00
-  %conv5.i = sitofp i32 %count.addr.0.i to double
+  %conv5.i = uitofp nneg i32 %count.addr.0.i to double
   %div6.i = fdiv double %conv5.i, %sub.i
   %opsSec.0.i = select i1 %cmp2.i, double %div6.i, double 0.000000e+00
   %.b.i = load i1, ptr @csv_format, align 4

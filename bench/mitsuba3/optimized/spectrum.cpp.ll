@@ -2373,7 +2373,7 @@ define weak_odr <4 x float> @_ZN7mitsuba21spectrum_list_to_srgbIfEENS_5ColorIT_L
 12:                                               ; preds = %4, %77
   %.0211 = phi i32 [ 0, %4 ], [ %79, %77 ]
   %13 = phi <4 x float> [ zeroinitializer, %4 ], [ %78, %77 ]
-  %14 = sitofp i32 %.0211 to float
+  %14 = uitofp nneg i32 %.0211 to float
   %15 = fdiv contract float %14, 9.990000e+02
   %16 = fmul contract float %15, 4.700000e+02
   %17 = fadd contract float %16, 3.600000e+02
@@ -2757,7 +2757,7 @@ _ZN7mitsuba6detail13CIE1932TablesIfED2Ev.exit:    ; preds = %_ZN5drjit12DynamicA
   %77 = extractelement <2 x i8> %bc.i.i.i.i.i, i64 0
   %78 = bitcast i8 %77 to <8 x i1>
   %79 = shufflevector <8 x i1> %78, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %80 = uitofp i32 %..i.i to float
+  %80 = uitofp nneg i32 %..i.i to float
   %81 = fsub contract float %5, %80
   %82 = fsub contract float 1.000000e+00, %81
   %83 = fmul contract float %81, %44
@@ -2873,7 +2873,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i:       ; preds = %50, %47, %_ZN7mitsu
   br i1 %51, label %_ZN7mitsuba6detail13CIE1932TablesIfED2Ev.exit, label %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EED2Ev.exit.i
 
 _ZN7mitsuba6detail13CIE1932TablesIfED2Ev.exit:    ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i
-  %52 = uitofp i32 %..i.i to float
+  %52 = uitofp nneg i32 %..i.i to float
   %53 = fsub contract float %5, %52
   %54 = fsub contract float 1.000000e+00, %53
   %55 = fmul contract float %53, %25
@@ -2900,7 +2900,7 @@ define weak_odr <4 x double> @_ZN7mitsuba21spectrum_list_to_srgbIdEENS_5ColorIT_
 12:                                               ; preds = %4, %77
   %.0211 = phi i32 [ 0, %4 ], [ %79, %77 ]
   %13 = phi <4 x double> [ zeroinitializer, %4 ], [ %78, %77 ]
-  %14 = sitofp i32 %.0211 to double
+  %14 = uitofp nneg i32 %.0211 to double
   %15 = fdiv contract double %14, 9.990000e+02
   %16 = fmul contract double %15, 4.700000e+02
   %17 = fadd contract double %16, 3.600000e+02
@@ -3292,7 +3292,7 @@ _ZN7mitsuba6detail13CIE1932TablesIfED2Ev.exit:    ; preds = %_ZN5drjit12DynamicA
   %83 = extractelement <2 x i8> %bc.i.i.i.i.i, i64 0
   %84 = bitcast i8 %83 to <8 x i1>
   %85 = shufflevector <8 x i1> %84, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %86 = uitofp i32 %..i.i to double
+  %86 = uitofp nneg i32 %..i.i to double
   %87 = fsub contract double %5, %86
   %88 = fsub contract double 1.000000e+00, %87
   %89 = insertelement <2 x double> poison, double %87, i64 0
@@ -3412,7 +3412,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i:       ; preds = %52, %49, %_ZN7mitsu
   br i1 %53, label %_ZN7mitsuba6detail13CIE1932TablesIfED2Ev.exit, label %_ZN7mitsuba5ColorIN5drjit12DynamicArrayIfEELm3EED2Ev.exit.i
 
 _ZN7mitsuba6detail13CIE1932TablesIfED2Ev.exit:    ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit.i.i1.i
-  %54 = uitofp i32 %..i.i to double
+  %54 = uitofp nneg i32 %..i.i to double
   %55 = fsub contract double %5, %54
   %56 = fsub contract double 1.000000e+00, %55
   %57 = fmul contract double %55, %27
@@ -8147,7 +8147,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #28
   store ptr %22, ptr %0, align 8
@@ -8582,7 +8582,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
 
 .noexc.i:                                         ; preds = %16
   %19 = icmp ugt i64 %8, 4611686018427387903
-  %20 = shl i64 %8, 2
+  %20 = shl nuw i64 %8, 2
   %21 = select i1 %19, i64 -1, i64 %20
   %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #28
   store ptr %22, ptr %0, align 8

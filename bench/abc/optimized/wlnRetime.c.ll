@@ -260,7 +260,7 @@ define void @Wln_RetPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %.lr.ph48
-  %24 = trunc i64 %indvars.iv51 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv51 to i32
   tail call void @Wln_RetPrintObj(ptr noundef nonnull %0, i32 noundef %24)
   %25 = add nsw i32 %.02545, 1
   %26 = icmp eq i32 %25, 5
@@ -669,7 +669,7 @@ Vec_IntFill.exit.i:                               ; preds = %133, %Vec_IntGrow.e
   %.012.i70.i = phi i32 [ 0, %.lr.ph.i67.i ], [ %157, %148 ]
   %149 = getelementptr inbounds i32, ptr %146, i64 %indvars.iv.i69.i
   %150 = load i32, ptr %149, align 4
-  %151 = trunc i64 %indvars.iv.i69.i to i32
+  %151 = trunc nuw nsw i64 %indvars.iv.i69.i to i32
   %152 = urem i32 %151, 7
   %153 = zext nneg i32 %152 to i64
   %154 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %153
@@ -689,7 +689,7 @@ Hsh_VecManHash.exit.i:                            ; preds = %148, %140
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds i8, ptr %144, i64 4
   store i32 %161, ptr %162, align 4
-  %163 = trunc i64 %indvars.iv.i43 to i32
+  %163 = trunc nuw nsw i64 %indvars.iv.i43 to i32
   store i32 %163, ptr %160, align 4
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %.val55.i = load i32, ptr %105, align 4
@@ -721,7 +721,7 @@ Hsh_VecManHash.exit.i:                            ; preds = %148, %140
   %.012.i80.i = phi i32 [ 0, %.lr.ph.i76.i ], [ %176, %167 ]
   %168 = getelementptr inbounds i32, ptr %.val.i77.i, i64 %indvars.iv.i79.i
   %169 = load i32, ptr %168, align 4
-  %170 = trunc i64 %indvars.iv.i79.i to i32
+  %170 = trunc nuw nsw i64 %indvars.iv.i79.i to i32
   %171 = urem i32 %170, 7
   %172 = zext nneg i32 %171 to i64
   %173 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %172
@@ -1270,7 +1270,7 @@ define noundef ptr @Wln_RetAlloc(ptr noundef %0) local_unnamed_addr #3 {
   br label %19
 
 19:                                               ; preds = %18, %17
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Wln_ObjPrint(ptr noundef nonnull %0, i32 noundef %20) #23
   %.val90.pre = load i32, ptr %5, align 4
   br label %21
@@ -1396,7 +1396,7 @@ Vec_IntGrow.exit:                                 ; preds = %Wln_NtkCleanRefs.ex
   br i1 %69, label %.lr.ph123.preheader, label %.critedge
 
 .lr.ph123.preheader:                              ; preds = %.preheader116
-  %70 = trunc i64 %indvars.iv131 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv131 to i32
   br label %.lr.ph123
 
 .preheader:                                       ; preds = %.critedge, %Vec_IntGrow.exit
@@ -1469,7 +1469,7 @@ Wln_ObjFanin.exit:                                ; preds = %75, %78
   %.val = load ptr, ptr %62, align 8
   %106 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv131
   %107 = load i32, ptr %106, align 4
-  %108 = trunc i64 %101 to i32
+  %108 = trunc nuw i64 %101 to i32
   %109 = add i32 %107, %108
   %110 = or disjoint i32 %103, 1
   %111 = sext i32 %110 to i64
@@ -2467,7 +2467,7 @@ define i32 @Wln_RetPropDelay(ptr nocapture noundef %0) local_unnamed_addr #3 {
   br i1 %narrow.i, label %14, label %59
 
 14:                                               ; preds = %8
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = tail call i32 @Wln_RetPropDelay_rec(ptr noundef nonnull %0, i32 noundef %15)
   %17 = icmp eq i32 %.01723, %16
   br i1 %17, label %18, label %47
@@ -4729,7 +4729,7 @@ define void @Wln_NtkRetimeCreateDelayInfo(ptr nocapture noundef %0) local_unname
 
 16:                                               ; preds = %12
   %17 = tail call fastcc ptr @Abc_OperName(i32 noundef %11)
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %18, ptr noundef %17)
   %.val55.pre = load i32, ptr %5, align 4
   br label %20
@@ -5542,7 +5542,7 @@ Vec_IntPrint.exit206:                             ; preds = %.lr.ph.i201, %248
   %259 = sub nsw i32 %46, %.1115
   %260 = sitofp i32 %259 to double
   %261 = fmul double %260, 1.000000e+02
-  %262 = sitofp i32 %46 to double
+  %262 = uitofp nneg i32 %46 to double
   %263 = fdiv double %261, %262
   %264 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %46, i32 noundef %.1115, i32 noundef %259, double noundef %263)
   br label %265

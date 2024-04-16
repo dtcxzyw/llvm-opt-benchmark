@@ -128,7 +128,7 @@ for.cond2.preheader:                              ; preds = %entry, %for.end
   br i1 %cmp3357, label %for.body4.lr.ph, label %for.end
 
 for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %shl.i = shl nuw nsw i32 48, %2
   %notmask.i = shl nsw i32 -1, %2
   %sub4.i.i = xor i32 %notmask.i, -1
@@ -318,7 +318,7 @@ if.end22.us.i:                                    ; preds = %if.else.i38.us.i, %
   store i64 %inc1.i.us.i, ptr %total_count_.i.i, align 8
   %conv23.us.i = lshr i32 %dist_prefix.0.us.i, 10
   %shr.us.i = and i32 %conv23.us.i, 63
-  %conv26.us.i = sitofp i32 %shr.us.i to double
+  %conv26.us.i = uitofp nneg i32 %shr.us.i to double
   %add.us.i = fadd double %extra_bits.052.us.i, %conv26.us.i
   br label %for.inc.us.i
 
@@ -358,7 +358,7 @@ if.then8.i:                                       ; preds = %land.lhs.true5.i
   %inc1.i.i = add i64 %18, 1
   store i64 %inc1.i.i, ptr %total_count_.i.i, align 8
   %shr.i = lshr i32 %conv23.i, 10
-  %conv26.i = sitofp i32 %shr.i to double
+  %conv26.i = uitofp nneg i32 %shr.i to double
   %add.i141 = fadd double %extra_bits.052.i, %conv26.i
   br label %for.inc.i
 
@@ -434,7 +434,7 @@ if.then8.i258:                                    ; preds = %land.lhs.true5.i251
   %inc1.i.i265 = add i64 %23, 1
   store i64 %inc1.i.i265, ptr %total_count_.i.i, align 8
   %shr.i266 = lshr i32 %conv23.i260, 10
-  %conv26.i267 = sitofp i32 %shr.i266 to double
+  %conv26.i267 = uitofp nneg i32 %shr.i266 to double
   %add.i268 = fadd double %extra_bits.052.i245, %conv26.i267
   br label %for.inc.i254
 

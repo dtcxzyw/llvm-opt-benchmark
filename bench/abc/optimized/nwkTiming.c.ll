@@ -79,7 +79,7 @@ define void @Nwk_ManDelayTraceSortPins(ptr nocapture noundef readonly %0, ptr no
   %13 = phi ptr [ %12, %.lr.ph ], [ %9, %.lr.ph.preheader ]
   %indvars.iv73 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv73
-  %15 = trunc i64 %indvars.iv73 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv73 to i32
   store i32 %15, ptr %14, align 4
   %16 = getelementptr i8, ptr %13, i64 48
   %.val = load float, ptr %16, align 8
@@ -106,7 +106,7 @@ define void @Nwk_ManDelayTraceSortPins(ptr nocapture noundef readonly %0, ptr no
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %22 = sext i32 %.val4369 to i64
   %23 = icmp slt i64 %indvars.iv.next64, %22
-  %24 = trunc i64 %indvars.iv63 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv63 to i32
   br i1 %23, label %.lr.ph50.preheader, label %._crit_edge
 
 .lr.ph50.preheader:                               ; preds = %.lr.ph54
@@ -128,7 +128,7 @@ define void @Nwk_ManDelayTraceSortPins(ptr nocapture noundef readonly %0, ptr no
   %34 = getelementptr inbounds float, ptr %2, i64 %33
   %35 = load float, ptr %34, align 4
   %36 = fcmp ogt float %29, %35
-  %37 = trunc i64 %indvars.iv60 to i32
+  %37 = trunc nuw nsw i64 %indvars.iv60 to i32
   %.140 = select i1 %36, i32 %37, i32 %.03949
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count
@@ -189,7 +189,7 @@ define i32 @Nwk_ManWhereIsPin(ptr nocapture noundef readonly %0, ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !9
 
 ._crit_edge.loopexit.split.loop.exit14:           ; preds = %7
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit14, %3
@@ -334,7 +334,7 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
 
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
-  %63 = trunc i64 %indvars.iv.i to i32
+  %63 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %63, ptr %62, align 4
   %64 = getelementptr i8, ptr %60, i64 48
   %.val.i = load float, ptr %64, align 8
@@ -360,7 +360,7 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %92 ], [ 1, %.lr.ph54.i.preheader ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %69 = icmp ult i64 %indvars.iv.next64.i, %66
-  %70 = trunc i64 %indvars.iv63.i to i32
+  %70 = trunc nuw nsw i64 %indvars.iv63.i to i32
   br i1 %69, label %.lr.ph50.i, label %._crit_edge.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph54.i, %.lr.ph50.i
@@ -378,7 +378,7 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
   %80 = getelementptr inbounds float, ptr %4, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = fcmp ogt float %75, %81
-  %83 = trunc i64 %indvars.iv60.i to i32
+  %83 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %.140.i = select i1 %82, i32 %83, i32 %.03949.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, %66
@@ -652,7 +652,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
 
 84:                                               ; preds = %.lr.ph.i
   %85 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
-  %86 = trunc i64 %indvars.iv.i to i32
+  %86 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %86, ptr %85, align 4
   %87 = getelementptr i8, ptr %83, i64 48
   %.val.i = load float, ptr %87, align 8
@@ -677,7 +677,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %114 ], [ 1, %.lr.ph54.i.preheader ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %91 = icmp ult i64 %indvars.iv.next64.i, %81
-  %92 = trunc i64 %indvars.iv63.i to i32
+  %92 = trunc nuw nsw i64 %indvars.iv63.i to i32
   br i1 %91, label %.lr.ph50.i, label %._crit_edge.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph54.i, %.lr.ph50.i
@@ -695,7 +695,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %102 = getelementptr inbounds float, ptr %4, i64 %101
   %103 = load float, ptr %102, align 4
   %104 = fcmp ogt float %97, %103
-  %105 = trunc i64 %indvars.iv60.i to i32
+  %105 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %.140.i = select i1 %104, i32 %105, i32 %.03949.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, %81
@@ -941,7 +941,7 @@ define float @Nwk_NodePropagateRequired(ptr nocapture noundef readonly %0, i32 n
 
 62:                                               ; preds = %.lr.ph.i
   %63 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
-  %64 = trunc i64 %indvars.iv.i to i32
+  %64 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %64, ptr %63, align 4
   %65 = getelementptr i8, ptr %61, i64 48
   %.val.i = load float, ptr %65, align 8
@@ -967,7 +967,7 @@ define float @Nwk_NodePropagateRequired(ptr nocapture noundef readonly %0, i32 n
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %93 ], [ 1, %.lr.ph54.i.preheader ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %70 = icmp ult i64 %indvars.iv.next64.i, %67
-  %71 = trunc i64 %indvars.iv63.i to i32
+  %71 = trunc nuw nsw i64 %indvars.iv63.i to i32
   br i1 %70, label %.lr.ph50.i, label %._crit_edge.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph54.i, %.lr.ph50.i
@@ -985,7 +985,7 @@ define float @Nwk_NodePropagateRequired(ptr nocapture noundef readonly %0, i32 n
   %81 = getelementptr inbounds float, ptr %4, i64 %80
   %82 = load float, ptr %81, align 4
   %83 = fcmp ogt float %76, %82
-  %84 = trunc i64 %indvars.iv60.i to i32
+  %84 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %.140.i = select i1 %83, i32 %84, i32 %.03949.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, %67
@@ -1651,9 +1651,9 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %.val57.us = load i32, ptr %56, align 4
   %62 = sitofp i32 %.val57.us to double
   %63 = fdiv double %61, %62
-  %64 = trunc i64 %indvars.iv.next69 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv.next69 to i32
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %64, ptr noundef nonnull %55, i32 noundef %59, double noundef %63)
-  %66 = sitofp i32 %64 to float
+  %66 = uitofp nneg i32 %64 to float
   %67 = fcmp ogt float %16, %66
   br i1 %67, label %.lr.ph62.split.us, label %._crit_edge.thread, !llvm.loop !28
 
@@ -1663,7 +1663,7 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %68 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv65
   %69 = load i32, ptr %68, align 4
   %70 = add nsw i32 %69, %.04460
-  %71 = trunc i64 %indvars.iv65 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv65 to i32
   %72 = mul i32 %71, 5
   %73 = add i32 %72, 5
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
@@ -1673,8 +1673,8 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %76 = sitofp i32 %.val57 to double
   %77 = fdiv double %75, %76
   %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %73, ptr noundef nonnull %55, i32 noundef %70, double noundef %77)
-  %79 = trunc i64 %indvars.iv.next66 to i32
-  %80 = sitofp i32 %79 to float
+  %79 = trunc nuw i64 %indvars.iv.next66 to i32
+  %80 = uitofp nneg i32 %79 to float
   %81 = fcmp ogt float %16, %80
   br i1 %81, label %.lr.ph62.split, label %._crit_edge.thread, !llvm.loop !28
 
@@ -1951,7 +1951,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 
 .lr.ph:                                           ; preds = %.preheader
   %56 = getelementptr inbounds i8, ptr %34, i64 60
-  %57 = trunc i64 %indvars.iv102 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv102 to i32
   br label %89
 
 58:                                               ; preds = %50
@@ -1987,7 +1987,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 .lr.ph94.preheader:                               ; preds = %68
   %74 = sext i32 %71 to i64
   %wide.trip.count = zext nneg i32 %72 to i64
-  %75 = trunc i64 %indvars.iv102 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv102 to i32
   br label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %88
@@ -2189,7 +2189,7 @@ define void @Nwk_NodeUpdateRequired(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %56, label %.lr.ph106.preheader, label %.critedge5
 
 .lr.ph106.preheader:                              ; preds = %.preheader
-  %57 = trunc i64 %indvars.iv126 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv126 to i32
   br label %.lr.ph106
 
 58:                                               ; preds = %51
@@ -2225,7 +2225,7 @@ define void @Nwk_NodeUpdateRequired(ptr noundef %0) local_unnamed_addr #3 {
 .lr.ph112.preheader:                              ; preds = %68
   %74 = sext i32 %71 to i64
   %wide.trip.count = zext nneg i32 %72 to i64
-  %75 = trunc i64 %indvars.iv126 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv126 to i32
   br label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %88
@@ -2497,7 +2497,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 
 .lr.ph:                                           ; preds = %.preheader
   %43 = getelementptr inbounds i8, ptr %30, i64 60
-  %44 = trunc i64 %indvars.iv81 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv81 to i32
   br label %69
 
 45:                                               ; preds = %37
@@ -2519,7 +2519,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 .lr.ph73.preheader:                               ; preds = %50
   %54 = sext i32 %51 to i64
   %wide.trip.count = zext nneg i32 %52 to i64
-  %55 = trunc i64 %indvars.iv81 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv81 to i32
   br label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %68
@@ -2623,7 +2623,7 @@ define noundef i32 @Nwk_ManVerifyLevel(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %15, i32 noundef %.val15, i32 noundef %12)
   br label %17
 

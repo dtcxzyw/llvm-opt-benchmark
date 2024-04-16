@@ -609,7 +609,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %.0572 = phi double [ %31, %35 ], [ 0.000000e+00, %.preheader938.preheader ]
   %28 = ptrtoint ptr %.1585 to i64
   %29 = and i64 %28, 15
-  %30 = sitofp i64 %29 to double
+  %30 = uitofp nneg i64 %29 to double
   %31 = tail call double @llvm.fmuladd.f64(double %.0576, double %30, double %.0572)
   %32 = add i32 %.0611, 4
   %33 = getelementptr i8, ptr %.4593, i64 1
@@ -681,7 +681,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 52:                                               ; preds = %.lr.ph1079
   %53 = ptrtoint ptr %memchr744 to i64
   %54 = and i64 %53, 15
-  %55 = sitofp i64 %54 to double
+  %55 = uitofp nneg i64 %54 to double
   %56 = tail call double @llvm.fmuladd.f64(double %.25781077, double %55, double %.25741078)
   %57 = fmul double %.25781077, 6.250000e-02
   %58 = fcmp oeq double %57, 0.000000e+00
@@ -1254,7 +1254,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %298 = fmul double %297, %294
   %299 = bitcast double %298 to i64
   %.sroa.0103.4.extract.shift166 = lshr i64 %299, 32
-  %.sroa.0103.4.extract.trunc167 = trunc i64 %.sroa.0103.4.extract.shift166 to i32
+  %.sroa.0103.4.extract.trunc167 = trunc nuw i64 %.sroa.0103.4.extract.shift166 to i32
   %300 = and i32 %.sroa.0103.4.extract.trunc167, 2146435072
   %301 = icmp ugt i32 %300, 2090860544
   br i1 %301, label %.thread873, label %302
@@ -1333,7 +1333,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 331:                                              ; preds = %._crit_edge1129
   %332 = bitcast double %.sroa.0103.6.lcssa to i64
   %sum.shift = lshr i64 %332, 52
-  %333 = trunc i64 %sum.shift to i32
+  %333 = trunc nuw nsw i64 %sum.shift to i32
   %334 = and i32 %333, 2047
   %335 = sub nsw i32 107, %334
   %336 = icmp ult i32 %334, 107
@@ -1351,7 +1351,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %342 = sub nuw nsw i32 75, %334
   %343 = shl nsw i32 -1, %342
   %.sroa.0103.4.extract.shift186 = lshr i64 %332, 32
-  %.sroa.0103.4.extract.trunc187 = trunc i64 %.sroa.0103.4.extract.shift186 to i32
+  %.sroa.0103.4.extract.trunc187 = trunc nuw i64 %.sroa.0103.4.extract.shift186 to i32
   %344 = and i32 %343, %.sroa.0103.4.extract.trunc187
   %.sroa.0103.4.insert.ext189 = zext i32 %344 to i64
   %.sroa.0103.4.insert.shift190 = shl nuw i64 %.sroa.0103.4.insert.ext189, 32
@@ -1907,7 +1907,7 @@ cmp.exit.thread892:                               ; preds = %618, %cmp.exit
 
 627:                                              ; preds = %cmp.exit.thread892
   %.sroa.0103.4.extract.shift194 = lshr exact i64 %624, 32
-  %.sroa.0103.4.extract.trunc195 = trunc i64 %.sroa.0103.4.extract.shift194 to i32
+  %.sroa.0103.4.extract.trunc195 = trunc nuw i64 %.sroa.0103.4.extract.shift194 to i32
   %628 = and i32 %.sroa.0103.4.extract.trunc195, 1048575
   %.not724 = icmp ne i32 %628, 0
   %629 = and i32 %.sroa.0103.4.extract.trunc195, 2146435072
@@ -1969,7 +1969,7 @@ cmp.exit785:                                      ; preds = %635
 
 658:                                              ; preds = %656
   %.sroa.0103.4.extract.shift200 = lshr i64 %657, 32
-  %.sroa.0103.4.extract.trunc201 = trunc i64 %.sroa.0103.4.extract.shift200 to i32
+  %.sroa.0103.4.extract.trunc201 = trunc nuw i64 %.sroa.0103.4.extract.shift200 to i32
   %659 = and i32 %.sroa.0103.4.extract.trunc201, 1048575
   %660 = icmp eq i32 %659, 1048575
   br i1 %660, label %661, label %683
@@ -2012,7 +2012,7 @@ cmp.exit785.thread896:                            ; preds = %651, %674, %cmp.exi
 
 676:                                              ; preds = %cmp.exit785.thread896
   %.sroa.0103.4.extract.shift217 = lshr i64 %.pre, 32
-  %.sroa.0103.4.extract.trunc218 = trunc i64 %.sroa.0103.4.extract.shift217 to i32
+  %.sroa.0103.4.extract.trunc218 = trunc nuw i64 %.sroa.0103.4.extract.shift217 to i32
   %677 = and i32 %.sroa.0103.4.extract.trunc218, 2146435072
   %678 = icmp ult i32 %677, 112197633
   br i1 %678, label %679, label %cmp.exit785.thread896._crit_edge
@@ -2297,7 +2297,7 @@ ratio.exit:                                       ; preds = %763, %774, %786
   %.sroa.0267.0 = phi double [ %808, %805 ], [ %816, %815 ], [ %812, %809 ], [ 1.000000e+00, %800 ], [ -1.000000e+00, %804 ]
   %818 = bitcast double %.sroa.0103.10 to i64
   %.sroa.0103.4.extract.shift231 = lshr i64 %818, 32
-  %.sroa.0103.4.extract.trunc232 = trunc i64 %.sroa.0103.4.extract.shift231 to i32
+  %.sroa.0103.4.extract.trunc232 = trunc nuw i64 %.sroa.0103.4.extract.shift231 to i32
   %819 = and i32 %.sroa.0103.4.extract.trunc232, 2146435072
   %820 = icmp eq i32 %819, 2145386496
   br i1 %820, label %821, label %837
@@ -2355,7 +2355,7 @@ ratio.exit:                                       ; preds = %763, %774, %786
   %.sroa.0267.1 = phi double [ %845, %841 ], [ %.sroa.0267.0, %839 ]
   %847 = bitcast double %.sroa.0267.1 to i64
   %.sroa.0267.4.extract.shift = lshr i64 %847, 32
-  %.sroa.0267.4.extract.trunc = trunc i64 %.sroa.0267.4.extract.shift to i32
+  %.sroa.0267.4.extract.trunc = trunc nuw i64 %.sroa.0267.4.extract.shift to i32
   %reass.sub1141 = sub i32 %.sroa.0267.4.extract.trunc, %819
   %848 = add i32 %reass.sub1141, 112197632
   %.sroa.0267.4.insert.ext = zext i32 %848 to i64
@@ -2380,7 +2380,7 @@ ratio.exit:                                       ; preds = %763, %774, %786
   %.sroa.0103.12 = phi double [ %836, %834 ], [ %854, %850 ]
   %856 = bitcast double %.sroa.0103.12 to i64
   %.sroa.0103.4.extract.shift256 = lshr i64 %856, 32
-  %.sroa.0103.4.extract.trunc257 = trunc i64 %.sroa.0103.4.extract.shift256 to i32
+  %.sroa.0103.4.extract.trunc257 = trunc nuw i64 %.sroa.0103.4.extract.shift256 to i32
   %857 = and i32 %.sroa.0103.4.extract.trunc257, 2146435072
   %858 = icmp eq i32 %819, %857
   %or.cond759 = select i1 %.not719, i1 %858, i1 false
@@ -2912,12 +2912,12 @@ Balloc.exit:                                      ; preds = %14, %35
   %40 = getelementptr inbounds i8, ptr %.4.i, i64 24
   %41 = bitcast double %0 to i64
   %.sroa.0.4.extract.shift = lshr i64 %41, 32
-  %.sroa.0.4.extract.trunc = trunc i64 %.sroa.0.4.extract.shift to i32
+  %.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.0.4.extract.shift to i32
   %42 = and i32 %.sroa.0.4.extract.trunc, 1048575
   %43 = tail call double @llvm.fabs.f64(double %0)
   %.sroa.0.4.insert.insert = bitcast double %43 to i64
   %sum.shift = lshr i64 %.sroa.0.4.insert.insert, 52
-  %44 = trunc i64 %sum.shift to i32
+  %44 = trunc nuw nsw i64 %sum.shift to i32
   %.not = icmp eq i32 %44, 0
   %45 = or disjoint i32 %42, 1048576
   %spec.select = select i1 %.not, i32 %42, i32 %45
@@ -3577,7 +3577,7 @@ Balloc.exit:                                      ; preds = %38, %68
   br i1 %109, label %97, label %110, !llvm.loop !34
 
 110:                                              ; preds = %97
-  %111 = trunc i64 %106 to i32
+  %111 = trunc nuw i64 %106 to i32
   store i32 %111, ptr %108, align 4
   br label %112
 
@@ -4126,11 +4126,11 @@ define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noun
   %.pre = bitcast double %10 to i64
   %.pre-phi = select i1 %.not, i64 %.pre, i64 %9
   %.lobit = lshr i64 %9, 63
-  %.sink = trunc i64 %.lobit to i32
+  %.sink = trunc nuw nsw i64 %.lobit to i32
   %.sroa.088.0 = select i1 %.not, double %10, double %0
   store i32 %.sink, ptr %4, align 4
   %.sroa.088.4.extract.shift136 = lshr i64 %.pre-phi, 32
-  %.sroa.088.4.extract.trunc137 = trunc i64 %.sroa.088.4.extract.shift136 to i32
+  %.sroa.088.4.extract.trunc137 = trunc nuw i64 %.sroa.088.4.extract.shift136 to i32
   %11 = and i32 %.sroa.088.4.extract.trunc137, 2146435072
   %12 = icmp eq i32 %11, 2146435072
   br i1 %12, label %13, label %20
@@ -6116,7 +6116,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %85, %Balloc.exit
 
 Bfree.exit:                                       ; preds = %99, %90, %19
   %.0 = phi ptr [ %0, %19 ], [ %.4.i, %90 ], [ %.4.i, %99 ]
-  %106 = trunc i64 %14 to i32
+  %106 = trunc nuw i64 %14 to i32
   %107 = getelementptr inbounds i8, ptr %.0, i64 24
   %108 = add i32 %5, 1
   %109 = sext i32 %5 to i64
@@ -6313,7 +6313,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
   %8 = tail call double @llvm.fabs.f64(double %0)
   %.pre-phi = select i1 %.not, double %8, double %0
   %.lobit = lshr i64 %7, 63
-  %.sink = trunc i64 %.lobit to i32
+  %.sink = trunc nuw nsw i64 %.lobit to i32
   store i32 %.sink, ptr %4, align 4
   %9 = fcmp oeq double %.pre-phi, 0x7FF0000000000000
   br i1 %9, label %._crit_edge.i, label %12
@@ -6361,7 +6361,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
 21:                                               ; preds = %16
   %22 = bitcast double %.pre-phi to i64
   %sum.shift = lshr i64 %22, 52
-  %23 = trunc i64 %sum.shift to i32
+  %23 = trunc nuw nsw i64 %sum.shift to i32
   %.not84 = icmp eq i32 %23, 0
   br i1 %.not84, label %26, label %24
 
@@ -6373,7 +6373,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
   %27 = fmul double %.pre-phi, 0x6010000000000000
   %28 = bitcast double %27 to i64
   %sum.shift85 = lshr i64 %28, 52
-  %29 = trunc i64 %sum.shift85 to i32
+  %29 = trunc nuw nsw i64 %sum.shift85 to i32
   %30 = add nsw i32 %29, -1536
   br label %31
 
@@ -6398,7 +6398,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
   %38 = shl nuw nsw i32 %spec.store.select, 2
   %39 = bitcast double %.sroa.0.1 to i64
   %.sroa.0.4.extract.shift36 = lshr i64 %39, 32
-  %.sroa.0.4.extract.trunc37 = trunc i64 %.sroa.0.4.extract.shift36 to i32
+  %.sroa.0.4.extract.trunc37 = trunc nuw i64 %.sroa.0.4.extract.shift36 to i32
   %40 = and i32 %.sroa.0.4.extract.trunc37, -2146435073
   %41 = shl nuw nsw i32 %spec.store.select, 22
   %42 = add nuw nsw i32 %41, 1013972992
@@ -6412,7 +6412,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
   %46 = fadd double %45, -1.000000e+00
   %47 = bitcast double %46 to i64
   %sum.shift86 = lshr i64 %47, 52
-  %48 = trunc i64 %sum.shift86 to i32
+  %48 = trunc nuw nsw i64 %sum.shift86 to i32
   %reass.sub = sub nsw i32 %storemerge, %38
   %49 = add nsw i32 %reass.sub, -967
   %50 = add nsw i32 %49, %48
@@ -6431,7 +6431,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
 .lr.ph.preheader:                                 ; preds = %51
   %.sroa.0.0.extract.trunc = trunc i64 %.pre-phi104 to i32
   %.sroa.0.4.extract.shift47 = lshr i64 %.pre-phi104, 32
-  %.sroa.0.4.extract.trunc48 = trunc i64 %.sroa.0.4.extract.shift47 to i32
+  %.sroa.0.4.extract.trunc48 = trunc nuw i64 %.sroa.0.4.extract.shift47 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

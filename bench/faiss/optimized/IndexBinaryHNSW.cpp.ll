@@ -600,7 +600,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %150
   %indvars.iv191.i = phi i64 [ %indvars.iv.next192.i, %.lr.ph161.i ], [ 0, %.preheader.i ]
   %164 = load i64, ptr %4, align 8
   %165 = trunc i64 %164 to i32
-  %166 = trunc i64 %indvars.iv191.i to i32
+  %166 = trunc nuw nsw i64 %indvars.iv191.i to i32
   %167 = add i32 %165, %166
   %168 = sext i32 %167 to i64
   %169 = load ptr, ptr %49, align 8
@@ -666,7 +666,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %.lr.ph161.i, %.preh
   %indvars.iv195.i = phi i64 [ %197, %.lr.ph165.preheader.i ], [ %indvars.iv.next196.i, %203 ]
   %198 = phi i32 [ %194, %.lr.ph165.preheader.i ], [ %211, %203 ]
   %199 = load ptr, ptr %9, align 8
-  %200 = trunc i64 %indvars.iv195.i to i32
+  %200 = trunc nsw i64 %indvars.iv195.i to i32
   %201 = sub nsw i32 %198, %200
   %202 = invoke noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull align 8 dereferenceable(5000) %10, i32 noundef %201)
           to label %203 unwind label %.loopexit.split-lp.loopexit.i
@@ -2440,7 +2440,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %15 = load i32, ptr %6, align 8
   %16 = xor i32 %15, %14
   %17 = tail call noundef i32 @llvm.ctpop.i32(i32 %16), !range !28
-  %18 = sitofp i32 %17 to float
+  %18 = uitofp nneg i32 %17 to float
   ret float %18
 }
 
@@ -2557,7 +2557,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, %13
   %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !29
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = add nsw i32 %.0, %18
   %20 = add nsw i32 %.075, 1
   br label %21
@@ -2573,7 +2573,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %26 = load i64, ptr %25, align 8
   %27 = xor i64 %26, %24
   %28 = tail call i64 @llvm.ctpop.i64(i64 %27), !range !29
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = add nsw i32 %.1, %29
   %31 = add nsw i32 %.176, 1
   br label %32
@@ -2589,7 +2589,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, %35
   %39 = tail call i64 @llvm.ctpop.i64(i64 %38), !range !29
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %41 = add nsw i32 %.2, %40
   %42 = add nsw i32 %.277, 1
   br label %43
@@ -2605,7 +2605,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %48 = load i64, ptr %47, align 8
   %49 = xor i64 %48, %46
   %50 = tail call i64 @llvm.ctpop.i64(i64 %49), !range !29
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = add nsw i32 %.3, %51
   %53 = add nsw i32 %.378, 1
   br label %54
@@ -2621,7 +2621,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %59 = load i64, ptr %58, align 8
   %60 = xor i64 %59, %57
   %61 = tail call i64 @llvm.ctpop.i64(i64 %60), !range !29
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = add nsw i32 %.4, %62
   %64 = add nsw i32 %.479, 1
   br label %65
@@ -2637,7 +2637,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %70 = load i64, ptr %69, align 8
   %71 = xor i64 %70, %68
   %72 = tail call i64 @llvm.ctpop.i64(i64 %71), !range !29
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw nsw i64 %72 to i32
   %74 = add nsw i32 %.5, %73
   %75 = add nsw i32 %.580, 1
   br label %76
@@ -2653,7 +2653,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %81 = load i64, ptr %80, align 8
   %82 = xor i64 %81, %79
   %83 = tail call i64 @llvm.ctpop.i64(i64 %82), !range !29
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw nsw i64 %83 to i32
   %85 = add nsw i32 %.6, %84
   %86 = add nsw i32 %.681, 1
   br label %87
@@ -2669,7 +2669,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %92 = load i64, ptr %91, align 8
   %93 = xor i64 %92, %90
   %94 = tail call i64 @llvm.ctpop.i64(i64 %93), !range !29
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw nsw i64 %94 to i32
   %96 = add nsw i32 %.7, %95
   %97 = add nsw i32 %.782, 1
   br label %7, !llvm.loop !30
@@ -2830,8 +2830,8 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %15 = load i64, ptr %6, align 8
   %16 = xor i64 %15, %14
   %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !29
-  %18 = trunc i64 %17 to i32
-  %19 = sitofp i32 %18 to float
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = uitofp nneg i32 %18 to float
   ret float %19
 }
 
@@ -2918,11 +2918,11 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %15 = load <2 x i64>, ptr %6, align 8
   %16 = xor <2 x i64> %15, %14
   %17 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %16), !range !29
-  %18 = trunc <2 x i64> %17 to <2 x i32>
+  %18 = trunc nuw nsw <2 x i64> %17 to <2 x i32>
   %shift = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %19 = add nuw nsw <2 x i32> %shift, %18
   %20 = extractelement <2 x i32> %19, i64 0
-  %21 = sitofp i32 %20 to float
+  %21 = uitofp nneg i32 %20 to float
   ret float %21
 }
 
@@ -3014,7 +3014,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %15 = load <2 x i64>, ptr %6, align 8
   %16 = xor <2 x i64> %15, %14
   %17 = tail call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %16), !range !29
-  %18 = trunc <2 x i64> %17 to <2 x i32>
+  %18 = trunc nuw nsw <2 x i64> %17 to <2 x i32>
   %shift = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %19 = add nuw nsw <2 x i32> %shift, %18
   %20 = extractelement <2 x i32> %19, i64 0
@@ -3025,7 +3025,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %25 = xor i32 %24, %22
   %26 = tail call i32 @llvm.ctpop.i32(i32 %25), !range !28
   %27 = add nuw nsw i32 %20, %26
-  %28 = sitofp i32 %27 to float
+  %28 = uitofp nneg i32 %27 to float
   ret float %28
 }
 
@@ -3122,7 +3122,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %17 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %16), !range !29
   %18 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %17)
   %19 = trunc i64 %18 to i32
-  %20 = sitofp i32 %19 to float
+  %20 = uitofp nneg i32 %19 to float
   ret float %20
 }
 

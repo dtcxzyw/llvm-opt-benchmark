@@ -2174,7 +2174,7 @@ if.then61:                                        ; preds = %if.else59
   %and64 = and i32 %shr44, 15
   %add65 = add nuw nsw i32 %and64, 1
   %conv66 = sitofp i32 %sub63 to double
-  %conv67 = sitofp i32 %add65 to double
+  %conv67 = uitofp nneg i32 %add65 to double
   %div = fdiv double %conv66, %conv67
   br label %return
 
@@ -2246,7 +2246,7 @@ if.then107:                                       ; preds = %if.else105
   %add112 = or disjoint i32 %mul111, 1
   %shr114 = lshr i32 %sub108, 2
   %shl115 = shl i32 20, %shr114
-  %conv116 = sitofp i32 %add112 to double
+  %conv116 = uitofp nneg i32 %add112 to double
   %conv117 = sitofp i32 %shl115 to double
   %div118 = fdiv double %conv116, %conv117
   br label %return
@@ -2262,7 +2262,7 @@ if.then121:                                       ; preds = %if.else119
   %add126 = or disjoint i32 %mul125, 1
   %shr128 = lshr i32 %sub122, 2
   %shl129 = shl i32 32, %shr128
-  %conv130 = sitofp i32 %add126 to double
+  %conv130 = uitofp nneg i32 %add126 to double
   %conv131 = sitofp i32 %shl129 to double
   %div132 = fdiv double %conv130, %conv131
   br label %return
@@ -2553,9 +2553,9 @@ u_getUnicodeProperties_75.exit:                   ; preds = %cond.false14.i, %co
   %6 = load i32, ptr %arrayidx47.i, align 4
   %shr = lshr i32 %6, 24
   %shr1 = lshr i32 %6, 28
-  %conv = trunc i32 %shr1 to i8
+  %conv = trunc nuw nsw i32 %shr1 to i8
   store i8 %conv, ptr %versionArray, align 1
-  %7 = trunc i32 %shr to i8
+  %7 = trunc nuw i32 %shr to i8
   %conv2 = and i8 %7, 15
   %arrayidx3 = getelementptr inbounds i8, ptr %versionArray, i64 1
   store i8 %conv2, ptr %arrayidx3, align 1

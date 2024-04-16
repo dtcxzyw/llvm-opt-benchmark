@@ -322,7 +322,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -893,14 +893,14 @@ for.cond8.preheader:                              ; preds = %entry, %for.inc32
   %sum.040 = phi float [ 0.000000e+00, %entry ], [ %add31, %for.inc32 ]
   %y6.039 = phi i32 [ 0, %entry ], [ %inc33, %for.inc32 ]
   %rng.sroa.0.038 = phi i64 [ -8846114313915602277, %entry ], [ %add.i.i13, %for.inc32 ]
-  %conv12 = sitofp i32 %y6.039 to float
+  %conv12 = uitofp nneg i32 %y6.039 to float
   br label %for.body10
 
 for.body10:                                       ; preds = %for.cond8.preheader, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit
   %sum.137 = phi float [ %sum.040, %for.cond8.preheader ], [ %add31, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit ]
   %x7.036 = phi i32 [ 0, %for.cond8.preheader ], [ %inc, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit ]
   %rng.sroa.0.135 = phi i64 [ %rng.sroa.0.038, %for.cond8.preheader ], [ %add.i.i13, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit ]
-  %conv = sitofp i32 %x7.036 to float
+  %conv = uitofp nneg i32 %x7.036 to float
   %mul.i.i = mul i64 %rng.sroa.0.135, 6364136223846793005
   %add.i.i = add i64 %mul.i.i, -2720673578348880933
   %mul.i.i11 = mul i64 %add.i.i, 6364136223846793005
@@ -912,7 +912,7 @@ for.body10:                                       ; preds = %for.cond8.preheader
   %6 = xor <2 x i64> %5, %4
   %7 = trunc <2 x i64> %6 to <2 x i32>
   %8 = lshr <2 x i64> %3, <i64 59, i64 59>
-  %9 = trunc <2 x i64> %8 to <2 x i32>
+  %9 = trunc nuw nsw <2 x i64> %8 to <2 x i32>
   %10 = tail call <2 x i32> @llvm.fshr.v2i32(<2 x i32> %7, <2 x i32> %7, <2 x i32> %9)
   %11 = uitofp <2 x i32> %10 to <2 x float>
   %12 = fmul <2 x float> %11, <float 0x3DF0000000000000, float 0x3DF0000000000000>
@@ -1544,14 +1544,14 @@ for.cond32.preheader:                             ; preds = %for.cond32.preheade
   br i1 %cmp3680, label %invoke.cont54.lr.ph, label %for.inc64
 
 invoke.cont54.lr.ph:                              ; preds = %for.cond32.preheader
-  %conv45 = sitofp i32 %y26.085 to float
+  %conv45 = uitofp nneg i32 %y26.085 to float
   %add46 = fadd float %conv45, 5.000000e-01
   br label %invoke.cont54
 
 invoke.cont54:                                    ; preds = %invoke.cont54.lr.ph, %invoke.cont62
   %sub.i1882 = phi i32 [ %sub.i1879, %invoke.cont54.lr.ph ], [ %sub.i18, %invoke.cont62 ]
   %x31.081 = phi i32 [ 0, %invoke.cont54.lr.ph ], [ %inc, %invoke.cont62 ]
-  %conv40 = sitofp i32 %x31.081 to float
+  %conv40 = uitofp nneg i32 %x31.081 to float
   %add = fadd float %conv40, 5.000000e-01
   %17 = load i32, ptr %y.i16, align 4
   %18 = load i32, ptr %y3.i, align 4
@@ -1572,7 +1572,7 @@ invoke.cont54:                                    ; preds = %invoke.cont54.lr.ph
   %and.i.i.i28 = and i64 %31, 144115188075855871
   %32 = inttoptr i64 %and.i.i.i28 to ptr
   %shr.i.i.i = lshr i64 %31, 57
-  %conv.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv.i.i.i = trunc nuw nsw i64 %shr.i.i.i to i32
   switch i32 %conv.i.i.i, label %sw.default.i [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb3.i
@@ -1982,7 +1982,7 @@ for.end66:                                        ; preds = %for.inc64, %_ZN4pbr
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %f, align 8
   %p.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i32
   %p.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 32
-  %p.sroa.2.0.extract.trunc.i.i.i.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i.i.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i.i.i.i to i32
   %sub.i.i.i.i.i = sub nsw i32 %117, %p.sroa.0.0.extract.trunc.i.i.i.i.i
   %sub4.i.i.i.i.i = sub nsw i32 %.lcssa, %p.sroa.2.0.extract.trunc.i.i.i.i.i
   %mul.i.i.i.i = mul nsw i32 %sub4.i.i.i.i.i, %sub.i.i.i.i.i
@@ -2153,7 +2153,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %1 = load i32, ptr %y.i.i, align 4
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %this, align 8
   %p.sroa.2.0.extract.shift.i.i = lshr i64 %agg.tmp.sroa.0.0.copyload.i, 32
-  %p.sroa.2.0.extract.trunc.i.i = trunc i64 %p.sroa.2.0.extract.shift.i.i to i32
+  %p.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i to i32
   %sub4.i.i = sub nsw i32 %1, %p.sroa.2.0.extract.trunc.i.i
   %pMax.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %pMax.i, align 8

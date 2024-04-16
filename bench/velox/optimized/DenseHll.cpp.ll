@@ -252,7 +252,7 @@ entry:
   %shl2.i = shl nuw i64 1, %sh_prom1.i
   %or.i = or i64 %shl2.i, %shl.i
   %1 = tail call i64 @llvm.ctlz.i64(i64 %or.i, i1 true), !range !4
-  %2 = trunc i64 %1 to i8
+  %2 = trunc nuw nsw i64 %1 to i8
   %conv5 = add nuw nsw i8 %2, 1
   tail call void @_ZN8facebook5velox6common3hll8DenseHll6insertEia(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %conv.i, i8 noundef signext %conv5)
   ret void
@@ -463,7 +463,7 @@ _ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit: ; preds = %if.then.
 
 if.end20:                                         ; preds = %if.then16, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit, %if.end
   %delta.0 = phi i32 [ %sub, %if.end ], [ 15, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit ], [ 15, %if.then16 ]
-  %conv21 = trunc i32 %delta.0 to i8
+  %conv21 = trunc nuw nsw i32 %delta.0 to i8
   %shl.i = shl nuw i8 15, %conv.i.i
   %26 = xor i8 %shl.i, -1
   %27 = load ptr, ptr %add.ptr.i.i, align 8
@@ -577,7 +577,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 return.loopexit.split.loop.exit9:                 ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit9, %entry
@@ -773,7 +773,7 @@ if.then13.us:                                     ; preds = %for.body8.us
   br i1 %cmp20.us, label %if.then21.us, label %for.inc59.us
 
 if.then21.us:                                     ; preds = %if.then13.us
-  %12 = trunc i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = load i16, ptr %overflows_, align 8
   %conv23.us = sext i16 %13 to i32
   %sub.us = add nsw i32 %conv23.us, -1
@@ -809,7 +809,7 @@ if.end.us:                                        ; preds = %if.then25.us, %if.t
 
 if.end53.us:                                      ; preds = %for.inc.us, %for.body.us, %for.cond5.preheader.us
   %dec51.us = add nsw i32 %conv3.us, -1
-  %conv52.us = trunc i32 %dec51.us to i8
+  %conv52.us = trunc nsw i32 %dec51.us to i8
   %shl.i.us = shl nuw i8 15, %conv.i.i.us
   %21 = xor i8 %shl.i.us, -1
   %and4.i.us = and i8 %4, %21
@@ -919,7 +919,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.body
-  %5 = sitofp i32 %spec.select to double
+  %5 = uitofp nneg i32 %spec.select to double
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
@@ -1250,7 +1250,7 @@ land.rhs:                                         ; preds = %for.cond3
   br i1 %cmp10, label %for.cond3, label %for.end.split.loop.exit40, !llvm.loop !17
 
 for.end.split.loop.exit40:                        ; preds = %land.rhs
-  %6 = trunc i64 %indvars.iv35 to i32
+  %6 = trunc nuw i64 %indvars.iv35 to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.cond3, %for.end.split.loop.exit40
@@ -1269,7 +1269,7 @@ if.then:                                          ; preds = %for.end
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %idx.ext
   %add.ptr17 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %add.ptr22 = getelementptr inbounds i8, ptr %add.ptr, i64 2
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %sub24 = sub i32 %10, %j.0.in.lcssa
   %conv25 = sext i32 %sub24 to i64
   %mul = shl nsw i64 %conv25, 1
@@ -1506,7 +1506,7 @@ land.rhs.i:                                       ; preds = %for.cond3.i
   br i1 %cmp10.i, label %for.cond3.i, label %for.end.split.loop.exit40.i, !llvm.loop !17
 
 for.end.split.loop.exit40.i:                      ; preds = %land.rhs.i
-  %6 = trunc i64 %indvars.iv35.i to i32
+  %6 = trunc nuw i64 %indvars.iv35.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.cond3.i, %for.end.split.loop.exit40.i
@@ -1525,7 +1525,7 @@ if.then.i:                                        ; preds = %for.end.i
   %add.ptr.i = getelementptr inbounds i16, ptr %2, i64 %idx.ext.i
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %add.ptr22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sub24.i = sub i32 %10, %j.0.in.lcssa.i
   %conv25.i = sext i32 %sub24.i to i64
   %mul.i = shl nsw i64 %conv25.i, 1
@@ -1929,9 +1929,9 @@ for.body8:                                        ; preds = %for.body, %_ZN8face
   %shr12 = ashr i32 %conv11, %shift.0136
   %conv14 = and i32 %shr12, 15
   %7 = load i8, ptr %baseline_, align 1
-  %8 = trunc i32 %conv10 to i8
+  %8 = trunc nuw nsw i32 %conv10 to i8
   %conv18 = add i8 %7, %8
-  %9 = trunc i32 %conv14 to i8
+  %9 = trunc nuw nsw i32 %conv14 to i8
   %conv22 = add i8 %9, %otherBaseline
   %cmp24 = icmp eq i32 %conv10, 15
   br i1 %cmp24, label %if.then, label %if.end36
@@ -1960,7 +1960,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %if.end36, label %for.body.i, !llvm.loop !7
 
 _ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi.exit: ; preds = %for.body.i
-  %13 = trunc i64 %indvars.iv.i to i32
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sext.mask = and i32 %13, 65535
   %cmp28.not = icmp eq i32 %sext.mask, 65535
   br i1 %cmp28.not, label %if.end36, label %if.then29
@@ -2096,7 +2096,7 @@ if.then.i1.i.i.i.i71:                             ; preds = %if.end.i.i.i.i68
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i72: ; preds = %if.end.i.i.i.i68
-  %n.tr.i.i.i.i = trunc i64 %24 to i32
+  %n.tr.i.i.i.i = trunc nuw i64 %24 to i32
   %conv.i.i.i.i73 = shl nuw nsw i32 %n.tr.i.i.i.i, 1
   %.sroa.speculated.i.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i.i.i73, i32 16)
   %call3.i.i.i.i.i74 = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %25, i32 noundef %.sroa.speculated.i.i.i.i.i, i1 noundef zeroext true)
@@ -2239,7 +2239,7 @@ if.then.i1.i.i.i.i:                               ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i: ; preds = %if.end.i.i.i.i
-  %conv.i.i.i.i = trunc i64 %36 to i32
+  %conv.i.i.i.i = trunc nuw i64 %36 to i32
   %39 = tail call i32 @llvm.umax.i32(i32 %conv.i.i.i.i, i32 16)
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %37, i32 noundef %39, i1 noundef zeroext true)
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i, i64 4
@@ -2707,7 +2707,7 @@ if.then.i1.i.i.i:                                 ; preds = %if.end.i.i.i
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end.i.i.i
-  %conv.i.i.i = trunc i64 %3 to i32
+  %conv.i.i.i = trunc nuw i64 %3 to i32
   %6 = tail call i32 @llvm.umax.i32(i32 %conv.i.i.i, i32 16)
   %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %4, i32 noundef %6, i1 noundef zeroext true)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 4
@@ -2846,7 +2846,7 @@ if.then.i1.i.i.i:                                 ; preds = %if.end.i.i.i
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end.i.i.i
-  %n.tr.i.i.i = trunc i64 %4 to i32
+  %n.tr.i.i.i = trunc nuw i64 %4 to i32
   %conv.i.i.i = shl nuw nsw i32 %n.tr.i.i.i, 1
   %.sroa.speculated.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i.i, i32 16)
   %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %5, i32 noundef %.sroa.speculated.i.i.i.i, i1 noundef zeroext true)

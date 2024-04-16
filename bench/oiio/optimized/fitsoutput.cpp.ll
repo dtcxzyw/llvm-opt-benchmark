@@ -2341,7 +2341,7 @@ ehcleanup60:                                      ; preds = %ehcleanup59, %lpad5
   br label %ehcleanup195
 
 invoke.cont75:                                    ; preds = %.noexc84
-  %conv77 = sitofp i32 %axes.1 to float
+  %conv77 = uitofp nneg i32 %axes.1 to float
   invoke void @_ZN18OpenImageIO_v2_6_08fits_pvt7num2strB5cxx11Ef(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp76, float noundef %conv77)
           to label %invoke.cont79 unwind label %lpad78
 

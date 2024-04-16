@@ -778,13 +778,13 @@ define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 25:                                               ; preds = %21
   %26 = add nuw nsw i32 %23, 1
-  %27 = sitofp i32 %26 to double
+  %27 = uitofp nneg i32 %26 to double
   %28 = fmul double %27, 0x3EB0C6F7A0B5ED8D
   br label %unquantize_grtt.exit
 
 29:                                               ; preds = %21
   %30 = xor i32 %23, 255
-  %31 = sitofp i32 %30 to double
+  %31 = uitofp nneg i32 %30 to double
   %32 = fdiv double %31, 1.300000e+01
   %33 = tail call double @exp(double noundef %32) #4
   %34 = fdiv double 1.000000e+03, %33
@@ -796,7 +796,7 @@ unquantize_grtt.exit:                             ; preds = %25, %29
   %37 = zext i8 %36 to i32
   %38 = and i32 %37, 7
   %39 = lshr i32 %37, 3
-  %40 = sitofp i32 %39 to double
+  %40 = uitofp nneg i32 %39 to double
   %41 = fmul double %40, 3.125000e-01
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %unquantize_gsize.exit, label %.lr.ph.i
@@ -1033,7 +1033,7 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   %40 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
   %41 = udiv i64 %40, 1000000
   %42 = urem i64 %40, 1000000
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   %44 = mul nuw nsw i32 %43, 1000
   store i64 %41, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -1278,7 +1278,7 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
   %32 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 4) #4
   %33 = udiv i64 %32, 1000000
   %34 = urem i64 %32, 1000000
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = mul nuw nsw i32 %35, 1000
   store i64 %33, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -1699,7 +1699,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
   %66 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 20) #4
   %67 = udiv i64 %66, 1000000
   %68 = urem i64 %66, 1000000
-  %69 = trunc i64 %68 to i32
+  %69 = trunc nuw nsw i64 %68 to i32
   %70 = mul nuw nsw i32 %69, 1000
   store i64 %67, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -1804,7 +1804,7 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
   %42 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
   %43 = udiv i64 %42, 1000000
   %44 = urem i64 %42, 1000000
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = mul nuw nsw i32 %45, 1000
   store i64 %43, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -1932,7 +1932,7 @@ define internal fastcc void @dissect_uftp_fileseg(ptr noundef %0, ptr noundef %1
   %63 = zext i16 %62 to i32
   %64 = and i32 %63, 15
   %65 = lshr i32 %63, 4
-  %66 = sitofp i32 %65 to double
+  %66 = uitofp nneg i32 %65 to double
   %67 = fmul double %66, 0x3F64000000000000
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %unquantize_rate.exit.i, label %.lr.ph.i.i
@@ -1952,7 +1952,7 @@ unquantize_rate.exit.i:                           ; preds = %.lr.ph.i.i, %61
   %72 = zext i16 %71 to i32
   %73 = and i32 %72, 15
   %74 = lshr i32 %72, 4
-  %75 = sitofp i32 %74 to double
+  %75 = uitofp nneg i32 %74 to double
   %76 = fmul double %75, 0x3F64000000000000
   %.not.i48.i = icmp eq i32 %73, 0
   br i1 %.not.i48.i, label %.loopexit, label %.lr.ph.i49.i
@@ -2671,7 +2671,7 @@ define internal fastcc void @dissect_uftp_congctrl(ptr noundef %0, ptr noundef %
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 15
   %24 = lshr i32 %22, 4
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = fmul double %25, 0x3F64000000000000
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %unquantize_rate.exit, label %.lr.ph.i
@@ -2704,7 +2704,7 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %44 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
   %45 = udiv i64 %44, 1000000
   %46 = urem i64 %44, 1000000
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nuw nsw i64 %46 to i32
   %48 = mul nuw nsw i32 %47, 1000
   store i64 %45, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -2737,13 +2737,13 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
 
 64:                                               ; preds = %.lr.ph
   %65 = add nuw nsw i32 %62, 1
-  %66 = sitofp i32 %65 to double
+  %66 = uitofp nneg i32 %65 to double
   %67 = fmul double %66, 0x3EB0C6F7A0B5ED8D
   br label %unquantize_grtt.exit
 
 68:                                               ; preds = %.lr.ph
   %69 = xor i32 %62, 255
-  %70 = sitofp i32 %69 to double
+  %70 = uitofp nneg i32 %69 to double
   %71 = fdiv double %70, 1.300000e+01
   %72 = call double @exp(double noundef %71) #4
   %73 = fdiv double 1.000000e+03, %72
@@ -2756,7 +2756,7 @@ unquantize_grtt.exit:                             ; preds = %64, %68
   %77 = zext i16 %76 to i32
   %78 = and i32 %77, 15
   %79 = lshr i32 %77, 4
-  %80 = sitofp i32 %79 to double
+  %80 = uitofp nneg i32 %79 to double
   %81 = fmul double %80, 0x3F64000000000000
   %.not.i92 = icmp eq i32 %78, 0
   br i1 %.not.i92, label %unquantize_rate.exit98, label %.lr.ph.i93
@@ -3090,7 +3090,7 @@ define internal fastcc noundef i32 @dissect_uftp_tfmccack(ptr noundef %0, ptr no
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 15
   %24 = lshr i32 %22, 4
-  %25 = sitofp i32 %24 to double
+  %25 = uitofp nneg i32 %24 to double
   %26 = fmul double %25, 0x3F64000000000000
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %unquantize_rate.exit, label %.lr.ph.i
@@ -3128,7 +3128,7 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %49 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 12) #4
   %50 = udiv i64 %49, 1000000
   %51 = urem i64 %49, 1000000
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw nsw i64 %51 to i32
   %53 = mul nuw nsw i32 %52, 1000
   store i64 %50, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8

@@ -419,7 +419,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.load = load i32, ptr %16, align 4
   %bf.clear = and i32 %bf.load, 32767
   store i32 %bf.clear, ptr %ref.tmp19, align 4
-  %conv.i = sitofp i32 %bf.clear to float
+  %conv.i = uitofp nneg i32 %bf.clear to float
   %div.i1 = fdiv float %conv.i, 3.276700e+04
   %mul.i2 = fmul float %div.i1, 2.000000e+00
   %sub.i3 = fadd float %mul.i2, -1.000000e+00
@@ -427,7 +427,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.lshr = lshr i32 %bf.load, 15
   %bf.clear24 = and i32 %bf.lshr, 32767
   store i32 %bf.clear24, ptr %ref.tmp22, align 4
-  %conv.i6 = sitofp i32 %bf.clear24 to float
+  %conv.i6 = uitofp nneg i32 %bf.clear24 to float
   %div.i7 = fdiv float %conv.i6, 3.276700e+04
   %mul.i8 = fmul float %div.i7, 2.000000e+00
   %sub.i9 = fadd float %mul.i8, -1.000000e+00
@@ -561,7 +561,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.load = load i32, ptr %53, align 4
   %bf.clear = and i32 %bf.load, 32767
   store i32 %bf.clear, ptr %ref.tmp20, align 4
-  %conv.i = sitofp i32 %bf.clear to float
+  %conv.i = uitofp nneg i32 %bf.clear to float
   %div.i5 = fdiv float %conv.i, 3.276700e+04
   %mul.i6 = fmul float %div.i5, 2.000000e+00
   %sub.i7 = fadd float %mul.i6, -1.000000e+00
@@ -569,7 +569,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.lshr = lshr i32 %bf.load, 15
   %bf.clear25 = and i32 %bf.lshr, 32767
   store i32 %bf.clear25, ptr %ref.tmp23, align 4
-  %conv.i10 = sitofp i32 %bf.clear25 to float
+  %conv.i10 = uitofp nneg i32 %bf.clear25 to float
   %div.i11 = fdiv float %conv.i10, 3.276700e+04
   %mul.i12 = fmul float %div.i11, 2.000000e+00
   %sub.i13 = fadd float %mul.i12, -1.000000e+00
@@ -816,7 +816,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 if.end:                                           ; preds = %entry
   %shr.i.i = lshr i64 %0, 57
-  %conv.i.i = trunc i64 %shr.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %shr.i.i to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
@@ -1049,8 +1049,8 @@ for.end:                                          ; preds = %for.inc
 
 for.body.i13:                                     ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i, %for.end
   %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i ]
-  %17 = trunc i64 %indvars.iv.i to i32
-  %conv.i = sitofp i32 %17 to float
+  %17 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %conv.i = uitofp nneg i32 %17 to float
   %div.i = fmul float %conv.i, 2.500000e-01
   %add.i = fadd float %div.i, 5.000000e-01
   %cmp1.i = fcmp ogt float %add.i, 1.000000e+00
@@ -3091,7 +3091,7 @@ for.body95:                                       ; preds = %_ZNK4pbrt15BVHLight
   %cmp101 = fcmp olt float %160, %minCost.1896
   %or.cond = select i1 %cmp98, i1 %cmp101, i1 false
   %minCostSplitDim.2 = select i1 %or.cond, i32 %dim.0914, i32 %minCostSplitDim.1894
-  %161 = trunc i64 %indvars.iv947 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv947 to i32
   %minCostSplitBucket.2 = select i1 %or.cond, i32 %161, i32 %minCostSplitBucket.1895
   %minCost.2 = select i1 %or.cond, float %160, float %minCost.1896
   %indvars.iv.next948 = add nuw nsw i64 %indvars.iv947, 1
@@ -3789,7 +3789,7 @@ _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30: ; preds = %_ZN4pbrt18Compact
 for.body:                                         ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90
   %indvars.iv = phi i64 [ 0, %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30 ], [ %indvars.iv.next, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90 ]
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %lb, align 4
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %33, label %if.end4.i40 [
     i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106
     i32 1, label %if.then3.i36
@@ -4714,7 +4714,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %shr3.i.i.i = xor i64 %15, %16
   %conv.i.i.i = trunc i64 %shr3.i.i.i to i32
   %shr4.i.i.i = lshr i64 %wrs.sroa.0.052, 59
-  %conv5.i.i.i = trunc i64 %shr4.i.i.i to i32
+  %conv5.i.i.i = trunc nuw nsw i64 %shr4.i.i.i to i32
   %or.i.i.i = tail call noundef i32 @llvm.fshr.i32(i32 %conv.i.i.i, i32 %conv.i.i.i, i32 %conv5.i.i.i)
   %conv.i.i = uitofp i32 %or.i.i.i to float
   %mul.i.i = fmul float %conv.i.i, 0x3DF0000000000000

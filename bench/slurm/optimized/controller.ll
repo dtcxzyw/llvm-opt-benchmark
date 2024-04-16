@@ -1155,7 +1155,7 @@ _become_slurm_user.exit:                          ; preds = %283, %280
 .lr.ph.i288:                                      ; preds = %292, %319
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %319 ], [ 0, %292 ]
   %297 = load i32, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 177), align 8
-  %298 = trunc i64 %indvars.iv.i to i32
+  %298 = trunc nuw nsw i64 %indvars.iv.i to i32
   %299 = add i32 %297, %298
   %300 = trunc i32 %299 to i16
   %301 = call i32 @slurm_init_msg_engine_port(i16 noundef zeroext %300) #19
@@ -1464,7 +1464,7 @@ _set_work_dir.exit:                               ; preds = %.thread11.i, %378, 
   br i1 %or.cond.i, label %444, label %_test_thread_limit.exit
 
 444:                                              ; preds = %439
-  %445 = trunc i64 %440 to i32
+  %445 = trunc nuw nsw i64 %440 to i32
   store i32 %445, ptr @max_server_threads, align 4
   %446 = call i32 @get_log_level() #19
   %447 = icmp sgt i32 %446, 2
@@ -2836,7 +2836,7 @@ queue_job_scheduler.exit.i:                       ; preds = %930, %922
   %.6.i = phi i64 [ %987, %986 ], [ %.5.i, %984 ], [ %.5.i, %979 ], [ %.5.i, %977 ]
   %990 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
   %991 = call double @difftime(i64 noundef %.6.i, i64 noundef %990) #20
-  %992 = sitofp i32 %.088.i to double
+  %992 = uitofp nneg i32 %.088.i to double
   %993 = fcmp ult double %991, %992
   br i1 %993, label %994, label %997
 
@@ -3941,7 +3941,7 @@ controller_fini_scheduling.exit319:               ; preds = %_slurmctld_backgrou
   br i1 %1457, label %.loopexit.i, label %1452
 
 .critedge.i323:                                   ; preds = %1452, %.preheader.i
-  %1458 = trunc i64 %indvars.iv164.i to i32
+  %1458 = trunc nuw nsw i64 %indvars.iv164.i to i32
   %1459 = call i32 @close(i32 noundef %1458) #19
   %.pre.i = load i32, ptr @pidfd, align 4
   %.pre168.i = load i64, ptr %3, align 8
@@ -4459,7 +4459,7 @@ define internal fastcc i32 @_controller_index() unnamed_addr #4 {
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %14, %12
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %._crit_edge26, %35
@@ -4703,7 +4703,7 @@ define internal fastcc void @_shutdown_backup_controller() unnamed_addr #4 {
 
 25:                                               ; preds = %22
   %26 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 2902, ptr noundef nonnull @__func__._shutdown_backup_controller) #19
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %27, ptr %26, align 4
   %28 = load i32, ptr @backup_inx, align 4
   %29 = sext i32 %28 to i64

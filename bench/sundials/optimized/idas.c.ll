@@ -5262,7 +5262,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %531
   %598 = getelementptr inbounds [6 x double], ptr %338, i64 0, i64 %indvars.iv.i.i444
   store double %597, ptr %598, align 8
   %599 = trunc nuw nsw i64 %indvars.iv.i.i444 to i32
-  %600 = sitofp i32 %599 to double
+  %600 = uitofp nneg i32 %599 to double
   %601 = fmul double %587, %600
   %602 = fmul double %601, %597
   %603 = getelementptr inbounds [6 x double], ptr %341, i64 0, i64 %indvars.iv.i.i444
@@ -5301,7 +5301,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i.i436, %531
   %.0155198.i.i = phi double [ 0.000000e+00, %.lr.ph201.i.i ], [ %621, %614 ]
   %indvars.iv.next253.i.i = add nuw nsw i64 %indvars.iv252.i.i, 1
   %615 = trunc nuw nsw i64 %indvars.iv.next253.i.i to i32
-  %616 = sitofp i32 %615 to double
+  %616 = uitofp nneg i32 %615 to double
   %617 = fdiv double 1.000000e+00, %616
   %618 = fsub double %.0199.i.i, %617
   %619 = getelementptr inbounds [6 x double], ptr %338, i64 0, i64 %indvars.iv252.i.i
@@ -10319,7 +10319,7 @@ define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr nou
   %63 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %62
   %64 = load double, ptr %63, align 8
   %65 = trunc nuw nsw i64 %indvar to i32
-  %66 = sitofp i32 %65 to double
+  %66 = uitofp nneg i32 %65 to double
   %67 = fmul double %64, %66
   %68 = getelementptr inbounds [6 x double], ptr %42, i64 0, i64 %62
   %69 = load double, ptr %68, align 8
@@ -10336,7 +10336,7 @@ define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr nou
 
 .lr.ph:                                           ; preds = %72
   %74 = trunc nuw nsw i64 %indvar to i32
-  %75 = sitofp i32 %74 to double
+  %75 = uitofp nneg i32 %74 to double
   %load_initial = load double, ptr %scevgep110, align 8
   br label %76
 
@@ -10525,7 +10525,7 @@ define i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
   %65 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %64
   %66 = load double, ptr %65, align 8
   %67 = trunc nuw nsw i64 %indvar to i32
-  %68 = sitofp i32 %67 to double
+  %68 = uitofp nneg i32 %67 to double
   %69 = fmul double %66, %68
   %70 = getelementptr inbounds [6 x double], ptr %42, i64 0, i64 %64
   %71 = load double, ptr %70, align 8
@@ -10542,7 +10542,7 @@ define i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
 
 .lr.ph:                                           ; preds = %74
   %76 = trunc nuw nsw i64 %indvar to i32
-  %77 = sitofp i32 %76 to double
+  %77 = uitofp nneg i32 %76 to double
   %load_initial = load double, ptr %scevgep111, align 8
   br label %78
 
@@ -10790,7 +10790,7 @@ define i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i3
   %79 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %78
   %80 = load double, ptr %79, align 8
   %81 = trunc nuw nsw i64 %indvar to i32
-  %82 = sitofp i32 %81 to double
+  %82 = uitofp nneg i32 %81 to double
   %83 = fmul double %80, %82
   %84 = getelementptr inbounds [6 x double], ptr %54, i64 0, i64 %78
   %85 = load double, ptr %84, align 8
@@ -10807,7 +10807,7 @@ define i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i3
 
 .lr.ph:                                           ; preds = %88
   %90 = trunc nuw nsw i64 %indvar to i32
-  %91 = sitofp i32 %90 to double
+  %91 = uitofp nneg i32 %90 to double
   %load_initial = load double, ptr %scevgep136, align 8
   br label %92
 
@@ -11171,7 +11171,7 @@ define i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2
   %84 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %83
   %85 = load double, ptr %84, align 8
   %86 = trunc nuw nsw i64 %indvar to i32
-  %87 = sitofp i32 %86 to double
+  %87 = uitofp nneg i32 %86 to double
   %88 = fmul double %85, %87
   %89 = getelementptr inbounds [6 x double], ptr %59, i64 0, i64 %83
   %90 = load double, ptr %89, align 8
@@ -11188,7 +11188,7 @@ define i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2
 
 .lr.ph:                                           ; preds = %93
   %95 = trunc nuw nsw i64 %indvar to i32
-  %96 = sitofp i32 %95 to double
+  %96 = uitofp nneg i32 %95 to double
   %load_initial = load double, ptr %scevgep138, align 8
   br label %97
 

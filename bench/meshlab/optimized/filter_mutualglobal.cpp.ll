@@ -6099,7 +6099,7 @@ _ZN8SubGraphC2ERKS_.exit37:                       ; preds = %.loopexit.i98, %86,
 ._crit_edge.i:                                    ; preds = %.lr.ph.i39, %.preheader.i
   %.024.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %.lr.ph.i39 ]
   %166 = icmp sgt i32 %.024.lcssa.i, %.02837.i
-  %167 = trunc i64 %indvars.iv.i to i32
+  %167 = trunc nuw i64 %indvars.iv.i to i32
   br i1 %166, label %168, label %170
 
 168:                                              ; preds = %._crit_edge.i
@@ -6688,7 +6688,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
 118:                                              ; preds = %110
   %119 = fptosi float %115 to i32
   %120 = tail call i32 @llvm.abs.i32(i32 %119, i1 true)
-  %121 = sitofp i32 %120 to double
+  %121 = uitofp nneg i32 %120 to double
   %122 = tail call noundef double @pow(double noundef %121, double noundef 0x3FD5555560000000) #25
   %123 = fptrunc double %122 to float
   %124 = fneg float %123
@@ -7554,7 +7554,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 50:                                               ; preds = %42
   %51 = fptosi float %47 to i32
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = tail call noundef double @pow(double noundef %53, double noundef 0x3FD5555560000000) #25
   %55 = fptrunc double %54 to float
   %56 = fneg float %55
@@ -9382,7 +9382,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit98:        ; preds = %.lr.ph288, %_ZNSt6v
 
 220:                                              ; preds = %.lr.ph321
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8)
-  %221 = trunc i64 %indvars.iv to i32
+  %221 = trunc nuw nsw i64 %indvars.iv to i32
   %222 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.64, i32 noundef %221, i32 noundef %15) #25
   invoke void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %219, i32 noundef 2, ptr noundef nonnull %8)
           to label %.noexc100 unwind label %.loopexit218
@@ -9413,7 +9413,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStre
   %not. = and i8 %231, 1
   %. = xor i8 %not., 1
   store i8 %., ptr %12, align 8
-  %232 = trunc i64 %indvars.iv to i32
+  %232 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %232, ptr %144, align 4
   store double 0.000000e+00, ptr %145, align 8
   %233 = load ptr, ptr %24, align 8
@@ -9696,7 +9696,7 @@ _ZNK19MeshLabPluginLogger3logIJRiS1_RdmEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogS
 333:                                              ; preds = %_ZNK19MeshLabPluginLogger3logIJRiS1_EEEvPKcDpOT_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, i8 0, i64 24, i1 false)
   store i8 1, ptr %13, align 8
-  %334 = trunc i64 %indvars.iv to i32
+  %334 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %334, ptr %138, align 4
   store double 0.000000e+00, ptr %139, align 8
   %335 = load ptr, ptr %140, align 8
@@ -12048,7 +12048,7 @@ define noundef i32 @_ZN18FilterMutualGlobal15getTheRightNodeE8SubGraph(ptr nocap
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.024.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
   %36 = icmp sgt i32 %.024.lcssa, %.02837
-  %37 = trunc i64 %indvars.iv to i32
+  %37 = trunc nuw i64 %indvars.iv to i32
   br i1 %36, label %38, label %40
 
 38:                                               ; preds = %._crit_edge

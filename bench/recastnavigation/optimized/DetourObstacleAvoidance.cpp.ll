@@ -1196,7 +1196,7 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %175, %163, %188, %1
 ._crit_edge:                                      ; preds = %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread, %.preheader
   %.2.lcssa = phi float [ %.064.lcssa, %.preheader ], [ %.3, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread ]
   %.not = icmp eq i32 %.067.lcssa, 0
-  %193 = sitofp i32 %.067.lcssa to float
+  %193 = uitofp nneg i32 %.067.lcssa to float
   %194 = fdiv float %.065.lcssa, %193
   %.166 = select i1 %.not, float %.065.lcssa, float %194
   %195 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1294,7 +1294,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %47 = sitofp i32 %.04152 to float
+  %47 = uitofp nneg i32 %.04152 to float
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %38, float %29)
   %49 = fsub float %48, %40
   %50 = fmul float %49, %49
@@ -1304,7 +1304,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   %.149 = phi float [ %.053, %.lr.ph ], [ %.2, %63 ]
   %.04048 = phi i32 [ 0, %.lr.ph ], [ %64, %63 ]
   %.14347 = phi i32 [ %.04251, %.lr.ph ], [ %.244, %63 ]
-  %52 = sitofp i32 %.04048 to float
+  %52 = uitofp nneg i32 %.04048 to float
   %53 = tail call float @llvm.fmuladd.f32(float %52, float %38, float %26)
   %54 = fsub float %53, %40
   store float %54, ptr %10, align 4
@@ -1398,7 +1398,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
   %36 = tail call i8 @llvm.umin.i8(i8 %28, i8 4)
   %narrow118 = select i1 %35, i8 1, i8 %36
   %37 = zext nneg i8 %narrow118 to i32
-  %38 = uitofp i8 %narrow to float
+  %38 = uitofp nneg i8 %narrow to float
   %39 = fdiv float 1.000000e+00, %38
   %40 = fmul float %39, 0x400921FB60000000
   %41 = fmul float %40, 2.000000e+00
@@ -1448,7 +1448,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %24, %52
   br i1 %.not156, label %._crit_edge127, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %_Z13dtNormalize2DPf.exit
-  %70 = uitofp i8 %narrow118 to float
+  %70 = uitofp nneg i8 %narrow118 to float
   %71 = add nsw i32 %34, -1
   %72 = icmp ugt i8 %narrow, 2
   %73 = and i32 %34, 1
@@ -1485,7 +1485,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %24, %52
   br label %116
 
 98:                                               ; preds = %._crit_edge.us
-  %99 = trunc i64 %indvars.iv170 to i32
+  %99 = trunc nsw i64 %indvars.iv170 to i32
   %100 = fneg float %142
   %101 = fmul float %43, %100
   %102 = tail call float @llvm.fmuladd.f32(float %136, float %42, float %101)
@@ -1554,7 +1554,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %24, %52
   br i1 %147, label %116, label %._crit_edge.us, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %116
-  %148 = trunc i64 %indvars.iv.next171 to i32
+  %148 = trunc nsw i64 %indvars.iv.next171 to i32
   br i1 %74, label %98, label %114
 
 .lr.ph126.split:                                  ; preds = %.lr.ph126
@@ -1633,11 +1633,11 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %24, %52
   br i1 %exitcond.not, label %._crit_edge127.loopexit160, label %.lr.ph126.split.split, !llvm.loop !13
 
 ._crit_edge127.loopexit159:                       ; preds = %.lr.ph126.split.split.us
-  %200 = trunc i64 %indvars.iv.next167 to i32
+  %200 = trunc nuw nsw i64 %indvars.iv.next167 to i32
   br label %._crit_edge127
 
 ._crit_edge127.loopexit160:                       ; preds = %.lr.ph126.split.split
-  %201 = trunc i64 %indvars.iv.next to i32
+  %201 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge127
 
 ._crit_edge127:                                   ; preds = %114, %._crit_edge127.loopexit160, %._crit_edge127.loopexit159, %_Z13dtNormalize2DPf.exit

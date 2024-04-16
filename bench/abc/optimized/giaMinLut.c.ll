@@ -273,7 +273,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %105 = load ptr, ptr %102, align 8
   %106 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv.i
   %107 = load i32, ptr %106, align 4
-  %108 = trunc i64 %indvars.iv.i to i32
+  %108 = trunc nuw nsw i64 %indvars.iv.i to i32
   %109 = xor i32 %108, -1
   %110 = add i32 %104, %109
   %111 = sext i32 %110 to i64
@@ -622,7 +622,7 @@ Abc_UtilStrsav.exit:                              ; preds = %48, %50
 65:                                               ; preds = %.lr.ph120, %.critedge5
   %indvars.iv127 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next128, %.critedge5 ]
   %.val78 = load ptr, ptr %63, align 8
-  %66 = trunc i64 %indvars.iv127 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv127 to i32
   %67 = mul i32 %64, %66
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i64, ptr %24, i64 %68
@@ -1007,7 +1007,7 @@ common.ret12:                                     ; preds = %3, %6
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %29, i32 1
   %31 = load i32, ptr %30, align 4
   %32 = lshr i64 %18, 61
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = and i32 %33, 1
   %35 = xor i32 %34, %31
   %36 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %26, i32 noundef %35) #26
@@ -2172,7 +2172,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %28, %.lr.ph.i33
   br i1 %exitcond.not.i36, label %Abc_TtCountOnesVec.exit, label %.lr.ph.i33, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.exit.i
-  %49 = sitofp i32 %48 to double
+  %49 = uitofp nneg i32 %48 to double
   %50 = fmul double %49, 1.000000e+02
   %51 = shl nsw i32 %7, 6
   %52 = sitofp i32 %51 to double
@@ -2187,7 +2187,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %.not.i, label %81, label %Abc_TtFindFirstBit2.exit.thread
 
 Abc_TtFindFirstBit2.exit.thread:                  ; preds = %.lr.ph.i40
-  %56 = trunc i64 %indvars.iv.i41 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i41 to i32
   %57 = shl nsw i32 %56, 6
   %58 = and i64 %55, 4294967295
   %59 = icmp eq i64 %58, 0
@@ -2366,7 +2366,7 @@ Abc_TtCountOnesVec.exit.loopexit.us:              ; preds = %Abc_TtCountOnes2.ex
   br i1 %.not.i, label %81, label %Abc_TtFindFirstBit2.exit.thread
 
 Abc_TtFindFirstBit2.exit.thread:                  ; preds = %.lr.ph.i46
-  %56 = trunc i64 %indvars.iv.i47 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i47 to i32
   %57 = shl nsw i32 %56, 6
   %58 = and i64 %55, 4294967295
   %59 = icmp eq i64 %58, 0
@@ -2467,7 +2467,7 @@ define i32 @Gia_ManSimEvalMaxValue(ptr nocapture noundef readonly %0, i32 nounde
   %20 = load i64, ptr %gep.us, align 8
   %21 = and i64 %20, %10
   %.not26.us = icmp eq i64 %21, 0
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = shl nuw i32 1, %22
   %24 = select i1 %.not26.us, i32 0, i32 %23
   %.1.us = or i32 %24, %.01929.us
@@ -2478,7 +2478,7 @@ define i32 @Gia_ManSimEvalMaxValue(ptr nocapture noundef readonly %0, i32 nounde
 ._crit_edge.us:                                   ; preds = %17
   %.not.us = icmp sgt i32 %.02330.us, %.1.us
   %spec.select.us = tail call i32 @llvm.smax.i32(i32 %.02330.us, i32 %.1.us)
-  %25 = trunc i64 %indvars.iv38 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv38 to i32
   %spec.select27.us = select i1 %.not.us, i32 %.02131.us, i32 %25
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
@@ -2543,7 +2543,7 @@ Gia_ManSimEvalMaxValue.exit.preheader:            ; preds = %.lr.ph
   %.02433.us.us = phi i32 [ %.125.us.us, %Gia_ManSimEvalMaxValue.exit.loopexit.us.us ], [ -1, %.lr.ph.split.us.split.us ]
   %19 = getelementptr inbounds i32, ptr %.val28, i64 %indvars.iv51
   %20 = load i32, ptr %19, align 4
-  %21 = trunc i64 %indvars.iv51 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv51 to i32
   %22 = and i64 %indvars.iv51, 63
   %23 = shl nuw i64 1, %22
   %24 = lshr i64 %indvars.iv51, 6
@@ -2567,7 +2567,7 @@ Gia_ManSimEvalMaxValue.exit.preheader:            ; preds = %.lr.ph
   %30 = load i64, ptr %gep.us.i.us.us, align 8
   %31 = and i64 %30, %23
   %.not26.us.i.us.us = icmp eq i64 %31, 0
-  %32 = trunc i64 %indvars.iv.i.us.us to i32
+  %32 = trunc nuw nsw i64 %indvars.iv.i.us.us to i32
   %33 = shl nuw i32 1, %32
   %34 = select i1 %.not26.us.i.us.us, i32 0, i32 %33
   %.1.us.i.us.us = or i32 %34, %.01929.us.i.us.us
@@ -2578,7 +2578,7 @@ Gia_ManSimEvalMaxValue.exit.preheader:            ; preds = %.lr.ph
 ._crit_edge.us.i.us.us:                           ; preds = %27
   %.not.us.i.us.us = icmp sgt i32 %.02330.us.i.us.us, %.1.us.i.us.us
   %spec.select.us.i.us.us = tail call i32 @llvm.smax.i32(i32 %.02330.us.i.us.us, i32 %.1.us.i.us.us)
-  %35 = trunc i64 %indvars.iv38.i.us.us to i32
+  %35 = trunc nuw nsw i64 %indvars.iv38.i.us.us to i32
   %spec.select27.us.i.us.us = select i1 %.not.us.i.us.us, i32 %.02131.us.i.us.us, i32 %35
   %indvars.iv.next39.i.us.us = add nuw nsw i64 %indvars.iv38.i.us.us, 1
   %exitcond42.not.i.us.us = icmp eq i64 %indvars.iv.next39.i.us.us, %wide.trip.count41.i
@@ -2604,7 +2604,7 @@ Gia_ManSimEvalMaxValue.exit.loopexit.us.us:       ; preds = %._crit_edge.us.i.us
   %42 = icmp eq i32 %41, %18
   %43 = icmp eq i32 %.02433.us, -1
   %44 = select i1 %42, i1 %43, i1 false
-  %45 = trunc i64 %indvars.iv46 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv46 to i32
   %.125.us = select i1 %44, i32 %45, i32 %.02433.us
   %46 = zext i1 %42 to i32
   %.1.us = add nuw nsw i32 %.02334.us, %46
@@ -2621,7 +2621,7 @@ Gia_ManSimEvalMaxValue.exit:                      ; preds = %Gia_ManSimEvalMaxVa
   %49 = icmp eq i32 %48, -1
   %50 = icmp eq i32 %.02433, -1
   %51 = select i1 %49, i1 %50, i1 false
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   %.125 = select i1 %51, i32 %52, i32 %.02433
   %53 = zext i1 %49 to i32
   %.1 = add nuw nsw i32 %.02334, %53
@@ -2696,7 +2696,7 @@ Vec_WrdStart.exit:                                ; preds = %2, %14
   %27 = mul nuw nsw i64 %indvars.iv, 200
   %.val.i = load i32, ptr %3, align 4
   %28 = sdiv i32 %.val.i, %6
-  %29 = trunc i64 %27 to i32
+  %29 = trunc nuw i64 %27 to i32
   %30 = sub nsw i32 %6, %29
   %31 = tail call noundef i32 @llvm.smin.i32(i32 %30, i32 200)
   %32 = mul nsw i32 %28, 200
@@ -2877,7 +2877,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %11, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %32 = sitofp i32 %31 to float
+  %32 = uitofp nneg i32 %31 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %3
@@ -2965,7 +2965,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %20, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %41 = sitofp i32 %40 to float
+  %41 = uitofp nneg i32 %40 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %.split19
@@ -3023,7 +3023,7 @@ Abc_TtCountOnes2.exit.i32:                        ; preds = %52, %.lr.ph.i28
   br i1 %exitcond.not.i34, label %Abc_TtCountOnesVec.exit35.loopexit, label %.lr.ph.i28, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit35.loopexit:               ; preds = %Abc_TtCountOnes2.exit.i32
-  %73 = sitofp i32 %72 to float
+  %73 = uitofp nneg i32 %72 to float
   br label %Abc_TtCountOnesVec.exit35
 
 Abc_TtCountOnesVec.exit35:                        ; preds = %Abc_TtCountOnesVec.exit35.loopexit, %Abc_TtCountOnesVec.exit
@@ -3274,7 +3274,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %22, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %43 = sitofp i32 %42 to float
+  %43 = uitofp nneg i32 %42 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %16
@@ -3407,7 +3407,7 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr nocapture noundef readonly 
   %32 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val79, i64 %31
   %.val84 = load i64, ptr %32, align 4
   %33 = lshr i64 %.val84, 32
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw i64 %33 to i32
   %35 = and i32 %34, 536870911
   %36 = mul nsw i32 %35, %10
   %37 = sext i32 %36 to i64
@@ -3460,7 +3460,7 @@ define noalias noundef ptr @Gia_ManCountFraction(ptr nocapture noundef readonly 
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, %51
   %.not72.us = icmp eq i64 %57, 0
-  %58 = trunc i64 %indvars.iv101 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv101 to i32
   %59 = shl nuw i32 1, %58
   %60 = select i1 %.not72.us, i32 0, i32 %59
   %.1.us = or i32 %60, %.089.us
@@ -3627,7 +3627,7 @@ define void @Gia_ManPermuteSupp_rec(ptr noundef %0, i32 noundef %1, ptr noundef 
   tail call void @Gia_ManPermuteSupp_rec(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %2, ptr noundef %3)
   %.val43 = load i64, ptr %13, align 4
   %19 = lshr i64 %.val43, 32
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %21 = and i32 %20, 536870911
   %22 = sub nsw i32 %1, %21
   tail call void @Gia_ManPermuteSupp_rec(ptr noundef nonnull %0, i32 noundef %22, ptr noundef %2, ptr noundef %3)
@@ -3958,7 +3958,7 @@ Vec_IntFree.exit58:                               ; preds = %Vec_IntFree.exit, %
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph36.preheader.i
   %indvars.iv41.i = phi i64 [ 0, %.lr.ph36.preheader.i ], [ %indvars.iv.next42.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph36.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %77 = trunc i64 %indvars.iv41.i to i32
+  %77 = trunc nuw nsw i64 %indvars.iv41.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -3970,7 +3970,7 @@ Vec_IntFree.exit58:                               ; preds = %Vec_IntFree.exit, %
   %81 = getelementptr inbounds i32, ptr %32, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = icmp slt i32 %79, %82
-  %84 = trunc i64 %indvars.iv38.i to i32
+  %84 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %spec.select.i = select i1 %83, i32 %84, i32 %.03132.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count.i
@@ -4115,7 +4115,7 @@ tailrecurse:                                      ; preds = %11
   tail call void @Gia_ManCollectSupp_rec(ptr noundef nonnull %0, i32 noundef %48, ptr noundef %2)
   %.val27 = load i64, ptr %12, align 4
   %49 = lshr i64 %.val27, 32
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw i64 %49 to i32
   %51 = and i32 %50, 536870911
   %52 = sub nsw i32 %.tr2933, %51
   %.not = icmp eq i32 %52, 0
@@ -4474,7 +4474,7 @@ Abc_UtilStrsav.exit247:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %exitcond.not.i.i, label %Gia_ManCollectSuppNew.exit, label %.lr.ph.i.i, !llvm.loop !54
 
 Gia_ManCollectSuppNew.exit:                       ; preds = %.lr.ph.i.i, %127
-  %141 = trunc i64 %indvars.iv344 to i32
+  %141 = trunc nsw i64 %indvars.iv344 to i32
   call void @Gia_ManPermuteSupp(ptr noundef nonnull %0, i32 noundef %141, i32 noundef %4, ptr noundef nonnull %128)
   %.val216 = load i32, ptr %129, align 4
   %142 = shl nuw i32 1, %.val216
@@ -4675,7 +4675,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i256
 
 .lr.ph18.i.preheader:                             ; preds = %235
   %236 = shl nuw nsw i64 %indvars.iv333, 1
-  %237 = trunc i64 %236 to i32
+  %237 = trunc nsw i64 %236 to i32
   %238 = shl i32 %237, %208
   %239 = sext i32 %238 to i64
   %240 = getelementptr i64, ptr %46, i64 %239
@@ -4688,7 +4688,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i256
   br i1 %207, label %.lr.ph18.i269.preheader, label %Abc_TtCopy.exit266
 
 .lr.ph18.i269.preheader:                          ; preds = %243
-  %244 = trunc i64 %indvars.iv333 to i32
+  %244 = trunc nuw nsw i64 %indvars.iv333 to i32
   br label %Abc_TtCopy.exit266.sink.split
 
 Abc_TtCopy.exit266.sink.split:                    ; preds = %.lr.ph18.i269.preheader, %.lr.ph18.i.preheader
@@ -5112,7 +5112,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %45, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %66 = sitofp i32 %65 to float
+  %66 = uitofp nneg i32 %65 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %39
@@ -5251,7 +5251,7 @@ Abc_UtilStrsav.exit227:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %exitcond.not, label %.preheader, label %118, !llvm.loop !65
 
 ._crit_edge.loopexit:                             ; preds = %118
-  %130 = trunc i64 %indvars.iv308 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv308 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader262
@@ -5320,7 +5320,7 @@ Abc_UtilStrsav.exit227:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %exitcond.not.i.i, label %Gia_ManCollectSuppNew.exit, label %.lr.ph.i.i, !llvm.loop !54
 
 Gia_ManCollectSuppNew.exit:                       ; preds = %.lr.ph.i.i, %148
-  %162 = trunc i64 %indvars.iv330 to i32
+  %162 = trunc nsw i64 %indvars.iv330 to i32
   call void @Gia_ManPermuteSupp(ptr noundef nonnull %0, i32 noundef %162, i32 noundef %3, ptr noundef nonnull %149)
   %.val191 = load i32, ptr %150, align 4
   %163 = shl nuw i32 1, %.val191
@@ -5482,7 +5482,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %238 = sub nsw i64 0, %237
   %239 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %235, i64 %238
   %240 = call ptr @Gia_ObjComputeTruthTableCut(ptr noundef nonnull %0, ptr noundef nonnull %239, ptr noundef nonnull %149) #26
-  %241 = trunc i64 %indvars.iv314 to i32
+  %241 = trunc nuw nsw i64 %indvars.iv314 to i32
   %242 = shl i32 %241, %227
   %243 = sext i32 %242 to i64
   %244 = getelementptr i64, ptr %36, i64 %243
@@ -6224,7 +6224,7 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %.not131, label %156, label %150
 
 150:                                              ; preds = %.critedge10
-  %151 = trunc i64 %indvars.iv214 to i32
+  %151 = trunc nuw nsw i64 %indvars.iv214 to i32
   %152 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %151, i32 noundef %9)
   %153 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %.sroa.0.1.lcssa)
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %.sroa.5.1.lcssa)

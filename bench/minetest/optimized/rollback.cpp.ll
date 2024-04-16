@@ -11903,7 +11903,7 @@ if.then.i.i.i307:                                 ; preds = %while.end.i.i.i
   br label %_Z4itosB5cxx11i.exit
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %86 = trunc i32 %__val.addr.0.lcssa.i.i.i to i8
+  %86 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %86, 48
   br label %_Z4itosB5cxx11i.exit
 
@@ -12088,7 +12088,7 @@ if.then.i.i.i358:                                 ; preds = %while.end.i.i.i352
   br label %_Z4itosB5cxx11i.exit392
 
 if.else.i.i.i355:                                 ; preds = %while.end.i.i.i352
-  %106 = trunc i32 %__val.addr.0.lcssa.i.i.i353 to i8
+  %106 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i353 to i8
   %conv.i.i.i356 = or disjoint i8 %106, 48
   br label %_Z4itosB5cxx11i.exit392
 
@@ -12273,7 +12273,7 @@ if.then.i.i.i452:                                 ; preds = %while.end.i.i.i446
   br label %_Z4itosB5cxx11i.exit486
 
 if.else.i.i.i449:                                 ; preds = %while.end.i.i.i446
-  %126 = trunc i32 %__val.addr.0.lcssa.i.i.i447 to i8
+  %126 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i447 to i8
   %conv.i.i.i450 = or disjoint i8 %126, 48
   br label %_Z4itosB5cxx11i.exit486
 
@@ -13831,7 +13831,7 @@ entry:
   %call16 = tail call i32 @sqlite3_bind_int(ptr noundef %4, i32 noundef 5, i32 noundef %add15)
   %5 = load ptr, ptr %stmt_select_range, align 8, !tbaa !73
   %sh.diff = lshr i48 %p.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv18 = ashr i32 %tr.sh.diff, 16
   %sub19 = sub nsw i32 %conv18, %range
   %call20 = tail call i32 @sqlite3_bind_int(ptr noundef %5, i32 noundef 6, i32 noundef %sub19)
@@ -14004,7 +14004,7 @@ if.end:                                           ; preds = %entry
   %p.sroa.2.0.extract.shift.i = lshr i48 %suspect_p.coerce, 16
   %p.sroa.2.0.extract.trunc.i = trunc i48 %p.sroa.2.0.extract.shift.i to i16
   %p.sroa.3.0.extract.shift.i = lshr i48 %suspect_p.coerce, 32
-  %p.sroa.3.0.extract.trunc.i = trunc i48 %p.sroa.3.0.extract.shift.i to i16
+  %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv.i = sitofp i16 %p.sroa.0.0.extract.trunc.i to float
   %conv1.i = sitofp i16 %p.sroa.2.0.extract.trunc.i to float
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
@@ -14012,7 +14012,7 @@ if.end:                                           ; preds = %entry
   %p.sroa.2.0.extract.shift.i29 = lshr i48 %action_p.coerce, 16
   %p.sroa.2.0.extract.trunc.i30 = trunc i48 %p.sroa.2.0.extract.shift.i29 to i16
   %p.sroa.3.0.extract.shift.i31 = lshr i48 %action_p.coerce, 32
-  %p.sroa.3.0.extract.trunc.i32 = trunc i48 %p.sroa.3.0.extract.shift.i31 to i16
+  %p.sroa.3.0.extract.trunc.i32 = trunc nuw i48 %p.sroa.3.0.extract.shift.i31 to i16
   %conv.i33 = sitofp i16 %p.sroa.0.0.extract.trunc.i28 to float
   %conv1.i34 = sitofp i16 %p.sroa.2.0.extract.trunc.i30 to float
   %conv3.i35 = sitofp i16 %p.sroa.3.0.extract.trunc.i32 to float
@@ -14034,7 +14034,7 @@ if.end:                                           ; preds = %entry
   %conv16 = fptosi double %mul15 to i32
   %f.0 = select i1 %is_guess, i32 %conv16, i32 %conv12
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %f.0, i32 0)
-  %conv21 = sitofp i32 %spec.store.select to float
+  %conv21 = uitofp nneg i32 %spec.store.select to float
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -14788,7 +14788,7 @@ invoke.cont11.lr.ph:                              ; preds = %if.end
   %p.sroa.2.0.extract.shift.i29.i = lshr i48 %p.coerce, 16
   %p.sroa.2.0.extract.trunc.i30.i = trunc i48 %p.sroa.2.0.extract.shift.i29.i to i16
   %p.sroa.3.0.extract.shift.i31.i = lshr i48 %p.coerce, 32
-  %p.sroa.3.0.extract.trunc.i32.i = trunc i48 %p.sroa.3.0.extract.shift.i31.i to i16
+  %p.sroa.3.0.extract.trunc.i32.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i31.i to i16
   %conv.i33.i = sitofp i16 %p.sroa.0.0.extract.trunc.i28.i to float
   %conv1.i34.i = sitofp i16 %p.sroa.2.0.extract.trunc.i30.i to float
   %conv3.i35.i = sitofp i16 %p.sroa.3.0.extract.trunc.i32.i to float
@@ -14845,7 +14845,7 @@ if.end.i:                                         ; preds = %invoke.cont31
   %p.sroa.2.0.extract.shift.i.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 16
   %p.sroa.2.0.extract.trunc.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i16
   %p.sroa.3.0.extract.shift.i.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
-  %p.sroa.3.0.extract.trunc.i.i = trunc i48 %p.sroa.3.0.extract.shift.i.i to i16
+  %p.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i.i to i16
   %conv.i.i = sitofp i16 %p.sroa.0.0.extract.trunc.i.i to float
   %conv1.i.i = sitofp i16 %p.sroa.2.0.extract.trunc.i.i to float
   %conv3.i.i = sitofp i16 %p.sroa.3.0.extract.trunc.i.i to float
@@ -14867,7 +14867,7 @@ if.end.i:                                         ; preds = %invoke.cont31
   %conv16.i = fptosi double %mul15.i to i32
   %f.0.i = select i1 %tobool.not, i32 %conv12.i, i32 %conv16.i
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %f.0.i, i32 0)
-  %conv21.i = sitofp i32 %spec.store.select.i to float
+  %conv21.i = uitofp nneg i32 %spec.store.select.i to float
   br label %invoke.cont36
 
 invoke.cont36:                                    ; preds = %if.end.i, %invoke.cont31

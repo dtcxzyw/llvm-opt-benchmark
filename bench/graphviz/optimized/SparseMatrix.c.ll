@@ -8021,7 +8021,7 @@ gv_calloc.exit:                                   ; preds = %15
 
 .lr.ph42:                                         ; preds = %32
   %37 = trunc nuw nsw i64 %indvars.iv54 to i32
-  %38 = sitofp i32 %37 to double
+  %38 = uitofp nneg i32 %37 to double
   %39 = sext i32 %33 to i64
   br label %40
 

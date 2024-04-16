@@ -1652,7 +1652,7 @@ define void @_ZN16TransferFunction6initTFEv(ptr nocapture noundef nonnull writeo
 13:                                               ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds [3 x %class.TfChannel], ptr %0, i64 0, i64 %indvars.iv
-  %15 = trunc i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %15, ptr %14, align 8
   %16 = getelementptr inbounds [3 x i32], ptr %12, i64 0, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
@@ -2619,7 +2619,7 @@ _ZN9TfChannel6addKeyEff.exit245:                  ; preds = %_ZN9TfChannel6addKe
   br i1 %exitcond.not, label %_ZN9TfChannel6addKeyEff.exit47, label %173
 
 173:                                              ; preds = %_ZN9TfChannel6addKeyEff.exit245
-  %174 = sitofp i32 %.019 to float
+  %174 = uitofp nneg i32 %.019 to float
   %175 = fmul float %174, 2.500000e-01
   %176 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
           to label %.noexc228 unwind label %.loopexit.split-lp.loopexit
@@ -2633,7 +2633,7 @@ _ZN9TfChannel6addKeyEff.exit245:                  ; preds = %_ZN9TfChannel6addKe
 
 _ZN9TfChannel6addKeyEff.exit230:                  ; preds = %.noexc228
   %179 = add nuw nsw i32 %.019, 1
-  %180 = sitofp i32 %179 to float
+  %180 = uitofp nneg i32 %179 to float
   %181 = fmul float %180, 2.500000e-01
   %182 = fpext float %181 to double
   %183 = fadd double %182, -1.000000e-04
@@ -2698,7 +2698,7 @@ _ZN9TfChannel6addKeyEff.exit263:                  ; preds = %_ZN9TfChannel6addKe
   br i1 %exitcond277.not, label %_ZN9TfChannel6addKeyEff.exit47, label %200
 
 200:                                              ; preds = %_ZN9TfChannel6addKeyEff.exit263
-  %201 = sitofp i32 %.0 to float
+  %201 = uitofp nneg i32 %.0 to float
   %202 = fmul float %201, 1.250000e-01
   %203 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
           to label %.noexc246 unwind label %.loopexit264
@@ -2712,7 +2712,7 @@ _ZN9TfChannel6addKeyEff.exit263:                  ; preds = %_ZN9TfChannel6addKe
 
 _ZN9TfChannel6addKeyEff.exit248:                  ; preds = %.noexc246
   %206 = add nuw nsw i32 %.0, 1
-  %207 = sitofp i32 %206 to float
+  %207 = uitofp nneg i32 %206 to float
   %208 = fmul float %207, 1.250000e-01
   %209 = fpext float %208 to double
   %210 = fadd double %209, -1.000000e-04
@@ -3400,7 +3400,7 @@ _ZN9TfChannel6addKeyEff.exit:                     ; preds = %.noexc47
   %225 = getelementptr inbounds i8, ptr %222, i64 8
   %226 = load i32, ptr %225, align 8
   %227 = sub nsw i32 %224, %226
-  %228 = trunc i64 %indvars.iv.next to i32
+  %228 = trunc nuw i64 %indvars.iv.next to i32
   %229 = icmp sgt i32 %227, %228
   br i1 %229, label %108, label %._crit_edge, !llvm.loop !28
 
@@ -3746,8 +3746,8 @@ define noundef nonnull ptr @_ZN16TransferFunction14buildColorBandEv(ptr noundef 
 
 9:                                                ; preds = %1, %_ZN9TfChannel16getChannelValuefEf.exit20
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN9TfChannel16getChannelValuefEf.exit20 ]
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = sitofp i32 %10 to float
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = uitofp nneg i32 %10 to float
   %12 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %11, float noundef 1.024000e+03)
   %13 = getelementptr inbounds [1024 x %class.QColor], ptr %2, i64 0, i64 %indvars.iv
   %14 = load ptr, ptr %3, align 8

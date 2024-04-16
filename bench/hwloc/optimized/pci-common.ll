@@ -1584,7 +1584,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  %10 = uitofp i32 %7 to float
+  %10 = uitofp nneg i32 %7 to float
   %11 = fmul float %10, 2.500000e+00
   %12 = fmul float %11, 0x3FE99999A0000000
   br label %25
@@ -1593,7 +1593,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
   %14 = icmp ult i32 %7, 6
   %15 = add nsw i32 %7, -3
   %16 = shl nuw nsw i32 1, %15
-  %17 = sitofp i32 %16 to float
+  %17 = uitofp nneg i32 %16 to float
   %18 = fmul float %17, 8.000000e+00
   br i1 %14, label %19, label %22
 
@@ -1611,7 +1611,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
   %.0 = phi float [ %12, %9 ], [ %21, %19 ], [ %24, %22 ]
   %26 = lshr i32 %.0.copyload, 4
   %27 = and i32 %26, 63
-  %28 = uitofp i32 %27 to float
+  %28 = uitofp nneg i32 %27 to float
   %29 = fmul float %.0, %28
   %30 = fmul float %29, 1.250000e-01
   store float %30, ptr %2, align 4
@@ -1664,7 +1664,7 @@ define noundef i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @hwloc_pci_class_string(i16 noundef zeroext %0) local_unnamed_addr #13 {
   %2 = lshr i16 %0, 8
-  %trunc = trunc i16 %2 to i8
+  %trunc = trunc nuw i16 %2 to i8
   switch i8 %trunc, label %47 [
     i8 0, label %3
     i8 1, label %4

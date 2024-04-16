@@ -166,7 +166,7 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 0, ptr %19, align 4, !tbaa !3
   %110 = load i32, ptr %3, align 4, !tbaa !3
   %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 1)
-  %112 = sitofp i32 %111 to double
+  %112 = uitofp nneg i32 %111 to double
   store double %112, ptr %17, align 8, !tbaa !7
   %113 = load i32, ptr %18, align 4, !tbaa !3
   %114 = icmp eq i32 %113, -1
@@ -1139,7 +1139,7 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %770 = getelementptr double, ptr %63, i64 %769
   %771 = getelementptr double, ptr %770, i64 %760
   %772 = load double, ptr %771, align 8, !tbaa !7
-  %773 = trunc i64 %760 to i32
+  %773 = trunc nsw i64 %760 to i32
   %774 = mul i32 %180, %773
   %775 = sext i32 %774 to i64
   %776 = getelementptr inbounds double, ptr %67, i64 %775

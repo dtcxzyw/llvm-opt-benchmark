@@ -55,7 +55,7 @@ define void @Gia_LutDelayTraceSortPins(ptr nocapture noundef readonly %0, i32 no
   %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 4
   %.val52 = load ptr, ptr %14, align 8
   %23 = getelementptr i8, ptr %.val52, i64 8
@@ -90,7 +90,7 @@ define void @Gia_LutDelayTraceSortPins(ptr nocapture noundef readonly %0, i32 no
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next75, %38
-  %40 = trunc i64 %indvars.iv74 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv74 to i32
   br i1 %39, label %.lr.ph60.preheader, label %._crit_edge
 
 .lr.ph60.preheader:                               ; preds = %.lr.ph65
@@ -112,7 +112,7 @@ define void @Gia_LutDelayTraceSortPins(ptr nocapture noundef readonly %0, i32 no
   %50 = getelementptr inbounds float, ptr %3, i64 %49
   %51 = load float, ptr %50, align 4
   %52 = fcmp ogt float %45, %51
-  %53 = trunc i64 %indvars.iv71 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv71 to i32
   %.146 = select i1 %52, i32 %53, i32 %.04559
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count
@@ -187,7 +187,7 @@ define i32 @Gia_LutWhereIsPin(ptr nocapture noundef readonly %0, i32 noundef %1,
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !8
 
 ._crit_edge.loopexit.split.loop.exit16:           ; preds = %15
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %._crit_edge.loopexit.split.loop.exit16, %4
@@ -392,7 +392,7 @@ define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 nound
   %108 = getelementptr inbounds i32, ptr %103, i64 %indvars.iv.i
   %109 = load i32, ptr %108, align 4
   %110 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
-  %111 = trunc i64 %indvars.iv.i to i32
+  %111 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %111, ptr %110, align 4
   %112 = mul nsw i32 %109, 3
   %113 = sext i32 %112 to i64
@@ -409,7 +409,7 @@ define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 nound
   %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %.critedge.i ], [ 1, %.lr.ph65.i.preheader ]
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %117 = icmp slt i64 %indvars.iv.next75.i, %95
-  %118 = trunc i64 %indvars.iv74.i to i32
+  %118 = trunc nuw nsw i64 %indvars.iv74.i to i32
   br i1 %117, label %.lr.ph60.i, label %._crit_edge.i
 
 .lr.ph60.i:                                       ; preds = %.lr.ph65.i, %.lr.ph60.i
@@ -427,7 +427,7 @@ define float @Gia_ObjComputeArrival(ptr nocapture noundef readonly %0, i32 nound
   %128 = getelementptr inbounds float, ptr %5, i64 %127
   %129 = load float, ptr %128, align 4
   %130 = fcmp ogt float %123, %129
-  %131 = trunc i64 %indvars.iv71.i to i32
+  %131 = trunc nuw nsw i64 %indvars.iv71.i to i32
   %.146.i = select i1 %130, i32 %131, i32 %.04559.i
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count.i
@@ -701,7 +701,7 @@ define float @Gia_ObjPropagateRequired(ptr nocapture noundef readonly %0, i32 no
   %106 = getelementptr inbounds i32, ptr %101, i64 %indvars.iv.i
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
-  %109 = trunc i64 %indvars.iv.i to i32
+  %109 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %109, ptr %108, align 4
   %110 = mul nsw i32 %107, 3
   %111 = sext i32 %110 to i64
@@ -718,7 +718,7 @@ define float @Gia_ObjPropagateRequired(ptr nocapture noundef readonly %0, i32 no
   %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %.critedge.i ], [ 1, %.lr.ph65.i.preheader ]
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %115 = icmp slt i64 %indvars.iv.next75.i, %60
-  %116 = trunc i64 %indvars.iv74.i to i32
+  %116 = trunc nuw nsw i64 %indvars.iv74.i to i32
   br i1 %115, label %.lr.ph60.i, label %._crit_edge.i
 
 .lr.ph60.i:                                       ; preds = %.lr.ph65.i, %.lr.ph60.i
@@ -736,7 +736,7 @@ define float @Gia_ObjPropagateRequired(ptr nocapture noundef readonly %0, i32 no
   %126 = getelementptr inbounds float, ptr %5, i64 %125
   %127 = load float, ptr %126, align 4
   %128 = fcmp ogt float %121, %127
-  %129 = trunc i64 %indvars.iv71.i to i32
+  %129 = trunc nuw nsw i64 %indvars.iv71.i to i32
   %.146.i = select i1 %128, i32 %129, i32 %.04559.i
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count.i
@@ -994,12 +994,12 @@ Gia_ManTimeStart.exit:                            ; preds = %.lr.ph.i.i, %Vec_Fl
   br i1 %.not194, label %81, label %.thread
 
 .thread:                                          ; preds = %52, %48
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   %57 = tail call float @Gia_ObjComputeArrival(ptr noundef nonnull %0, i32 noundef %56, i32 noundef 1)
   br label %67
 
 58:                                               ; preds = %46
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw nsw i64 %indvars.iv to i32
   %60 = tail call float @Gia_ObjComputeArrival(ptr noundef nonnull %0, i32 noundef %59, i32 noundef 1)
   %61 = load ptr, ptr %35, align 8
   %.not141 = icmp eq ptr %61, null
@@ -1007,7 +1007,7 @@ Gia_ManTimeStart.exit:                            ; preds = %.lr.ph.i.i, %Vec_Fl
 
 62:                                               ; preds = %58
   %63 = lshr i64 %.val149, 32
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw i64 %63 to i32
   %65 = and i32 %64, 536870911
   %66 = tail call float @Tim_ManGetCiArrival(ptr noundef nonnull %61, i32 noundef %65) #13
   %.val151.pre = load i64, ptr %45, align 4
@@ -1030,7 +1030,7 @@ Gia_ManTimeStart.exit:                            ; preds = %.lr.ph.i.i, %Vec_Fl
 
 73:                                               ; preds = %71
   %74 = lshr i64 %.val151, 32
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw i64 %74 to i32
   %76 = and i32 %75, 536870911
   tail call void @Tim_ManSetCoArrival(ptr noundef nonnull %72, i32 noundef %76, float noundef %.0113) #13
   br label %77
@@ -1197,7 +1197,7 @@ Gia_ManTimeStart.exit:                            ; preds = %.lr.ph.i.i, %Vec_Fl
 
 155:                                              ; preds = %153
   %156 = lshr i64 %.val147, 32
-  %157 = trunc i64 %156 to i32
+  %157 = trunc nuw i64 %156 to i32
   %158 = and i32 %157, 536870911
   %.val160 = load ptr, ptr %14, align 8
   %159 = getelementptr i8, ptr %.val160, i64 8
@@ -1230,7 +1230,7 @@ Gia_ManTimeStart.exit:                            ; preds = %.lr.ph.i.i, %Vec_Fl
 
 171:                                              ; preds = %169
   %172 = lshr i64 %.val147, 32
-  %173 = trunc i64 %172 to i32
+  %173 = trunc nuw i64 %172 to i32
   %174 = and i32 %173, 536870911
   %175 = tail call float @Tim_ManGetCoRequired(ptr noundef nonnull %170, i32 noundef %174) #13
   %.val162 = load ptr, ptr %14, align 8
@@ -1451,9 +1451,9 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %65 = tail call i32 @Gia_ManLutNum(ptr noundef %0) #13
   %66 = sitofp i32 %65 to double
   %67 = fdiv double %64, %66
-  %68 = trunc i64 %indvars.iv.next71 to i32
+  %68 = trunc nuw i64 %indvars.iv.next71 to i32
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %68, ptr noundef nonnull %59, i32 noundef %62, double noundef %67)
-  %70 = sitofp i32 %68 to float
+  %70 = uitofp nneg i32 %68 to float
   %71 = fcmp ogt float %17, %70
   br i1 %71, label %.lr.ph64.split.us, label %.loopexit.thread, !llvm.loop !24
 
@@ -1463,7 +1463,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %72 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv67
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, %.04961
-  %75 = trunc i64 %indvars.iv67 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv67 to i32
   %76 = mul i32 %75, 5
   %77 = add i32 %76, 5
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -1473,8 +1473,8 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %81 = sitofp i32 %80 to double
   %82 = fdiv double %79, %81
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %77, ptr noundef nonnull %59, i32 noundef %74, double noundef %82)
-  %84 = trunc i64 %indvars.iv.next68 to i32
-  %85 = sitofp i32 %84 to float
+  %84 = trunc nuw i64 %indvars.iv.next68 to i32
+  %85 = uitofp nneg i32 %84 to float
   %86 = fcmp ogt float %17, %85
   br i1 %86, label %.lr.ph64.split, label %.loopexit.thread, !llvm.loop !24
 
@@ -1583,7 +1583,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %36 = fadd double %35, 1.000000e+00
   %37 = fadd double %36, %27
   %38 = fcmp ogt double %37, %26
-  %39 = trunc i64 %indvars.iv100 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv100 to i32
   %40 = shl nuw i32 1, %39
   %41 = select i1 %38, i32 %40, i32 0
   %.162 = or i32 %41, %.06186
@@ -1632,7 +1632,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %67 = fadd float %66, %59
   %68 = fadd float %67, %2
   %69 = fcmp olt float %14, %68
-  %70 = trunc i64 %indvars.iv95 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv95 to i32
   %71 = shl nuw i32 1, %70
   %72 = select i1 %69, i32 %71, i32 0
   %.3 = or i32 %72, %.26382
@@ -1677,7 +1677,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %89 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv.i
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
-  %92 = trunc i64 %indvars.iv.i to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %92, ptr %91, align 4
   %93 = mul nsw i32 %90, 3
   %94 = sext i32 %93 to i64
@@ -1694,7 +1694,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %.critedge.i ], [ 1, %.lr.ph65.i.preheader ]
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %98 = icmp slt i64 %indvars.iv.next75.i, %83
-  %99 = trunc i64 %indvars.iv74.i to i32
+  %99 = trunc nuw nsw i64 %indvars.iv74.i to i32
   br i1 %98, label %.lr.ph60.i, label %._crit_edge.i
 
 .lr.ph60.i:                                       ; preds = %.lr.ph65.i, %.lr.ph60.i
@@ -1712,7 +1712,7 @@ define i32 @Gia_LutDelayTraceTCEdges(ptr nocapture noundef readonly %0, i32 noun
   %109 = getelementptr inbounds float, ptr %5, i64 %108
   %110 = load float, ptr %109, align 4
   %111 = fcmp ogt float %104, %110
-  %112 = trunc i64 %indvars.iv71.i to i32
+  %112 = trunc nuw nsw i64 %indvars.iv71.i to i32
   %.146.i = select i1 %111, i32 %112, i32 %.04559.i
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count.i
@@ -2019,7 +2019,7 @@ Vec_IntFree.exit:                                 ; preds = %30, %32
   br i1 %48, label %.lr.ph152.preheader, label %.critedge4
 
 .lr.ph152.preheader:                              ; preds = %.critedge2
-  %49 = trunc i64 %indvars.iv185 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv185 to i32
   br label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %50
@@ -2034,7 +2034,7 @@ Vec_IntFree.exit:                                 ; preds = %30, %32
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val120, i64 %53
-  %55 = trunc i64 %indvars.iv179 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv179 to i32
   %56 = lshr i32 %49, %55
   %57 = and i32 %56, 1
   %58 = getelementptr inbounds i8, ptr %54, i64 8
@@ -2079,7 +2079,7 @@ Vec_IntFree.exit:                                 ; preds = %30, %32
   %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %65, i64 %77, i32 1
   %79 = load i32, ptr %78, align 4
   %80 = lshr i64 %66, 61
-  %81 = trunc i64 %80 to i32
+  %81 = trunc nuw nsw i64 %80 to i32
   %82 = and i32 %81, 1
   %83 = xor i32 %82, %79
   %84 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %74, i32 noundef %83) #13
@@ -2133,7 +2133,7 @@ Vec_IntFree.exit140:                              ; preds = %._crit_edge, %91
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val118.us, i64 %97
-  %99 = trunc i64 %indvars.iv191 to i32
+  %99 = trunc nuw nsw i64 %indvars.iv191 to i32
   %100 = shl nuw i32 1, %99
   %101 = ptrtoint ptr %98 to i64
   %102 = and i64 %101, -2
@@ -2304,7 +2304,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %44
-  %52 = trunc i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = tail call i32 @Gia_LutDelayTraceTCEdges(ptr noundef nonnull %0, i32 noundef %52, float noundef %18)
   %54 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
   store i32 %53, ptr %54, align 4
@@ -2545,7 +2545,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 169:                                              ; preds = %163
   %170 = load i32, ptr %162, align 4
-  %171 = trunc i64 %indvars.iv448 to i32
+  %171 = trunc nuw nsw i64 %indvars.iv448 to i32
   %172 = lshr i32 %170, %171
   %173 = and i32 %172, 1
   %spec.select = add nsw i32 %173, %.0239396
@@ -2591,7 +2591,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 187:                                              ; preds = %179
   %188 = load i32, ptr %178, align 4
-  %189 = trunc i64 %indvars.iv456 to i32
+  %189 = trunc nuw nsw i64 %indvars.iv456 to i32
   %190 = shl nuw i32 1, %189
   %191 = and i32 %188, %190
   %.not275 = icmp eq i32 %191, 0
@@ -2616,7 +2616,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %indvars.iv453 = phi i64 [ 0, %.lr.ph402 ], [ %indvars.iv.next454, %Vec_IntPushUnique.exit ]
   %200 = phi ptr [ %195, %.lr.ph402 ], [ %247, %Vec_IntPushUnique.exit ]
   %201 = load i32, ptr %198, align 4
-  %202 = trunc i64 %indvars.iv453 to i32
+  %202 = trunc nuw nsw i64 %indvars.iv453 to i32
   %203 = shl nuw i32 1, %202
   %204 = and i32 %201, %203
   %.not276 = icmp eq i32 %204, 0
@@ -2922,7 +2922,7 @@ Vec_IntPushUnique.exit361:                        ; preds = %292, %Vec_IntPush.e
 
 338:                                              ; preds = %.critedge9
   %.val323 = load i32, ptr %137, align 4
-  %339 = trunc i64 %indvars.iv468 to i32
+  %339 = trunc nuw nsw i64 %indvars.iv468 to i32
   %340 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %177, i32 noundef %339, i32 noundef %.0239.lcssa, i32 noundef %.val322.pre, i32 noundef %.val323)
   %.val287416 = load ptr, ptr %141, align 8
   %341 = getelementptr i8, ptr %.val287416, i64 8
@@ -2955,7 +2955,7 @@ Vec_IntPushUnique.exit361:                        ; preds = %292, %Vec_IntPush.e
   %359 = getelementptr i8, ptr %358, i64 8
   %360 = load float, ptr %359, align 4
   %361 = fpext float %360 to double
-  %362 = trunc i64 %indvars.iv465 to i32
+  %362 = trunc nuw nsw i64 %indvars.iv465 to i32
   %363 = shl nuw i32 1, %362
   %364 = and i32 %349, %363
   %.not272 = icmp eq i32 %364, 0

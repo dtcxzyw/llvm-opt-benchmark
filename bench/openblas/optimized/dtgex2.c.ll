@@ -134,7 +134,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %86 = mul nsw i32 %85, %76
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 %80)
   %88 = tail call i32 @llvm.smax.i32(i32 %87, i32 1)
-  %89 = sitofp i32 %88 to double
+  %89 = uitofp nneg i32 %88 to double
   store double %89, ptr %14, align 8, !tbaa !7
   br label %750
 

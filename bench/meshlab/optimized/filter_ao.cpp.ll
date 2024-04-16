@@ -3915,8 +3915,8 @@ _ZN7QStringD2Ev.exit101:                          ; preds = %100, %_ZN9QtPrivate
 
 126:                                              ; preds = %126, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %126 ]
-  %127 = trunc i64 %indvars.iv.i to i32
-  %128 = sitofp i32 %127 to float
+  %127 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %128 = uitofp nneg i32 %127 to float
   %129 = fdiv float %128, 0x3FF9E377A0000000
   %130 = call noundef float @llvm.floor.f32(float %129)
   %131 = fsub float %129, %130
@@ -3925,7 +3925,7 @@ _ZN7QStringD2Ev.exit101:                          ; preds = %100, %_ZN9QtPrivate
   %134 = fptrunc double %133 to float
   %135 = shl i32 %127, 1
   %136 = or disjoint i32 %135, 1
-  %137 = sitofp i32 %136 to double
+  %137 = uitofp nneg i32 %136 to double
   %138 = fdiv double %137, %125
   %139 = fsub double 1.000000e+00, %138
   %140 = fptrunc double %139 to float
@@ -4443,8 +4443,8 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %5, %9
 
 34:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
-  %35 = trunc i64 %indvars.iv.i to i32
-  %36 = sitofp i32 %35 to float
+  %35 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %36 = uitofp nneg i32 %35 to float
   %37 = fdiv float %36, 0x3FF9E377A0000000
   %38 = tail call noundef float @llvm.floor.f32(float %37)
   %39 = fsub float %37, %38
@@ -4453,7 +4453,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %5, %9
   %42 = fptrunc double %41 to float
   %43 = shl i32 %35, 1
   %44 = or disjoint i32 %43, 1
-  %45 = sitofp i32 %44 to double
+  %45 = uitofp nneg i32 %44 to double
   %46 = fdiv double %45, %33
   %47 = fsub double 1.000000e+00, %46
   %48 = fptrunc double %47 to float
@@ -5152,7 +5152,7 @@ _ZNKR7QString8toLatin1Ev.exit36:                  ; preds = %131
 
 .lr.ph:                                           ; preds = %.preheader, %183
   %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %.preheader ]
-  %175 = trunc i64 %indvars.iv to i32
+  %175 = trunc nuw i64 %indvars.iv to i32
   %176 = add i32 %175, 36064
   %177 = load ptr, ptr %148, align 8
   %178 = getelementptr inbounds i32, ptr %177, i64 %indvars.iv
@@ -6794,7 +6794,7 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersen
   br i1 %9, label %10, label %26
 
 10:                                               ; preds = %3
-  %11 = trunc i64 %8 to i32
+  %11 = trunc nuw i64 %8 to i32
   %12 = add nuw i32 %11, 1
   %13 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %1)
   %14 = zext i32 %12 to i64
@@ -8211,7 +8211,7 @@ define void @_ZN22AmbientOcclusionPlugin16applyOcclusionHWER9MeshModel(ptr nocap
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw i64 %indvars.iv to i32
   %30 = shl i64 %indvars.iv, 2
   %31 = and i64 %30, 4294967292
   %32 = getelementptr inbounds float, ptr %9, i64 %31

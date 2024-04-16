@@ -3562,7 +3562,7 @@ Abc_TtSupportSize.exit130:                        ; preds = %Abc_TtHasVar.exit.t
   %178 = load i32, ptr %177, align 4
   %179 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %178) #38
   %180 = tail call noundef i32 @llvm.smax.i32(i32 %178, i32 1)
-  %181 = sitofp i32 %180 to double
+  %181 = uitofp nneg i32 %180 to double
   br label %182
 
 182:                                              ; preds = %.lr.ph159, %182
@@ -3640,7 +3640,7 @@ define void @If_DsdManPrintOccurs(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !51
 
 .critedge:                                        ; preds = %7
-  %16 = sitofp i32 %14 to double
+  %16 = uitofp nneg i32 %14 to double
   %17 = icmp ult i32 %15, 2
   br i1 %17, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
@@ -3810,7 +3810,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 85:                                               ; preds = %80
   %86 = udiv i32 %82, 10
-  %87 = sitofp i32 %86 to double
+  %87 = uitofp nneg i32 %86 to double
   %88 = call double @pow(double noundef 1.000000e+01, double noundef %87) #38
   %89 = fptosi double %88 to i32
   %90 = urem i32 %82, 10
@@ -4040,7 +4040,7 @@ define void @If_DsdManPrintDistrib(ptr nocapture noundef readonly %0) local_unna
   %99 = sitofp i32 %97 to double
   %100 = fmul double %99, 1.000000e+02
   %101 = tail call noundef i32 @llvm.smax.i32(i32 %94, i32 1)
-  %102 = sitofp i32 %101 to double
+  %102 = uitofp nneg i32 %101 to double
   %103 = fdiv double %100, %102
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %103)
   %105 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv77
@@ -4060,7 +4060,7 @@ define void @If_DsdManPrintDistrib(ptr nocapture noundef readonly %0) local_unna
   %119 = sitofp i32 %117 to double
   %120 = fmul double %119, 1.000000e+02
   %121 = tail call noundef i32 @llvm.smax.i32(i32 %114, i32 1)
-  %122 = sitofp i32 %121 to double
+  %122 = uitofp nneg i32 %121 to double
   %123 = fdiv double %120, %122
   %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, double noundef %123)
   %125 = getelementptr inbounds [17 x i32], ptr %7, i64 0, i64 %indvars.iv77

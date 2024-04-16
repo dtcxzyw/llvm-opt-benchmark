@@ -31,7 +31,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %and.us = and i32 %conv.us, 7
   %shr.us = lshr i32 %conv.us, 3
   %and4.us = and i32 %shr.us, 1
-  %conv5.us = sitofp i32 %and4.us to float
+  %conv5.us = uitofp nneg i32 %and4.us to float
   %add.us = fadd float %x.addr.030.us, %conv5.us
   %tobool.not.us = icmp eq i32 %and.us, 0
   %add6.us = add nsw i32 %offset.addr.029.us, 64
@@ -41,7 +41,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.then.us:                                       ; preds = %for.body.us
   %shr12.us = lshr i32 %conv.us, 4
-  %conv13.us = sitofp i32 %shr12.us to float
+  %conv13.us = uitofp nneg i32 %shr12.us to float
   %add14.us = fadd float %conv13.us, %y
   %1 = sext i32 %offset.addr.029.us to i64
   %2 = insertelement <2 x float> poison, float %add.us, i64 0
@@ -54,7 +54,7 @@ for.body18.us:                                    ; preds = %if.then.us, %for.bo
   %4 = add nsw i32 %j.025.us, -1
   %or.cond.us = icmp ult i32 %4, 2
   %cond27.us = select i1 %or.cond.us, i32 %and.us, i32 0
-  %conv28.us = sitofp i32 %cond27.us to float
+  %conv28.us = uitofp nneg i32 %cond27.us to float
   %add.ptr.us = getelementptr inbounds i8, ptr %vbuf, i64 %indvars.iv37
   %cmp31.us = icmp ugt i32 %j.025.us, 1
   %conv42.us = uitofp i1 %cmp31.us to float
@@ -72,7 +72,7 @@ for.body18.us:                                    ; preds = %if.then.us, %for.bo
   br i1 %exitcond40.not, label %for.inc54.us.loopexit, label %for.body18.us, !llvm.loop !4
 
 for.inc54.us.loopexit:                            ; preds = %for.body18.us
-  %8 = trunc i64 %indvars.iv.next38 to i32
+  %8 = trunc nsw i64 %indvars.iv.next38 to i32
   br label %for.inc54.us
 
 for.inc54.us:                                     ; preds = %for.inc54.us.loopexit, %for.body.us
@@ -91,7 +91,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and = and i32 %conv, 7
   %shr = lshr i32 %conv, 3
   %and4 = and i32 %shr, 1
-  %conv5 = sitofp i32 %and4 to float
+  %conv5 = uitofp nneg i32 %and4 to float
   %add = fadd float %x.addr.030, %conv5
   %tobool.not = icmp eq i32 %and, 0
   %add6 = add nsw i32 %offset.addr.029, 64
@@ -101,7 +101,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %shr12 = lshr i32 %conv, 4
-  %conv13 = sitofp i32 %shr12 to float
+  %conv13 = uitofp nneg i32 %shr12 to float
   %add14 = fadd float %conv13, %y
   %10 = sext i32 %offset.addr.029 to i64
   %11 = insertelement <2 x float> poison, float %add, i64 0
@@ -117,7 +117,7 @@ for.body18:                                       ; preds = %if.then, %for.body1
   %add.ptr = getelementptr inbounds i8, ptr %vbuf, i64 %indvars.iv
   %cmp31 = icmp ugt i32 %j.025, 1
   %cond41 = select i1 %cmp31, i32 %and, i32 0
-  %conv42 = sitofp i32 %cond41 to float
+  %conv42 = uitofp nneg i32 %cond41 to float
   %14 = insertelement <2 x float> poison, float %conv28, i64 0
   %15 = insertelement <2 x float> %14, float %conv42, i64 1
   %16 = fadd <2 x float> %12, %15
@@ -132,7 +132,7 @@ for.body18:                                       ; preds = %if.then, %for.body1
   br i1 %exitcond.not, label %for.inc54.loopexit, label %for.body18, !llvm.loop !4
 
 for.inc54.loopexit:                               ; preds = %for.body18
-  %17 = trunc i64 %indvars.iv.next to i32
+  %17 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.inc54
 
 for.inc54:                                        ; preds = %for.inc54.loopexit, %for.body
@@ -253,7 +253,7 @@ for.body.us.i:                                    ; preds = %for.inc54.us.i, %fo
   %and.us.i = and i32 %conv.us.i, 7
   %shr.us.i = lshr i32 %conv.us.i, 3
   %and4.us.i = and i32 %shr.us.i, 1
-  %conv5.us.i = sitofp i32 %and4.us.i to float
+  %conv5.us.i = uitofp nneg i32 %and4.us.i to float
   %add.us.i = fadd float %x.addr.030.us.i, %conv5.us.i
   %tobool.not.us.i = icmp eq i32 %and.us.i, 0
   %add6.us.i = add nsw i32 %offset.addr.029.us.i, 64
@@ -263,7 +263,7 @@ for.body.us.i:                                    ; preds = %for.inc54.us.i, %fo
 
 if.then.us.i:                                     ; preds = %for.body.us.i
   %shr12.us.i = lshr i32 %conv.us.i, 4
-  %conv13.us.i = sitofp i32 %shr12.us.i to float
+  %conv13.us.i = uitofp nneg i32 %shr12.us.i to float
   %add14.us.i = fadd float %cond, %conv13.us.i
   %20 = sext i32 %offset.addr.029.us.i to i64
   %21 = insertelement <2 x float> poison, float %add.us.i, i64 0
@@ -276,7 +276,7 @@ for.body18.us.i:                                  ; preds = %for.body18.us.i, %i
   %23 = add nsw i32 %j.025.us.i, -1
   %or.cond.us.i = icmp ult i32 %23, 2
   %cond27.us.i = select i1 %or.cond.us.i, i32 %and.us.i, i32 0
-  %conv28.us.i = sitofp i32 %cond27.us.i to float
+  %conv28.us.i = uitofp nneg i32 %cond27.us.i to float
   %add.ptr.us.i = getelementptr inbounds i8, ptr %vertex_buffer, i64 %indvars.iv37.i
   %cmp31.us.i = icmp ugt i32 %j.025.us.i, 1
   %conv42.us.i = uitofp i1 %cmp31.us.i to float
@@ -294,7 +294,7 @@ for.body18.us.i:                                  ; preds = %for.body18.us.i, %i
   br i1 %exitcond40.not.i, label %for.inc54.us.loopexit.i, label %for.body18.us.i, !llvm.loop !4
 
 for.inc54.us.loopexit.i:                          ; preds = %for.body18.us.i
-  %27 = trunc i64 %indvars.iv.next38.i to i32
+  %27 = trunc nsw i64 %indvars.iv.next38.i to i32
   br label %for.inc54.us.i
 
 for.inc54.us.i:                                   ; preds = %for.inc54.us.loopexit.i, %for.body.us.i
@@ -324,7 +324,7 @@ for.body.i:                                       ; preds = %for.inc54.i, %for.b
   %and.i = and i32 %conv.i, 7
   %shr.i = lshr i32 %conv.i, 3
   %and4.i = and i32 %shr.i, 1
-  %conv5.i = sitofp i32 %and4.i to float
+  %conv5.i = uitofp nneg i32 %and4.i to float
   %add.i = fadd float %x.addr.030.i, %conv5.i
   %tobool.not.i = icmp eq i32 %and.i, 0
   %add6.i = add nsw i32 %offset.addr.029.i, 64
@@ -334,7 +334,7 @@ for.body.i:                                       ; preds = %for.inc54.i, %for.b
 
 if.then.i:                                        ; preds = %for.body.i
   %shr12.i = lshr i32 %conv.i, 4
-  %conv13.i = sitofp i32 %shr12.i to float
+  %conv13.i = uitofp nneg i32 %shr12.i to float
   %add14.i = fadd float %cond, %conv13.i
   %29 = sext i32 %offset.addr.029.i to i64
   %30 = insertelement <2 x float> poison, float %add.i, i64 0
@@ -350,7 +350,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %if.t
   %add.ptr.i = getelementptr inbounds i8, ptr %vertex_buffer, i64 %indvars.iv.i
   %cmp31.i = icmp ugt i32 %j.025.i, 1
   %cond41.i = select i1 %cmp31.i, i32 %and.i, i32 0
-  %conv42.i = sitofp i32 %cond41.i to float
+  %conv42.i = uitofp nneg i32 %cond41.i to float
   %33 = insertelement <2 x float> poison, float %conv28.i, i64 0
   %34 = insertelement <2 x float> %33, float %conv42.i, i64 1
   %35 = fadd <2 x float> %31, %34
@@ -365,7 +365,7 @@ for.body18.i:                                     ; preds = %for.body18.i, %if.t
   br i1 %exitcond.not.i, label %for.inc54.loopexit.i, label %for.body18.i, !llvm.loop !4
 
 for.inc54.loopexit.i:                             ; preds = %for.body18.i
-  %36 = trunc i64 %indvars.iv.next.i to i32
+  %36 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %for.inc54.i
 
 for.inc54.i:                                      ; preds = %for.inc54.loopexit.i, %for.body.i
@@ -377,7 +377,7 @@ for.inc54.i:                                      ; preds = %for.inc54.loopexit.
 stb_easy_font_draw_segs.exit52:                   ; preds = %for.inc54.i, %stb_easy_font_draw_segs.exit
   %offset.addr.0.lcssa.i49 = phi i32 [ %offset.addr.0.lcssa.i, %stb_easy_font_draw_segs.exit ], [ %offset.addr.2.i, %for.inc54.i ]
   %and59 = and i32 %conv21, 15
-  %conv60 = sitofp i32 %and59 to float
+  %conv60 = uitofp nneg i32 %and59 to float
   %add61 = fadd float %x.addr.059, %conv60
   %37 = load float, ptr @stb_easy_font_spacing_val, align 4
   %add62 = fadd float %add61, %37
@@ -430,7 +430,7 @@ if.else:                                          ; preds = %while.cond
   %arrayidx = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %sub
   %2 = load i8, ptr %arrayidx, align 1
   %3 = and i8 %2, 15
-  %conv7 = uitofp i8 %3 to float
+  %conv7 = uitofp nneg i8 %3 to float
   %add = fadd float %len.0, %conv7
   %add8 = fadd float %0, %add
   br label %if.end9
@@ -477,7 +477,7 @@ if.end:                                           ; preds = %while.cond, %if.the
 while.end:                                        ; preds = %while.cond
   %tobool2.not = icmp eq i32 %nonempty_line.0, 0
   %cond = select i1 %tobool2.not, i32 0, i32 12
-  %conv3 = sitofp i32 %cond to float
+  %conv3 = uitofp nneg i32 %cond to float
   %add4 = fadd float %y.0, %conv3
   %1 = tail call float @llvm.ceil.f32(float %add4)
   %conv6 = fptosi float %1 to i32

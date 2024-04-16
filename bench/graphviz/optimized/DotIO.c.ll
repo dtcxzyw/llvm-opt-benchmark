@@ -421,7 +421,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.lr.ph185.us
 
 ._crit_edge186.split.us.us.loopexit:              ; preds = %.lr.ph185.us
-  %46 = trunc i64 %indvars.iv.next207 to i32
+  %46 = trunc nsw i64 %indvars.iv.next207 to i32
   br label %._crit_edge186.split.us.us
 
 ._crit_edge186.split.us.us:                       ; preds = %._crit_edge186.split.us.us.loopexit, %.lr.ph192.split.us
@@ -512,7 +512,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not172, label %._crit_edge186.split.loopexit, label %.lr.ph185
 
 ._crit_edge186.split.loopexit:                    ; preds = %83
-  %87 = trunc i64 %indvars.iv.next to i32
+  %87 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge186.split
 
 ._crit_edge186.split:                             ; preds = %._crit_edge186.split.loopexit, %.lr.ph192.split
@@ -1244,11 +1244,11 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not327, label %._crit_edge372.loopexit426, label %.lr.ph371.split
 
 ._crit_edge372.loopexit:                          ; preds = %.lr.ph371.split.us
-  %100 = trunc i64 %indvars.iv.next430 to i32
+  %100 = trunc nsw i64 %indvars.iv.next430 to i32
   br label %._crit_edge372
 
 ._crit_edge372.loopexit426:                       ; preds = %96
-  %101 = trunc i64 %indvars.iv.next to i32
+  %101 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge372
 
 ._crit_edge372:                                   ; preds = %._crit_edge372.loopexit426, %._crit_edge372.loopexit, %60
@@ -1791,7 +1791,7 @@ hexcol2rgb.exit:                                  ; preds = %372, %376, %378
   %.0.i6.i = phi i32 [ %373, %372 ], [ %377, %376 ], [ %spec.select.i5.i, %378 ]
   %381 = shl nuw nsw i32 %.0.i.i, 4
   %382 = add nuw nsw i32 %.0.i6.i, %381
-  %383 = sitofp i32 %382 to double
+  %383 = uitofp nneg i32 %382 to double
   %384 = fdiv double %383, 2.550000e+02
   %385 = fptrunc double %384 to float
   %386 = load ptr, ptr %7, align 8
@@ -1861,7 +1861,7 @@ hexcol2rgb.exit342:                               ; preds = %409, %413, %415
   %.0.i6.i341 = phi i32 [ %410, %409 ], [ %414, %413 ], [ %spec.select.i5.i340, %415 ]
   %418 = shl nuw nsw i32 %.0.i.i336, 4
   %419 = add nuw nsw i32 %.0.i6.i341, %418
-  %420 = sitofp i32 %419 to double
+  %420 = uitofp nneg i32 %419 to double
   %421 = fdiv double %420, 2.550000e+02
   %422 = fptrunc double %421 to float
   %423 = load ptr, ptr %8, align 8
@@ -1931,7 +1931,7 @@ hexcol2rgb.exit354:                               ; preds = %446, %450, %452
   %.0.i6.i353 = phi i32 [ %447, %446 ], [ %451, %450 ], [ %spec.select.i5.i352, %452 ]
   %455 = shl nuw nsw i32 %.0.i.i348, 4
   %456 = add nuw nsw i32 %.0.i6.i353, %455
-  %457 = sitofp i32 %456 to double
+  %457 = uitofp nneg i32 %456 to double
   %458 = fdiv double %457, 2.550000e+02
   %459 = fptrunc double %458 to float
   %460 = load ptr, ptr %9, align 8
@@ -2113,7 +2113,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %.lr.ph95.us
 
 ._crit_edge96.split.us.us.loopexit:               ; preds = %.lr.ph95.us
-  %31 = trunc i64 %indvars.iv.next114 to i32
+  %31 = trunc nsw i64 %indvars.iv.next114 to i32
   br label %._crit_edge96.split.us.us
 
 ._crit_edge96.split.us.us:                        ; preds = %._crit_edge96.split.us.us.loopexit, %.lr.ph101.split.us
@@ -2204,7 +2204,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %.not84, label %._crit_edge96.split.loopexit, label %.lr.ph95
 
 ._crit_edge96.split.loopexit:                     ; preds = %68
-  %72 = trunc i64 %indvars.iv.next to i32
+  %72 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge96.split
 
 ._crit_edge96.split:                              ; preds = %._crit_edge96.split.loopexit, %.lr.ph101.split

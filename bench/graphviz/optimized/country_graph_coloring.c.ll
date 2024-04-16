@@ -79,7 +79,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   %35 = load i32, ptr %34, align 4
   %36 = sub nsw i32 %32, %35
   %37 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %38 = sitofp i32 %37 to double
+  %38 = uitofp nneg i32 %37 to double
   %39 = fcmp olt double %26, %38
   %..i = select i1 %39, double %26, double %38
   br label %40
@@ -134,7 +134,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   %64 = load i32, ptr %63, align 4
   %65 = sub nsw i32 %61, %64
   %66 = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %67 = sitofp i32 %66 to double
+  %67 = uitofp nneg i32 %66 to double
   %68 = fcmp olt double %55, %67
   %..i77 = select i1 %68, double %55, double %67
   br label %69
@@ -180,7 +180,7 @@ get_local_12_norm.exit82:                         ; preds = %69, %45
   %89 = load i32, ptr %88, align 4
   %90 = sub nsw i32 %86, %89
   %91 = tail call i32 @llvm.abs.i32(i32 %90, i1 true)
-  %92 = sitofp i32 %91 to double
+  %92 = uitofp nneg i32 %91 to double
   %93 = fcmp olt double %80, %92
   %..i86 = select i1 %93, double %80, double %92
   br label %94
@@ -220,7 +220,7 @@ get_local_12_norm.exit91:                         ; preds = %94, %get_local_12_n
   %110 = load i32, ptr %109, align 4
   %111 = sub nsw i32 %71, %110
   %112 = tail call i32 @llvm.abs.i32(i32 %111, i1 true)
-  %113 = sitofp i32 %112 to double
+  %113 = uitofp nneg i32 %112 to double
   %114 = fcmp olt double %102, %113
   %..i95 = select i1 %114, double %102, double %113
   br label %115
@@ -257,7 +257,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   br i1 %exitcond174.not, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %126
-  %127 = trunc i64 %indvars.iv176 to i32
+  %127 = trunc nuw nsw i64 %indvars.iv176 to i32
   %128 = urem i32 %127, 100
   %129 = icmp eq i32 %128, 0
   %130 = load i8, ptr @Verbose, align 1
@@ -305,7 +305,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   %150 = load i32, ptr %149, align 4
   %151 = sub nsw i32 %147, %150
   %152 = tail call i32 @llvm.abs.i32(i32 %151, i1 true)
-  %153 = sitofp i32 %152 to double
+  %153 = uitofp nneg i32 %152 to double
   %154 = fcmp olt double %141, %153
   %..i104 = select i1 %154, double %141, double %153
   %155 = fcmp olt double %.064.i, %153
@@ -395,7 +395,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %189 = load i32, ptr %188, align 4
   %190 = sub nsw i32 %186, %189
   %191 = tail call i32 @llvm.abs.i32(i32 %190, i1 true)
-  %192 = sitofp i32 %191 to double
+  %192 = uitofp nneg i32 %191 to double
   %193 = fcmp olt double %180, %192
   %..i125 = select i1 %193, double %180, double %192
   %194 = fcmp olt double %.064.i123, %192
@@ -494,7 +494,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph64
   %20 = sext i32 %16 to i64
-  %21 = trunc i64 %indvars.iv70 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv70 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
@@ -525,7 +525,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph64
   %.1.lcssa = phi ptr [ %.04961, %.lr.ph64 ], [ %.2, %30 ]
-  %34 = trunc i64 %indvars.iv70 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv70 to i32
   %35 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.1.lcssa, i32 noundef %34, i32 noundef %34, ptr noundef nonnull %5) #7
   %exitcond.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph64

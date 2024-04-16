@@ -2515,7 +2515,7 @@ _ZN9rcContext8resetLogEv.exit648:                 ; preds = %.thread751, %858
 
 .preheader:                                       ; preds = %958, %971
   %.03701048 = phi i32 [ %972, %971 ], [ 0, %958 ]
-  %959 = sitofp i32 %.03701048 to float
+  %959 = uitofp nneg i32 %.03701048 to float
   %960 = fdiv float %959, 2.000000e+01
   %961 = fmul float %960, 0x400921FB60000000
   %962 = fmul float %961, 2.000000e+00

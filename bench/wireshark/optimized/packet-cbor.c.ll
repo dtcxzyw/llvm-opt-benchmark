@@ -1065,7 +1065,7 @@ define internal fastcc noundef i32 @dissect_cbor_byte_string(ptr noundef %0, ptr
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %81
-  %86 = trunc i64 %83 to i32
+  %86 = trunc nuw nsw i64 %83 to i32
   %87 = add i32 %82, %86
   %88 = icmp slt i32 %87, %82
   br i1 %88, label %89, label %91
@@ -1238,7 +1238,7 @@ define internal fastcc noundef i32 @dissect_cbor_text_string(ptr noundef %0, ptr
   br i1 %85, label %90, label %86
 
 86:                                               ; preds = %82
-  %87 = trunc i64 %84 to i32
+  %87 = trunc nuw nsw i64 %84 to i32
   %88 = add i32 %83, %87
   %89 = icmp slt i32 %88, %83
   br i1 %89, label %90, label %92
@@ -1337,7 +1337,7 @@ define internal fastcc noundef i32 @dissect_cbor_float_simple_data(ptr noundef %
   ]
 
 46:                                               ; preds = %39
-  %47 = sitofp i32 %45 to float
+  %47 = uitofp nneg i32 %45 to float
   %48 = call float @ldexpf(float noundef %47, i32 noundef -24) #6
   %49 = fneg float %48
   %.not3637.i = icmp slt i16 %41, 0
@@ -1350,7 +1350,7 @@ define internal fastcc noundef i32 @dissect_cbor_float_simple_data(ptr noundef %
 
 53:                                               ; preds = %39
   %54 = or disjoint i32 %45, 1024
-  %55 = sitofp i32 %54 to float
+  %55 = uitofp nneg i32 %54 to float
   %56 = add nsw i32 %44, -25
   %57 = call float @ldexpf(float noundef %55, i32 noundef %56) #6
   %58 = fneg float %57

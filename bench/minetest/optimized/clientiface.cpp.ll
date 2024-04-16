@@ -1317,7 +1317,7 @@ entry:
   %p.sroa.4.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.4.0.extract.trunc = trunc i48 %p.sroa.4.0.extract.shift to i16
   %p.sroa.6.0.extract.shift = lshr i48 %p.coerce, 32
-  %p.sroa.6.0.extract.trunc = trunc i48 %p.sroa.6.0.extract.shift to i16
+  %p.sroa.6.0.extract.trunc = trunc nuw i48 %p.sroa.6.0.extract.shift to i16
   %m_blocks_sending = getelementptr inbounds i8, ptr %this, i64 416
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8, !tbaa !82
@@ -2042,14 +2042,14 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %52 = icmp slt <2 x i16> %49, zeroinitializer
   %53 = select <2 x i1> %52, <2 x i32> %51, <2 x i32> %50
   %54 = sdiv <2 x i32> %53, <i32 16, i32 16>
-  %tr.sh.diff.i.i = trunc i48 %p.sroa.2.0.extract.shift.i.i to i32
+  %tr.sh.diff.i.i = trunc nuw i48 %p.sroa.2.0.extract.shift.i.i to i32
   %conv.i13.i.i = ashr i32 %tr.sh.diff.i.i, 16
   %add.i16.i.i = add nsw i32 %conv.i13.i.i, -15
   %cmp9.i17.i.i = icmp slt i48 %retval.sroa.2.0.insert.insert.i, 0
   %cond.i18.i.i = select i1 %cmp9.i17.i.i, i32 %add.i16.i.i, i32 %conv.i13.i.i
   %div.i19.i.i = sdiv i32 %cond.i18.i.i, 16
-  %55 = trunc <2 x i32> %54 to <2 x i16>
-  %center.sroa.10.0.extract.trunc = trunc i32 %div.i19.i.i to i16
+  %55 = trunc nsw <2 x i32> %54 to <2 x i16>
+  %center.sroa.10.0.extract.trunc = trunc nsw i32 %div.i19.i.i to i16
   %call.i532 = call { <2 x float>, float } @_ZNK9PlayerSAO12getEyeOffsetEv(ptr noundef nonnull align 8 dereferenceable(1089) %25)
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i532, 0
   %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i532, 1
@@ -2213,7 +2213,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %conv8.i.i = sext i16 %sub13.i to i32
   %mul11.i.i = mul nsw i32 %conv8.i.i, %conv8.i.i
   %add12.i.i = add nuw nsw i32 %add.i.i578, %mul11.i.i
-  %conv.i.i.i579 = sitofp i32 %add12.i.i to float
+  %conv.i.i.i579 = uitofp nneg i32 %add12.i.i to float
   %108 = call nsz noundef float @llvm.sqrt.f32(float %conv.i.i.i579)
   %conv1.i.i.i = fptosi float %108 to i32
   %conv13.i.i = trunc i32 %conv1.i.i.i to i16
@@ -2397,7 +2397,7 @@ for.body207:                                      ; preds = %for.inc342, %for.bo
   store i48 %retval.sroa.0.0.insert.insert.i646, ptr %p208, align 8
   %134 = load i16, ptr %m_max_simul_sends, align 4
   %spec.select470 = select i1 %cmp213, i16 %134, i16 %max_simul_sends_usually.0
-  %p.sroa.0.0.extract.trunc.i = trunc i48 %133 to i32
+  %p.sroa.0.0.extract.trunc.i = trunc nuw i48 %133 to i32
   %sext.i = shl i32 %p.sroa.0.0.extract.trunc.i, 16
   %conv.i647 = ashr exact i32 %sext.i, 16
   %135 = add nsw i32 %conv.i647, -1938
@@ -3074,7 +3074,7 @@ if.end383:                                        ; preds = %queue_full_break.th
   br i1 %or.cond, label %cleanup.cont397, label %if.then389
 
 if.then389:                                       ; preds = %if.end383
-  %conv390 = trunc i32 %new_nearest_unsent_d.0 to i16
+  %conv390 = trunc nsw i32 %new_nearest_unsent_d.0 to i16
   store i16 %conv390, ptr %m_nearest_unsent_d114, align 8, !tbaa !125
   %m_blocks_occ392 = getelementptr inbounds i8, ptr %this, i64 264
   %_M_before_begin.i.i.i813 = getelementptr inbounds i8, ptr %this, i64 280
@@ -3139,7 +3139,7 @@ entry:
   %2 = lshr i48 %p.coerce, 16
   %3 = trunc i48 %2 to i16
   %4 = lshr i48 %p.coerce, 32
-  %5 = trunc i48 %4 to i16
+  %5 = trunc nuw i48 %4 to i16
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -3264,7 +3264,7 @@ entry:
   %2 = lshr i48 %p.coerce, 16
   %3 = trunc i48 %2 to i16
   %4 = lshr i48 %p.coerce, 32
-  %5 = trunc i48 %4 to i16
+  %5 = trunc nuw i48 %4 to i16
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry

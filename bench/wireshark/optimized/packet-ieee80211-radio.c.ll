@@ -345,7 +345,7 @@ define hidden float @ieee80211_htrate(i32 noundef %0, i32 noundef %1, i32 nounde
   %.not = icmp eq i32 %1, 0
   %8 = select i1 %.not, i32 52, i32 108
   %9 = mul nuw nsw i32 %8, %7
-  %10 = sitofp i32 %9 to double
+  %10 = uitofp nneg i32 %9 to double
   %11 = fdiv double %10, 5.200000e+01
   %.not3 = icmp eq i32 %2, 0
   %12 = select i1 %.not3, double 4.000000e+00, double 3.600000e+00
@@ -849,7 +849,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %202 = zext i16 %201 to i32
   %203 = select i1 %.not846, i32 108, i32 52
   %204 = mul nuw nsw i32 %203, %202
-  %205 = sitofp i32 %204 to double
+  %205 = uitofp nneg i32 %204 to double
   %206 = fdiv double %205, 5.200000e+01
   %.not3.i = icmp eq i8 %198, 0
   %207 = select i1 %.not3.i, double 4.000000e+00, double 3.600000e+00
@@ -1110,7 +1110,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %355 = getelementptr [4 x i8], ptr %345, i64 0, i64 %indvars.iv
   %356 = load i8, ptr %355, align 1
   %357 = zext i8 %356 to i32
-  %358 = trunc i64 %indvars.iv to i32
+  %358 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %354, ptr noundef nonnull @.str.198, i32 noundef %358, i32 noundef %357) #9
   %359 = load i32, ptr @ett_wlan_radio_11ac_user, align 4
   %360 = tail call ptr @proto_item_add_subtree(ptr noundef %354, i32 noundef %359) #9
@@ -1597,7 +1597,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %476, %477, %468, %1
   %.not721849 = icmp ne i32 %.0586799, 0
   %.not721.not = select i1 %or.cond62, i1 true, i1 %.not721849
   %652 = select i1 %.not721.not, i32 96, i32 192
-  %653 = uitofp i32 %652 to float
+  %653 = uitofp nneg i32 %652 to float
   %654 = shl i32 %spec.select, 3
   %655 = uitofp i32 %654 to float
   %656 = fdiv float %655, %.5802

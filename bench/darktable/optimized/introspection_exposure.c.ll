@@ -430,7 +430,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %73 = tail call i64 @llvm.smax.i64(i64 %72, i64 1)
   %74 = uitofp i32 %70 to double
   %75 = tail call reassoc nsz arcp contract afn double @llvm.log2.f64(double %74)
-  %76 = sitofp i64 %73 to double
+  %76 = uitofp nneg i64 %73 to double
   %77 = tail call reassoc nsz arcp contract afn double @llvm.log2.f64(double %76)
   %78 = getelementptr inbounds i8, ptr %12, i64 16
   %79 = load float, ptr %78, align 4, !tbaa !73
@@ -511,7 +511,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %130 = call i64 @llvm.smax.i64(i64 %129, i64 1)
   %131 = uitofp i32 %127 to double
   %132 = call reassoc nsz arcp contract afn double @llvm.log2.f64(double %131)
-  %133 = sitofp i64 %130 to double
+  %133 = uitofp nneg i64 %130 to double
   %134 = call reassoc nsz arcp contract afn double @llvm.log2.f64(double %133)
   %135 = getelementptr inbounds i8, ptr %12, i64 16
   %136 = load float, ptr %135, align 4, !tbaa !73
@@ -2699,7 +2699,7 @@ define internal fastcc void @_paint_hue(ptr nocapture readonly %0) unnamed_addr 
 
 12:                                               ; preds = %dt_XYZ_to_sRGB.exit, %1
   %13 = phi i32 [ 0, %1 ], [ %113, %dt_XYZ_to_sRGB.exit ]
-  %14 = sitofp i32 %13 to float
+  %14 = uitofp nneg i32 %13 to float
   %15 = fmul reassoc nsz arcp contract afn float %14, 0x3FAAF286C0000000
   %16 = fmul reassoc nsz arcp contract afn float %15, %7
   %17 = fadd reassoc nsz arcp contract afn float %16, %4

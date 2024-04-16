@@ -418,7 +418,7 @@ Vec_IntPush.exit.i:                               ; preds = %78, %Vec_IntGrow.ex
   br i1 %97, label %91, label %._crit_edge.loopexit.i, !llvm.loop !4
 
 ._crit_edge.loopexit.i:                           ; preds = %91
-  %98 = trunc i64 %indvars.iv.next.i to i32
+  %98 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %Vec_IntInsert.exit
 
 Vec_IntInsert.exit:                               ; preds = %Vec_IntPush.exit.i, %._crit_edge.loopexit.i
@@ -441,7 +441,7 @@ Vec_IntInsert.exit:                               ; preds = %Vec_IntPush.exit.i,
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val30, i64 %106
   %108 = getelementptr inbounds i8, ptr %107, i64 20
-  %109 = trunc i64 %indvars.iv to i32
+  %109 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %109, ptr %108, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val25 = load i32, ptr %4, align 4
@@ -2321,7 +2321,7 @@ define void @Wlc_NtkCollectStats(ptr nocapture noundef readonly %0, ptr nocaptur
 6:                                                ; preds = %.preheader, %.critedge
   %7 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
   %indvars.iv22 = phi i64 [ 0, %.preheader ], [ 1, %.critedge ]
-  %8 = trunc i64 %indvars.iv22 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv22 to i32
   tail call void @Wlc_NtkMarkCone(ptr noundef nonnull %0, i32 noundef %8, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %.val1618 = load i32, ptr %4, align 8
   %9 = icmp sgt i32 %.val1618, 1
@@ -2671,7 +2671,7 @@ define void @Wlc_NtkPrintDistribSortOne(ptr nocapture noundef readonly %0, ptr n
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.lr.ph36.preheader.i
   %indvars.iv41.i = phi i64 [ 0, %.lr.ph36.preheader.i ], [ %indvars.iv.next42.i, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph36.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %16 = trunc i64 %indvars.iv41.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv41.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2683,7 +2683,7 @@ define void @Wlc_NtkPrintDistribSortOne(ptr nocapture noundef readonly %0, ptr n
   %20 = getelementptr inbounds i64, ptr %.val10, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %18, %21
-  %23 = trunc i64 %indvars.iv38.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %spec.select.i = select i1 %22, i32 %23, i32 %.03132.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count.i
@@ -2719,7 +2719,7 @@ Vec_WrdSelectSortCost2.exit:                      ; preds = %._crit_edge.i
   %35 = load ptr, ptr %11, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv.i14
   %37 = load i64, ptr %36, align 8
-  %38 = trunc i64 %indvars.iv.i14 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   %39 = xor i32 %38, -1
   %40 = add i32 %34, %39
   %41 = sext i32 %40 to i64
@@ -2751,7 +2751,7 @@ Vec_WrdReverseOrder.exit:                         ; preds = %.lr.ph.i13, %3, %Ve
   %57 = load ptr, ptr %13, align 8
   %58 = getelementptr inbounds i64, ptr %57, i64 %indvars.iv.i18
   %59 = load i64, ptr %58, align 8
-  %60 = trunc i64 %indvars.iv.i18 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   %61 = xor i32 %60, -1
   %62 = add i32 %56, %61
   %63 = sext i32 %62 to i64
@@ -2802,7 +2802,7 @@ Vec_IntStart.exit:
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader.i
   %10 = phi i1 [ true, %.preheader.i ], [ false, %.backedge.backedge ]
   %indvars.iv22.i = phi i64 [ 0, %.preheader.i ], [ 1, %.backedge.backedge ]
-  %11 = trunc i64 %indvars.iv22.i to i32
+  %11 = trunc nuw nsw i64 %indvars.iv22.i to i32
   tail call void @Wlc_NtkMarkCone(ptr noundef nonnull %0, i32 noundef %11, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %.val1618.i = load i32, ptr %8, align 8
   %12 = icmp sgt i32 %.val1618.i, 1
@@ -2946,7 +2946,7 @@ Wlc_NtkCollectStats.exit:                         ; preds = %.critedge.i.thread,
 66:                                               ; preds = %53
   %67 = add nuw nsw i32 %58, 1
   %68 = and i32 %67, 1048575
-  %69 = trunc i64 %indvars.iv891 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv891 to i32
   %70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %69, i32 noundef %67, i32 noundef %68)
   %.pre = load i32, ptr %56, align 4
   %.val360.pre = load i16, ptr %54, align 8
@@ -3063,11 +3063,11 @@ Wlc_ObjFanin0.exit:                               ; preds = %89, %Wlc_ObjHasArra
 128:                                              ; preds = %125
   %129 = load ptr, ptr %47, align 8
   %130 = tail call ptr @Abc_NamStr(ptr noundef %129, i32 noundef %127) #25
-  %.pre906 = trunc i64 %indvars.iv891 to i32
+  %.pre906 = trunc nuw nsw i64 %indvars.iv891 to i32
   br label %Wlc_ObjName.exit
 
 131:                                              ; preds = %125, %123
-  %132 = trunc i64 %indvars.iv891 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv891 to i32
   %133 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Wlc_ObjName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %132) #25
   br label %Wlc_ObjName.exit
 
@@ -4983,7 +4983,7 @@ Wlc_ObjFanin0.exit780:                            ; preds = %1162, %Wlc_ObjHasAr
   %1174 = sub nsw i32 %.val537, %.val538
   %1175 = tail call i32 @llvm.abs.i32(i32 %1174, i1 true)
   %1176 = add nuw nsw i32 %1175, 1
-  %1177 = sitofp i32 %1176 to double
+  %1177 = uitofp nneg i32 %1176 to double
   %1178 = getelementptr inbounds i8, ptr %54, i64 16
   br i1 %1165, label %Wlc_ObjHasArray.exit.thread.i.i.i781, label %Wlc_ObjFanin0.exit783
 
@@ -5003,7 +5003,7 @@ Wlc_ObjFanin0.exit783:                            ; preds = %Wlc_ObjFanin0.exit7
   %1186 = sub nsw i32 %.val539, %.val540
   %1187 = tail call i32 @llvm.abs.i32(i32 %1186, i1 true)
   %1188 = add nuw nsw i32 %1187, 1
-  %1189 = sitofp i32 %1188 to double
+  %1189 = uitofp nneg i32 %1188 to double
   %1190 = tail call double @pow(double noundef %1177, double noundef %1189) #25
   %1191 = fptosi double %1190 to i32
   %1192 = mul nsw i32 %1191, 10
@@ -5246,7 +5246,7 @@ Wlc_ObjFanin1.exit801:                            ; preds = %Wlc_ObjFanin0.exit7
 1336:                                             ; preds = %1328
   %1337 = getelementptr inbounds [61 x ptr], ptr @Wlc_Names, i64 0, i64 %indvars.iv897
   %1338 = load ptr, ptr %1337, align 8
-  %1339 = trunc i64 %indvars.iv897 to i32
+  %1339 = trunc nuw nsw i64 %indvars.iv897 to i32
   %1340 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %1339, ptr noundef %1338, i32 noundef %1334)
   br i1 %.not341, label %1374, label %1341
 
@@ -5341,12 +5341,12 @@ Wlc_NtkCountRealPis.exit:                         ; preds = %.lr.ph.i.i805, %.cr
   %1383 = getelementptr inbounds i64, ptr %.val554, i64 %indvars.iv894
   %1384 = load i64, ptr %1383, align 8
   %1385 = lshr i64 %1384, 42
-  %1386 = trunc i64 %1385 to i32
+  %1386 = trunc nuw nsw i64 %1385 to i32
   %1387 = lshr i64 %1384, 21
   %1388 = trunc i64 %1387 to i32
   %1389 = and i32 %1388, 2097151
   %1390 = trunc i64 %1384 to i32
-  %1391 = trunc i64 %indvars.iv894 to i32
+  %1391 = trunc nuw nsw i64 %indvars.iv894 to i32
   %1392 = urem i32 %1391, 6
   %1393 = icmp eq i32 %1392, 5
   %1394 = icmp ne i32 %1386, 0
@@ -6417,14 +6417,14 @@ Wlc_NtkCountRealPis.exit:                         ; preds = %24, %.critedge.i
   %91 = fmul double %90, 1.000000e+02
   %92 = sitofp i32 %83 to double
   %93 = fdiv double %91, %92
-  %94 = trunc i64 %indvars.iv to i32
+  %94 = trunc nuw nsw i64 %indvars.iv to i32
   %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %94, ptr noundef %89, i32 noundef %81, double noundef %93)
   br label %101
 
 96:                                               ; preds = %84, %82
   %97 = getelementptr inbounds [61 x ptr], ptr @Wlc_Names, i64 0, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8
-  %99 = trunc i64 %indvars.iv to i32
+  %99 = trunc nuw nsw i64 %indvars.iv to i32
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, i32 noundef %99, ptr noundef %98, i32 noundef %81)
   br label %101
 
@@ -6662,7 +6662,7 @@ Vec_IntDup.exit:                                  ; preds = %2, %6
 27:                                               ; preds = %19
   %28 = add nsw i32 %.024, 1
   %.val = load i32, ptr %18, align 4
-  %29 = trunc i64 %indvars.iv to i32
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = sub nsw i32 %29, %.val
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %13, i64 %31
@@ -6754,7 +6754,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
   br i1 %.not.not, label %25, label %.loopexit.loopexit, !llvm.loop !50
 
 .loopexit.loopexit:                               ; preds = %25
-  %33 = trunc i64 %indvars.iv.next to i32
+  %33 = trunc nsw i64 %indvars.iv.next to i32
   %.val29.pre = load i16, ptr %17, align 8
   %.pre = and i16 %.val29.pre, 63
   br label %.loopexit
@@ -8172,7 +8172,7 @@ Vec_IntDup.exit.i:                                ; preds = %227, %226
 247:                                              ; preds = %239
   %248 = add nsw i32 %.024.i, 1
   %.val.i183 = load i32, ptr %238, align 4
-  %249 = trunc i64 %indvars.iv.i to i32
+  %249 = trunc nuw nsw i64 %indvars.iv.i to i32
   %250 = sub nsw i32 %249, %.val.i183
   %251 = sext i32 %250 to i64
   %252 = getelementptr inbounds i32, ptr %234, i64 %251
@@ -8765,7 +8765,7 @@ Vec_IntDup.exit.i:                                ; preds = %158, %154
 179:                                              ; preds = %171
   %180 = add nsw i32 %.024.i, 1
   %.val.i175 = load i32, ptr %170, align 4
-  %181 = trunc i64 %indvars.iv.i to i32
+  %181 = trunc nuw nsw i64 %indvars.iv.i to i32
   %182 = sub nsw i32 %181, %.val.i175
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds i32, ptr %165, i64 %183
@@ -9397,7 +9397,7 @@ Wlc_ObjAlloc.exit:                                ; preds = %Wlc_ObjFaninId.exit
   br i1 %98, label %54, label %.critedge4, !llvm.loop !76
 
 .critedge4:                                       ; preds = %Wlc_ObjAlloc.exit, %50
-  %99 = trunc i64 %indvars.iv97 to i32
+  %99 = trunc nuw nsw i64 %indvars.iv97 to i32
   %100 = tail call i32 @Wlc_ObjDup(ptr noundef %29, ptr noundef nonnull %0, i32 noundef %99, ptr noundef nonnull %23)
   %.val = load ptr, ptr %37, align 8
   %101 = sext i32 %100 to i64
@@ -9578,7 +9578,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 
 31:                                               ; preds = %25
   %.val97 = load i32, ptr %5, align 4
-  %32 = trunc i64 %indvars.iv to i32
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = sub nsw i32 %32, %.val97
   %34 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef nonnull @.str.61, i32 noundef %14, i32 noundef %33) #25
   %35 = load ptr, ptr %15, align 8
@@ -9619,7 +9619,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 
 52:                                               ; preds = %46
   %.val83 = load i32, ptr %22, align 4
-  %53 = trunc i64 %indvars.iv163 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv163 to i32
   %54 = sub nsw i32 %53, %.val83
   %55 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef nonnull @.str.62, i32 noundef %21, i32 noundef %54) #25
   %56 = load ptr, ptr %23, align 8
@@ -9682,7 +9682,7 @@ Abc_Base10Log.exit122:                            ; preds = %.lr.ph.i117, %.crit
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val113, i64 %79
-  %81 = trunc i64 %indvars.iv166 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv166 to i32
   %82 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef nonnull @.str.63, i32 noundef %73, i32 noundef %81) #25
   %83 = load ptr, ptr %74, align 8
   %84 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %83, ptr noundef nonnull %2, ptr noundef nonnull %3) #25
@@ -9741,7 +9741,7 @@ Abc_Base10Log.exit129:                            ; preds = %.lr.ph.i124, %.crit
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val100, i64 %107
-  %109 = trunc i64 %indvars.iv169 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv169 to i32
   %110 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef nonnull @.str.64, i32 noundef %101, i32 noundef %109) #25
   %111 = load ptr, ptr %102, align 8
   %112 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %111, ptr noundef nonnull %2, ptr noundef nonnull %3) #25
@@ -9806,7 +9806,7 @@ Abc_Base10Log.exit136:                            ; preds = %.lr.ph.i131, %.crit
   br i1 %or.cond, label %136, label %147
 
 136:                                              ; preds = %132
-  %137 = trunc i64 %indvars.iv172 to i32
+  %137 = trunc nuw nsw i64 %indvars.iv172 to i32
   %138 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef nonnull @.str.65, i32 noundef %129, i32 noundef %137) #25
   %139 = load ptr, ptr %130, align 8
   %140 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %139, ptr noundef nonnull %2, ptr noundef nonnull %3) #25

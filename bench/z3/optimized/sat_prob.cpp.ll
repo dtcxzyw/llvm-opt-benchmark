@@ -560,7 +560,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK6vectorIbLb0EjE
   %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 2531011
   store i32 %add.i.i.i.i.i, ptr %m_rand.i.i.i, align 8
   %shr.i.i.i.i.i = lshr i32 %add.i.i.i.i.i, 16
-  %7 = trunc i32 %shr.i.i.i.i.i to i16
+  %7 = trunc nuw i32 %shr.i.i.i.i.i to i16
   %rem.i.lhs.trunc.i.i.i = and i16 %7, 32767
   %rem.i13.i.i.i = urem i16 %rem.i.lhs.trunc.i.i.i, 100
   %rem.i.zext.i.i.i = zext nneg i16 %rem.i13.i.i.i to i32
@@ -728,7 +728,7 @@ for.body.i.i:                                     ; preds = %_ZNK6vectorIbLb0EjE
   %add.i.i.i.i = add i32 %mul.i.i.i.i, 2531011
   store i32 %add.i.i.i.i, ptr %m_rand.i.i, align 8
   %shr.i.i.i.i = lshr i32 %add.i.i.i.i, 16
-  %4 = trunc i32 %shr.i.i.i.i to i16
+  %4 = trunc nuw i32 %shr.i.i.i.i to i16
   %rem.i.lhs.trunc.i.i = and i16 %4, 32767
   %rem.i13.i.i = urem i16 %rem.i.lhs.trunc.i.i, 100
   %rem.i.zext.i.i = zext nneg i16 %rem.i13.i.i to i32
@@ -827,7 +827,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %14 = trunc i64 %indvars.iv.next.i to i32
+  %14 = trunc nuw i64 %indvars.iv.next.i to i32
   %.pre.i = load i32, ptr %m_rand.i, align 8
   br label %for.end.i
 
@@ -840,7 +840,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   store i32 %add.i20.i, ptr %m_rand.i, align 8
   %shr.i21.i = lshr i32 %add.i20.i, 16
   %and.i22.i = and i32 %shr.i21.i, 32767
-  %conv.i = sitofp i32 %and.i22.i to double
+  %conv.i = uitofp nneg i32 %and.i22.i to double
   %div.i = fdiv double %conv.i, 3.276700e+04
   %mul.i = fmul double %sum_prob.0.lcssa.i, %div.i
   %m_probs17.i = getelementptr inbounds i8, ptr %this, i64 712
@@ -942,7 +942,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.body
-  %14 = trunc i64 %indvars.iv.next to i32
+  %14 = trunc nuw i64 %indvars.iv.next to i32
   %.pre = load i32, ptr %m_rand, align 8
   br label %for.end
 
@@ -955,7 +955,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i32 %add.i20, ptr %m_rand, align 8
   %shr.i21 = lshr i32 %add.i20, 16
   %and.i22 = and i32 %shr.i21, 32767
-  %conv = sitofp i32 %and.i22 to double
+  %conv = uitofp nneg i32 %and.i22 to double
   %div = fdiv double %conv, 3.276700e+04
   %mul = fmul double %sum_prob.0.lcssa, %div
   %m_probs17 = getelementptr inbounds i8, ptr %this, i64 712
@@ -2123,7 +2123,7 @@ for.body7.lr.ph:                                  ; preds = %_ZNK6vectorIS_IN3sa
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.inc29
   %indvars.iv57 = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next58, %for.inc29 ]
-  %15 = trunc i64 %indvars.iv57 to i32
+  %15 = trunc nuw i64 %indvars.iv57 to i32
   %xor.i = xor i32 %15, 1
   %16 = load ptr, ptr %m_watches, align 8
   %arrayidx.i24 = getelementptr inbounds %class.vector.57, ptr %16, i64 %indvars.iv57
@@ -2560,7 +2560,7 @@ for.end20:                                        ; preds = %for.inc18
   ]
 
 sw.bb:                                            ; preds = %for.body6, %for.end20
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw i64 %indvars.iv to i32
   tail call void @_ZN16indexed_uint_set12insert_freshEj(ptr noundef nonnull align 8 dereferenceable(24) %m_unsat, i32 noundef %19)
   br label %for.inc29
 
@@ -2958,7 +2958,7 @@ for.body:                                         ; preds = %_ZNK6vectorIbLb0EjE
   %add.i.i = add i32 %mul.i.i, 2531011
   store i32 %add.i.i, ptr %m_rand, align 8
   %shr.i.i = lshr i32 %add.i.i, 16
-  %4 = trunc i32 %shr.i.i to i16
+  %4 = trunc nuw i32 %shr.i.i to i16
   %rem.i.lhs.trunc = and i16 %4, 32767
   %rem.i13 = urem i16 %rem.i.lhs.trunc, 100
   %rem.i.zext = zext nneg i16 %rem.i13 to i32
@@ -3011,7 +3011,7 @@ for.body.i:                                       ; preds = %_ZNK6vectorIbLb0EjE
   %add.i.i.i = add i32 %mul.i.i.i, 2531011
   store i32 %add.i.i.i, ptr %m_rand.i, align 8
   %shr.i.i.i = lshr i32 %add.i.i.i, 16
-  %4 = trunc i32 %shr.i.i.i to i16
+  %4 = trunc nuw i32 %shr.i.i.i to i16
   %rem.i.lhs.trunc.i = and i16 %4, 32767
   %rem.i13.i = urem i16 %rem.i.lhs.trunc.i, 100
   %rem.i.zext.i = zext nneg i16 %rem.i13.i to i32

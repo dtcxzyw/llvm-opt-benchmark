@@ -126,7 +126,7 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %50
-  %90 = sitofp i32 %86 to double
+  %90 = uitofp nneg i32 %86 to double
   br label %501
 
 91:                                               ; preds = %50
@@ -202,7 +202,7 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %146, label %147, label %137, !llvm.loop !10
 
 147:                                              ; preds = %140
-  %148 = trunc i64 %138 to i32
+  %148 = trunc nsw i64 %138 to i32
   br label %.loopexit26
 
 .loopexit26:                                      ; preds = %137, %147

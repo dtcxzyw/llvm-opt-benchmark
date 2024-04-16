@@ -537,7 +537,7 @@ Hash_IntObj.exit.i:                               ; preds = %69, %Hash_IntObj.ex
 
 Hash_Int2ManLookup.exit:                          ; preds = %65, %69, %.lr.ph
   %.0.lcssa.i = phi ptr [ %55, %.lr.ph ], [ %.018.i, %65 ], [ %70, %69 ]
-  %72 = trunc i64 %indvars.iv to i32
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %72, ptr %.0.lcssa.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1646,7 +1646,7 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
 91:                                               ; preds = %.critedge2._crit_edge
   tail call void @Wln_NtkCreateRefs(ptr noundef nonnull %0)
   %.val123 = load i32, ptr %68, align 4
-  %92 = sitofp i32 %90 to double
+  %92 = uitofp nneg i32 %90 to double
   %93 = fmul double %92, 1.000000e+02
   %94 = sitofp i32 %.val123 to double
   %95 = fdiv double %93, %94
@@ -1727,7 +1727,7 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr @stdout, align 8
-  %122 = trunc i64 %indvars.iv211 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv211 to i32
   %123 = tail call ptr @Wln_ObjName(ptr noundef nonnull %0, i32 noundef %122) #17
   %.val130 = load ptr, ptr %113, align 8
   %124 = getelementptr inbounds i32, ptr %.val130, i64 %indvars.iv211
@@ -1788,7 +1788,7 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
   br i1 %.not161, label %153, label %146
 
 146:                                              ; preds = %143
-  %147 = trunc i64 %indvars.iv214 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv214 to i32
   %148 = tail call i32 @Wln_NtkIsAcyclic_rec(ptr noundef nonnull %0, i32 noundef %147), !range !14
   %.not111 = icmp eq i32 %148, 0
   br i1 %.not111, label %149, label %._crit_edge220
@@ -3064,7 +3064,7 @@ Wln_NtkCleanRefs.exit:                            ; preds = %59, %Vec_IntGrow.ex
   br i1 %68, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader45
-  %69 = trunc i64 %indvars.iv53 to i32
+  %69 = trunc nuw nsw i64 %indvars.iv53 to i32
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.critedge, %Wln_NtkCleanRefs.exit
@@ -3201,7 +3201,7 @@ define void @Wln_NtkStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %.lr.ph25, %.critedge
   %indvars.iv27 = phi i64 [ 1, %.lr.ph25 ], [ %indvars.iv.next28, %.critedge ]
-  %9 = trunc i64 %indvars.iv27 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv27 to i32
   tail call void @Wln_ObjPrint(ptr noundef nonnull %0, i32 noundef %9) #17
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
   %.val1921 = load ptr, ptr %6, align 8

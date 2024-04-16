@@ -5557,7 +5557,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 823:                                              ; preds = %866, %717
   %824 = phi i32 [ 0, %717 ], [ %867, %866 ]
-  %825 = sitofp i32 %824 to float
+  %825 = uitofp nneg i32 %824 to float
   %826 = fmul reassoc nsz arcp contract afn float %825, 1.250000e-01
   %827 = fmul reassoc nsz arcp contract afn float %826, %722
   %828 = fsub reassoc nsz arcp contract afn float %827, %720
@@ -5942,7 +5942,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 82:                                               ; preds = %.preheader819, %82
   %83 = phi float [ %92, %82 ], [ %.ph820, %.preheader819 ]
   %84 = phi i32 [ %93, %82 ], [ %.ph821, %.preheader819 ]
-  %85 = sitofp i32 %84 to float
+  %85 = uitofp nneg i32 %84 to float
   %86 = fmul reassoc nsz arcp contract afn float %85, %85
   %87 = fmul reassoc nsz arcp contract afn float %86, %19
   %88 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %87)
@@ -6032,7 +6032,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 155:                                              ; preds = %.preheader816, %155
   %156 = phi float [ %165, %155 ], [ %.ph817, %.preheader816 ]
   %157 = phi i32 [ %166, %155 ], [ %.ph818, %.preheader816 ]
-  %158 = sitofp i32 %157 to float
+  %158 = uitofp nneg i32 %157 to float
   %159 = fmul reassoc nsz arcp contract afn float %158, %158
   %160 = fmul reassoc nsz arcp contract afn float %159, %19
   %161 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %160)
@@ -6122,7 +6122,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 228:                                              ; preds = %.preheader813, %228
   %229 = phi float [ %238, %228 ], [ %.ph814, %.preheader813 ]
   %230 = phi i32 [ %239, %228 ], [ %.ph815, %.preheader813 ]
-  %231 = sitofp i32 %230 to float
+  %231 = uitofp nneg i32 %230 to float
   %232 = fmul reassoc nsz arcp contract afn float %231, %231
   %233 = fmul reassoc nsz arcp contract afn float %232, %19
   %234 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %233)
@@ -6212,7 +6212,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 301:                                              ; preds = %.preheader810, %301
   %302 = phi float [ %311, %301 ], [ %.ph811, %.preheader810 ]
   %303 = phi i32 [ %312, %301 ], [ %.ph812, %.preheader810 ]
-  %304 = sitofp i32 %303 to float
+  %304 = uitofp nneg i32 %303 to float
   %305 = fmul reassoc nsz arcp contract afn float %304, %304
   %306 = fmul reassoc nsz arcp contract afn float %305, %19
   %307 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %306)
@@ -6302,7 +6302,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 374:                                              ; preds = %.preheader807, %374
   %375 = phi float [ %384, %374 ], [ %.ph808, %.preheader807 ]
   %376 = phi i32 [ %385, %374 ], [ %.ph809, %.preheader807 ]
-  %377 = sitofp i32 %376 to float
+  %377 = uitofp nneg i32 %376 to float
   %378 = fmul reassoc nsz arcp contract afn float %377, %377
   %379 = fmul reassoc nsz arcp contract afn float %378, %19
   %380 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %379)
@@ -6392,7 +6392,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 447:                                              ; preds = %.preheader804, %447
   %448 = phi float [ %457, %447 ], [ %.ph805, %.preheader804 ]
   %449 = phi i32 [ %458, %447 ], [ %.ph806, %.preheader804 ]
-  %450 = sitofp i32 %449 to float
+  %450 = uitofp nneg i32 %449 to float
   %451 = fmul reassoc nsz arcp contract afn float %450, %450
   %452 = fmul reassoc nsz arcp contract afn float %451, %19
   %453 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %452)
@@ -6482,7 +6482,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 520:                                              ; preds = %.preheader801, %520
   %521 = phi float [ %530, %520 ], [ %.ph802, %.preheader801 ]
   %522 = phi i32 [ %531, %520 ], [ %.ph803, %.preheader801 ]
-  %523 = sitofp i32 %522 to float
+  %523 = uitofp nneg i32 %522 to float
   %524 = fmul reassoc nsz arcp contract afn float %523, %523
   %525 = fmul reassoc nsz arcp contract afn float %524, %19
   %526 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %525)
@@ -6572,7 +6572,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 593:                                              ; preds = %.preheader798, %593
   %594 = phi float [ %603, %593 ], [ %.ph799, %.preheader798 ]
   %595 = phi i32 [ %604, %593 ], [ %.ph800, %.preheader798 ]
-  %596 = sitofp i32 %595 to float
+  %596 = uitofp nneg i32 %595 to float
   %597 = fmul reassoc nsz arcp contract afn float %596, %596
   %598 = fmul reassoc nsz arcp contract afn float %597, %19
   %599 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %598)
@@ -7714,7 +7714,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1358:                                             ; preds = %.preheader752, %1358
   %1359 = phi i32 [ %1369, %1358 ], [ %.ph753, %.preheader752 ]
   %1360 = phi float [ %1368, %1358 ], [ %.ph754, %.preheader752 ]
-  %1361 = sitofp i32 %1359 to float
+  %1361 = uitofp nneg i32 %1359 to float
   %1362 = fmul reassoc nsz arcp contract afn float %1361, %1361
   %1363 = fmul reassoc nsz arcp contract afn float %1362, %1295
   %1364 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1363)
@@ -7803,7 +7803,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1430:                                             ; preds = %.preheader749, %1430
   %1431 = phi i32 [ %1441, %1430 ], [ %.ph750, %.preheader749 ]
   %1432 = phi float [ %1440, %1430 ], [ %.ph751, %.preheader749 ]
-  %1433 = sitofp i32 %1431 to float
+  %1433 = uitofp nneg i32 %1431 to float
   %1434 = fmul reassoc nsz arcp contract afn float %1433, %1433
   %1435 = fmul reassoc nsz arcp contract afn float %1434, %1295
   %1436 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1435)
@@ -7893,7 +7893,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1503:                                             ; preds = %.preheader746, %1503
   %1504 = phi i32 [ %1514, %1503 ], [ %.ph747, %.preheader746 ]
   %1505 = phi float [ %1513, %1503 ], [ %.ph748, %.preheader746 ]
-  %1506 = sitofp i32 %1504 to float
+  %1506 = uitofp nneg i32 %1504 to float
   %1507 = fmul reassoc nsz arcp contract afn float %1506, %1506
   %1508 = fmul reassoc nsz arcp contract afn float %1507, %1295
   %1509 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1508)
@@ -7983,7 +7983,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1576:                                             ; preds = %.preheader743, %1576
   %1577 = phi i32 [ %1587, %1576 ], [ %.ph744, %.preheader743 ]
   %1578 = phi float [ %1586, %1576 ], [ %.ph745, %.preheader743 ]
-  %1579 = sitofp i32 %1577 to float
+  %1579 = uitofp nneg i32 %1577 to float
   %1580 = fmul reassoc nsz arcp contract afn float %1579, %1579
   %1581 = fmul reassoc nsz arcp contract afn float %1580, %1295
   %1582 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1581)
@@ -8073,7 +8073,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1649:                                             ; preds = %.preheader740, %1649
   %1650 = phi i32 [ %1660, %1649 ], [ %.ph741, %.preheader740 ]
   %1651 = phi float [ %1659, %1649 ], [ %.ph742, %.preheader740 ]
-  %1652 = sitofp i32 %1650 to float
+  %1652 = uitofp nneg i32 %1650 to float
   %1653 = fmul reassoc nsz arcp contract afn float %1652, %1652
   %1654 = fmul reassoc nsz arcp contract afn float %1653, %1295
   %1655 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1654)
@@ -8163,7 +8163,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1722:                                             ; preds = %.preheader737, %1722
   %1723 = phi i32 [ %1733, %1722 ], [ %.ph738, %.preheader737 ]
   %1724 = phi float [ %1732, %1722 ], [ %.ph739, %.preheader737 ]
-  %1725 = sitofp i32 %1723 to float
+  %1725 = uitofp nneg i32 %1723 to float
   %1726 = fmul reassoc nsz arcp contract afn float %1725, %1725
   %1727 = fmul reassoc nsz arcp contract afn float %1726, %1295
   %1728 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1727)
@@ -8253,7 +8253,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1795:                                             ; preds = %.preheader734, %1795
   %1796 = phi i32 [ %1806, %1795 ], [ %.ph735, %.preheader734 ]
   %1797 = phi float [ %1805, %1795 ], [ %.ph736, %.preheader734 ]
-  %1798 = sitofp i32 %1796 to float
+  %1798 = uitofp nneg i32 %1796 to float
   %1799 = fmul reassoc nsz arcp contract afn float %1798, %1798
   %1800 = fmul reassoc nsz arcp contract afn float %1799, %1295
   %1801 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1800)
@@ -8343,7 +8343,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 1868:                                             ; preds = %.preheader732, %1868
   %1869 = phi i32 [ %1879, %1868 ], [ %.ph, %.preheader732 ]
   %1870 = phi float [ %1878, %1868 ], [ %.ph733, %.preheader732 ]
-  %1871 = sitofp i32 %1869 to float
+  %1871 = uitofp nneg i32 %1869 to float
   %1872 = fmul reassoc nsz arcp contract afn float %1871, %1871
   %1873 = fmul reassoc nsz arcp contract afn float %1872, %1295
   %1874 = tail call reassoc nsz arcp contract afn noundef float @llvm.exp.f32(float %1873)
@@ -8630,7 +8630,7 @@ define internal fastcc void @dt_UCS_22_build_gamut_LUT(ptr nocapture noundef rea
 
 138:                                              ; preds = %215, %101
   %139 = phi i32 [ 0, %101 ], [ %270, %215 ]
-  %140 = sitofp i32 %139 to float
+  %140 = uitofp nneg i32 %139 to float
   %141 = fmul reassoc nsz arcp contract afn float %140, 0x3F36E05A80000000
   %142 = fadd reassoc nsz arcp contract afn float %141, 0xC00921FB60000000
   %143 = tail call reassoc nsz arcp contract afn float @tanf(float noundef %142) #32
@@ -9620,7 +9620,7 @@ define internal fastcc void @_init_sliders(ptr nocapture readonly %0, ptr nocapt
 
 38:                                               ; preds = %38, %24
   %39 = phi i32 [ 0, %24 ], [ %46, %38 ]
-  %40 = sitofp i32 %39 to float
+  %40 = uitofp nneg i32 %39 to float
   %41 = fmul reassoc nsz arcp contract afn float %40, 0x3FAAF286C0000000
   %42 = fmul reassoc nsz arcp contract afn float %41, %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #30
@@ -9676,7 +9676,7 @@ define internal fastcc void @_init_sliders(ptr nocapture readonly %0, ptr nocapt
 
 72:                                               ; preds = %72, %58
   %73 = phi i32 [ 0, %58 ], [ %81, %72 ]
-  %74 = sitofp i32 %73 to float
+  %74 = uitofp nneg i32 %73 to float
   %75 = fmul reassoc nsz arcp contract afn float %74, 0x3FAAF286C0000000
   %76 = fmul reassoc nsz arcp contract afn float %74, 0x3FD52A1720000000
   %77 = fadd reassoc nsz arcp contract afn float %71, %76
@@ -9726,7 +9726,7 @@ define internal fastcc void @_init_sliders(ptr nocapture readonly %0, ptr nocapt
 
 101:                                              ; preds = %101, %87
   %102 = phi i32 [ 0, %87 ], [ %109, %101 ]
-  %103 = sitofp i32 %102 to float
+  %103 = uitofp nneg i32 %102 to float
   %104 = fmul reassoc nsz arcp contract afn float %103, 0x3FAAEBA0C0000000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) @__const._draw_sliders_brightness_gradient.RGB, i64 16, i1 false)
@@ -10888,7 +10888,7 @@ define internal noundef i32 @_iop_colorequalizer_draw(ptr noundef %0, ptr nounde
 
 82:                                               ; preds = %82, %75
   %83 = phi i32 [ 0, %75 ], [ %98, %82 ]
-  %84 = sitofp i32 %83 to float
+  %84 = uitofp nneg i32 %83 to float
   %85 = fmul reassoc nsz arcp contract afn float %84, 0x3F66C16C20000000
   %86 = fmul reassoc nsz arcp contract afn float %84, 0x3F91DF46C0000000
   %87 = fadd reassoc nsz arcp contract afn float %86, 0x3FD6571860000000

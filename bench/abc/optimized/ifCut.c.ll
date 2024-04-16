@@ -106,7 +106,7 @@ define noundef i32 @If_CutVerifyCuts(ptr nocapture noundef readonly %0, i32 noun
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %35, !llvm.loop !4
 
 ._crit_edge.us.split.loop.exit35.i:               ; preds = %35
-  %40 = trunc i64 %indvars.iv.i to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.us.i
 
 ._crit_edge.us.i:                                 ; preds = %39, %._crit_edge.us.split.loop.exit35.i
@@ -129,7 +129,7 @@ If_CutVerifyCut.exit:                             ; preds = %42, %22
 .lr.ph.i:                                         ; preds = %If_CutVerifyCut.exit, %.lr.ph.i
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i35, %.lr.ph.i ], [ 0, %If_CutVerifyCut.exit ]
   %.val.i = load i32, ptr %14, align 4
-  %45 = trunc i64 %indvars.iv.i33 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   %46 = shl nuw i32 1, %45
   %47 = and i32 %46, %.val.i
   %.not.i34 = icmp eq i32 %47, 0
@@ -159,7 +159,7 @@ If_CutPrint.exit:                                 ; preds = %.lr.ph.i, %If_CutVe
 58:                                               ; preds = %58, %.lr.ph.i37
   %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i37 ], [ %indvars.iv.next.i41, %58 ]
   %.val.i39 = load i32, ptr %57, align 4
-  %59 = trunc i64 %indvars.iv.i38 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   %60 = shl nuw i32 1, %59
   %61 = and i32 %60, %.val.i39
   %.not.i40 = icmp eq i32 %61, 0
@@ -215,7 +215,7 @@ define void @If_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val = load i32, ptr %5, align 4
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = shl nuw i32 1, %8
   %10 = and i32 %.val, %9
   %.not = icmp eq i32 %10, 0
@@ -331,7 +331,7 @@ define noundef i32 @If_CutFilter(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %exitcond.not.i, label %If_CutCheckDominance.exit.thread, label %45, !llvm.loop !10
 
 ._crit_edge.us.i:                                 ; preds = %45
-  %50 = trunc i64 %indvars.iv.i to i32
+  %50 = trunc nuw nsw i64 %indvars.iv.i to i32
   %51 = icmp eq i32 %20, %50
   br i1 %51, label %If_CutCheckDominance.exit.thread, label %52
 
@@ -417,7 +417,7 @@ If_CutCheckDominance.exit:                        ; preds = %52, %41
   br i1 %exitcond.not.i55, label %._crit_edge.us.i56, label %77, !llvm.loop !10
 
 ._crit_edge.us.split.loop.exit33.i61:             ; preds = %77
-  %82 = trunc i64 %indvars.iv.i53 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv.i53 to i32
   br label %._crit_edge.us.i56
 
 ._crit_edge.us.i56:                               ; preds = %81, %._crit_edge.us.split.loop.exit33.i61
@@ -486,7 +486,7 @@ define noundef i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture 
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds [32 x i32], ptr %20, i64 0, i64 %indvars.iv176
-  %30 = trunc i64 %indvars.iv176 to i32
+  %30 = trunc nuw nsw i64 %indvars.iv176 to i32
   store i32 %30, ptr %29, align 4
   %31 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %indvars.iv176
   store i32 %30, ptr %31, align 4
@@ -645,7 +645,7 @@ define noundef i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture 
   %indvars.iv162 = phi i64 [ %116, %.lr.ph150 ], [ %indvars.iv.next163, %117 ]
   %indvars.iv = phi i64 [ %115, %.lr.ph150 ], [ %indvars.iv.next, %117 ]
   %118 = getelementptr inbounds [32 x i32], ptr %112, i64 0, i64 %indvars.iv162
-  %119 = trunc i64 %indvars.iv to i32
+  %119 = trunc nsw i64 %indvars.iv to i32
   store i32 %119, ptr %118, align 4
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, 1
   %120 = getelementptr inbounds [0 x i32], ptr %113, i64 0, i64 %indvars.iv162
@@ -657,7 +657,7 @@ define noundef i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture 
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %117, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %117
-  %123 = trunc i64 %indvars.iv.next to i32
+  %123 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader139
@@ -703,7 +703,7 @@ define noundef i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture 
   %indvars.iv169 = phi i64 [ %144, %.lr.ph153 ], [ %indvars.iv.next170, %145 ]
   %indvars.iv167 = phi i64 [ %143, %.lr.ph153 ], [ %indvars.iv.next168, %145 ]
   %146 = getelementptr inbounds [32 x i32], ptr %140, i64 0, i64 %indvars.iv169
-  %147 = trunc i64 %indvars.iv167 to i32
+  %147 = trunc nsw i64 %indvars.iv167 to i32
   store i32 %147, ptr %146, align 4
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, 1
   %148 = getelementptr inbounds [0 x i32], ptr %141, i64 0, i64 %indvars.iv169
@@ -715,7 +715,7 @@ define noundef i32 @If_CutMergeOrdered_(ptr nocapture noundef %0, ptr nocapture 
   br i1 %exitcond175.not, label %._crit_edge154.loopexit, label %145, !llvm.loop !16
 
 ._crit_edge154.loopexit:                          ; preds = %145
-  %151 = trunc i64 %indvars.iv.next168 to i32
+  %151 = trunc nsw i64 %indvars.iv.next168 to i32
   br label %._crit_edge154
 
 ._crit_edge154:                                   ; preds = %._crit_edge154.loopexit, %.preheader138
@@ -885,7 +885,7 @@ define noundef i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0, ptr no
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %69, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %69
-  %73 = trunc i64 %indvars.iv.next to i32
+  %73 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit.sink.split
 
 .loopexit111:                                     ; preds = %53, %45, %27
@@ -921,7 +921,7 @@ define noundef i32 @If_CutMergeOrdered(ptr nocapture noundef readnone %0, ptr no
   br i1 %exitcond145.not, label %._crit_edge122.loopexit, label %82, !llvm.loop !19
 
 ._crit_edge122.loopexit:                          ; preds = %82
-  %86 = trunc i64 %indvars.iv.next138 to i32
+  %86 = trunc nsw i64 %indvars.iv.next138 to i32
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %25, %.preheader107, %._crit_edge122.loopexit, %.preheader108, %._crit_edge.loopexit, %.preheader
@@ -1011,7 +1011,7 @@ define noundef i32 @If_CutMerge(ptr nocapture noundef writeonly %0, ptr nocaptur
   br i1 %exitcond.not, label %..critedge_crit_edge.us, label %28, !llvm.loop !20
 
 33:                                               ; preds = %28
-  %34 = trunc i64 %indvars.iv to i32
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   %35 = getelementptr inbounds [32 x i32], ptr %18, i64 0, i64 %indvars.iv60
   store i32 %34, ptr %35, align 4
   br label %36
@@ -1033,7 +1033,7 @@ define noundef i32 @If_CutMerge(ptr nocapture noundef writeonly %0, ptr nocaptur
   br i1 %38, label %.loopexit, label %40
 
 .preheader.loopexit:                              ; preds = %40
-  %39 = trunc i64 %indvars.iv.next67 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.next67 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %36, %.preheader.loopexit, %4
@@ -1048,7 +1048,7 @@ define noundef i32 @If_CutMerge(ptr nocapture noundef writeonly %0, ptr nocaptur
 
 40:                                               ; preds = %.preheader47
   %41 = getelementptr inbounds [32 x i32], ptr %18, i64 0, i64 %indvars.iv68
-  %42 = trunc i64 %indvars.iv66 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i32 %42, ptr %41, align 4
   %43 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv68
   %44 = load i32, ptr %43, align 4
@@ -2098,7 +2098,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %19
 
 19:                                               ; preds = %12, %7, %13, %16, %8, %10
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %20 = call i32 (...) @Abc_FrameIsBridgeMode() #17
   %.not9 = icmp eq i32 %20, 0
   br i1 %.not9, label %27, label %21
@@ -2117,7 +2117,7 @@ define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_add
   br label %29
 
 29:                                               ; preds = %27, %21
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %2, %29
@@ -2225,7 +2225,7 @@ define float @If_CutAreaFlow(ptr nocapture noundef readonly %0, ptr nocapture no
 13:                                               ; preds = %11
   %14 = trunc i64 %.val24 to i32
   %15 = and i32 %14, 4095
-  %16 = uitofp i32 %15 to float
+  %16 = uitofp nneg i32 %15 to float
   br label %If_CutLutArea.exit
 
 17:                                               ; preds = %11
@@ -2328,7 +2328,7 @@ define float @If_CutEdgeFlow(ptr nocapture noundef readonly %0, ptr nocapture no
   %4 = load i64, ptr %3, align 4
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 24
-  %7 = uitofp i32 %6 to float
+  %7 = uitofp nneg i32 %6 to float
   %8 = getelementptr inbounds i8, ptr %1, i64 36
   %.not29 = icmp ult i32 %5, 16777216
   br i1 %.not29, label %.critedge, label %.lr.ph
@@ -2525,7 +2525,7 @@ define float @If_CutAverageRefs(ptr nocapture noundef readonly %0, ptr nocapture
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
   %.09.lcssa = phi float [ 0.000000e+00, %2 ], [ %20, %.critedge.loopexit ]
-  %21 = sitofp i32 %7 to float
+  %21 = uitofp nneg i32 %7 to float
   %22 = fdiv float %.09.lcssa, %21
   ret float %22
 }
@@ -2554,7 +2554,7 @@ define float @If_CutAreaDeref(ptr nocapture noundef readonly %0, ptr nocapture n
 13:                                               ; preds = %11
   %14 = trunc i64 %.val16 to i32
   %15 = and i32 %14, 4095
-  %16 = uitofp i32 %15 to float
+  %16 = uitofp nneg i32 %15 to float
   br label %If_CutLutArea.exit
 
 17:                                               ; preds = %11
@@ -2656,7 +2656,7 @@ define float @If_CutAreaRef(ptr nocapture noundef readonly %0, ptr nocapture nou
 13:                                               ; preds = %11
   %14 = trunc i64 %.val16 to i32
   %15 = and i32 %14, 4095
-  %16 = uitofp i32 %15 to float
+  %16 = uitofp nneg i32 %15 to float
   br label %If_CutLutArea.exit
 
 17:                                               ; preds = %11
@@ -2776,7 +2776,7 @@ define float @If_CutEdgeDeref(ptr nocapture noundef readonly %0, ptr nocapture n
   %4 = load i64, ptr %3, align 4
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 24
-  %7 = uitofp i32 %6 to float
+  %7 = uitofp nneg i32 %6 to float
   %8 = getelementptr inbounds i8, ptr %1, i64 36
   %9 = and i64 %4, 4278190080
   %.not21 = icmp eq i64 %9, 0
@@ -2840,7 +2840,7 @@ define float @If_CutEdgeRef(ptr nocapture noundef readonly %0, ptr nocapture nou
   %4 = load i64, ptr %3, align 4
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 24
-  %7 = uitofp i32 %6 to float
+  %7 = uitofp nneg i32 %6 to float
   %8 = getelementptr inbounds i8, ptr %1, i64 36
   %9 = and i64 %4, 4278190080
   %.not21 = icmp eq i64 %9, 0
@@ -2908,7 +2908,7 @@ define float @If_CutEdgeDerefed(ptr nocapture noundef readonly %0, ptr nocapture
 
 7:                                                ; preds = %2
   %8 = lshr i32 %5, 24
-  %9 = uitofp i32 %8 to float
+  %9 = uitofp nneg i32 %8 to float
   br label %13
 
 10:                                               ; preds = %2
@@ -2931,7 +2931,7 @@ define float @If_CutEdgeRefed(ptr nocapture noundef readonly %0, ptr nocapture n
 
 7:                                                ; preds = %2
   %8 = lshr i32 %5, 24
-  %9 = uitofp i32 %8 to float
+  %9 = uitofp nneg i32 %8 to float
   br label %13
 
 10:                                               ; preds = %2
@@ -3923,31 +3923,31 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
-
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #12
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
@@ -3970,12 +3970,12 @@ attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none
 attributes #6 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind }

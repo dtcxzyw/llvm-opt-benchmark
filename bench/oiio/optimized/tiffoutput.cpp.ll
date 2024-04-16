@@ -6525,7 +6525,7 @@ _ZN18OpenImageIO_v2_6_05Timer9lap_ticksEv.exit:   ; preds = %entry, %cond.true.i
   %m_starttime3.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %add.i.i, ptr %m_starttime3.i, align 8
   store i8 1, ptr %this, align 8
-  %conv.i = sitofp i64 %cond.i to double
+  %conv.i = uitofp nneg i64 %cond.i to double
   %5 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i = fmul double %5, %conv.i
   ret double %mul.i

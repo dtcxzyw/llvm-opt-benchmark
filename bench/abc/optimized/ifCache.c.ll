@@ -559,7 +559,7 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds i8, ptr %79, i64 4
   store i32 %98, ptr %99, align 4
-  %100 = trunc i64 %indvars.iv.i.i to i32
+  %100 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %100, ptr %97, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.val35.i.i = load i32, ptr %42, align 4
@@ -578,7 +578,7 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %._crit_edge.loopexi
   %.val36.i.i = phi i32 [ %.val3568.i.i, %Vec_IntFill.exit.i.i ], [ %.val34.i.i, %.lr.ph..loopexit.i_crit_edge.i ], [ %.val35.i.i, %.loopexit.i.loopexit.i ]
   %103 = getelementptr i8, ptr %.val42.i.i, i64 8
   %.val42.val.i.i = load ptr, ptr %103, align 8
-  %104 = trunc i64 %indvars.iv.i to i32
+  %104 = trunc nuw nsw i64 %indvars.iv.i to i32
   %105 = mul nsw i32 %.val41.i.i, %104
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i32, ptr %.val42.val.i.i, i64 %106
@@ -879,7 +879,7 @@ Hsh_IntManHashArray.exit:                         ; preds = %Vec_IntFree.exit.i.
 
 .lr.ph105:                                        ; preds = %.critedge.preheader
   %228 = tail call noundef i32 @llvm.smax.i32(i32 %.val.lcssa, i32 1)
-  %229 = sitofp i32 %228 to double
+  %229 = uitofp nneg i32 %228 to double
   br label %275
 
 .lr.ph102:                                        ; preds = %.preheader80, %Vec_IntPush.exit
@@ -1056,9 +1056,9 @@ Vec_IntCountUnique.exit:                          ; preds = %._crit_edge.i45, %.
   %307 = sitofp i32 %.014.lcssa22.i to double
   %308 = fmul double %307, 1.000000e+02
   %309 = tail call noundef i32 @llvm.smax.i32(i32 %279, i32 1)
-  %310 = sitofp i32 %309 to double
+  %310 = uitofp nneg i32 %309 to double
   %311 = fdiv double %308, %310
-  %312 = trunc i64 %indvars.iv129 to i32
+  %312 = trunc nuw nsw i64 %indvars.iv129 to i32
   %313 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %312, i32 noundef %279, double noundef %306, i32 noundef %.014.lcssa22.i, double noundef %311)
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %314 = load ptr, ptr %215, align 8
@@ -1166,7 +1166,7 @@ Vec_IntCountUnique.exit77:                        ; preds = %._crit_edge.i57, %.
   %350 = sitofp i32 %.014.lcssa22.i61 to double
   %351 = fmul double %350, 1.000000e+02
   %352 = tail call noundef i32 @llvm.smax.i32(i32 %349, i32 1)
-  %353 = sitofp i32 %352 to double
+  %353 = uitofp nneg i32 %352 to double
   %354 = fdiv double %351, %353
   %355 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %349, double noundef 1.000000e+02, i32 noundef %.014.lcssa22.i61, double noundef %354)
   %356 = load ptr, ptr %8, align 8

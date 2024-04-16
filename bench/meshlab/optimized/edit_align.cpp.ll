@@ -22867,7 +22867,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %23, label %28, label %59
 
 28:                                               ; preds = %27
-  %29 = sitofp i64 %spec.store.select to float
+  %29 = uitofp nneg i64 %spec.store.select to float
   br i1 %26, label %30, label %48
 
 30:                                               ; preds = %28
@@ -22912,7 +22912,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %60, label %72
 
 60:                                               ; preds = %59
-  %61 = sitofp i64 %spec.store.select to float
+  %61 = uitofp nneg i64 %spec.store.select to float
   %62 = fmul float %18, %61
   %63 = fdiv float %62, %24
   %64 = tail call noundef float @sqrtf(float noundef %63) #23
@@ -22938,7 +22938,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %76, label %88
 
 76:                                               ; preds = %75
-  %77 = sitofp i64 %spec.store.select to float
+  %77 = uitofp nneg i64 %spec.store.select to float
   %78 = fmul float %21, %77
   %79 = fdiv float %78, %24
   %80 = tail call noundef float @sqrtf(float noundef %79) #23
@@ -33916,7 +33916,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrINS_9AlignPair8A2VertexEdE3SetIN
   br i1 %34, label %37, label %59
 
 37:                                               ; preds = %36
-  %38 = uitofp i32 %32 to double
+  %38 = uitofp nneg i32 %32 to double
   br i1 %35, label %39, label %50
 
 39:                                               ; preds = %37
@@ -33947,7 +33947,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrINS_9AlignPair8A2VertexEdE3SetIN
   br i1 %35, label %60, label %_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE.exit
 
 60:                                               ; preds = %59
-  %61 = uitofp i32 %32 to double
+  %61 = uitofp nneg i32 %32 to double
   %62 = fmul double %17, %61
   %63 = fdiv double %62, %27
   %64 = tail call double @sqrt(double noundef %63) #23
@@ -33965,7 +33965,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrINS_9AlignPair8A2VertexEdE3SetIN
   br i1 %35, label %72, label %_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE.exit
 
 72:                                               ; preds = %71
-  %73 = uitofp i32 %32 to double
+  %73 = uitofp nneg i32 %32 to double
   %74 = fmul double %22, %73
   %75 = fdiv double %74, %27
   %76 = tail call double @sqrt(double noundef %75) #23
@@ -37166,7 +37166,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrINS_9AlignPair6A2FaceEdE3SetIN9_
   br i1 %34, label %37, label %59
 
 37:                                               ; preds = %36
-  %38 = uitofp i32 %32 to double
+  %38 = uitofp nneg i32 %32 to double
   br i1 %35, label %39, label %50
 
 39:                                               ; preds = %37
@@ -37197,7 +37197,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrINS_9AlignPair6A2FaceEdE3SetIN9_
   br i1 %35, label %60, label %_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE.exit
 
 60:                                               ; preds = %59
-  %61 = uitofp i32 %32 to double
+  %61 = uitofp nneg i32 %32 to double
   %62 = fmul double %17, %61
   %63 = fdiv double %62, %27
   %64 = tail call double @sqrt(double noundef %63) #23
@@ -37215,7 +37215,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrINS_9AlignPair6A2FaceEdE3SetIN9_
   br i1 %35, label %72, label %_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE.exit
 
 72:                                               ; preds = %71
-  %73 = uitofp i32 %32 to double
+  %73 = uitofp nneg i32 %32 to double
   %74 = fmul double %22, %73
   %75 = fdiv double %74, %27
   %76 = tail call double @sqrt(double noundef %75) #23
@@ -38547,14 +38547,14 @@ _ZNKSt6vectorIN3vcg6Point3IdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
 6:                                                ; preds = %6, %_ZNKSt6vectorIN3vcg6Point3IdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %indvars.iv.i = phi i64 [ 0, %_ZNKSt6vectorIN3vcg6Point3IdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %indvars.iv.next.i, %6 ]
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %8 = sitofp i32 %7 to double
+  %8 = uitofp nneg i32 %7 to double
   %9 = fdiv double %8, 0x3FF9E3779B97F4A8
   %10 = tail call double @llvm.floor.f64(double %9)
   %11 = fsub double %9, %10
   %12 = fmul double %11, 0x401921FB54442D18
   %13 = shl i32 %7, 1
   %14 = or disjoint i32 %13, 1
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp nneg i32 %14 to double
   %16 = fdiv double %15, 3.000000e+01
   %17 = fsub double 1.000000e+00, %16
   %18 = fneg double %17
@@ -41371,7 +41371,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
   %59 = trunc nuw nsw i64 %indvars.iv32 to i32
-  %60 = sitofp i32 %59 to float
+  %60 = uitofp nneg i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -41393,7 +41393,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
   %74 = trunc nuw nsw i64 %indvars.iv to i32
-  %75 = sitofp i32 %74 to float
+  %75 = uitofp nneg i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #23
@@ -45970,7 +45970,7 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   %.138595.i.i.i = phi double [ %.0384106.i.i.i, %._crit_edge87.i.i.i ], [ %.2386.i.i.i, %666 ]
   %.040894.i.i.i = phi i32 [ 0, %._crit_edge87.i.i.i ], [ %.1409.i.i.i, %666 ]
   %.893.i.i.i = phi i32 [ 1, %._crit_edge87.i.i.i ], [ %667, %666 ]
-  %651 = sitofp i32 %.893.i.i.i to double
+  %651 = uitofp nneg i32 %.893.i.i.i to double
   %652 = fmul double %651, 0x3FC015BF9217271A
   %653 = call double @cos(double noundef %652) #23
   %654 = call double @sin(double noundef %652) #23
@@ -47024,7 +47024,7 @@ _ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
   %.61110.i.i.i = phi double [ %1189, %1133 ], [ %1216, %1225 ]
   %.08761109.i.i.i = phi i32 [ 0, %1133 ], [ %.1877.i.i.i, %1225 ]
   %.109081108.i.i.i = phi i32 [ 1, %1133 ], [ %1226, %1225 ]
-  %1191 = sitofp i32 %.109081108.i.i.i to double
+  %1191 = uitofp nneg i32 %.109081108.i.i.i to double
   %1192 = fmul double %1191, 0x3FC015BF9217271A
   %1193 = call double @cos(double noundef %1192) #23
   store double %1193, ptr %160, align 8
@@ -48959,7 +48959,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %.0393532 = phi i32 [ 0, %._crit_edge527 ], [ %.1394, %206 ]
   %.7531 = phi i32 [ 1, %._crit_edge527 ], [ %208, %206 ]
   %190 = phi <2 x double> [ %261, %._crit_edge527 ], [ %207, %206 ]
-  %191 = sitofp i32 %.7531 to double
+  %191 = uitofp nneg i32 %.7531 to double
   %192 = fmul double %191, 0x3FC015BF9217271A
   %193 = tail call double @cos(double noundef %192) #23
   %194 = tail call double @sin(double noundef %192) #23

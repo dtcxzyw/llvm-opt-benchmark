@@ -6269,7 +6269,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE17CompactFaceVectorERS2_.exit: ; preds = %47, %50
 _ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i:     ; preds = %70, %67
   %.0.i.i.i = phi ptr [ %78, %70 ], [ null, %67 ]
   %79 = icmp eq ptr %.0.i.i.i, %.sroa.08.020.i
-  %80 = trunc i64 %indvars.iv.i to i32
+  %80 = trunc nuw nsw i64 %indvars.iv.i to i32
   %81 = shl nuw nsw i32 64, %80
   %82 = xor i32 %81, -1
   %83 = and i32 %storemerge1617.i, %82
@@ -8148,8 +8148,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %56 = phi i32 [ %69, %.lr.ph29 ], [ %55, %.preheader ]
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
-  %59 = trunc i64 %indvars.iv32 to i32
-  %60 = sitofp i32 %59 to float
+  %59 = trunc nuw nsw i64 %indvars.iv32 to i32
+  %60 = uitofp nneg i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -8170,8 +8170,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %71 = phi i32 [ %84, %.lr.ph ], [ %55, %.preheader23 ]
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
-  %74 = trunc i64 %indvars.iv to i32
-  %75 = sitofp i32 %74 to float
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
+  %75 = uitofp nneg i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #29
@@ -10321,7 +10321,7 @@ define linkonce_odr void @_ZN3vcg3tri14UpdateTopologyI6CMeshOE10VertexFaceERS2_(
   %100 = ashr exact i64 %sext.i17, 32
   %101 = load ptr, ptr %94, align 8
   %102 = getelementptr inbounds %"struct.vcg::vertex::vector_ocf<CVertexO>::VFAdjType", ptr %101, i64 %100, i32 1
-  %103 = trunc i64 %indvars.iv to i32
+  %103 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %103, ptr %102, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -18811,7 +18811,7 @@ _ZN3vcg3tri12UpdateNormalI6CMeshOE16PerVertexPerFaceERS2_.exit: ; preds = %61, %
 
 103:                                              ; preds = %92
   store ptr %.sroa.015.035, ptr %5, align 8
-  %104 = trunc i64 %indvars.iv to i32
+  %104 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %104, ptr %83, align 8
   store ptr %98, ptr %84, align 8
   %105 = load i32, ptr %85, align 8
@@ -21026,7 +21026,7 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO10MeanCEFlipE10Update
   %28 = getelementptr inbounds i8, ptr %15, i64 8
   %29 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %25
   %30 = load ptr, ptr %29, align 8
-  %31 = trunc i32 %14 to i8
+  %31 = trunc nsw i32 %14 to i8
   %.lhs.trunc = add nsw i8 %31, 1
   %32 = srem i8 %.lhs.trunc, 3
   %33 = sext i8 %32 to i64
@@ -21115,7 +21115,7 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO10MeanCEFlipE10Update
 
 97:                                               ; preds = %96
   store ptr %15, ptr %4, align 8
-  %98 = trunc i64 %indvars.iv to i32
+  %98 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %98, ptr %91, align 8
   %99 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8
@@ -21152,7 +21152,7 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO10MeanCEFlipE10Update
 
 115:                                              ; preds = %103
   store ptr %27, ptr %5, align 8
-  %116 = trunc i64 %indvars.iv175 to i32
+  %116 = trunc nuw nsw i64 %indvars.iv175 to i32
   store i32 %116, ptr %94, align 8
   %117 = getelementptr inbounds [3 x ptr], ptr %45, i64 0, i64 %indvars.iv175
   %118 = load ptr, ptr %117, align 8
@@ -21171,7 +21171,7 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO10MeanCEFlipE10Update
   %122 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %indvars.iv179
   %123 = load ptr, ptr %122, align 8
   store ptr %15, ptr %6, align 8
-  %124 = trunc i64 %indvars.iv179 to i32
+  %124 = trunc nuw nsw i64 %indvars.iv179 to i32
   store i32 %124, ptr %.sroa.5132.0..sroa_idx, align 8
   store ptr %123, ptr %.sroa.8139.0..sroa_idx, align 8
   br label %125
@@ -21284,7 +21284,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit86:     ; preds = %.critedge, %174
   %188 = phi ptr [ %203, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit95 ], [ %123, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit86 ]
   %189 = phi i32 [ %226, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit95 ], [ %151, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit86 ]
   %190 = phi ptr [ %223, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit95 ], [ %148, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit86 ]
-  %191 = trunc i32 %189 to i16
+  %191 = trunc nsw i32 %189 to i16
   %.lhs.trunc204 = add nsw i16 %191, 1
   %192 = srem i16 %.lhs.trunc204, 3
   %.sext = sext i16 %192 to i32
@@ -21418,7 +21418,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit95:     ; preds = %_ZNK3vcg4face3PosI6
 260:                                              ; preds = %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit104, %245
   %261 = phi i32 [ %286, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit104 ], [ %.sext146, %245 ]
   %262 = phi ptr [ %283, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit104 ], [ %27, %245 ]
-  %263 = trunc i32 %261 to i16
+  %263 = trunc nsw i32 %261 to i16
   %.lhs.trunc205 = add nsw i16 %263, 1
   %264 = srem i16 %.lhs.trunc205, 3
   %265 = getelementptr inbounds i8, ptr %262, i64 8
@@ -21429,7 +21429,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit95:     ; preds = %_ZNK3vcg4face3PosI6
   br i1 %269, label %_ZN3vcg4face3PosI6CFaceOE5NextEEv.exit99, label %270
 
 270:                                              ; preds = %260
-  %271 = trunc i32 %261 to i16
+  %271 = trunc nsw i32 %261 to i16
   %.lhs.trunc209 = add nsw i16 %271, 2
   %272 = srem i16 %.lhs.trunc209, 3
   %.pre.i96 = sext i16 %272 to i64
@@ -21523,7 +21523,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit106:    ; preds = %.critedge4, %308
   %322 = phi ptr [ %337, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit117 ], [ %259, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit106 ]
   %323 = phi i32 [ %360, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit117 ], [ %286, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit106 ]
   %324 = phi ptr [ %357, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit117 ], [ %283, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit106 ]
-  %325 = trunc i32 %323 to i16
+  %325 = trunc nsw i32 %323 to i16
   %.lhs.trunc207 = add nsw i16 %325, 1
   %326 = srem i16 %.lhs.trunc207, 3
   %.sext208 = sext i16 %326 to i32
@@ -21769,7 +21769,7 @@ define linkonce_odr void @_ZN3vcg4face8FlipEdgeI6CFaceOEEvRT_i(ptr noundef nonnu
   %117 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %116, i64 %115
   %118 = getelementptr inbounds [3 x ptr], ptr %117, i64 0, i64 %26
   store ptr %14, ptr %118, align 8
-  %119 = trunc i16 %33 to i8
+  %119 = trunc nsw i16 %33 to i8
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 240
   %122 = load ptr, ptr %120, align 8
@@ -21789,7 +21789,7 @@ define linkonce_odr void @_ZN3vcg4face8FlipEdgeI6CFaceOEEvRT_i(ptr noundef nonnu
   %135 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %134, i64 %133
   %136 = getelementptr inbounds [3 x ptr], ptr %135, i64 0, i64 %34
   store ptr %0, ptr %136, align 8
-  %137 = trunc i32 %24 to i8
+  %137 = trunc nsw i32 %24 to i8
   %138 = load ptr, ptr %14, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 240
   %140 = load ptr, ptr %138, align 8
@@ -22314,7 +22314,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = trunc i64 %.0.lcssa.i to i8
+  %53 = trunc nuw i64 %.0.lcssa.i to i8
   %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

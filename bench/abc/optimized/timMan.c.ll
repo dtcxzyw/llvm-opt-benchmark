@@ -75,7 +75,7 @@ define noalias noundef ptr @Tim_ManStart(i32 noundef %0, i32 noundef %1) local_u
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %15 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %calloc55, i64 %indvars.iv
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %16, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %15, i64 12
   store i32 -1, ptr %17, align 4
@@ -90,7 +90,7 @@ define noalias noundef ptr @Tim_ManStart(i32 noundef %0, i32 noundef %1) local_u
 .critedge:                                        ; preds = %.critedge.preheader48, %.critedge
   %indvars.iv50 = phi i64 [ 0, %.critedge.preheader48 ], [ %indvars.iv.next51, %.critedge ]
   %20 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %calloc56, i64 %indvars.iv50
-  %21 = trunc i64 %indvars.iv50 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv50 to i32
   store i32 %21, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %20, i64 12
   store i32 -1, ptr %22, align 4
@@ -367,7 +367,7 @@ Tim_ManBoxNum.exit:                               ; preds = %.critedge4
   tail call void @Tim_ManCreateBox(ptr noundef nonnull %27, i32 noundef %115, i32 noundef %117, i32 noundef %120, i32 noundef %122, i32 noundef %124, i32 noundef %126) #18
   %127 = getelementptr inbounds i8, ptr %113, i64 20
   %128 = load i32, ptr %127, align 4
-  %129 = trunc i64 %indvars.iv135 to i32
+  %129 = trunc nuw nsw i64 %indvars.iv135 to i32
   tail call void @Tim_ManBoxSetCopy(ptr noundef nonnull %27, i32 noundef %129, i32 noundef %128) #18
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %130 = load ptr, ptr %0, align 8
@@ -890,7 +890,7 @@ Vec_PtrAlloc.exit:                                ; preds = %Tim_ManBoxNum.exit1
 Tim_ManBoxNum.exit191:                            ; preds = %198, %211
   %213 = phi i32 [ %.val.i190, %211 ], [ 0, %198 ]
   %214 = add nsw i32 %213, -1
-  %215 = trunc i64 %indvars.iv252 to i32
+  %215 = trunc nuw nsw i64 %indvars.iv252 to i32
   %216 = tail call i32 @Tim_ManBoxCopy(ptr noundef nonnull %0, i32 noundef %215) #18
   %217 = icmp eq i32 %216, -1
   br i1 %217, label %220, label %218
@@ -1252,8 +1252,8 @@ Tim_ManDelayTableNum.exit:                        ; preds = %Tim_ManPoNum.exit14
   %122 = sext i32 %121 to i64
   %123 = shl nsw i64 %122, 2
   %124 = tail call noalias ptr @malloc(i64 noundef %123) #19
-  %125 = trunc i64 %indvars.iv197 to i32
-  %126 = sitofp i32 %125 to float
+  %125 = trunc nuw nsw i64 %indvars.iv197 to i32
+  %126 = uitofp nneg i32 %125 to float
   store float %126, ptr %124, align 4
   %127 = load float, ptr %114, align 4
   %128 = fptosi float %127 to i32
@@ -2042,7 +2042,7 @@ define noalias noundef ptr @Tim_ManGetArrTimes(ptr noundef %0) local_unnamed_add
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !32
 
 .critedge.loopexit.split.loop.exit46:             ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %.critedge.loopexit.split.loop.exit46, %.lr.ph, %1
@@ -2147,7 +2147,7 @@ define noalias noundef ptr @Tim_ManGetReqTimes(ptr noundef %0) local_unnamed_add
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !34
 
 .critedge.loopexit.split.loop.exit51:             ; preds = %11
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %.critedge.loopexit.split.loop.exit51, %.lr.ph, %1
@@ -2343,7 +2343,7 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph.split, !llvm.loop !36
 
 .critedge:                                        ; preds = %47, %42
-  %53 = trunc i64 %indvars.iv to i32
+  %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = icmp eq i32 %36, %53
   br i1 %54, label %.critedge.thread, label %.preheader216
 
@@ -2386,7 +2386,7 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   %72 = getelementptr inbounds i8, ptr %63, i64 20
   %73 = load float, ptr %72, align 4
   %74 = fpext float %73 to double
-  %75 = trunc i64 %indvars.iv287 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv287 to i32
   %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %75, double noundef %71, double noundef %74)
   %.pre333 = load i32, ptr %13, align 8
   br label %77
@@ -2443,7 +2443,7 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit, 
   br i1 %exitcond294.not, label %.critedge4.thread, label %.lr.ph234.split, !llvm.loop !38
 
 .critedge4:                                       ; preds = %96, %91
-  %102 = trunc i64 %indvars.iv290 to i32
+  %102 = trunc nuw nsw i64 %indvars.iv290 to i32
   %103 = icmp eq i32 %85, %102
   br i1 %103, label %.critedge4.thread, label %.preheader215
 
@@ -2531,7 +2531,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   %143 = load i32, ptr %142, align 4
   %144 = getelementptr inbounds i8, ptr %141, i64 12
   %145 = load i32, ptr %144, align 4
-  %146 = trunc i64 %indvars.iv311 to i32
+  %146 = trunc nuw nsw i64 %indvars.iv311 to i32
   %147 = tail call i32 @Tim_ManBoxInputFirst(ptr noundef nonnull %0, i32 noundef %146) #18
   %148 = tail call i32 @Tim_ManBoxOutputFirst(ptr noundef nonnull %0, i32 noundef %146) #18
   %149 = getelementptr inbounds i8, ptr %141, i64 16
@@ -2579,11 +2579,11 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   br i1 %exitcond302.not, label %.critedge10, label %161, !llvm.loop !41
 
 .critedge10.loopexit.split.loop.exit350:          ; preds = %161
-  %175 = trunc i64 %indvars.iv298 to i32
+  %175 = trunc nuw nsw i64 %indvars.iv298 to i32
   br label %.critedge10
 
 .critedge10.loopexit.split.loop.exit352:          ; preds = %169
-  %176 = trunc i64 %indvars.iv298 to i32
+  %176 = trunc nuw nsw i64 %indvars.iv298 to i32
   br label %.critedge10
 
 .critedge10:                                      ; preds = %174, %.critedge10.loopexit.split.loop.exit350, %.critedge10.loopexit.split.loop.exit352, %.lr.ph277
@@ -2631,7 +2631,7 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   %196 = getelementptr inbounds i8, ptr %192, i64 20
   %197 = load float, ptr %196, align 4
   %198 = fpext float %197 to double
-  %199 = trunc i64 %indvars.iv303369 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv303369 to i32
   %200 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %199, double noundef %195, double noundef %198)
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303369, 1
   %201 = load i32, ptr %142, align 4
@@ -2685,11 +2685,11 @@ Tim_ManBoxNum.exit206:                            ; preds = %.critedge6
   br i1 %exitcond310.not, label %.critedge14, label %215, !llvm.loop !43
 
 .critedge14.loopexit.split.loop.exit355:          ; preds = %215
-  %230 = trunc i64 %indvars.iv306 to i32
+  %230 = trunc nuw nsw i64 %indvars.iv306 to i32
   br label %.critedge14
 
 .critedge14.loopexit.split.loop.exit357:          ; preds = %224
-  %231 = trunc i64 %indvars.iv306 to i32
+  %231 = trunc nuw nsw i64 %indvars.iv306 to i32
   br label %.critedge14
 
 .critedge14:                                      ; preds = %229, %.critedge14.loopexit.split.loop.exit355, %.critedge14.loopexit.split.loop.exit357, %.critedge12
@@ -2766,7 +2766,7 @@ Tim_ManDelayTableNum.exit:                        ; preds = %.critedge8
   br i1 %270, label %.loopexit, label %271
 
 271:                                              ; preds = %.lr.ph283
-  %272 = trunc i64 %indvars.iv326 to i32
+  %272 = trunc nuw nsw i64 %indvars.iv326 to i32
   %273 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %272)
   %274 = getelementptr inbounds i8, ptr %269, i64 4
   %275 = load float, ptr %274, align 4
@@ -3148,7 +3148,7 @@ Vec_PtrStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
 76:                                               ; preds = %.lr.ph81
   %77 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv86
   %78 = load ptr, ptr %77, align 8
-  %79 = trunc i64 %indvars.iv86 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv86 to i32
   %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %79)
   %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %74)
   %82 = getelementptr inbounds i8, ptr %78, i64 8
@@ -3187,7 +3187,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #18
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #18
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3206,7 +3206,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -3275,7 +3275,7 @@ Tim_ManBoxNum.exit:                               ; preds = %3
   br i1 %.not14, label %21, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call i32 @Tim_ManBoxInputNum(ptr noundef nonnull %0, i32 noundef %14) #18
   %16 = load i32, ptr %1, align 4
   %17 = add nsw i32 %16, %15
@@ -3328,19 +3328,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #13
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #13
+declare void @llvm.va_start.p0(ptr) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
@@ -3370,8 +3370,8 @@ attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

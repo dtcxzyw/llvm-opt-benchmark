@@ -649,7 +649,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %127, %122, %121
 
 149:                                              ; preds = %147
   %150 = fmul double %139, %140
-  %151 = sitofp i64 %145 to double
+  %151 = uitofp nneg i64 %145 to double
   %152 = fdiv double %151, %150
   %153 = call double @pow(double noundef %152, double noundef 5.000000e-01) #20
   %154 = fmul double %139, %153
@@ -659,11 +659,11 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %127, %122, %121
   br label %162
 
 158:                                              ; preds = %147
-  %159 = trunc i64 %145 to i32
+  %159 = trunc nuw i64 %145 to i32
   br label %162
 
 160:                                              ; preds = %138
-  %161 = trunc i64 %145 to i32
+  %161 = trunc nuw i64 %145 to i32
   br label %162
 
 162:                                              ; preds = %149, %158, %160
@@ -671,9 +671,9 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %127, %122, %121
   %164 = phi i32 [ %159, %158 ], [ 1, %160 ], [ %155, %149 ]
   %.sroa.speculated32.i = call i32 @llvm.smax.i32(i32 %164, i32 1)
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %163, i32 1)
-  %165 = sitofp i32 %.sroa.speculated32.i to double
+  %165 = uitofp nneg i32 %.sroa.speculated32.i to double
   %166 = fdiv double %139, %165
-  %167 = sitofp i32 %.sroa.speculated.i to double
+  %167 = uitofp nneg i32 %.sroa.speculated.i to double
   %168 = fdiv double %140, %167
   store ptr %1, ptr %5, align 16
   %169 = getelementptr inbounds i8, ptr %5, i64 8
@@ -766,7 +766,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %127, %122, %121
 
 .preheader392:                                    ; preds = %.preheader392.preheader, %._crit_edge
   %indvars.iv470 = phi i64 [ %224, %.preheader392.preheader ], [ %indvars.iv.next471, %._crit_edge ]
-  %226 = trunc i64 %indvars.iv470 to i32
+  %226 = trunc nsw i64 %indvars.iv470 to i32
   %227 = sitofp i32 %226 to double
   %228 = fmul double %166, %227
   %229 = fadd double %.sroa.0359.3, %228
@@ -781,7 +781,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %127, %122, %121
 
 236:                                              ; preds = %.preheader392, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit
   %indvars.iv = phi i64 [ %222, %.preheader392 ], [ %indvars.iv.next, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit ]
-  %237 = trunc i64 %indvars.iv to i32
+  %237 = trunc nsw i64 %indvars.iv to i32
   %238 = sitofp i32 %237 to double
   %239 = fmul double %168, %238
   %240 = fadd double %.sroa.13.3, %239
@@ -1935,7 +1935,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
 
 75:                                               ; preds = %73
   %76 = fmul double %65, %66
-  %77 = sitofp i64 %71 to double
+  %77 = uitofp nneg i64 %71 to double
   %78 = fdiv double %77, %76
   %79 = call double @pow(double noundef %78, double noundef 5.000000e-01) #20
   %80 = fmul double %65, %79
@@ -1947,11 +1947,11 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   br label %88
 
 84:                                               ; preds = %73
-  %85 = trunc i64 %71 to i32
+  %85 = trunc nuw i64 %71 to i32
   br label %88
 
 86:                                               ; preds = %.loopexit213
-  %87 = trunc i64 %71 to i32
+  %87 = trunc nuw i64 %71 to i32
   br label %88
 
 88:                                               ; preds = %86, %84, %75
@@ -1961,9 +1961,9 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %92 = phi i32 [ %85, %84 ], [ 1, %86 ], [ %81, %75 ]
   %.sroa.speculated32.i = call i32 @llvm.smax.i32(i32 %92, i32 1)
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %91, i32 1)
-  %93 = sitofp i32 %.sroa.speculated32.i to double
+  %93 = uitofp nneg i32 %.sroa.speculated32.i to double
   %94 = fdiv double %65, %93
-  %95 = sitofp i32 %.sroa.speculated.i to double
+  %95 = uitofp nneg i32 %.sroa.speculated.i to double
   %96 = fdiv double %66, %95
   %.not238 = icmp eq ptr %90, %89
   br i1 %.not238, label %._crit_edge225, label %.lr.ph
@@ -2053,7 +2053,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
 
 .preheader209:                                    ; preds = %.preheader209.preheader, %._crit_edge
   %indvars.iv247 = phi i64 [ %161, %.preheader209.preheader ], [ %indvars.iv.next248, %._crit_edge ]
-  %164 = trunc i64 %indvars.iv247 to i32
+  %164 = trunc nsw i64 %indvars.iv247 to i32
   %165 = sitofp i32 %164 to double
   %166 = fmul double %94, %165
   %167 = fadd double %.sroa.0184.7, %166
@@ -2068,7 +2068,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
 
 174:                                              ; preds = %.preheader209, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %indvars.iv = phi i64 [ %157, %.preheader209 ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %175 = trunc i64 %indvars.iv to i32
+  %175 = trunc nsw i64 %indvars.iv to i32
   %176 = sitofp i32 %175 to double
   %177 = fmul double %96, %176
   %178 = fadd double %.sroa.6185.0..sroa.6185.0..sroa.6185.0.copyload, %177

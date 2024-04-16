@@ -1733,7 +1733,7 @@ define noundef i64 @_ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEi(ptr
   %13 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %12, ptr %13, align 4
   %14 = lshr i64 %5, 43
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %16 = and i32 %15, 524287
   %17 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %16, ptr %17, align 4
@@ -1785,7 +1785,7 @@ define noundef i64 @_ZN10VertexData11CenterIndexEPK7OctNodeI12TreeNodeDataEiPi(p
   %13 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %12, ptr %13, align 4
   %14 = lshr i64 %5, 43
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw nsw i64 %14 to i32
   %16 = and i32 %15, 524287
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %16, ptr %17, align 4
@@ -1877,7 +1877,7 @@ define noundef i64 @_ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEii(pt
   %17 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %16, ptr %17, align 4
   %18 = lshr i64 %9, 43
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 524287
   %21 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %20, ptr %21, align 4
@@ -1936,7 +1936,7 @@ define noundef i64 @_ZN10VertexData11CornerIndexEPK7OctNodeI12TreeNodeDataEiiPi(
   %17 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %16, ptr %17, align 4
   %18 = lshr i64 %9, 43
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 524287
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %20, ptr %21, align 4
@@ -2055,7 +2055,7 @@ define noundef i64 @_ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEii(ptr n
   %16 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %15, ptr %16, align 4
   %17 = lshr i64 %8, 43
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = and i32 %18, 524287
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %19, ptr %20, align 4
@@ -2123,7 +2123,7 @@ define noundef i64 @_ZN10VertexData9FaceIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr
   %16 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %15, ptr %16, align 4
   %17 = lshr i64 %8, 43
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = and i32 %18, 524287
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %19, ptr %20, align 4
@@ -2197,7 +2197,7 @@ define noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr
   %17 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %16, ptr %17, align 4
   %18 = lshr i64 %9, 43
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 524287
   %21 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %20, ptr %21, align 4
@@ -2480,7 +2480,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
   %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv18
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 24
-  %72 = trunc i64 %indvars.iv18 to i32
+  %72 = trunc nuw nsw i64 %indvars.iv18 to i32
   store i32 %72, ptr %71, align 8
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %73 = load ptr, ptr %0, align 8
@@ -2709,7 +2709,7 @@ tailrecurse.i.i:                                  ; preds = %_Z12GetGhostFlagPK7
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i32 %108, 0
-  %111 = shl nsw i64 %109, 3
+  %111 = shl nuw nsw i64 %109, 3
   %112 = select i1 %110, i64 -1, i64 %111
   %113 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %112) #45
   store ptr %113, ptr %19, align 8
@@ -2793,7 +2793,7 @@ tailrecurse.i.i76:                                ; preds = %_Z12GetGhostFlagPK7
   br label %163
 
 .lr.ph104:                                        ; preds = %.lr.ph107
-  %151 = trunc i64 %indvars.iv122 to i32
+  %151 = trunc nuw nsw i64 %indvars.iv122 to i32
   %152 = shl nuw i32 1, %151
   %153 = zext i32 %152 to i64
   br label %154
@@ -2808,7 +2808,7 @@ tailrecurse.i.i76:                                ; preds = %_Z12GetGhostFlagPK7
   %160 = load i32, ptr %159, align 4
   store i32 %160, ptr %158, align 4
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, -1
-  %161 = trunc i64 %indvars.iv119 to i32
+  %161 = trunc nuw i64 %indvars.iv119 to i32
   %162 = icmp sgt i32 %161, 1
   br i1 %162, label %154, label %._crit_edge105, !llvm.loop !25
 
@@ -3659,7 +3659,7 @@ define internal void @_ZNK15SortedTreeNodes17setSliceTableDataERNS_14SliceTableD
 55:                                               ; preds = %44
   %56 = load i64, ptr %53, align 8
   %57 = lshr i64 %56, 43
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = and i32 %58, 524287
   %60 = load i32, ptr %5, align 4
   %61 = add nsw i32 %60, -1
@@ -3822,7 +3822,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit167.thread: ; preds = %113, %126,
 .preheader196:                                    ; preds = %144, %220
   %145 = phi i1 [ false, %220 ], [ true, %144 ]
   %.0158273 = phi i32 [ 1, %220 ], [ 0, %144 ]
-  %trunc = trunc i32 %.0158273 to i1
+  %trunc = trunc nuw i32 %.0158273 to i1
   br label %146
 
 146:                                              ; preds = %.preheader196, %.loopexit
@@ -4924,7 +4924,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit114: ; preds = %126
   br i1 %146, label %.thread121, label %.thread
 
 .thread:                                          ; preds = %122, %126, %134, %138, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit114, %142
-  %147 = trunc i64 %indvars.iv to i32
+  %147 = trunc nuw nsw i64 %indvars.iv to i32
   %148 = invoke noundef i32 @_ZN6Square9EdgeIndexEii(i32 noundef %.0107142, i32 noundef %147)
           to label %149 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -17044,9 +17044,9 @@ define linkonce_odr void @_ZNK8XForm4x4IfE7inverseEv(ptr dead_on_unwind noalias 
 .preheader:                                       ; preds = %2, %123
   %indvars.iv46 = phi i64 [ 0, %2 ], [ %indvars.iv.next47, %123 ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %34 = trunc i64 %indvars.iv.next47 to i32
+  %34 = trunc nuw nsw i64 %indvars.iv.next47 to i32
   %35 = and i32 %34, 3
-  %36 = trunc i64 %indvars.iv46 to i32
+  %36 = trunc nuw nsw i64 %indvars.iv46 to i32
   %37 = xor i32 %36, 2
   %38 = trunc i64 %indvars.iv46 to i32
   %39 = add i32 %38, 3
@@ -17060,11 +17060,11 @@ define linkonce_odr void @_ZNK8XForm4x4IfE7inverseEv(ptr dead_on_unwind noalias 
   %44 = icmp eq i64 %43, 0
   %45 = add nuw nsw i64 %indvars.iv, 1
   %.cmp.not = icmp eq i64 %indvars.iv, 3
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nuw nsw i64 %45 to i32
   %47 = select i1 %.cmp.not, i32 0, i32 %46
   %.cmp27 = icmp ult i64 %indvars.iv, 2
   %.v40 = select i1 %.cmp27, i32 2, i32 -2
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = add nsw i32 %.v40, %48
   %.cmp30 = icmp eq i64 %indvars.iv, 0
   %50 = trunc i64 %indvars.iv to i32
@@ -17312,7 +17312,7 @@ define linkonce_odr void @_ZN6OctreeIfEC2Ev(ptr noundef nonnull align 8 derefere
   %18 = phi i1 [ false, %.split40.i ], [ true, %.loopexit35.i ]
   %indvars.iv51.i = phi i64 [ 1, %.split40.i ], [ 0, %.loopexit35.i ]
   %19 = shl nuw nsw i64 %indvars.iv51.i, 5
-  %20 = trunc i64 %indvars.iv51.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv51.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.i, %.preheader33.i
@@ -17320,13 +17320,13 @@ define linkonce_odr void @_ZN6OctreeIfEC2Ev(ptr noundef nonnull align 8 derefere
   %indvars.iv48.i = phi i64 [ 0, %.preheader33.i ], [ 1, %.split.i ]
   %22 = shl nuw nsw i64 %indvars.iv48.i, 24
   %23 = or disjoint i64 %22, %19
-  %24 = trunc i64 %indvars.iv48.i to i32
+  %24 = trunc nuw nsw i64 %indvars.iv48.i to i32
   br label %25
 
 25:                                               ; preds = %.noexc3, %.preheader.i
   %26 = phi i1 [ true, %.preheader.i ], [ false, %.noexc3 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %.noexc3 ]
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   %28 = invoke noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %20, i32 noundef %24, i32 noundef %27)
           to label %.noexc3 unwind label %.loopexit.split-lp.loopexit
 
@@ -17460,7 +17460,7 @@ _ZN7OctNodeI12TreeNodeDataE8NewBroodEPFvRS1_E.exit: ; preds = %.split40.i
   %indvars.iv60.i = phi i64 [ 0, %65 ], [ 1, %.split49.i ]
   %75 = or disjoint i64 %indvars.iv60.i, %69
   %76 = shl nuw nsw i64 %75, 5
-  %77 = trunc i64 %indvars.iv60.i to i32
+  %77 = trunc nuw nsw i64 %indvars.iv60.i to i32
   br label %.preheader.i5
 
 .preheader.i5:                                    ; preds = %.split.i7, %.preheader41.i
@@ -17469,13 +17469,13 @@ _ZN7OctNodeI12TreeNodeDataE8NewBroodEPFvRS1_E.exit: ; preds = %.split40.i
   %79 = or disjoint i64 %indvars.iv57.i, %73
   %80 = shl nuw nsw i64 %79, 24
   %81 = or disjoint i64 %80, %76
-  %82 = trunc i64 %indvars.iv57.i to i32
+  %82 = trunc nuw nsw i64 %indvars.iv57.i to i32
   br label %83
 
 83:                                               ; preds = %.noexc16, %.preheader.i5
   %84 = phi i1 [ true, %.preheader.i5 ], [ false, %.noexc16 ]
   %indvars.iv.i6 = phi i64 [ 0, %.preheader.i5 ], [ 1, %.noexc16 ]
-  %85 = trunc i64 %indvars.iv.i6 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.i6 to i32
   %86 = invoke noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %77, i32 noundef %82, i32 noundef %85)
           to label %.noexc16 unwind label %.loopexit
 
@@ -18005,7 +18005,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %62
   %indvars.iv60.i = phi i64 [ 0, %110 ], [ 1, %.split49.i ]
   %119 = or disjoint i64 %indvars.iv60.i, %113
   %120 = shl nuw nsw i64 %119, 5
-  %121 = trunc i64 %indvars.iv60.i to i32
+  %121 = trunc nuw nsw i64 %indvars.iv60.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.i, %.preheader41.i
@@ -18014,13 +18014,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %62
   %123 = or disjoint i64 %indvars.iv57.i, %117
   %124 = shl nuw nsw i64 %123, 24
   %125 = or disjoint i64 %124, %120
-  %126 = trunc i64 %indvars.iv57.i to i32
+  %126 = trunc nuw nsw i64 %indvars.iv57.i to i32
   br label %127
 
 127:                                              ; preds = %.noexc118, %.preheader.i
   %128 = phi i1 [ true, %.preheader.i ], [ false, %.noexc118 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %.noexc118 ]
-  %129 = trunc i64 %indvars.iv.i to i32
+  %129 = trunc nuw nsw i64 %indvars.iv.i to i32
   %130 = invoke noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %121, i32 noundef %126, i32 noundef %129)
           to label %.noexc118 unwind label %.loopexit
 
@@ -18888,7 +18888,7 @@ common.resume:                                    ; preds = %164, %162, %.loopex
   %33 = phi i1 [ false, %.split40.i ], [ true, %.loopexit35.i ]
   %indvars.iv51.i = phi i64 [ 1, %.split40.i ], [ 0, %.loopexit35.i ]
   %34 = shl nuw nsw i64 %indvars.iv51.i, 5
-  %35 = trunc i64 %indvars.iv51.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv51.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.i, %.preheader33.i
@@ -18896,13 +18896,13 @@ common.resume:                                    ; preds = %164, %162, %.loopex
   %indvars.iv48.i = phi i64 [ 0, %.preheader33.i ], [ 1, %.split.i ]
   %37 = shl nuw nsw i64 %indvars.iv48.i, 24
   %38 = or disjoint i64 %37, %34
-  %39 = trunc i64 %indvars.iv48.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv48.i to i32
   br label %40
 
 40:                                               ; preds = %40, %.preheader.i
   %41 = phi i1 [ true, %.preheader.i ], [ false, %40 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %40 ]
-  %42 = trunc i64 %indvars.iv.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   %43 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %35, i32 noundef %39, i32 noundef %42)
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds %class.OctNode, ptr %.0.i, i64 %44
@@ -19869,7 +19869,7 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
 
 45:                                               ; preds = %._crit_edge71
   %46 = icmp slt i32 %43, 0
-  %47 = shl nsw i64 %44, 2
+  %47 = shl nuw nsw i64 %44, 2
   %48 = select i1 %46, i64 -1, i64 %47
   %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #45
           to label %50 unwind label %102
@@ -19887,7 +19887,7 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
   br i1 %.not65, label %._crit_edge69, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %50
-  %55 = sitofp i32 %.sroa.speculated to double
+  %55 = uitofp nneg i32 %.sroa.speculated to double
   %56 = getelementptr inbounds i8, ptr %6, i64 16
   %57 = getelementptr inbounds i8, ptr %6, i64 25
   %58 = getelementptr inbounds i8, ptr %6, i64 8
@@ -20922,7 +20922,7 @@ define linkonce_odr void @_ZN6OctreeIfE15getMCIsoSurfaceILi2EL12BoundaryType2ELi
 
 56:                                               ; preds = %39
   %57 = icmp slt i32 %54, 0
-  %58 = shl nsw i64 %55, 2
+  %58 = shl nuw nsw i64 %55, 2
   %59 = select i1 %57, i64 -1, i64 %58
   %60 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %59) #45
   br label %61
@@ -20986,7 +20986,7 @@ define linkonce_odr void @_ZN6OctreeIfE15getMCIsoSurfaceILi2EL12BoundaryType2ELi
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %.preheader168 ]
   %82 = load ptr, ptr %27, align 8
   %83 = getelementptr inbounds %"struct.Octree<float>::_Evaluator", ptr %82, i64 %indvars.iv
-  %84 = trunc i64 %indvars.iv to i32
+  %84 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EE3setEi(ptr noundef nonnull align 8 dereferenceable(4696) %83, i32 noundef %84)
           to label %85 unwind label %90
 
@@ -21029,11 +21029,11 @@ define linkonce_odr void @_ZN6OctreeIfE15getMCIsoSurfaceILi2EL12BoundaryType2ELi
   %98 = load ptr, ptr %30, align 8
   %99 = getelementptr inbounds %"struct.Octree<float>::_SlabValues", ptr %98, i64 %indvars.iv204, i32 1
   %100 = load i32, ptr %44, align 8
-  %101 = trunc i64 %indvars.iv204 to i32
+  %101 = trunc nuw nsw i64 %indvars.iv204 to i32
   %102 = add nsw i32 %100, %101
   %103 = icmp slt i32 %100, 2
   %indvars.iv.next205 = add nsw i64 %indvars.iv204, -1
-  %104 = trunc i64 %indvars.iv.next205 to i32
+  %104 = trunc nsw i64 %indvars.iv.next205 to i32
   %105 = add i32 %100, %104
   %106 = shl nuw i32 1, %105
   %107 = select i1 %103, i32 0, i32 %106
@@ -21158,7 +21158,7 @@ define linkonce_odr void @_ZN6OctreeIfE15getMCIsoSurfaceILi2EL12BoundaryType2ELi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
-  %152 = trunc i64 %indvars.iv207 to i32
+  %152 = trunc nuw nsw i64 %indvars.iv207 to i32
   store i32 %152, ptr %23, align 4
   store i32 0, ptr %24, align 4
   store i32 0, ptr %25, align 4
@@ -21180,7 +21180,7 @@ _ZN6OctreeIfE26_copyFinerSliceIsoEdgeKeysI22PlyColorAndValueVertexIfEEEviiRSt6ve
   %158 = load i32, ptr %68, align 8
   %159 = load ptr, ptr %27, align 8
   %160 = getelementptr inbounds %"struct.Octree<float>::_Evaluator", ptr %159, i64 %indvars.iv207
-  %161 = trunc i64 %indvars.iv207 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv207 to i32
   invoke void @_ZN6OctreeIfE19_setSliceIsoCornersI22PlyColorAndValueVertexIfELi2EL12BoundaryType2EEEvRK13DenseNodeDataIfXT0_EES8_fiiiRSt6vectorINS0_11_SlabValuesIT_EESaISC_EERKNS0_10_EvaluatorIXT0_EXT1_EEEi(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %26, float noundef %4, i32 noundef %161, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(4696) %160, i32 noundef %158)
           to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -21224,14 +21224,14 @@ _ZN6OctreeIfE17_setSliceIsoEdgesI22PlyColorAndValueVertexIfEEEviiRSt6vectorINS0_
   br i1 %.not156, label %._crit_edge219, label %177
 
 ._crit_edge219:                                   ; preds = %175
-  %.pre220 = trunc i64 %indvars.iv210 to i32
+  %.pre220 = trunc nuw nsw i64 %indvars.iv210 to i32
   br label %185
 
 177:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
-  %178 = trunc i64 %indvars.iv210 to i32
+  %178 = trunc nuw nsw i64 %indvars.iv210 to i32
   store i32 %178, ptr %20, align 4
   store i32 %.0187, ptr %21, align 4
   store i32 1, ptr %22, align 4
@@ -21299,7 +21299,7 @@ _ZN6OctreeIfE26_copyFinerSliceIsoEdgeKeysI22PlyColorAndValueVertexIfEEEviiRSt6ve
   %206 = getelementptr inbounds %"struct.Octree<float>::_Evaluator", ptr %205, i64 %indvars.iv210
   %207 = load i32, ptr %68, align 8
   %.not157 = icmp eq i32 %.0187, 0
-  %.pre221 = trunc i64 %indvars.iv210 to i32
+  %.pre221 = trunc nuw nsw i64 %indvars.iv210 to i32
   br i1 %.not157, label %.noexc136, label %208
 
 208:                                              ; preds = %204
@@ -21452,7 +21452,7 @@ _ZSt8_DestroyIPSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i.
 .lr.ph195:                                        ; preds = %.lr.ph195.preheader, %292
   %indvars.iv213 = phi i64 [ %250, %.lr.ph195.preheader ], [ %indvars.iv.next214, %292 ]
   %.1193 = phi i32 [ %169, %.lr.ph195.preheader ], [ %293, %292 ]
-  %251 = trunc i64 %indvars.iv213 to i32
+  %251 = trunc nuw nsw i64 %indvars.iv213 to i32
   %252 = shl nuw i32 2, %251
   %253 = icmp slt i32 %.1193, %252
   br i1 %253, label %254, label %.lr.ph195._crit_edge
@@ -22510,7 +22510,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %indvars.iv69 = phi i64 [ 0, %.preheader41.us.preheader ], [ 1, %.split49.us.us ]
   %44 = or disjoint i64 %indvars.iv69, %36
   %45 = shl nuw nsw i64 %44, 5
-  %46 = trunc i64 %indvars.iv69 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv69 to i32
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.split.us.us.us, %.preheader41.us
@@ -22519,13 +22519,13 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %48 = or disjoint i64 %indvars.iv66, %41
   %49 = shl nuw nsw i64 %48, 24
   %50 = or disjoint i64 %45, %49
-  %51 = trunc i64 %indvars.iv66 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %52
 
 52:                                               ; preds = %52, %.preheader.us.us
   %53 = phi i1 [ false, %52 ], [ true, %.preheader.us.us ]
   %indvars.iv63 = phi i64 [ 1, %52 ], [ 0, %.preheader.us.us ]
-  %54 = trunc i64 %indvars.iv63 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv63 to i32
   %55 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %46, i32 noundef %51, i32 noundef %54)
   %56 = load ptr, ptr %33, align 8
   %57 = sext i32 %55 to i64
@@ -22554,7 +22554,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %indvars.iv60 = phi i64 [ 0, %.preheader41.preheader ], [ 1, %.split49 ]
   %68 = or disjoint i64 %indvars.iv60, %36
   %69 = shl nuw nsw i64 %68, 5
-  %70 = trunc i64 %indvars.iv60 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv60 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader41, %.split
@@ -22563,13 +22563,13 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
   %72 = or disjoint i64 %indvars.iv57, %40
   %73 = shl nuw nsw i64 %72, 24
   %74 = or disjoint i64 %69, %73
-  %75 = trunc i64 %indvars.iv57 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv57 to i32
   br label %76
 
 76:                                               ; preds = %.preheader, %76
   %77 = phi i1 [ true, %.preheader ], [ false, %76 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %76 ]
-  %78 = trunc i64 %indvars.iv to i32
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
   %79 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %70, i32 noundef %75, i32 noundef %78)
   %80 = load ptr, ptr %33, align 8
   %81 = sext i32 %79 to i64
@@ -23454,7 +23454,7 @@ define internal void @_ZN6OctreeIfE19setDensityEstimatorILi2EEEPNS0_16DensityEst
   %35 = sext i32 %34 to i64
   %36 = load ptr, ptr %3, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %35
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nsw i64 %indvars.iv to i32
   store i32 %38, ptr %37, align 4
   %.pre = load i32, ptr %6, align 4
   br label %39
@@ -23768,7 +23768,7 @@ _ZN14SparseNodeDataIfLi2EE7reserveEm.exit:        ; preds = %26, %_ZNSt6vectorIi
   %47 = and i32 %46, 524287
   %48 = getelementptr inbounds i8, ptr %8, i64 4
   %49 = lshr i64 %40, 43
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw nsw i64 %49 to i32
   %51 = and i32 %50, 524287
   %52 = getelementptr inbounds i8, ptr %8, i64 8
   %53 = getelementptr inbounds i8, ptr %0, i64 48
@@ -24210,7 +24210,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZN7OctNod
 38:                                               ; preds = %28, %.loopexit83
   %indvars.iv110 = phi i64 [ -1, %28 ], [ %indvars.iv.next111, %.loopexit83 ]
   %39 = load i32, ptr %6, align 4
-  %40 = trunc i64 %indvars.iv110 to i32
+  %40 = trunc nsw i64 %indvars.iv110 to i32
   %41 = add nsw i32 %39, %40
   %42 = add i32 %41, 2
   %43 = ashr i32 %42, 1
@@ -24227,7 +24227,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZN7OctNod
 47:                                               ; preds = %38, %.loopexit
   %indvars.iv106 = phi i64 [ -1, %38 ], [ %indvars.iv.next107, %.loopexit ]
   %48 = load i32, ptr %5, align 4
-  %49 = trunc i64 %indvars.iv106 to i32
+  %49 = trunc nsw i64 %indvars.iv106 to i32
   %50 = add nsw i32 %48, %49
   %51 = add i32 %50, 2
   %52 = ashr i32 %51, 1
@@ -24241,7 +24241,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZN7OctNod
 57:                                               ; preds = %47, %77
   %indvars.iv102 = phi i64 [ -1, %47 ], [ %indvars.iv.next103, %77 ]
   %58 = load i32, ptr %4, align 4
-  %59 = trunc i64 %indvars.iv102 to i32
+  %59 = trunc nsw i64 %indvars.iv102 to i32
   %60 = add nsw i32 %58, %59
   %61 = add i32 %60, 2
   %62 = ashr i32 %61, 1
@@ -24303,7 +24303,7 @@ define linkonce_odr void @_ZNK6OctreeIfE20_localDepthAndOffsetEPK7OctNodeI12Tree
   store i32 %15, ptr %16, align 4
   %17 = load i64, ptr %1, align 8
   %18 = lshr i64 %17, 43
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 524287
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %20, ptr %21, align 4
@@ -24560,7 +24560,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %38, %_Z12IsAc
   %indvars.iv60.i = phi i64 [ 0, %120 ], [ 1, %.split49.i ]
   %129 = or disjoint i64 %indvars.iv60.i, %123
   %130 = shl nuw nsw i64 %129, 5
-  %131 = trunc i64 %indvars.iv60.i to i32
+  %131 = trunc nuw nsw i64 %indvars.iv60.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.i, %.preheader41.i
@@ -24569,13 +24569,13 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %38, %_Z12IsAc
   %133 = or disjoint i64 %indvars.iv57.i, %127
   %134 = shl nuw nsw i64 %133, 24
   %135 = or disjoint i64 %134, %130
-  %136 = trunc i64 %indvars.iv57.i to i32
+  %136 = trunc nuw nsw i64 %indvars.iv57.i to i32
   br label %137
 
 137:                                              ; preds = %137, %.preheader.i
   %138 = phi i1 [ true, %.preheader.i ], [ false, %137 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %137 ]
-  %139 = trunc i64 %indvars.iv.i to i32
+  %139 = trunc nuw nsw i64 %indvars.iv.i to i32
   %140 = call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %131, i32 noundef %136, i32 noundef %139)
   %141 = load ptr, ptr %100, align 8
   %142 = sext i32 %140 to i64
@@ -24831,7 +24831,7 @@ define linkonce_odr void @_ZN6OctreeIfE15_splatPointDataILb1ELi2E7Point3DIfEEEvP
   %22 = and i32 %21, 524287
   %23 = getelementptr inbounds i8, ptr %9, i64 4
   %24 = lshr i64 %15, 43
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = and i32 %25, 524287
   %27 = getelementptr inbounds i8, ptr %9, i64 8
   %28 = getelementptr inbounds i8, ptr %0, i64 48
@@ -25229,7 +25229,7 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE18_getSamplesPerNodeILi2E15Poin
   %20 = and i32 %19, 524287
   %21 = getelementptr inbounds i8, ptr %7, i64 4
   %22 = lshr i64 %13, 43
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %23, 524287
   %25 = getelementptr inbounds i8, ptr %7, i64 8
   %26 = getelementptr inbounds i8, ptr %0, i64 48
@@ -25789,7 +25789,7 @@ define linkonce_odr void @_ZN6OctreeIfE13_setFullDepthILi2EL12BoundaryType0EEEvi
   %indvars.iv60.i = phi i64 [ 0, %24 ], [ 1, %.split49.i ]
   %33 = or disjoint i64 %indvars.iv60.i, %27
   %34 = shl nuw nsw i64 %33, 5
-  %35 = trunc i64 %indvars.iv60.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv60.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.i, %.preheader41.i
@@ -25798,13 +25798,13 @@ define linkonce_odr void @_ZN6OctreeIfE13_setFullDepthILi2EL12BoundaryType0EEEvi
   %37 = or disjoint i64 %indvars.iv57.i, %31
   %38 = shl nuw nsw i64 %37, 24
   %39 = or disjoint i64 %38, %34
-  %40 = trunc i64 %indvars.iv57.i to i32
+  %40 = trunc nuw nsw i64 %indvars.iv57.i to i32
   br label %41
 
 41:                                               ; preds = %41, %.preheader.i
   %42 = phi i1 [ true, %.preheader.i ], [ false, %41 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %41 ]
-  %43 = trunc i64 %indvars.iv.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   %44 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %35, i32 noundef %40, i32 noundef %43)
   %45 = load ptr, ptr %4, align 8
   %46 = sext i32 %44 to i64
@@ -26056,7 +26056,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(1000) ptr @_ZN7OctNo
 38:                                               ; preds = %28, %83
   %indvars.iv108 = phi i64 [ -2, %28 ], [ %indvars.iv.next109, %83 ]
   %39 = load i32, ptr %6, align 4
-  %40 = trunc i64 %indvars.iv108 to i32
+  %40 = trunc nsw i64 %indvars.iv108 to i32
   %41 = add nsw i32 %39, %40
   %42 = add i32 %41, 4
   %43 = ashr i32 %42, 1
@@ -26069,7 +26069,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(1000) ptr @_ZN7OctNo
 48:                                               ; preds = %38, %82
   %indvars.iv104 = phi i64 [ -2, %38 ], [ %indvars.iv.next105, %82 ]
   %49 = load i32, ptr %5, align 4
-  %50 = trunc i64 %indvars.iv104 to i32
+  %50 = trunc nsw i64 %indvars.iv104 to i32
   %51 = add nsw i32 %49, %50
   %52 = add i32 %51, 4
   %53 = ashr i32 %52, 1
@@ -26083,7 +26083,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(1000) ptr @_ZN7OctNo
 59:                                               ; preds = %48, %80
   %indvars.iv100 = phi i64 [ -2, %48 ], [ %indvars.iv.next101, %80 ]
   %60 = load i32, ptr %4, align 4
-  %61 = trunc i64 %indvars.iv100 to i32
+  %61 = trunc nsw i64 %indvars.iv100 to i32
   %62 = add nsw i32 %60, %61
   %63 = add i32 %62, 4
   %64 = ashr i32 %63, 1
@@ -26184,7 +26184,7 @@ define linkonce_odr void @_ZN6OctreeIfE17_setValidityFlagsILi2EL12BoundaryType2E
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 524287
   %36 = lshr i64 %28, 43
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = and i32 %37, 524287
   %39 = load i32, ptr %16, align 8
   %40 = sub nsw i32 %30, %39
@@ -26249,7 +26249,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %_ZNK6OctreeIfE16is
   %74 = trunc i64 %73 to i32
   %75 = and i32 %74, 524287
   %76 = lshr i64 %70, 43
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw nsw i64 %76 to i32
   %78 = and i32 %77, 524287
   %79 = load i32, ptr %16, align 8
   %80 = sub nsw i32 %72, %79
@@ -26451,7 +26451,7 @@ define linkonce_odr void @_ZNK6OctreeIfE13_setFullDepthILi2EL12BoundaryType0EEEv
   %10 = trunc i64 %9 to i32
   %11 = and i32 %10, 524287
   %12 = lshr i64 %4, 43
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw nsw i64 %12 to i32
   %14 = and i32 %13, 524287
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8
@@ -26588,7 +26588,7 @@ _ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.
   %indvars.iv60.i = phi i64 [ 0, %70 ], [ 1, %.split49.i ]
   %79 = or disjoint i64 %indvars.iv60.i, %73
   %80 = shl nuw nsw i64 %79, 5
-  %81 = trunc i64 %indvars.iv60.i to i32
+  %81 = trunc nuw nsw i64 %indvars.iv60.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.split.i, %.preheader41.i
@@ -26597,13 +26597,13 @@ _ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.
   %83 = or disjoint i64 %indvars.iv57.i, %77
   %84 = shl nuw nsw i64 %83, 24
   %85 = or disjoint i64 %84, %80
-  %86 = trunc i64 %indvars.iv57.i to i32
+  %86 = trunc nuw nsw i64 %indvars.iv57.i to i32
   br label %87
 
 87:                                               ; preds = %87, %.preheader.i
   %88 = phi i1 [ true, %.preheader.i ], [ false, %87 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 1, %87 ]
-  %89 = trunc i64 %indvars.iv.i to i32
+  %89 = trunc nuw nsw i64 %indvars.iv.i to i32
   %90 = tail call noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %81, i32 noundef %86, i32 noundef %89)
   %91 = load ptr, ptr %50, align 8
   %92 = sext i32 %90 to i64
@@ -26979,14 +26979,14 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18SetChildIntegrator
 .preheader41.i:                                   ; preds = %145, %109
   %117 = phi i1 [ true, %109 ], [ false, %145 ]
   %indvars.iv63.i = phi i64 [ 0, %109 ], [ 1, %145 ]
-  %118 = trunc i64 %indvars.iv63.i to i32
+  %118 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %119 = or disjoint i32 %114, %118
   br label %.preheader40.i
 
 .preheader40.i:                                   ; preds = %144, %.preheader41.i
   %120 = phi i1 [ true, %.preheader41.i ], [ false, %144 ]
   %indvars.iv60.i = phi i64 [ 0, %.preheader41.i ], [ 1, %144 ]
-  %121 = trunc i64 %indvars.iv60.i to i32
+  %121 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %122 = or disjoint i32 %114, %121
   br label %123
 
@@ -26995,7 +26995,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18SetChildIntegrator
   %indvars.iv57.i = phi i64 [ 0, %.preheader40.i ], [ 1, %143 ]
   store i32 %119, ptr %9, align 4
   store i32 %122, ptr %62, align 4
-  %125 = trunc i64 %indvars.iv57.i to i32
+  %125 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %126 = or disjoint i32 %114, %125
   store i32 %126, ptr %63, align 4
   %127 = getelementptr inbounds [2 x [2 x %struct.Stencil.357]], ptr %18, i64 %indvars.iv63.i, i64 %indvars.iv60.i, i64 %indvars.iv57.i
@@ -27439,14 +27439,14 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18SetChildIntegrator
 .preheader41.i97:                                 ; preds = %304, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18SetChildIntegratorILj2ELj2EEEvRNS1_18FunctionIntegrator15ChildIntegratorIXT_EXT0_EEEi.exit96
   %276 = phi i1 [ true, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18SetChildIntegratorILj2ELj2EEEvRNS1_18FunctionIntegrator15ChildIntegratorIXT_EXT0_EEEi.exit96 ], [ false, %304 ]
   %indvars.iv63.i98 = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18SetChildIntegratorILj2ELj2EEEvRNS1_18FunctionIntegrator15ChildIntegratorIXT_EXT0_EEEi.exit96 ], [ 1, %304 ]
-  %277 = trunc i64 %indvars.iv63.i98 to i32
+  %277 = trunc nuw nsw i64 %indvars.iv63.i98 to i32
   %278 = or disjoint i32 %273, %277
   br label %.preheader40.i99
 
 .preheader40.i99:                                 ; preds = %303, %.preheader41.i97
   %279 = phi i1 [ true, %.preheader41.i97 ], [ false, %303 ]
   %indvars.iv60.i100 = phi i64 [ 0, %.preheader41.i97 ], [ 1, %303 ]
-  %280 = trunc i64 %indvars.iv60.i100 to i32
+  %280 = trunc nuw nsw i64 %indvars.iv60.i100 to i32
   %281 = or disjoint i32 %273, %280
   br label %282
 
@@ -27455,7 +27455,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18SetChildIntegrator
   %indvars.iv57.i101 = phi i64 [ 0, %.preheader40.i99 ], [ 1, %302 ]
   store i32 %278, ptr %6, align 4
   store i32 %281, ptr %253, align 4
-  %284 = trunc i64 %indvars.iv57.i101 to i32
+  %284 = trunc nuw nsw i64 %indvars.iv57.i101 to i32
   %285 = or disjoint i32 %273, %284
   store i32 %285, ptr %254, align 4
   %286 = getelementptr inbounds [2 x [2 x %struct.Stencil.357]], ptr %25, i64 %indvars.iv63.i98, i64 %indvars.iv60.i100, i64 %indvars.iv57.i101
@@ -27853,7 +27853,7 @@ define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2
   %85 = trunc i64 %84 to i32
   %86 = and i32 %85, 524287
   %87 = lshr i64 %81, 43
-  %88 = trunc i64 %87 to i32
+  %88 = trunc nuw nsw i64 %87 to i32
   %89 = and i32 %88, 524287
   %90 = sub nsw i32 %83, %.pre.pre
   %91 = icmp slt i32 %.pre.pre, 2
@@ -27903,7 +27903,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %116 = trunc i64 %115 to i32
   %117 = and i32 %116, 524287
   %118 = lshr i64 %112, 43
-  %119 = trunc i64 %118 to i32
+  %119 = trunc nuw nsw i64 %118 to i32
   %120 = and i32 %119, 524287
   %121 = sub nsw i32 %114, %.pre.pre
   %122 = icmp slt i32 %.pre.pre, 2
@@ -27953,7 +27953,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   store i32 %149, ptr %55, align 4
   %150 = load i64, ptr %78, align 8
   %151 = lshr i64 %150, 43
-  %152 = trunc i64 %151 to i32
+  %152 = trunc nuw nsw i64 %151 to i32
   %153 = and i32 %152, 524287
   %154 = icmp slt i32 %.pre.pre, 2
   %155 = add nsw i32 %143, -1
@@ -28019,7 +28019,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i118: ; preds = %175
   %187 = trunc i64 %186 to i32
   %188 = and i32 %187, 524287
   %189 = lshr i64 %183, 43
-  %190 = trunc i64 %189 to i32
+  %190 = trunc nuw nsw i64 %189 to i32
   %191 = and i32 %190, 524287
   %192 = load i32, ptr %32, align 8
   %193 = sub nsw i32 %185, %192
@@ -28119,7 +28119,7 @@ _ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds
   store i32 %260, ptr %59, align 4
   %261 = load i64, ptr %173, align 8
   %262 = lshr i64 %261, 43
-  %263 = trunc i64 %262 to i32
+  %263 = trunc nuw nsw i64 %262 to i32
   %264 = and i32 %263, 524287
   store i32 %204, ptr %23, align 4
   %265 = sub nsw i32 %260, %197
@@ -28250,7 +28250,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i122: ; preds = %_ZNK6OctreeIfE1
   %332 = trunc i64 %331 to i32
   %333 = and i32 %332, 524287
   %334 = lshr i64 %328, 43
-  %335 = trunc i64 %334 to i32
+  %335 = trunc nuw nsw i64 %334 to i32
   %336 = and i32 %335, 524287
   %337 = load i32, ptr %32, align 8
   %338 = sub nsw i32 %330, %337
@@ -28492,7 +28492,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.us.us.us: ; p
   store i32 %468, ptr %64, align 4
   %469 = load i64, ptr %448, align 8
   %470 = lshr i64 %469, 43
-  %471 = trunc i64 %470 to i32
+  %471 = trunc nuw nsw i64 %470 to i32
   %472 = and i32 %471, 524287
   %473 = load i32, ptr %32, align 8
   %474 = icmp slt i32 %473, 2
@@ -28895,7 +28895,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj2EE3setEi.exit: ; preds = %.noexc
 .preheader70:                                     ; preds = %45, %114
   %indvars.iv80 = phi i64 [ 0, %45 ], [ %indvars.iv.next81, %114 ]
   %70 = add nsw i64 %indvars.iv80, %52
-  %71 = trunc i64 %70 to i32
+  %71 = trunc nsw i64 %70 to i32
   %sub = sub i32 %71, %49
   %72 = icmp slt i64 %70, 1
   %73 = shl nuw nsw i64 %indvars.iv80, 4
@@ -28915,7 +28915,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj2EE3setEi.exit: ; preds = %.noexc
 .preheader:                                       ; preds = %.preheader70, %113
   %indvars.iv76 = phi i64 [ 0, %.preheader70 ], [ %indvars.iv.next77, %113 ]
   %83 = add nsw i64 %indvars.iv76, %52
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nsw i64 %83 to i32
   %sub68 = sub i32 %84, %49
   %85 = icmp slt i64 %83, 1
   %86 = shl nuw nsw i64 %indvars.iv76, 2
@@ -28951,7 +28951,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i40: ; 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit43: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i40
   %.0.i42 = phi double [ %98, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i40 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit ]
   %99 = add nsw i64 %indvars.iv, %52
-  %100 = trunc i64 %99 to i32
+  %100 = trunc nsw i64 %99 to i32
   %sub69 = sub i32 %100, %49
   %101 = icmp slt i64 %99, 1
   %102 = icmp sgt i64 %99, %56
@@ -29211,7 +29211,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %47
   %59 = trunc i64 %58 to i32
   %60 = and i32 %59, 524287
   %61 = lshr i64 %55, 43
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = and i32 %62, 524287
   %64 = load i32, ptr %13, align 8
   %65 = sub nsw i32 %57, %64
@@ -29431,7 +29431,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
 
 62:                                               ; preds = %57, %197
   %indvars.iv104 = phi i64 [ 0, %57 ], [ %indvars.iv.next105, %197 ]
-  %63 = trunc i64 %indvars.iv104 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv104 to i32
   invoke void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %.preheader84 unwind label %193
 
@@ -29472,10 +29472,10 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %93 = sub nsw i64 %88, %92
   %94 = shl nuw nsw i64 %indvars.iv101, 2
   %95 = icmp slt i64 %91, 0
-  %96 = trunc i64 %93 to i32
+  %96 = trunc nsw i64 %93 to i32
   %97 = add i32 %96, -3
   %98 = icmp ult i32 %97, -4
-  %99 = trunc i64 %91 to i32
+  %99 = trunc nsw i64 %91 to i32
   %100 = icmp eq i32 %99, 0
   %.neg.i.i = add nuw i32 %99, 3
   %101 = add nsw i64 %93, 1
@@ -29490,10 +29490,10 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %106 = sub nsw i64 %86, %105
   %107 = shl nuw nsw i64 %indvars.iv98, 1
   %108 = icmp slt i64 %104, 0
-  %109 = trunc i64 %106 to i32
+  %109 = trunc nsw i64 %106 to i32
   %110 = add i32 %109, -3
   %111 = icmp ult i32 %110, -4
-  %112 = trunc i64 %104 to i32
+  %112 = trunc nsw i64 %104 to i32
   %113 = icmp eq i32 %112, 0
   %114 = add nsw i64 %106, 1
   br label %115
@@ -29589,14 +29589,14 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   %161 = sext i32 %160 to i64
   %162 = icmp sge i64 %153, %161
   %163 = select i1 %159, i1 true, i1 %162
-  %164 = trunc i64 %155 to i32
+  %164 = trunc nsw i64 %155 to i32
   %165 = add i32 %164, -3
   %166 = icmp ult i32 %165, -4
   %or.cond3.i57 = select i1 %163, i1 true, i1 %166
   br i1 %or.cond3.i57, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit64, label %167
 
 167:                                              ; preds = %158
-  %168 = trunc i64 %153 to i32
+  %168 = trunc nsw i64 %153 to i32
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61, label %170
 
@@ -29952,7 +29952,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %127 = trunc i64 %126 to i32
   %128 = and i32 %127, 524287
   %129 = lshr i64 %123, 43
-  %130 = trunc i64 %129 to i32
+  %130 = trunc nuw nsw i64 %129 to i32
   %131 = and i32 %130, 524287
   %132 = load i32, ptr %27, align 8
   %133 = sub nsw i32 %125, %132
@@ -30038,7 +30038,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   store i32 %179, ptr %50, align 4
   %180 = load i64, ptr %83, align 8
   %181 = lshr i64 %180, 43
-  %182 = trunc i64 %181 to i32
+  %182 = trunc nuw nsw i64 %181 to i32
   %183 = and i32 %182, 524287
   %184 = load i32, ptr %27, align 8
   %185 = icmp slt i32 %184, 2
@@ -30121,7 +30121,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us: ; preds =
   %220 = trunc i64 %219 to i32
   %221 = and i32 %220, 524287
   %222 = lshr i64 %216, 43
-  %223 = trunc i64 %222 to i32
+  %223 = trunc nuw nsw i64 %222 to i32
   %224 = and i32 %223, 524287
   %225 = sub nsw i32 %218, %184
   %226 = add nsw i32 %218, -1
@@ -30236,7 +30236,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us: ; preds = %276
   %288 = trunc i64 %287 to i32
   %289 = and i32 %288, 524287
   %290 = lshr i64 %284, 43
-  %291 = trunc i64 %290 to i32
+  %291 = trunc nuw nsw i64 %290 to i32
   %292 = and i32 %291, 524287
   %293 = load i32, ptr %27, align 8
   %294 = sub nsw i32 %286, %293
@@ -30280,7 +30280,7 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   store i32 %320, ptr %52, align 4
   %321 = load i64, ptr %274, align 8
   %322 = lshr i64 %321, 43
-  %323 = trunc i64 %322 to i32
+  %323 = trunc nuw nsw i64 %322 to i32
   %324 = and i32 %323, 524287
   store i32 %305, ptr %23, align 4
   %325 = sub nsw i32 %320, %298
@@ -30390,7 +30390,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %16 ]
   %6 = icmp ult i64 %indvars.iv17.i.i.i, 4
   %7 = select i1 %6, i32 0, i32 %4
-  %8 = trunc i64 %indvars.iv17.i.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %9 = add nsw i32 %7, %8
   br label %10
 
@@ -30419,7 +30419,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %28 ]
   %18 = icmp ult i64 %indvars.iv17.i.i, 4
   %19 = select i1 %18, i32 0, i32 %4
-  %20 = trunc i64 %indvars.iv17.i.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %21 = add nsw i32 %19, %20
   br label %22
 
@@ -30448,7 +30448,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %40 ]
   %30 = icmp ult i64 %indvars.iv17.i, 4
   %31 = select i1 %30, i32 0, i32 %4
-  %32 = trunc i64 %indvars.iv17.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %33 = add nsw i32 %31, %32
   br label %34
 
@@ -30484,7 +30484,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %16 ]
   %6 = icmp ult i64 %indvars.iv17.i.i.i, 4
   %7 = select i1 %6, i32 0, i32 %4
-  %8 = trunc i64 %indvars.iv17.i.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %9 = add nsw i32 %7, %8
   br label %10
 
@@ -30513,7 +30513,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %28 ]
   %18 = icmp ult i64 %indvars.iv17.i.i, 4
   %19 = select i1 %18, i32 0, i32 %4
-  %20 = trunc i64 %indvars.iv17.i.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %21 = add nsw i32 %19, %20
   br label %22
 
@@ -30542,7 +30542,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %40 ]
   %30 = icmp ult i64 %indvars.iv17.i, 4
   %31 = select i1 %30, i32 0, i32 %4
-  %32 = trunc i64 %indvars.iv17.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %33 = add nsw i32 %31, %32
   br label %34
 
@@ -30578,7 +30578,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %16 ]
   %6 = icmp ult i64 %indvars.iv17.i.i.i, 4
   %7 = select i1 %6, i32 0, i32 %4
-  %8 = trunc i64 %indvars.iv17.i.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %9 = add nsw i32 %7, %8
   br label %10
 
@@ -30607,7 +30607,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj0ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %28 ]
   %18 = icmp ult i64 %indvars.iv17.i.i, 4
   %19 = select i1 %18, i32 0, i32 %4
-  %20 = trunc i64 %indvars.iv17.i.i to i32
+  %20 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %21 = add nsw i32 %19, %20
   br label %22
 
@@ -30636,7 +30636,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj1ELj2ELj2ENS1_18FunctionIntegrator10IntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %40 ]
   %30 = icmp ult i64 %indvars.iv17.i, 4
   %31 = select i1 %30, i32 0, i32 %4
-  %32 = trunc i64 %indvars.iv17.i to i32
+  %32 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %33 = add nsw i32 %31, %32
   br label %34
 
@@ -30814,8 +30814,8 @@ _ZN15BSplineElementsILi2EED2Ev.exit85:            ; preds = %_ZN15BSplineElement
   %.0145174 = phi i32 [ -1, %.preheader163.lr.ph ], [ %.2147153, %81 ]
   %64 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %56, i64 %indvars.iv199
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %65 = trunc i64 %indvars.iv.next200 to i32
-  %66 = trunc i64 %indvars.iv199 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next200 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv199 to i32
   br label %.thread
 
 .preheader162:                                    ; preds = %.thread
@@ -31409,19 +31409,19 @@ _ZN10PolynomialILi3EE20BinomialCoefficientsEPi.exit: ; preds = %11
   %39 = xor i64 %indvars.iv54, -1
   %40 = shl nuw nsw i64 %indvars.iv54, 1
   %41 = or disjoint i64 %40, 1
-  %42 = trunc i64 %40 to i32
+  %42 = trunc nuw nsw i64 %40 to i32
   br label %43
 
 43:                                               ; preds = %.preheader, %83
   %indvars.iv49 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next50, %83 ]
   %44 = add nsw i64 %indvars.iv49, %39
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nsw i64 %44 to i32
   %.neg41 = shl i32 %45, 1
   br label %46
 
 46:                                               ; preds = %43, %82
   %indvars.iv = phi i64 [ -1, %43 ], [ %indvars.iv.next.pre-phi, %82 ]
-  %47 = trunc i64 %indvars.iv to i32
+  %47 = trunc nsw i64 %indvars.iv to i32
   %.neg42 = sub i32 %.neg41, %47
   %48 = add nsw i32 %.neg42, %42
   %49 = add nsw i32 %48, 2
@@ -31676,8 +31676,8 @@ _ZNK10PolynomialILi2EEmlILi2EEES_IXplLi2ET_EERKS_IXT_EE.exit: ; preds = %68, %_Z
   %69 = getelementptr inbounds [5 x double], ptr %8, i64 0, i64 %indvars.iv.i21
   %70 = load double, ptr %69, align 8
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
-  %71 = trunc i64 %indvars.iv.next.i22 to i32
-  %72 = sitofp i32 %71 to double
+  %71 = trunc nuw nsw i64 %indvars.iv.next.i22 to i32
+  %72 = uitofp nneg i32 %71 to double
   %73 = fdiv double %70, %72
   %74 = fadd double %.02425.i, %73
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 5
@@ -32414,8 +32414,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit.preheader
   %.0143172 = phi i32 [ -1, %.preheader161.lr.ph ], [ %.2145151, %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit ]
   %60 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %52, i64 %indvars.iv196
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %61 = trunc i64 %indvars.iv.next197 to i32
-  %62 = trunc i64 %indvars.iv196 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv.next197 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv196 to i32
   br label %.thread
 
 .preheader160:                                    ; preds = %.thread
@@ -32751,8 +32751,8 @@ _ZNK10PolynomialILi2EEmlILi1EEES_IXplLi2ET_EERKS_IXT_EE.exit: ; preds = %.prehea
   %50 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 %indvars.iv.i9
   %51 = load double, ptr %50, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
-  %52 = trunc i64 %indvars.iv.next.i to i32
-  %53 = sitofp i32 %52 to double
+  %52 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %53 = uitofp nneg i32 %52 to double
   %54 = fdiv double %51, %53
   %55 = fadd double %.02425.i, %54
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i, 4
@@ -33331,8 +33331,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit.preheader
   %.0142169 = phi i32 [ -1, %.preheader158.lr.ph ], [ %.2144150, %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit ]
   %64 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %56, i64 %indvars.iv192
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %65 = trunc i64 %indvars.iv.next193 to i32
-  %66 = trunc i64 %indvars.iv192 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next193 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv192 to i32
   br label %.thread
 
 .preheader157:                                    ; preds = %.thread
@@ -33536,8 +33536,8 @@ _ZNK10PolynomialILi2EEmlILi0EEES_IXplLi2ET_EERKS_IXT_EE.exit.i: ; preds = %.crit
   %130 = getelementptr inbounds [3 x double], ptr %8, i64 0, i64 %indvars.iv.i9.i
   %131 = load double, ptr %130, align 8
   %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i9.i, 1
-  %132 = trunc i64 %indvars.iv.next.i10.i to i32
-  %133 = sitofp i32 %132 to double
+  %132 = trunc nuw nsw i64 %indvars.iv.next.i10.i to i32
+  %133 = uitofp nneg i32 %132 to double
   %134 = fdiv double %131, %133
   %135 = fadd double %.02425.i.i, %134
   %exitcond.not.i11.i = icmp eq i64 %indvars.iv.next.i10.i, 3
@@ -33868,7 +33868,7 @@ _ZNSt6vectorI26BSplineElementCoefficientsILi0EESaIS1_EE6assignEmRKS1_.exit.prehe
 31:                                               ; preds = %.preheader, %52
   %32 = phi i1 [ true, %.preheader ], [ false, %52 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %52 ]
-  %trunc = trunc i64 %indvars.iv to i1
+  %trunc = trunc nuw i64 %indvars.iv to i1
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds %struct.BSplineElementCoefficients.380, ptr %33, i64 %indvars.iv32
   br i1 %trunc, label %35, label %46
@@ -34353,8 +34353,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit: ; preds 
   %.0143172 = phi i32 [ -1, %.preheader161.lr.ph ], [ %.2145151, %77 ]
   %60 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %52, i64 %indvars.iv197
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %61 = trunc i64 %indvars.iv.next198 to i32
-  %62 = trunc i64 %indvars.iv197 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv.next198 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv197 to i32
   br label %.thread
 
 .preheader160:                                    ; preds = %.thread
@@ -34694,8 +34694,8 @@ _ZNK10PolynomialILi1EEmlILi2EEES_IXplLi1ET_EERKS_IXT_EE.exit: ; preds = %42, %_Z
   %43 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 %indvars.iv.i9
   %44 = load double, ptr %43, align 8
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
-  %45 = trunc i64 %indvars.iv.next.i10 to i32
-  %46 = sitofp i32 %45 to double
+  %45 = trunc nuw nsw i64 %indvars.iv.next.i10 to i32
+  %46 = uitofp nneg i32 %45 to double
   %47 = fdiv double %44, %46
   %48 = fadd double %.02425.i, %47
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 4
@@ -34866,8 +34866,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit86.prehead
   %.0144172 = phi i32 [ -1, %.preheader161.lr.ph ], [ %.2146152, %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit86 ]
   %57 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %49, i64 %indvars.iv197
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
-  %58 = trunc i64 %indvars.iv.next198 to i32
-  %59 = trunc i64 %indvars.iv197 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv.next198 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv197 to i32
   br label %.thread
 
 .preheader160:                                    ; preds = %.thread
@@ -35026,8 +35026,8 @@ _ZNK10PolynomialILi1EEmlILi1EEES_IXplLi1ET_EERKS_IXT_EE.exit.i: ; preds = %_ZNK1
   %122 = getelementptr inbounds [3 x double], ptr %5, i64 0, i64 %indvars.iv.i13.i
   %123 = load double, ptr %122, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
-  %124 = trunc i64 %indvars.iv.next.i.i to i32
-  %125 = sitofp i32 %124 to double
+  %124 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+  %125 = uitofp nneg i32 %124 to double
   %126 = fdiv double %123, %125
   %127 = fadd double %.02425.i.i, %126
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -35297,8 +35297,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit.preheader
   %.0142169 = phi i32 [ -1, %.preheader158.lr.ph ], [ %.2144150, %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit ]
   %54 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %46, i64 %indvars.iv191
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
-  %55 = trunc i64 %indvars.iv.next192 to i32
-  %56 = trunc i64 %indvars.iv191 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.next192 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv191 to i32
   br label %.thread
 
 .preheader157:                                    ; preds = %.thread
@@ -35452,7 +35452,7 @@ _ZNK10PolynomialILi1EE8integralEdd.exit.i:        ; preds = %93
   %109 = fdiv double %105, %108
   %110 = shl i32 %.sroa.speculated124, 1
   %111 = shl nuw i32 1, %110
-  %112 = sitofp i32 %111 to double
+  %112 = uitofp nneg i32 %111 to double
   %113 = fmul double %109, %112
   br label %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit._crit_edge.thread
 
@@ -35680,8 +35680,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit: ; preds 
   %.0143170 = phi i32 [ -1, %.preheader159.lr.ph ], [ %.2145151, %81 ]
   %64 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %56, i64 %indvars.iv194
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %65 = trunc i64 %indvars.iv.next195 to i32
-  %66 = trunc i64 %indvars.iv194 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next195 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv194 to i32
   br label %.thread
 
 .preheader158:                                    ; preds = %.thread
@@ -35885,8 +35885,8 @@ _ZNK10PolynomialILi0EEmlILi2EEES_IXplLi0ET_EERKS_IXT_EE.exit.i: ; preds = %127, 
   %133 = getelementptr inbounds [3 x double], ptr %8, i64 0, i64 %indvars.iv.i9.i
   %134 = load double, ptr %133, align 8
   %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i9.i, 1
-  %135 = trunc i64 %indvars.iv.next.i10.i to i32
-  %136 = sitofp i32 %135 to double
+  %135 = trunc nuw nsw i64 %indvars.iv.next.i10.i to i32
+  %136 = uitofp nneg i32 %135 to double
   %137 = fdiv double %134, %136
   %138 = fadd double %.02425.i.i, %137
   %exitcond.not.i11.i = icmp eq i64 %indvars.iv.next.i10.i, 3
@@ -36146,8 +36146,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit.preheader
   %.0143170 = phi i32 [ -1, %.preheader159.lr.ph ], [ %.2145151, %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit ]
   %54 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %46, i64 %indvars.iv192
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %55 = trunc i64 %indvars.iv.next193 to i32
-  %56 = trunc i64 %indvars.iv192 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.next193 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv192 to i32
   br label %.thread
 
 .preheader158:                                    ; preds = %.thread
@@ -36291,7 +36291,7 @@ _Z26SetBSplineElementIntegralsILi0ELi1EEvPAplT0_Li1E_d.exit.loopexit: ; preds = 
   %104 = fdiv double %100, %103
   %105 = shl i32 %.sroa.speculated124, 1
   %106 = shl nuw i32 1, %105
-  %107 = sitofp i32 %106 to double
+  %107 = uitofp nneg i32 %106 to double
   %108 = fmul double %104, %107
   br label %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit._crit_edge.thread
 
@@ -36520,8 +36520,8 @@ _ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit87.prehead
   %.0148174 = phi i32 [ -1, %.preheader163.lr.ph ], [ %.2150155, %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit87 ]
   %54 = getelementptr inbounds %struct.BSplineElementCoefficients, ptr %46, i64 %indvars.iv195
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %55 = trunc i64 %indvars.iv.next196 to i32
-  %56 = trunc i64 %indvars.iv195 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.next196 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv195 to i32
   br label %.thread
 
 .preheader162:                                    ; preds = %.thread
@@ -36725,7 +36725,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %18 ]
   %7 = icmp ult i64 %indvars.iv17.i.i.i, 4
   %8 = select i1 %7, i32 0, i32 %4
-  %9 = trunc i64 %indvars.iv17.i.i.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %10 = add nsw i32 %8, %9
   %11 = shl nsw i32 %10, 1
   br label %12
@@ -36755,7 +36755,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %31 ]
   %20 = icmp ult i64 %indvars.iv17.i.i, 4
   %21 = select i1 %20, i32 0, i32 %4
-  %22 = trunc i64 %indvars.iv17.i.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %23 = add nsw i32 %21, %22
   %24 = shl nsw i32 %23, 1
   br label %25
@@ -36785,7 +36785,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj2ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %44 ]
   %33 = icmp ult i64 %indvars.iv17.i, 4
   %34 = select i1 %33, i32 0, i32 %4
-  %35 = trunc i64 %indvars.iv17.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %36 = add nsw i32 %34, %35
   %37 = shl nsw i32 %36, 1
   br label %38
@@ -36823,7 +36823,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %18 ]
   %7 = icmp ult i64 %indvars.iv17.i.i.i, 4
   %8 = select i1 %7, i32 0, i32 %4
-  %9 = trunc i64 %indvars.iv17.i.i.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %10 = add nsw i32 %8, %9
   %11 = shl nsw i32 %10, 1
   br label %12
@@ -36853,7 +36853,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %31 ]
   %20 = icmp ult i64 %indvars.iv17.i.i, 4
   %21 = select i1 %20, i32 0, i32 %4
-  %22 = trunc i64 %indvars.iv17.i.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %23 = add nsw i32 %21, %22
   %24 = shl nsw i32 %23, 1
   br label %25
@@ -36883,7 +36883,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj1ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %44 ]
   %33 = icmp ult i64 %indvars.iv17.i, 4
   %34 = select i1 %33, i32 0, i32 %4
-  %35 = trunc i64 %indvars.iv17.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %36 = add nsw i32 %34, %35
   %37 = shl nsw i32 %36, 1
   br label %38
@@ -36921,7 +36921,7 @@ define linkonce_odr void @_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2EL
   %indvars.iv17.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next18.i.i.i, %18 ]
   %7 = icmp ult i64 %indvars.iv17.i.i.i, 4
   %8 = select i1 %7, i32 0, i32 %4
-  %9 = trunc i64 %indvars.iv17.i.i.i to i32
+  %9 = trunc nuw nsw i64 %indvars.iv17.i.i.i to i32
   %10 = add nsw i32 %8, %9
   %11 = shl nsw i32 %10, 1
   br label %12
@@ -36951,7 +36951,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj0ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit.i ], [ %indvars.iv.next18.i.i, %31 ]
   %20 = icmp ult i64 %indvars.iv17.i.i, 4
   %21 = select i1 %20, i32 0, i32 %4
-  %22 = trunc i64 %indvars.iv17.i.i to i32
+  %22 = trunc nuw nsw i64 %indvars.iv17.i.i to i32
   %23 = add nsw i32 %21, %22
   %24 = shl nsw i32 %23, 1
   br label %25
@@ -36981,7 +36981,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterIL
   %indvars.iv17.i = phi i64 [ 0, %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE16IntegratorSetterILj0ELj1ELj2ELj2ENS1_18FunctionIntegrator15ChildIntegratorILj2ELj2EEEE5Set1DERS5_i.exit ], [ %indvars.iv.next18.i, %44 ]
   %33 = icmp ult i64 %indvars.iv17.i, 4
   %34 = select i1 %33, i32 0, i32 %4
-  %35 = trunc i64 %indvars.iv17.i to i32
+  %35 = trunc nuw nsw i64 %indvars.iv17.i to i32
   %36 = add nsw i32 %34, %35
   %37 = shl nsw i32 %36, 1
   br label %38
@@ -38317,7 +38317,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE20Set
   %indvars.iv17 = phi i64 [ 0, %2 ], [ %indvars.iv.next18, %59 ]
   %.not = icmp eq i64 %indvars.iv17, 2
   %15 = select i1 %.not, i32 %6, i32 0
-  %16 = trunc i64 %indvars.iv17 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv17 to i32
   %17 = add nsw i32 %15, %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %18 = icmp slt i32 %17, 0
@@ -38377,7 +38377,7 @@ _ZN10PolynomialILi3EE20BinomialCoefficientsEPi.exit.i: ; preds = %29
   %indvars.iv.i = phi i64 [ -1, %_ZN10PolynomialILi3EE20BinomialCoefficientsEPi.exit.i ], [ %indvars.iv.next.i, %_ZN11BSplineDataILi2EL12BoundaryType2EE11RemapOffsetEiiRb.exit19.i ]
   %38 = add nsw i64 %indvars.iv.i, %36
   %39 = icmp slt i64 %38, 0
-  %40 = trunc i64 %38 to i32
+  %40 = trunc nsw i64 %38 to i32
   %41 = srem i32 %40, %11
   br i1 %39, label %42, label %_ZN11BSplineDataILi2EL12BoundaryType2EE11RemapOffsetEiiRb.exit19.i
 
@@ -38524,7 +38524,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %75 = trunc i64 %74 to i32
   %76 = and i32 %75, 524287
   %77 = lshr i64 %69, 43
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw nsw i64 %77 to i32
   %79 = and i32 %78, 524287
   %80 = load i32, ptr %20, align 8
   %81 = icmp slt i32 %80, 2
@@ -38648,7 +38648,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %145 = trunc i64 %144 to i32
   %146 = and i32 %145, 524287
   %147 = lshr i64 %141, 43
-  %148 = trunc i64 %147 to i32
+  %148 = trunc nuw nsw i64 %147 to i32
   %149 = and i32 %148, 524287
   %150 = sub nsw i32 %143, %138
   %151 = icmp slt i32 %138, 2
@@ -39200,7 +39200,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %81 = trunc i64 %80 to i32
   %82 = and i32 %81, 524287
   %83 = lshr i64 %75, 43
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw nsw i64 %83 to i32
   %85 = and i32 %84, 524287
   %86 = load i32, ptr %19, align 8
   %87 = icmp slt i32 %86, 2
@@ -39221,7 +39221,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 524287
   %102 = lshr i64 %96, 43
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 524287
   %105 = load i32, ptr %19, align 8
   %106 = sub nsw i32 %98, %105
@@ -39299,7 +39299,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %148 = phi i1 [ true, %.preheader150 ], [ false, %204 ]
   %indvars.iv192 = phi i64 [ 0, %.preheader150 ], [ 1, %204 ]
   %149 = shl nuw nsw i64 %indvars.iv192, 2
-  %150 = trunc i64 %indvars.iv192 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv192 to i32
   %151 = add nuw nsw i32 %150, 1
   br label %152
 
@@ -39315,7 +39315,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %159 = add i32 %158, %151
   %160 = getelementptr inbounds [0 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %154
   %161 = load i32, ptr %160, align 4
-  %162 = trunc i64 %indvars.iv189 to i32
+  %162 = trunc nuw nsw i64 %indvars.iv189 to i32
   %163 = add nuw nsw i32 %162, 1
   %164 = add i32 %161, %163
   %165 = sext i32 %159 to i64
@@ -39330,7 +39330,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %170 = sext i32 %.in168 to i64
   %171 = getelementptr inbounds [0 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %170
   %172 = load i32, ptr %171, align 4
-  %173 = trunc i64 %indvars.iv186 to i32
+  %173 = trunc nuw nsw i64 %indvars.iv186 to i32
   %174 = add nuw nsw i32 %173, 1
   %175 = add i32 %172, %174
   %176 = sext i32 %175 to i64
@@ -39448,7 +39448,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 245:                                              ; preds = %.preheader154, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit122
   %246 = phi i1 [ true, %.preheader154 ], [ false, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit122 ]
   %indvars.iv171 = phi i64 [ 0, %.preheader154 ], [ 1, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit122 ]
-  %247 = trunc i64 %indvars.iv171 to i32
+  %247 = trunc nuw nsw i64 %indvars.iv171 to i32
   %248 = add nsw i32 %92, %247
   %249 = add nsw i32 %248, %208
   %250 = shl nsw i32 %249, 1
@@ -39499,7 +39499,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 270:                                              ; preds = %.preheader153, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit130
   %271 = phi i1 [ true, %.preheader153 ], [ false, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit130 ]
   %indvars.iv174 = phi i64 [ 0, %.preheader153 ], [ 1, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit130 ]
-  %272 = trunc i64 %indvars.iv174 to i32
+  %272 = trunc nuw nsw i64 %indvars.iv174 to i32
   %273 = add nsw i32 %93, %272
   %274 = add nsw i32 %273, %239
   %275 = shl nsw i32 %274, 1
@@ -39565,7 +39565,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   %306 = add i32 %305, %indvars.iv183
   %307 = getelementptr inbounds [0 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %298
   %308 = load i32, ptr %307, align 4
-  %309 = trunc i64 %indvars.iv180 to i32
+  %309 = trunc nuw nsw i64 %indvars.iv180 to i32
   %310 = add nuw nsw i32 %309, 1
   %311 = add i32 %308, %310
   %312 = sext i32 %306 to i64
@@ -39582,7 +39582,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   %319 = sext i32 %.in166 to i64
   %320 = getelementptr inbounds [0 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %319
   %321 = load i32, ptr %320, align 4
-  %322 = trunc i64 %indvars.iv177 to i32
+  %322 = trunc nuw nsw i64 %indvars.iv177 to i32
   %323 = add nuw nsw i32 %322, 1
   %324 = add i32 %321, %323
   %325 = sext i32 %324 to i64
@@ -41128,7 +41128,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %80 = trunc i64 %79 to i32
   %81 = and i32 %80, 524287
   %82 = lshr i64 %74, 43
-  %83 = trunc i64 %82 to i32
+  %83 = trunc nuw nsw i64 %82 to i32
   %84 = and i32 %83, 524287
   %85 = load i32, ptr %18, align 8
   %86 = sub nsw i32 %76, %85
@@ -41480,12 +41480,12 @@ _ZNK10PolynomialILi1EE8integralEv.exit.critedge.i: ; preds = %20
   %47 = load double, ptr %46, align 8, !alias.scope !693
   %48 = call double @llvm.fmuladd.f64(double %44, double %.01416.i, double %47)
   store double %48, ptr %46, align 8, !alias.scope !693
-  %49 = trunc i64 %indvars.iv19.i to i32
+  %49 = trunc nuw i64 %indvars.iv19.i to i32
   %50 = sitofp i32 %49 to double
   %51 = fmul double %19, %50
   %52 = fmul double %.01416.i, %51
   %53 = sub nuw nsw i64 %indvars.iv.next.i, %indvars.iv19.i
-  %54 = trunc i64 %53 to i32
+  %54 = trunc nuw nsw i64 %53 to i32
   %55 = sitofp i32 %54 to double
   %56 = fdiv double %52, %55
   %indvars.iv.next20.i = add nsw i64 %indvars.iv19.i, -1
@@ -41567,12 +41567,12 @@ _ZNK10PolynomialILi2EE5scaleEd.exit:              ; preds = %76
   %85 = load double, ptr %84, align 8, !alias.scope !704
   %86 = call double @llvm.fmuladd.f64(double %82, double %.01416.i58, double %85)
   store double %86, ptr %84, align 8, !alias.scope !704
-  %87 = trunc i64 %indvars.iv19.i57 to i32
+  %87 = trunc nuw i64 %indvars.iv19.i57 to i32
   %88 = sitofp i32 %87 to double
   %89 = fmul double %66, %88
   %90 = fmul double %.01416.i58, %89
   %91 = sub nuw nsw i64 %indvars.iv.next.i56, %indvars.iv19.i57
-  %92 = trunc i64 %91 to i32
+  %92 = trunc nuw nsw i64 %91 to i32
   %93 = sitofp i32 %92 to double
   %94 = fdiv double %90, %93
   %indvars.iv.next20.i59 = add nsw i64 %indvars.iv19.i57, -1
@@ -42861,7 +42861,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %.lr.ph286, %282
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %35, i32 %385)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN12SparseMatrixIfE7SolveGSIfEEiRKSt6vectorIS2_IiSaIiEESaIS4_EERKS0_PKT_PSB_bi.omp_outlined, ptr nonnull %399, ptr nonnull %384, ptr nonnull %14, ptr nonnull %15)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %162
-  %400 = trunc i64 %indvars.iv.next.i to i32
+  %400 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not.i = icmp eq i32 %396, %400
   br i1 %.not.i, label %_ZN12SparseMatrixIfE7SolveGSIfEEiRKSt6vectorIS2_IiSaIiEESaIS4_EERKS0_PKT_PSB_bi.exit, label %.lr.ph.i, !llvm.loop !726
 
@@ -43394,7 +43394,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
 
 62:                                               ; preds = %57, %197
   %indvars.iv104 = phi i64 [ 0, %57 ], [ %indvars.iv.next105, %197 ]
-  %63 = trunc i64 %indvars.iv104 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv104 to i32
   invoke void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %.preheader84 unwind label %193
 
@@ -43435,10 +43435,10 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %93 = sub nsw i64 %88, %92
   %94 = shl nuw nsw i64 %indvars.iv101, 2
   %95 = icmp slt i64 %91, 0
-  %96 = trunc i64 %93 to i32
+  %96 = trunc nsw i64 %93 to i32
   %97 = add i32 %96, -3
   %98 = icmp ult i32 %97, -4
-  %99 = trunc i64 %91 to i32
+  %99 = trunc nsw i64 %91 to i32
   %100 = icmp eq i32 %99, 0
   %.neg.i.i = add nuw i32 %99, 3
   %101 = add nsw i64 %93, 1
@@ -43453,10 +43453,10 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   %106 = sub nsw i64 %86, %105
   %107 = shl nuw nsw i64 %indvars.iv98, 1
   %108 = icmp slt i64 %104, 0
-  %109 = trunc i64 %106 to i32
+  %109 = trunc nsw i64 %106 to i32
   %110 = add i32 %109, -3
   %111 = icmp ult i32 %110, -4
-  %112 = trunc i64 %104 to i32
+  %112 = trunc nsw i64 %104 to i32
   %113 = icmp eq i32 %112, 0
   %114 = add nsw i64 %106, 1
   br label %115
@@ -43552,14 +43552,14 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   %161 = sext i32 %160 to i64
   %162 = icmp sge i64 %153, %161
   %163 = select i1 %159, i1 true, i1 %162
-  %164 = trunc i64 %155 to i32
+  %164 = trunc nsw i64 %155 to i32
   %165 = add i32 %164, -3
   %166 = icmp ult i32 %165, -4
   %or.cond3.i57 = select i1 %163, i1 true, i1 %166
   br i1 %or.cond3.i57, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit64, label %167
 
 167:                                              ; preds = %158
-  %168 = trunc i64 %153 to i32
+  %168 = trunc nsw i64 %153 to i32
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61, label %170
 
@@ -44077,14 +44077,14 @@ define linkonce_odr noundef i32 @_ZN6OctreeIfE30_getMatrixAndUpdateConstraintsIL
 .preheader41.i:                                   ; preds = %111, %70
   %82 = phi i1 [ true, %70 ], [ false, %111 ]
   %indvars.iv63.i = phi i64 [ 0, %70 ], [ 1, %111 ]
-  %83 = trunc i64 %indvars.iv63.i to i32
+  %83 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %84 = or disjoint i32 %75, %83
   br label %.preheader40.i
 
 .preheader40.i:                                   ; preds = %110, %.preheader41.i
   %85 = phi i1 [ true, %.preheader41.i ], [ false, %110 ]
   %indvars.iv60.i = phi i64 [ 0, %.preheader41.i ], [ 1, %110 ]
-  %86 = trunc i64 %indvars.iv60.i to i32
+  %86 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %87 = or disjoint i32 %75, %86
   br label %88
 
@@ -44093,7 +44093,7 @@ define linkonce_odr noundef i32 @_ZN6OctreeIfE30_getMatrixAndUpdateConstraintsIL
   %indvars.iv57.i = phi i64 [ 0, %.preheader40.i ], [ 1, %109 ]
   store i32 %84, ptr %12, align 4
   store i32 %87, ptr %76, align 4
-  %90 = trunc i64 %indvars.iv57.i to i32
+  %90 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %91 = or disjoint i32 %75, %90
   store i32 %91, ptr %77, align 4
   %92 = getelementptr inbounds [2 x [2 x %struct.Stencil.409]], ptr %22, i64 %indvars.iv63.i, i64 %indvars.iv60.i, i64 %indvars.iv57.i
@@ -45095,14 +45095,14 @@ define linkonce_odr void @_ZNK6OctreeIfE45_updateCumulativeIntegralConstraintsFr
 .preheader41.i:                                   ; preds = %64, %23
   %35 = phi i1 [ true, %23 ], [ false, %64 ]
   %indvars.iv63.i = phi i64 [ 0, %23 ], [ 1, %64 ]
-  %36 = trunc i64 %indvars.iv63.i to i32
+  %36 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %37 = or disjoint i32 %28, %36
   br label %.preheader40.i
 
 .preheader40.i:                                   ; preds = %63, %.preheader41.i
   %38 = phi i1 [ true, %.preheader41.i ], [ false, %63 ]
   %indvars.iv60.i = phi i64 [ 0, %.preheader41.i ], [ 1, %63 ]
-  %39 = trunc i64 %indvars.iv60.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %40 = or disjoint i32 %28, %39
   br label %41
 
@@ -45111,7 +45111,7 @@ define linkonce_odr void @_ZNK6OctreeIfE45_updateCumulativeIntegralConstraintsFr
   %indvars.iv57.i = phi i64 [ 0, %.preheader40.i ], [ 1, %62 ]
   store i32 %37, ptr %7, align 4
   store i32 %40, ptr %29, align 4
-  %43 = trunc i64 %indvars.iv57.i to i32
+  %43 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %44 = or disjoint i32 %28, %43
   store i32 %44, ptr %30, align 4
   %45 = getelementptr inbounds [2 x [2 x %struct.Stencil.409]], ptr %11, i64 %indvars.iv63.i, i64 %indvars.iv60.i, i64 %indvars.iv57.i
@@ -45633,7 +45633,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %81 = trunc i64 %80 to i32
   %82 = and i32 %81, 524287
   %83 = lshr i64 %75, 43
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw nsw i64 %83 to i32
   %85 = and i32 %84, 524287
   %86 = load i32, ptr %19, align 8
   %87 = icmp slt i32 %86, 2
@@ -45654,7 +45654,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 524287
   %102 = lshr i64 %96, 43
-  %103 = trunc i64 %102 to i32
+  %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 524287
   %105 = load i32, ptr %19, align 8
   %106 = sub nsw i32 %98, %105
@@ -45731,7 +45731,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %147 = phi i1 [ true, %.preheader123 ], [ false, %197 ]
   %indvars.iv165 = phi i64 [ 0, %.preheader123 ], [ 1, %197 ]
   %148 = shl nuw nsw i64 %indvars.iv165, 2
-  %149 = trunc i64 %indvars.iv165 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv165 to i32
   %150 = add nuw nsw i32 %149, 1
   br label %151
 
@@ -45747,7 +45747,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %158 = add i32 %157, %150
   %159 = getelementptr inbounds [2 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %153
   %160 = load i32, ptr %159, align 4
-  %161 = trunc i64 %indvars.iv162 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv162 to i32
   %162 = add nuw nsw i32 %161, 1
   %163 = add i32 %160, %162
   %164 = sext i32 %158 to i64
@@ -45762,7 +45762,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %169 = sext i32 %.in141 to i64
   %170 = getelementptr inbounds [2 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %169
   %171 = load i32, ptr %170, align 4
-  %172 = trunc i64 %indvars.iv159 to i32
+  %172 = trunc nuw nsw i64 %indvars.iv159 to i32
   %173 = add nuw nsw i32 %172, 1
   %174 = add i32 %171, %173
   %175 = sext i32 %174 to i64
@@ -45873,7 +45873,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 238:                                              ; preds = %.preheader127, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit106
   %239 = phi i1 [ true, %.preheader127 ], [ false, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit106 ]
   %indvars.iv144 = phi i64 [ 0, %.preheader127 ], [ 1, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit106 ]
-  %240 = trunc i64 %indvars.iv144 to i32
+  %240 = trunc nuw nsw i64 %indvars.iv144 to i32
   %241 = add nsw i32 %92, %240
   %242 = add nsw i32 %241, %201
   %243 = shl nsw i32 %242, 1
@@ -45920,7 +45920,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 262:                                              ; preds = %.preheader126, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit114
   %263 = phi i1 [ true, %.preheader126 ], [ false, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit114 ]
   %indvars.iv147 = phi i64 [ 0, %.preheader126 ], [ 1, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.exit114 ]
-  %264 = trunc i64 %indvars.iv147 to i32
+  %264 = trunc nuw nsw i64 %indvars.iv147 to i32
   %265 = add nsw i32 %93, %264
   %266 = add nsw i32 %265, %232
   %267 = shl nsw i32 %266, 1
@@ -45986,7 +45986,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   %298 = add i32 %297, %indvars.iv156
   %299 = getelementptr inbounds [2 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %290
   %300 = load i32, ptr %299, align 4
-  %301 = trunc i64 %indvars.iv153 to i32
+  %301 = trunc nuw nsw i64 %indvars.iv153 to i32
   %302 = add nuw nsw i32 %301, 1
   %303 = add i32 %300, %302
   %304 = sext i32 %298 to i64
@@ -46000,7 +46000,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   %308 = sext i32 %.in139 to i64
   %309 = getelementptr inbounds [2 x i32], ptr @_ZN19BSplineSupportSizesILi2EE15DownSampleStartE, i64 0, i64 %308
   %310 = load i32, ptr %309, align 4
-  %311 = trunc i64 %indvars.iv150 to i32
+  %311 = trunc nuw nsw i64 %indvars.iv150 to i32
   %312 = add nuw nsw i32 %311, 1
   %313 = add i32 %310, %312
   %314 = sext i32 %313 to i64
@@ -46272,7 +46272,7 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE21_coarserFunctionValueILi2EL12
   %31 = and i32 %30, 524287
   %32 = getelementptr inbounds i8, ptr %9, i64 4
   %33 = lshr i64 %24, 43
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = and i32 %34, 524287
   %36 = getelementptr inbounds i8, ptr %9, i64 8
   %37 = sub nsw i32 %26, %15
@@ -46709,7 +46709,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i: ; pred
   br i1 %exitcond.not.i, label %_ZNK6OctreeIfE17_getMatrixRowSizeILi2EL12BoundaryType2EEEiRKN7OctNodeI12TreeNodeDataE9NeighborsIXsr19BSplineOverlapSizesIXT_EXT_EEE11OverlapSizeEEE.exit, label %.preheader, !llvm.loop !769
 
 _ZNK6OctreeIfE17_getMatrixRowSizeILi2EL12BoundaryType2EEEiRKN7OctNodeI12TreeNodeDataE9NeighborsIXsr19BSplineOverlapSizesIXT_EXT_EEE11OverlapSizeEEE.exit: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i
-  %84 = trunc i64 %indvars.iv to i32
+  %84 = trunc nsw i64 %indvars.iv to i32
   invoke void @_ZN12SparseMatrixIfE10SetRowSizeEii(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %84, i32 noundef %83)
           to label %85 unwind label %124
 
@@ -46895,7 +46895,7 @@ define linkonce_odr noundef i32 @_ZNK6OctreeIfE13_setMatrixRowILi2EL12BoundaryTy
   %27 = trunc i64 %26 to i32
   %28 = and i32 %27, 524287
   %29 = lshr i64 %21, 43
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 524287
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   %33 = load i32, ptr %32, align 8
@@ -46960,7 +46960,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %indvars.iv389 = phi i64 [ -1, %.preheader317.preheader ], [ %indvars.iv.next390, %161 ]
   %.0217331 = phi float [ 0.000000e+00, %.preheader317.preheader ], [ %.3, %161 ]
   %64 = add nsw i64 %indvars.iv389, 2
-  %65 = trunc i64 %indvars.iv389 to i32
+  %65 = trunc nsw i64 %indvars.iv389 to i32
   %66 = add nsw i32 %39, %65
   %67 = getelementptr inbounds [3 x i8], ptr %10, i64 0, i64 %indvars.iv391
   %68 = sub nsw i64 1, %indvars.iv389
@@ -47057,7 +47057,7 @@ _ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit258: ; 
   %115 = sub nsw i64 1, %indvars.iv365
   %invariant.gep = getelementptr [3 x %class.Polynomial.17], ptr %62, i64 0, i64 %115
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, 1
-  %116 = trunc i64 %indvars.iv365 to i32
+  %116 = trunc nsw i64 %indvars.iv365 to i32
   br label %117
 
 117:                                              ; preds = %.preheader313, %138
@@ -47519,7 +47519,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit269: ; preds = %_
   store i32 %329, ptr %300, align 4
   %330 = load i64, ptr %308, align 8
   %331 = lshr i64 %330, 43
-  %332 = trunc i64 %331 to i32
+  %332 = trunc nuw nsw i64 %331 to i32
   %333 = and i32 %332, 524287
   %334 = load i32, ptr %32, align 8
   %335 = icmp slt i32 %334, 2
@@ -47607,7 +47607,7 @@ define linkonce_odr void @_ZNK6OctreeIfE29_updateConstraintsFromCoarserILi2EL12B
   %32 = trunc i64 %31 to i32
   %33 = and i32 %32, 524287
   %34 = lshr i64 %28, 43
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %35, 524287
   %37 = sub nsw i32 %30, %23
   %38 = icmp slt i32 %23, 2
@@ -47652,7 +47652,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   %61 = and i32 %60, 524287
   %62 = getelementptr inbounds i8, ptr %16, i64 4
   %63 = lshr i64 %19, 43
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = and i32 %64, 524287
   %66 = getelementptr inbounds i8, ptr %16, i64 8
   %67 = icmp slt i32 %23, 2
@@ -47899,7 +47899,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.us106.us.us: ; p
   store i32 %198, ptr %121, align 4
   %199 = load i64, ptr %171, align 8
   %200 = lshr i64 %199, 43
-  %201 = trunc i64 %200 to i32
+  %201 = trunc nuw nsw i64 %200 to i32
   %202 = and i32 %201, 524287
   %203 = load i32, ptr %22, align 8
   %204 = icmp slt i32 %203, 2
@@ -47958,7 +47958,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.
   %228 = and i32 %227, 524287
   %229 = getelementptr inbounds i8, ptr %12, i64 4
   %230 = lshr i64 %221, 43
-  %231 = trunc i64 %230 to i32
+  %231 = trunc nuw nsw i64 %230 to i32
   %232 = and i32 %231, 524287
   %233 = getelementptr inbounds i8, ptr %12, i64 8
   %234 = load i32, ptr %22, align 8
@@ -50460,7 +50460,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %105 = trunc i64 %104 to i32
   %106 = and i32 %105, 524287
   %107 = lshr i64 %101, 43
-  %108 = trunc i64 %107 to i32
+  %108 = trunc nuw nsw i64 %107 to i32
   %109 = and i32 %108, 524287
   %110 = sub nsw i32 %103, %.pre
   %111 = icmp slt i32 %.pre, 2
@@ -50510,7 +50510,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   store i32 %138, ptr %49, align 4
   %139 = load i64, ptr %77, align 8
   %140 = lshr i64 %139, 43
-  %141 = trunc i64 %140 to i32
+  %141 = trunc nuw nsw i64 %140 to i32
   %142 = and i32 %141, 524287
   %143 = icmp slt i32 %.pre, 2
   %144 = add nsw i32 %132, -1
@@ -50721,7 +50721,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit64.us96.us.us: ; 
   store i32 %249, ptr %52, align 4
   %250 = load i64, ptr %228, align 8
   %251 = lshr i64 %250, 43
-  %252 = trunc i64 %251 to i32
+  %252 = trunc nuw nsw i64 %251 to i32
   %253 = and i32 %252, 524287
   %254 = load i32, ptr %26, align 8
   %255 = icmp slt i32 %254, 2
@@ -50960,7 +50960,7 @@ _ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit: ; pre
   %114 = trunc i64 %113 to i32
   %115 = and i32 %114, 524287
   %116 = lshr i64 %108, 43
-  %117 = trunc i64 %116 to i32
+  %117 = trunc nuw nsw i64 %116 to i32
   %118 = and i32 %117, 524287
   %119 = load i32, ptr %18, align 8
   %120 = sub nsw i32 %110, %119
@@ -51157,7 +51157,7 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE19_finerFunctionValueILi2EL12Bo
   %30 = and i32 %29, 524287
   %31 = getelementptr inbounds i8, ptr %14, i64 4
   %32 = lshr i64 %18, 43
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = and i32 %33, 524287
   %35 = getelementptr inbounds i8, ptr %14, i64 8
   %36 = icmp slt i32 %22, 2
@@ -51366,7 +51366,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %146 = trunc i64 %145 to i32
   %147 = and i32 %146, 524287
   %148 = lshr i64 %140, 43
-  %149 = trunc i64 %148 to i32
+  %149 = trunc nuw nsw i64 %148 to i32
   %150 = and i32 %149, 524287
   %151 = sub nsw i32 %142, %111
   %152 = add nsw i32 %142, -1
@@ -51700,14 +51700,14 @@ _ZNK6OctreeIfE10_sNodesEndEii.exit:               ; preds = %45, %51
 .preheader41.i:                                   ; preds = %127, %86
   %98 = phi i1 [ true, %86 ], [ false, %127 ]
   %indvars.iv63.i = phi i64 [ 0, %86 ], [ 1, %127 ]
-  %99 = trunc i64 %indvars.iv63.i to i32
+  %99 = trunc nuw nsw i64 %indvars.iv63.i to i32
   %100 = or disjoint i32 %91, %99
   br label %.preheader40.i
 
 .preheader40.i:                                   ; preds = %126, %.preheader41.i
   %101 = phi i1 [ true, %.preheader41.i ], [ false, %126 ]
   %indvars.iv60.i = phi i64 [ 0, %.preheader41.i ], [ 1, %126 ]
-  %102 = trunc i64 %indvars.iv60.i to i32
+  %102 = trunc nuw nsw i64 %indvars.iv60.i to i32
   %103 = or disjoint i32 %91, %102
   br label %104
 
@@ -51716,7 +51716,7 @@ _ZNK6OctreeIfE10_sNodesEndEii.exit:               ; preds = %45, %51
   %indvars.iv57.i = phi i64 [ 0, %.preheader40.i ], [ 1, %125 ]
   store i32 %100, ptr %13, align 4
   store i32 %103, ptr %92, align 4
-  %106 = trunc i64 %indvars.iv57.i to i32
+  %106 = trunc nuw nsw i64 %indvars.iv57.i to i32
   %107 = or disjoint i32 %91, %106
   store i32 %107, ptr %93, align 4
   %108 = getelementptr inbounds [2 x [2 x %struct.Stencil.409]], ptr %24, i64 %indvars.iv63.i, i64 %indvars.iv60.i, i64 %indvars.iv57.i
@@ -52342,7 +52342,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %82 = trunc i64 %81 to i32
   %83 = and i32 %82, 524287
   %84 = lshr i64 %77, 43
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw nsw i64 %84 to i32
   %86 = and i32 %85, 524287
   %87 = urem i32 %86, 3
   %88 = mul nuw nsw i32 %87, 9
@@ -52355,7 +52355,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %95 = load ptr, ptr %3, align 8
   %96 = getelementptr inbounds %"class.std::vector.18", ptr %95, i64 %94
   %97 = load i32, ptr %5, align 4
-  %98 = trunc i64 %indvars.iv21 to i32
+  %98 = trunc nsw i64 %indvars.iv21 to i32
   %99 = sub nsw i32 %98, %97
   %100 = getelementptr inbounds i8, ptr %96, i64 8
   %101 = load ptr, ptr %100, align 8
@@ -52791,7 +52791,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i: ; pred
   br i1 %exitcond.not.i, label %_ZNK6OctreeIfE17_getMatrixRowSizeILi2EL12BoundaryType2EEEiRKN7OctNodeI12TreeNodeDataE9NeighborsIXsr19BSplineOverlapSizesIXT_EXT_EEE11OverlapSizeEEE.exit, label %.preheader, !llvm.loop !769
 
 _ZNK6OctreeIfE17_getMatrixRowSizeILi2EL12BoundaryType2EEEiRKN7OctNodeI12TreeNodeDataE9NeighborsIXsr19BSplineOverlapSizesIXT_EXT_EEE11OverlapSizeEEE.exit: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i
-  %89 = trunc i64 %indvars.iv to i32
+  %89 = trunc nsw i64 %indvars.iv to i32
   invoke void @_ZN12SparseMatrixIfE10SetRowSizeEii(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %89, i32 noundef %88)
           to label %90 unwind label %143
 
@@ -52953,7 +52953,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %47 = trunc i64 %46 to i32
   %48 = and i32 %47, 524287
   %49 = lshr i64 %42, 43
-  %50 = trunc i64 %49 to i32
+  %50 = trunc nuw nsw i64 %49 to i32
   %51 = and i32 %50, 524287
   %52 = urem i32 %51, 3
   %53 = mul nuw nsw i32 %52, 9
@@ -54365,25 +54365,25 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EE3setEi
   %54 = icmp eq i64 %50, 0
   %55 = add nuw nsw i64 %50, 3
   %56 = sub nsw i64 1, %indvars.iv1326
-  %57 = trunc i64 %50 to i32
-  %58 = trunc i64 %55 to i32
-  %59 = trunc i64 %55 to i32
-  %60 = trunc i64 %55 to i32
-  %61 = trunc i64 %55 to i32
-  %62 = trunc i64 %indvars.iv1326 to i32
-  %63 = trunc i64 %55 to i32
-  %64 = trunc i64 %55 to i32
-  %65 = trunc i64 %indvars.iv1326 to i32
-  %66 = trunc i64 %55 to i32
-  %67 = trunc i64 %55 to i32
-  %68 = trunc i64 %indvars.iv1326 to i32
-  %69 = trunc i64 %55 to i32
-  %70 = trunc i64 %55 to i32
-  %71 = trunc i64 %55 to i32
-  %72 = trunc i64 %55 to i32
-  %73 = trunc i64 %indvars.iv1326 to i32
-  %74 = trunc i64 %55 to i32
-  %75 = trunc i64 %55 to i32
+  %57 = trunc nsw i64 %50 to i32
+  %58 = trunc nuw nsw i64 %55 to i32
+  %59 = trunc nuw nsw i64 %55 to i32
+  %60 = trunc nuw nsw i64 %55 to i32
+  %61 = trunc nuw nsw i64 %55 to i32
+  %62 = trunc nsw i64 %indvars.iv1326 to i32
+  %63 = trunc nuw nsw i64 %55 to i32
+  %64 = trunc nuw nsw i64 %55 to i32
+  %65 = trunc nsw i64 %indvars.iv1326 to i32
+  %66 = trunc nuw nsw i64 %55 to i32
+  %67 = trunc nuw nsw i64 %55 to i32
+  %68 = trunc nsw i64 %indvars.iv1326 to i32
+  %69 = trunc nuw nsw i64 %55 to i32
+  %70 = trunc nuw nsw i64 %55 to i32
+  %71 = trunc nuw nsw i64 %55 to i32
+  %72 = trunc nuw nsw i64 %55 to i32
+  %73 = trunc nsw i64 %indvars.iv1326 to i32
+  %74 = trunc nuw nsw i64 %55 to i32
+  %75 = trunc nuw nsw i64 %55 to i32
   br label %.preheader1257
 
 .preheader1253:                                   ; preds = %913
@@ -54412,25 +54412,25 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EE3setEi
   %94 = icmp eq i64 %90, 0
   %95 = add nuw nsw i64 %90, 3
   %96 = sub nsw i64 1, %indvars.iv1308
-  %97 = trunc i64 %90 to i32
-  %98 = trunc i64 %95 to i32
-  %99 = trunc i64 %95 to i32
-  %100 = trunc i64 %indvars.iv1308 to i32
-  %101 = trunc i64 %95 to i32
-  %102 = trunc i64 %95 to i32
-  %103 = trunc i64 %95 to i32
-  %104 = trunc i64 %95 to i32
-  %105 = trunc i64 %indvars.iv1308 to i32
-  %106 = trunc i64 %95 to i32
-  %107 = trunc i64 %95 to i32
-  %108 = trunc i64 %95 to i32
-  %109 = trunc i64 %95 to i32
-  %110 = trunc i64 %indvars.iv1308 to i32
-  %111 = trunc i64 %95 to i32
-  %112 = trunc i64 %95 to i32
-  %113 = trunc i64 %indvars.iv1308 to i32
-  %114 = trunc i64 %95 to i32
-  %115 = trunc i64 %95 to i32
+  %97 = trunc nsw i64 %90 to i32
+  %98 = trunc nuw nsw i64 %95 to i32
+  %99 = trunc nuw nsw i64 %95 to i32
+  %100 = trunc nsw i64 %indvars.iv1308 to i32
+  %101 = trunc nuw nsw i64 %95 to i32
+  %102 = trunc nuw nsw i64 %95 to i32
+  %103 = trunc nuw nsw i64 %95 to i32
+  %104 = trunc nuw nsw i64 %95 to i32
+  %105 = trunc nsw i64 %indvars.iv1308 to i32
+  %106 = trunc nuw nsw i64 %95 to i32
+  %107 = trunc nuw nsw i64 %95 to i32
+  %108 = trunc nuw nsw i64 %95 to i32
+  %109 = trunc nuw nsw i64 %95 to i32
+  %110 = trunc nsw i64 %indvars.iv1308 to i32
+  %111 = trunc nuw nsw i64 %95 to i32
+  %112 = trunc nuw nsw i64 %95 to i32
+  %113 = trunc nsw i64 %indvars.iv1308 to i32
+  %114 = trunc nuw nsw i64 %95 to i32
+  %115 = trunc nuw nsw i64 %95 to i32
   br label %116
 
 .loopexit1255:                                    ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit782
@@ -54442,7 +54442,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EE3setEi
   store i32 %57, ptr %3, align 4
   store i32 %97, ptr %34, align 4
   %117 = add nsw i64 %indvars.iv1290, %49
-  %118 = trunc i64 %117 to i32
+  %118 = trunc nsw i64 %117 to i32
   store i32 %118, ptr %35, align 4
   %119 = load i32, ptr %0, align 8
   %120 = shl nuw i32 1, %119
@@ -54560,29 +54560,29 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %175 = icmp eq i64 %117, 0
   %176 = add nuw nsw i64 %117, 3
   %177 = sub nsw i64 1, %indvars.iv1290
-  %178 = trunc i64 %indvars.iv1290 to i32
-  %179 = trunc i64 %176 to i32
-  %180 = trunc i64 %176 to i32
-  %181 = trunc i64 %176 to i32
-  %182 = trunc i64 %176 to i32
-  %183 = trunc i64 %176 to i32
-  %184 = trunc i64 %176 to i32
+  %178 = trunc nsw i64 %indvars.iv1290 to i32
+  %179 = trunc nuw nsw i64 %176 to i32
+  %180 = trunc nuw nsw i64 %176 to i32
+  %181 = trunc nuw nsw i64 %176 to i32
+  %182 = trunc nuw nsw i64 %176 to i32
+  %183 = trunc nuw nsw i64 %176 to i32
+  %184 = trunc nuw nsw i64 %176 to i32
   br label %193
 
 .preheader1256:                                   ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422
-  %185 = trunc i64 %176 to i32
-  %186 = trunc i64 %176 to i32
-  %187 = trunc i64 %indvars.iv1290 to i32
-  %188 = trunc i64 %176 to i32
-  %189 = trunc i64 %176 to i32
-  %190 = trunc i64 %indvars.iv1290 to i32
-  %191 = trunc i64 %176 to i32
-  %192 = trunc i64 %176 to i32
+  %185 = trunc nuw nsw i64 %176 to i32
+  %186 = trunc nuw nsw i64 %176 to i32
+  %187 = trunc nsw i64 %indvars.iv1290 to i32
+  %188 = trunc nuw nsw i64 %176 to i32
+  %189 = trunc nuw nsw i64 %176 to i32
+  %190 = trunc nsw i64 %indvars.iv1290 to i32
+  %191 = trunc nuw nsw i64 %176 to i32
+  %192 = trunc nuw nsw i64 %176 to i32
   br label %478
 
 193:                                              ; preds = %.split1261.us, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422
   %indvars.iv1278 = phi i64 [ 0, %.split1261.us ], [ %indvars.iv.next1279, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422 ]
-  %194 = trunc i64 %indvars.iv1278 to i32
+  %194 = trunc nuw nsw i64 %indvars.iv1278 to i32
   call void @_ZN4Cube15FactorFaceIndexEiRiS0_(i32 noundef %194, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %195 = load i32, ptr %6, align 4
   switch i32 %195, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422 [
@@ -55222,14 +55222,14 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %exitcond1281.not, label %.preheader1256, label %193, !llvm.loop !824
 
 .preheader1254:                                   ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602
-  %475 = trunc i64 %indvars.iv1290 to i32
-  %476 = trunc i64 %176 to i32
-  %477 = trunc i64 %176 to i32
+  %475 = trunc nsw i64 %indvars.iv1290 to i32
+  %476 = trunc nuw nsw i64 %176 to i32
+  %477 = trunc nuw nsw i64 %176 to i32
   br label %789
 
 478:                                              ; preds = %.preheader1256, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602
   %indvars.iv1282 = phi i64 [ 0, %.preheader1256 ], [ %indvars.iv.next1283, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602 ]
-  %479 = trunc i64 %indvars.iv1282 to i32
+  %479 = trunc nuw nsw i64 %indvars.iv1282 to i32
   call void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %479, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %480 = load i32, ptr %8, align 4
   switch i32 %480, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602 [
@@ -55922,7 +55922,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 
 789:                                              ; preds = %.preheader1254, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit782
   %indvars.iv1286 = phi i64 [ 0, %.preheader1254 ], [ %indvars.iv.next1287, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit782 ]
-  %790 = trunc i64 %indvars.iv1286 to i32
+  %790 = trunc nuw nsw i64 %indvars.iv1286 to i32
   call void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %790, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   %791 = load i32, ptr %11, align 4
   %792 = add nsw i32 %791, %33
@@ -56185,7 +56185,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 
 914:                                              ; preds = %.preheader1253, %2203
   %indvars.iv1416 = phi i64 [ 0, %.preheader1253 ], [ %indvars.iv.next1417, %2203 ]
-  %915 = trunc i64 %indvars.iv1416 to i32
+  %915 = trunc nuw nsw i64 %indvars.iv1416 to i32
   call void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %915, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   %916 = getelementptr inbounds [8 x %struct.Stencil], ptr %78, i64 0, i64 %indvars.iv1416
   %917 = getelementptr inbounds [8 x %struct.Stencil.329], ptr %79, i64 0, i64 %indvars.iv1416
@@ -56203,22 +56203,22 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %923 = add nuw nsw i64 %918, 3
   %.tr = trunc i64 %918 to i32
   %924 = shl i32 %.tr, 1
-  %925 = trunc i64 %923 to i32
-  %926 = trunc i64 %923 to i32
-  %927 = trunc i64 %923 to i32
-  %928 = trunc i64 %923 to i32
-  %929 = trunc i64 %923 to i32
-  %930 = trunc i64 %923 to i32
-  %931 = trunc i64 %923 to i32
-  %932 = trunc i64 %923 to i32
-  %933 = trunc i64 %923 to i32
-  %934 = trunc i64 %923 to i32
-  %935 = trunc i64 %923 to i32
-  %936 = trunc i64 %923 to i32
-  %937 = trunc i64 %923 to i32
-  %938 = trunc i64 %923 to i32
-  %939 = trunc i64 %923 to i32
-  %940 = trunc i64 %923 to i32
+  %925 = trunc nuw nsw i64 %923 to i32
+  %926 = trunc nuw nsw i64 %923 to i32
+  %927 = trunc nuw nsw i64 %923 to i32
+  %928 = trunc nuw nsw i64 %923 to i32
+  %929 = trunc nuw nsw i64 %923 to i32
+  %930 = trunc nuw nsw i64 %923 to i32
+  %931 = trunc nuw nsw i64 %923 to i32
+  %932 = trunc nuw nsw i64 %923 to i32
+  %933 = trunc nuw nsw i64 %923 to i32
+  %934 = trunc nuw nsw i64 %923 to i32
+  %935 = trunc nuw nsw i64 %923 to i32
+  %936 = trunc nuw nsw i64 %923 to i32
+  %937 = trunc nuw nsw i64 %923 to i32
+  %938 = trunc nuw nsw i64 %923 to i32
+  %939 = trunc nuw nsw i64 %923 to i32
+  %940 = trunc nuw nsw i64 %923 to i32
   br label %.preheader1251
 
 .preheader1251:                                   ; preds = %.preheader1252, %2201
@@ -56232,22 +56232,22 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %946 = add nuw nsw i64 %941, 3
   %.tr1428 = trunc i64 %941 to i32
   %947 = shl i32 %.tr1428, 1
-  %948 = trunc i64 %946 to i32
-  %949 = trunc i64 %946 to i32
-  %950 = trunc i64 %946 to i32
-  %951 = trunc i64 %946 to i32
-  %952 = trunc i64 %946 to i32
-  %953 = trunc i64 %946 to i32
-  %954 = trunc i64 %946 to i32
-  %955 = trunc i64 %946 to i32
-  %956 = trunc i64 %946 to i32
-  %957 = trunc i64 %946 to i32
-  %958 = trunc i64 %946 to i32
-  %959 = trunc i64 %946 to i32
-  %960 = trunc i64 %946 to i32
-  %961 = trunc i64 %946 to i32
-  %962 = trunc i64 %946 to i32
-  %963 = trunc i64 %946 to i32
+  %948 = trunc nuw nsw i64 %946 to i32
+  %949 = trunc nuw nsw i64 %946 to i32
+  %950 = trunc nuw nsw i64 %946 to i32
+  %951 = trunc nuw nsw i64 %946 to i32
+  %952 = trunc nuw nsw i64 %946 to i32
+  %953 = trunc nuw nsw i64 %946 to i32
+  %954 = trunc nuw nsw i64 %946 to i32
+  %955 = trunc nuw nsw i64 %946 to i32
+  %956 = trunc nuw nsw i64 %946 to i32
+  %957 = trunc nuw nsw i64 %946 to i32
+  %958 = trunc nuw nsw i64 %946 to i32
+  %959 = trunc nuw nsw i64 %946 to i32
+  %960 = trunc nuw nsw i64 %946 to i32
+  %961 = trunc nuw nsw i64 %946 to i32
+  %962 = trunc nuw nsw i64 %946 to i32
+  %963 = trunc nuw nsw i64 %946 to i32
   br label %964
 
 .loopexit:                                        ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1212
@@ -56560,26 +56560,26 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   %1128 = icmp slt i64 %966, 0
   %1129 = icmp eq i64 %966, 0
   %1130 = add nuw nsw i64 %966, 3
-  %1131 = trunc i64 %1130 to i32
-  %1132 = trunc i64 %1130 to i32
-  %1133 = trunc i64 %1130 to i32
-  %1134 = trunc i64 %1130 to i32
-  %1135 = trunc i64 %1130 to i32
-  %1136 = trunc i64 %1130 to i32
+  %1131 = trunc nuw nsw i64 %1130 to i32
+  %1132 = trunc nuw nsw i64 %1130 to i32
+  %1133 = trunc nuw nsw i64 %1130 to i32
+  %1134 = trunc nuw nsw i64 %1130 to i32
+  %1135 = trunc nuw nsw i64 %1130 to i32
+  %1136 = trunc nuw nsw i64 %1130 to i32
   br label %1143
 
 .preheader1250:                                   ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888
-  %1137 = trunc i64 %1130 to i32
-  %1138 = trunc i64 %1130 to i32
-  %1139 = trunc i64 %1130 to i32
-  %1140 = trunc i64 %1130 to i32
-  %1141 = trunc i64 %1130 to i32
-  %1142 = trunc i64 %1130 to i32
+  %1137 = trunc nuw nsw i64 %1130 to i32
+  %1138 = trunc nuw nsw i64 %1130 to i32
+  %1139 = trunc nuw nsw i64 %1130 to i32
+  %1140 = trunc nuw nsw i64 %1130 to i32
+  %1141 = trunc nuw nsw i64 %1130 to i32
+  %1142 = trunc nuw nsw i64 %1130 to i32
   br label %1588
 
 1143:                                             ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit835, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888
   %indvars.iv1344 = phi i64 [ 0, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit835 ], [ %indvars.iv.next1345, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888 ]
-  %1144 = trunc i64 %indvars.iv1344 to i32
+  %1144 = trunc nuw nsw i64 %indvars.iv1344 to i32
   call void @_ZN4Cube15FactorFaceIndexEiRiS0_(i32 noundef %1144, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18)
   %1145 = load i32, ptr %17, align 4
   switch i32 %1145, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888 [
@@ -57445,13 +57445,13 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %exitcond1347.not, label %.preheader1250, label %1143, !llvm.loop !830
 
 .preheader:                                       ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050
-  %1586 = trunc i64 %1130 to i32
-  %1587 = trunc i64 %1130 to i32
+  %1586 = trunc nuw nsw i64 %1130 to i32
+  %1587 = trunc nuw nsw i64 %1130 to i32
   br label %2037
 
 1588:                                             ; preds = %.preheader1250, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050
   %indvars.iv1348 = phi i64 [ 0, %.preheader1250 ], [ %indvars.iv.next1349, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050 ]
-  %1589 = trunc i64 %indvars.iv1348 to i32
+  %1589 = trunc nuw nsw i64 %indvars.iv1348 to i32
   call void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %1589, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
   %1590 = load i32, ptr %19, align 4
   switch i32 %1590, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050 [
@@ -58324,7 +58324,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 
 2037:                                             ; preds = %.preheader, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1212
   %indvars.iv1352 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1353, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1212 ]
-  %2038 = trunc i64 %indvars.iv1352 to i32
+  %2038 = trunc nuw nsw i64 %indvars.iv1352 to i32
   call void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %2038, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
   %2039 = load i32, ptr %14, align 4
   %2040 = add nsw i32 %2039, %33
@@ -59392,7 +59392,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   %indvars.iv67 = phi i64 [ 0, %2 ], [ %indvars.iv.next68, %.split39.us ]
   %.not = icmp eq i64 %indvars.iv67, 2
   %9 = select i1 %.not, i32 %5, i32 0
-  %10 = trunc i64 %indvars.iv67 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv67 to i32
   %11 = add nsw i32 %9, %10
   %12 = sitofp i32 %11 to double
   %13 = fadd double %12, 5.000000e-01
@@ -59414,7 +59414,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
 
 .preheader.split:                                 ; preds = %.preheader, %.split26.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.split26.us ], [ -1, %.preheader ]
-  %19 = trunc i64 %indvars.iv54 to i32
+  %19 = trunc nsw i64 %indvars.iv54 to i32
   %20 = sitofp i32 %19 to double
   %21 = fadd double %13, %20
   %22 = fdiv double %21, %6
@@ -59506,7 +59506,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
   %indvars.iv66 = phi i64 [ 0, %2 ], [ %indvars.iv.next67, %.split39.us ]
   %.not = icmp eq i64 %indvars.iv66, 2
   %9 = select i1 %.not, i32 %5, i32 0
-  %10 = trunc i64 %indvars.iv66 to i32
+  %10 = trunc nuw nsw i64 %indvars.iv66 to i32
   %11 = add nsw i32 %9, %10
   %12 = icmp slt i32 %11, 0
   %13 = icmp sle i32 %4, %11
@@ -59524,7 +59524,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE18Set
 .preheader.split:                                 ; preds = %.preheader, %.split26.us
   %17 = phi i1 [ false, %.split26.us ], [ true, %.preheader ]
   %indvars.iv54 = phi i64 [ 1, %.split26.us ], [ 0, %.preheader ]
-  %18 = trunc i64 %indvars.iv54 to i32
+  %18 = trunc nuw nsw i64 %indvars.iv54 to i32
   %19 = add i32 %11, %18
   %20 = sitofp i32 %19 to double
   %21 = fdiv double %20, %6
@@ -59620,7 +59620,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   %indvars.iv67 = phi i64 [ 0, %2 ], [ %indvars.iv.next68, %.split39.us ]
   %.not = icmp eq i64 %indvars.iv67, 2
   %12 = select i1 %.not, i32 %7, i32 0
-  %13 = trunc i64 %indvars.iv67 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv67 to i32
   %14 = add nsw i32 %12, %13
   %15 = shl nsw i32 %14, 1
   %16 = sitofp i32 %15 to double
@@ -59644,7 +59644,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
 
 .preheader.split:                                 ; preds = %.preheader, %.split26.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.split26.us ], [ -2, %.preheader ]
-  %24 = trunc i64 %indvars.iv54 to i32
+  %24 = trunc nsw i64 %indvars.iv54 to i32
   %25 = sitofp i32 %24 to double
   %26 = fadd double %17, %25
   %27 = fdiv double %26, %8
@@ -59740,7 +59740,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE23Set
   %indvars.iv67 = phi i64 [ 0, %2 ], [ %indvars.iv.next68, %.split39.us ]
   %.not = icmp eq i64 %indvars.iv67, 2
   %12 = select i1 %.not, i32 %7, i32 0
-  %13 = trunc i64 %indvars.iv67 to i32
+  %13 = trunc nuw nsw i64 %indvars.iv67 to i32
   %14 = add nsw i32 %12, %13
   %15 = shl nsw i32 %14, 1
   %16 = icmp slt i32 %14, 0
@@ -59979,7 +59979,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %92 = trunc i64 %91 to i32
   %93 = and i32 %92, 524287
   %94 = lshr i64 %86, 43
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw nsw i64 %94 to i32
   %96 = and i32 %95, 524287
   %97 = sub nsw i32 %88, %44
   %98 = add nsw i32 %88, -1
@@ -60243,7 +60243,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit109: ; preds = %_
   %248 = trunc i64 %247 to i32
   %249 = and i32 %248, 524287
   %250 = lshr i64 %242, 43
-  %251 = trunc i64 %250 to i32
+  %251 = trunc nuw nsw i64 %250 to i32
   %252 = and i32 %251, 524287
   %253 = sub nsw i32 %244, %44
   %254 = add nsw i32 %244, -1
@@ -60483,7 +60483,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit124: ; preds = %_
   %396 = trunc i64 %395 to i32
   %397 = and i32 %396, 524287
   %398 = lshr i64 %390, 43
-  %399 = trunc i64 %398 to i32
+  %399 = trunc nuw nsw i64 %398 to i32
   %400 = and i32 %399, 524287
   %401 = sub nsw i32 %392, %44
   %402 = add nsw i32 %392, -1
@@ -60803,7 +60803,7 @@ _ZNK6OctreeIfE24_getSampleDepthAndWeightILi2E15PointSupportKeyILi2EEEEvRKNS0_16D
   %107 = trunc i64 %106 to i32
   %108 = and i32 %107, 524287
   %109 = lshr i64 %101, 43
-  %110 = trunc i64 %109 to i32
+  %110 = trunc nuw nsw i64 %109 to i32
   %111 = and i32 %110, 524287
   %112 = load i32, ptr %73, align 8
   %113 = sub nsw i32 %103, %112
@@ -61241,7 +61241,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN7OctNode
 43:                                               ; preds = %30, %79
   %44 = phi i1 [ true, %30 ], [ false, %79 ]
   %indvars.iv100 = phi i64 [ 0, %30 ], [ 1, %79 ]
-  %45 = trunc i64 %indvars.iv100 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv100 to i32
   %46 = add i32 %40, %45
   %47 = ashr i32 %46, 1
   %48 = shl i32 %46, 2
@@ -61252,7 +61252,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN7OctNode
 51:                                               ; preds = %43, %78
   %52 = phi i1 [ true, %43 ], [ false, %78 ]
   %indvars.iv97 = phi i64 [ 0, %43 ], [ 1, %78 ]
-  %53 = trunc i64 %indvars.iv97 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv97 to i32
   %54 = add i32 %41, %53
   %55 = ashr i32 %54, 1
   %56 = shl i32 %54, 1
@@ -61264,7 +61264,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN7OctNode
 60:                                               ; preds = %51, %76
   %61 = phi i1 [ true, %51 ], [ false, %76 ]
   %indvars.iv94 = phi i64 [ 0, %51 ], [ 1, %76 ]
-  %62 = trunc i64 %indvars.iv94 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv94 to i32
   %63 = add i32 %42, %62
   %64 = ashr i32 %63, 1
   %65 = sext i32 %64 to i64
@@ -62761,7 +62761,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi1EL12BoundaryType2EE17BSp
 .preheader116:                                    ; preds = %.preheader117, %33
   %8 = phi i1 [ true, %.preheader117 ], [ false, %33 ]
   %indvars.iv126 = phi i64 [ 0, %.preheader117 ], [ 1, %33 ]
-  %9 = trunc i64 %indvars.iv126 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv126 to i32
   %10 = add nsw i32 %9, -1
   %11 = sitofp i32 %10 to double
   %12 = fneg double %11
@@ -62791,13 +62791,13 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi1EL12BoundaryType2EE17BSp
   %19 = load double, ptr %18, align 8
   %20 = call double @llvm.fmuladd.f64(double %indvars.iv.i.sroa.phi.sroa.speculated, double %.01416.i, double %19)
   store double %20, ptr %18, align 8
-  %21 = trunc i64 %indvars.iv19.i to i32
+  %21 = trunc nuw i64 %indvars.iv19.i to i32
   %22 = sitofp i32 %21 to double
   %23 = fmul double %12, %22
   %24 = fmul double %.01416.i, %23
   %25 = sub nuw nsw i64 %indvars.iv.next.i, %indvars.iv19.i
-  %26 = trunc i64 %25 to i32
-  %27 = sitofp i32 %26 to double
+  %26 = trunc nuw nsw i64 %25 to i32
+  %27 = uitofp nneg i32 %26 to double
   %28 = fdiv double %24, %27
   %indvars.iv.next20.i = add nsw i64 %indvars.iv19.i, -1
   %.not.i = icmp eq i64 %indvars.iv19.i, 0
@@ -62887,13 +62887,13 @@ _ZNK10PolynomialILi1EE5scaleEd.exit:              ; preds = %53
   %61 = load double, ptr %60, align 8
   %62 = call double @llvm.fmuladd.f64(double %indvars.iv.i62.sroa.phi.sroa.speculated, double %.01416.i65, double %61)
   store double %62, ptr %60, align 8
-  %63 = trunc i64 %indvars.iv19.i64 to i32
+  %63 = trunc nuw i64 %indvars.iv19.i64 to i32
   %64 = sitofp i32 %63 to double
   %65 = fmul double %39, %64
   %66 = fmul double %.01416.i65, %65
   %67 = sub nuw nsw i64 %indvars.iv.next.i63, %indvars.iv19.i64
-  %68 = trunc i64 %67 to i32
-  %69 = sitofp i32 %68 to double
+  %68 = trunc nuw nsw i64 %67 to i32
+  %69 = uitofp nneg i32 %68 to double
   %70 = fdiv double %66, %69
   %indvars.iv.next20.i66 = add nsw i64 %indvars.iv19.i64, -1
   %.not.i67 = icmp eq i64 %indvars.iv19.i64, 0
@@ -64086,7 +64086,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit:  ; preds = %98
 .preheader:                                       ; preds = %105, %379
   %111 = phi i1 [ true, %105 ], [ false, %379 ]
   %.0100252 = phi i32 [ 0, %105 ], [ 1, %379 ]
-  %trunc = trunc i32 %.0100252 to i1
+  %trunc = trunc nuw i32 %.0100252 to i1
   br label %112
 
 112:                                              ; preds = %.preheader, %.critedge
@@ -65372,7 +65372,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %85, %96, %_Z1
   %117 = trunc i64 %116 to i32
   %118 = and i32 %117, 524287
   %119 = lshr i64 %113, 43
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nuw nsw i64 %119 to i32
   %121 = and i32 %120, 524287
   %122 = load i32, ptr %24, align 8
   %123 = sub nsw i32 %115, %122
@@ -65644,7 +65644,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZNK6OctreeIfE26_getCornerValu
   %21 = trunc i64 %20 to i32
   %22 = and i32 %21, 524287
   %23 = lshr i64 %15, 43
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = and i32 %24, 524287
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
@@ -65855,7 +65855,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %141 = trunc i64 %140 to i32
   %142 = and i32 %141, 524287
   %143 = lshr i64 %135, 43
-  %144 = trunc i64 %143 to i32
+  %144 = trunc nuw nsw i64 %143 to i32
   %145 = and i32 %144, 524287
   %146 = add nsw i32 %137, -1
   %147 = shl nuw nsw i32 1, %146
@@ -66327,7 +66327,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit243: ; preds = %_
   %385 = trunc i64 %384 to i32
   %386 = and i32 %385, 524287
   %387 = lshr i64 %379, 43
-  %388 = trunc i64 %387 to i32
+  %388 = trunc nuw nsw i64 %387 to i32
   %389 = and i32 %388, 524287
   %390 = add nsw i32 %381, -1
   %391 = shl nuw nsw i32 1, %390
@@ -66621,7 +66621,7 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE15_getCornerValueIfLi2EL12Bound
   %21 = trunc i64 %20 to i32
   %22 = and i32 %21, 524287
   %23 = lshr i64 %15, 43
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = and i32 %24, 524287
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
@@ -66804,7 +66804,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %121 = trunc i64 %120 to i32
   %122 = and i32 %121, 524287
   %123 = lshr i64 %115, 43
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = and i32 %124, 524287
   %126 = add nsw i32 %117, -1
   %127 = shl nuw nsw i32 1, %126
@@ -67135,7 +67135,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit168: ; preds = %_
   %285 = trunc i64 %284 to i32
   %286 = and i32 %285, 524287
   %287 = lshr i64 %279, 43
-  %288 = trunc i64 %287 to i32
+  %288 = trunc nuw nsw i64 %287 to i32
   %289 = and i32 %288, 524287
   %290 = add nsw i32 %281, -1
   %291 = shl nuw nsw i32 1, %290
@@ -67851,7 +67851,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %117, %_Z
   %152 = load ptr, ptr %73, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 %133
   %154 = load i8, ptr %153, align 1
-  %155 = trunc i64 %indvars.iv210 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv210 to i32
   %156 = invoke noundef zeroext i1 @_ZN15MarchingSquares12HasEdgeRootsEhi(i8 noundef zeroext %154, i32 noundef %155)
           to label %157 unwind label %.loopexit.split-lp.loopexit
 
@@ -68584,7 +68584,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN7OctNode
 29:                                               ; preds = %16, %65
   %30 = phi i1 [ true, %16 ], [ false, %65 ]
   %indvars.iv66 = phi i64 [ 0, %16 ], [ 1, %65 ]
-  %31 = trunc i64 %indvars.iv66 to i32
+  %31 = trunc nuw nsw i64 %indvars.iv66 to i32
   %32 = add i32 %26, %31
   %33 = ashr i32 %32, 1
   %34 = shl i32 %32, 2
@@ -68595,7 +68595,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN7OctNode
 37:                                               ; preds = %29, %64
   %38 = phi i1 [ true, %29 ], [ false, %64 ]
   %indvars.iv63 = phi i64 [ 0, %29 ], [ 1, %64 ]
-  %39 = trunc i64 %indvars.iv63 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv63 to i32
   %40 = add i32 %27, %39
   %41 = ashr i32 %40, 1
   %42 = shl i32 %40, 1
@@ -68607,7 +68607,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZN7OctNode
 46:                                               ; preds = %37, %62
   %47 = phi i1 [ true, %37 ], [ false, %62 ]
   %indvars.iv = phi i64 [ 0, %37 ], [ 1, %62 ]
-  %48 = trunc i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = add i32 %28, %48
   %50 = ashr i32 %49, 1
   %51 = sext i32 %50 to i64
@@ -68710,7 +68710,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6OctreeIfE13_getIsoVertexILi2ELi1EL12
   %62 = and i32 %61, 524287
   %63 = getelementptr inbounds i8, ptr %15, i64 4
   %64 = lshr i64 %55, 43
-  %65 = trunc i64 %64 to i32
+  %65 = trunc nuw nsw i64 %64 to i32
   %66 = and i32 %65, 524287
   %67 = getelementptr inbounds i8, ptr %15, i64 8
   %68 = getelementptr inbounds i8, ptr %0, i64 48
@@ -68896,7 +68896,7 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %160
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not99.not = icmp eq i32 %.190, 0
-  %168 = sitofp i32 %.190 to double
+  %168 = uitofp nneg i32 %.190 to double
   %169 = fdiv double %.1, %168
   br i1 %.not99.not, label %.thread, label %181
 
@@ -69003,7 +69003,7 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %160
   %222 = fptosi double %221 to i32
   %223 = call i32 @llvm.smin.i32(i32 %222, i32 255)
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %223, i32 0)
-  %224 = trunc i32 %.sroa.speculated.i.i to i8
+  %224 = trunc nuw i32 %.sroa.speculated.i.i to i8
   %225 = getelementptr inbounds i8, ptr %216, i64 %indvars.iv.i.i
   store i8 %224, ptr %225, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -69229,7 +69229,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZNK6OctreeIfE9_evaluateI14Pro
   %48 = trunc i64 %47 to i32
   %49 = and i32 %48, 524287
   %50 = lshr i64 %42, 43
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = and i32 %51, 524287
   %53 = sub nsw i32 %44, %12
   %54 = add nsw i32 %53, -1
@@ -69354,7 +69354,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %104
   %116 = trunc i64 %115 to i32
   %117 = and i32 %116, 524287
   %118 = lshr i64 %112, 43
-  %119 = trunc i64 %118 to i32
+  %119 = trunc nuw nsw i64 %118 to i32
   %120 = and i32 %119, 524287
   %121 = sub nsw i32 %114, %12
   %122 = add nsw i32 %114, -1
@@ -69475,7 +69475,7 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE18_getSamplesPerNodeILi2E20Cons
   %20 = and i32 %19, 524287
   %21 = getelementptr inbounds i8, ptr %7, i64 4
   %22 = lshr i64 %13, 43
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %23, 524287
   %25 = getelementptr inbounds i8, ptr %7, i64 8
   %26 = getelementptr inbounds i8, ptr %0, i64 48
@@ -70245,7 +70245,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit102.thread: ; preds = %270, %274,
   %290 = and i32 %289, 524287
   store i32 %290, ptr %78, align 4
   %291 = lshr i64 %283, 43
-  %292 = trunc i64 %291 to i32
+  %292 = trunc nuw nsw i64 %291 to i32
   %293 = and i32 %292, 524287
   store i32 %293, ptr %79, align 4
   %294 = sub i32 %282, %285
@@ -71911,13 +71911,13 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %103, %122, %_
   %165 = phi i1 [ true, %162 ], [ false, %458 ]
   %indvars.iv216 = phi i64 [ 0, %162 ], [ 1, %458 ]
   %166 = shl nuw nsw i64 %indvars.iv216, 1
-  %167 = trunc i64 %indvars.iv216 to i32
+  %167 = trunc nuw nsw i64 %indvars.iv216 to i32
   br label %168
 
 168:                                              ; preds = %.preheader180, %.loopexit178
   %169 = phi i1 [ true, %.preheader180 ], [ false, %.loopexit178 ]
   %indvars.iv213 = phi i64 [ 0, %.preheader180 ], [ 1, %.loopexit178 ]
-  %170 = trunc i64 %indvars.iv213 to i32
+  %170 = trunc nuw nsw i64 %indvars.iv213 to i32
   %171 = invoke noundef i32 @_ZN6Square11CornerIndexEii(i32 noundef %167, i32 noundef %170)
           to label %172 unwind label %.loopexit.split-lp.loopexit
 
@@ -71965,7 +71965,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %103, %122, %_
   %196 = and i32 %195, 524287
   store i32 %196, ptr %80, align 4
   %197 = lshr i64 %189, 43
-  %198 = trunc i64 %197 to i32
+  %198 = trunc nuw nsw i64 %197 to i32
   %199 = and i32 %198, 524287
   store i32 %199, ptr %81, align 4
   invoke void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %173, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
@@ -72569,7 +72569,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6OctreeIfE13_getIsoVertexILi2ELi1EL12
   %65 = and i32 %64, 524287
   %66 = getelementptr inbounds i8, ptr %15, i64 4
   %67 = lshr i64 %58, 43
-  %68 = trunc i64 %67 to i32
+  %68 = trunc nuw nsw i64 %67 to i32
   %69 = and i32 %68, 524287
   %70 = getelementptr inbounds i8, ptr %15, i64 8
   %71 = getelementptr inbounds i8, ptr %0, i64 48
@@ -72725,7 +72725,7 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %148
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not103.not = icmp eq i32 %.194, 0
-  %156 = sitofp i32 %.194 to double
+  %156 = uitofp nneg i32 %.194 to double
   %157 = fdiv double %.1, %156
   br i1 %.not103.not, label %.thread, label %169
 
@@ -72826,7 +72826,7 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %148
   %207 = fptosi double %206 to i32
   %208 = call i32 @llvm.smin.i32(i32 %207, i32 255)
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %208, i32 0)
-  %209 = trunc i32 %.sroa.speculated.i.i to i8
+  %209 = trunc nuw i32 %.sroa.speculated.i.i to i8
   %210 = getelementptr inbounds i8, ptr %201, i64 %indvars.iv.i.i
   store i8 %209, ptr %210, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -73484,7 +73484,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit152.thread: ; preds = %376, %380,
   %396 = and i32 %395, 524287
   store i32 %396, ptr %78, align 4
   %397 = lshr i64 %389, 43
-  %398 = trunc i64 %397 to i32
+  %398 = trunc nuw nsw i64 %397 to i32
   %399 = and i32 %398, 524287
   store i32 %399, ptr %79, align 4
   %400 = sub i32 %388, %391
@@ -74099,7 +74099,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z
   %149 = trunc i64 %148 to i32
   %150 = and i32 %149, 524287
   %151 = lshr i64 %143, 43
-  %152 = trunc i64 %151 to i32
+  %152 = trunc nuw nsw i64 %151 to i32
   %153 = and i32 %152, 524287
   %154 = load i32, ptr %34, align 8
   %155 = icmp slt i32 %154, 2
@@ -74323,7 +74323,7 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt
   %265 = and i32 %264, 524287
   store i32 %265, ptr %86, align 4
   %266 = lshr i64 %258, 43
-  %267 = trunc i64 %266 to i32
+  %267 = trunc nuw nsw i64 %266 to i32
   %268 = and i32 %267, 524287
   store i32 %268, ptr %87, align 4
   %269 = sub i32 %257, %260
@@ -74684,7 +74684,7 @@ _ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EE9push_backEOS2_.exit215: ; preds = %_Z
   %450 = and i32 %449, 524287
   store i32 %450, ptr %78, align 4
   %451 = lshr i64 %443, 43
-  %452 = trunc i64 %451 to i32
+  %452 = trunc nuw nsw i64 %451 to i32
   %453 = and i32 %452, 524287
   store i32 %453, ptr %79, align 4
   %454 = sub i32 %442, %445
@@ -76231,7 +76231,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc102
   %138 = fptosi double %137 to i32
   %139 = tail call i32 @llvm.smin.i32(i32 %138, i32 255)
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %139, i32 0)
-  %140 = trunc i32 %.sroa.speculated.i to i8
+  %140 = trunc nuw i32 %.sroa.speculated.i to i8
   %141 = getelementptr inbounds [3 x i8], ptr %132, i64 0, i64 %indvars.iv.i110
   store i8 %140, ptr %141, align 1, !alias.scope !1042
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1

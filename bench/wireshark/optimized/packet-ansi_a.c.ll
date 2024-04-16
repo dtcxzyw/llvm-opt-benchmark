@@ -2327,7 +2327,7 @@ define hidden void @dissect_cdma2000_a1_elements(ptr noundef %0, ptr noundef %1,
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %12
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = call fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %18, i32 noundef %.049, ptr noundef nonnull @.str.282, ptr noundef nonnull %6)
   %20 = zext i16 %19 to i32
   %21 = sub i32 %.03748, %20
@@ -3656,7 +3656,7 @@ define internal noundef zeroext i8 @elem_chan_num(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_chan_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_chan_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_speech_or_data_indicator, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -3669,7 +3669,7 @@ define internal noundef zeroext i8 @elem_chan_type(ptr noundef %0, ptr noundef %
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %6
-  %16 = trunc i32 %4 to i8
+  %16 = trunc nuw nsw i32 %4 to i8
   br label %42
 
 17:                                               ; preds = %6
@@ -3846,7 +3846,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %6
-  %40 = trunc i32 %4 to i8
+  %40 = trunc nuw nsw i32 %4 to i8
   br label %157
 
 41:                                               ; preds = %6
@@ -3907,7 +3907,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %83
-  %86 = trunc i32 %4 to i8
+  %86 = trunc nuw i32 %4 to i8
   br label %157
 
 87:                                               ; preds = %83
@@ -3924,7 +3924,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %87
-  %99 = trunc i32 %4 to i8
+  %99 = trunc nuw i32 %4 to i8
   br label %157
 
 100:                                              ; preds = %87
@@ -4027,7 +4027,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_downlink_re(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_downlink_re(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc zeroext i8 @elem_downlink_re_aux(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
@@ -4201,7 +4201,7 @@ define internal zeroext i8 @elem_enc_info(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_ext_ho_dir_params_srch_win_a, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_ext_ho_dir_params_srch_win_n, align 4
@@ -4210,7 +4210,7 @@ define internal noundef zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr n
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %6
-  %13 = trunc i32 %4 to i8
+  %13 = trunc nuw nsw i32 %4 to i8
   br label %79
 
 14:                                               ; preds = %6
@@ -4226,7 +4226,7 @@ define internal noundef zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr n
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %14
-  %25 = trunc i32 %4 to i8
+  %25 = trunc nuw nsw i32 %4 to i8
   br label %79
 
 26:                                               ; preds = %14
@@ -4564,7 +4564,7 @@ define internal zeroext i8 @elem_is2000_chan_id(ptr noundef %0, ptr noundef %1, 
   %12 = load i32, ptr @hf_ansi_a_is2000_chan_id_frame_offset, align 4
   %13 = zext i8 %11 to i32
   %14 = and i32 %13, 15
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp nneg i32 %14 to double
   %16 = fmul double %15, 1.250000e+00
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.1197, i32 noundef %14, double noundef %16) #5
   %18 = lshr i8 %11, 4
@@ -5263,7 +5263,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   %12 = load i32, ptr @hf_ansi_a_is95_chan_id_frame_offset, align 4
   %13 = zext i8 %11 to i32
   %14 = and i32 %13, 15
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp nneg i32 %14 to double
   %16 = fmul double %15, 1.250000e+00
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.1197, i32 noundef %14, double noundef %16) #5
   %18 = add i32 %3, 1
@@ -5709,7 +5709,7 @@ define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1
   %49 = shl i8 %.0202226, 7
   %50 = getelementptr i8, ptr %47, i64 %indvars.iv250
   store i8 %49, ptr %50, align 1
-  %51 = trunc i64 %indvars.iv250 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv250 to i32
   %52 = add i32 %44, %51
   %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %52) #5
   %54 = lshr i8 %53, 1
@@ -5769,7 +5769,7 @@ define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1
   %87 = shl i8 %.1203223, 3
   %88 = getelementptr i8, ptr %84, i64 %indvars.iv
   store i8 %87, ptr %88, align 1
-  %89 = trunc i64 %indvars.iv to i32
+  %89 = trunc nuw nsw i64 %indvars.iv to i32
   %90 = add i32 %80, %89
   %91 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %90) #5
   %92 = lshr i8 %91, 5
@@ -6661,7 +6661,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   %60 = shl i8 %.0208243, 7
   %61 = getelementptr i8, ptr %58, i64 %indvars.iv267
   store i8 %60, ptr %61, align 1
-  %62 = trunc i64 %indvars.iv267 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv267 to i32
   %63 = add i32 %55, %62
   %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %63) #5
   %65 = lshr i8 %64, 1
@@ -6721,7 +6721,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
   %98 = shl i8 %.1238, 3
   %99 = getelementptr i8, ptr %95, i64 %indvars.iv
   store i8 %98, ptr %99, align 1
-  %100 = trunc i64 %indvars.iv to i32
+  %100 = trunc nuw nsw i64 %indvars.iv to i32
   %101 = add i32 %91, %100
   %102 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %101) #5
   %103 = lshr i8 %102, 5
@@ -7417,7 +7417,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @elem_downlink_re_aux(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc zeroext i8 @elem_downlink_re_aux(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @hf_ansi_a_downlink_re_num_cells, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
@@ -7426,7 +7426,7 @@ define internal fastcc noundef zeroext i8 @elem_downlink_re_aux(ptr noundef %0, 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %6
-  %13 = trunc i32 %4 to i8
+  %13 = trunc nuw nsw i32 %4 to i8
   br label %53
 
 14:                                               ; preds = %6

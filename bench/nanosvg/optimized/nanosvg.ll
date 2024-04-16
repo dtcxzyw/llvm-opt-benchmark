@@ -2046,7 +2046,7 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   %.0173210.i.i = phi float [ %482, %492 ], [ 0.000000e+00, %454 ]
   %.0174209.i.i = phi float [ %480, %492 ], [ 0.000000e+00, %454 ]
   %459 = phi <2 x float> [ %473, %492 ], [ zeroinitializer, %454 ]
-  %460 = sitofp i32 %.0169211.i.i to float
+  %460 = uitofp nneg i32 %.0169211.i.i to float
   %461 = fdiv float %460, %443
   %462 = call float @llvm.fmuladd.f32(float %.0177.i.i, float %461, float %422)
   %463 = call float @cosf(float noundef %462) #31
@@ -6230,7 +6230,7 @@ define internal fastcc void @nsvg__rasterizeSortedEdges(ptr nocapture noundef %0
   %.0117152 = phi i32 [ 0, %28 ], [ %.8, %nsvg__fillActiveEdges.exit ]
   %.0120151 = phi i32 [ %32, %28 ], [ %.8128, %nsvg__fillActiveEdges.exit ]
   %35 = add nuw nsw i32 %.080154, %33
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp nneg i32 %35 to float
   %37 = fadd float %36, 5.000000e-01
   %.not102138 = icmp eq ptr %.0., null
   br i1 %.not102138, label %.preheader133, label %.lr.ph
@@ -6859,14 +6859,14 @@ nsvg__fillActiveEdges.exit:                       ; preds = %nsvg__fillScanline.
   br i1 %exitcond186.not.i, label %nsvg__scanlineSolid.exit, label %312, !llvm.loop !67
 
 363:                                              ; preds = %285
-  %364 = sitofp i32 %.079156 to float
+  %364 = uitofp nneg i32 %.079156 to float
   %365 = fsub float %364, %2
   %366 = fdiv float %365, %3
   %367 = icmp sgt i32 %294, -1
   br i1 %367, label %.lr.ph178.i, label %nsvg__scanlineSolid.exit
 
 .lr.ph178.i:                                      ; preds = %363
-  %368 = sitofp i32 %spec.select131 to float
+  %368 = uitofp nneg i32 %spec.select131 to float
   %369 = fsub float %368, %1
   %370 = fdiv float %369, %3
   br label %371
@@ -6958,14 +6958,14 @@ nsvg__fillActiveEdges.exit:                       ; preds = %nsvg__fillScanline.
   br i1 %exitcond185.not.i, label %nsvg__scanlineSolid.exit, label %371, !llvm.loop !68
 
 446:                                              ; preds = %285
-  %447 = sitofp i32 %.079156 to float
+  %447 = uitofp nneg i32 %.079156 to float
   %448 = fsub float %447, %2
   %449 = fdiv float %448, %3
   %450 = icmp sgt i32 %294, -1
   br i1 %450, label %.lr.ph.i109, label %nsvg__scanlineSolid.exit
 
 .lr.ph.i109:                                      ; preds = %446
-  %451 = sitofp i32 %spec.select131 to float
+  %451 = uitofp nneg i32 %spec.select131 to float
   %452 = fsub float %451, %1
   %453 = fdiv float %452, %3
   br label %454
@@ -13867,7 +13867,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %162 = phi <2 x float> [ zeroinitializer, %153 ], [ %208, %207 ]
   %163 = phi <2 x float> [ zeroinitializer, %153 ], [ %209, %207 ]
   %164 = phi <2 x float> [ zeroinitializer, %153 ], [ %177, %207 ]
-  %165 = sitofp i32 %.07.i to float
+  %165 = uitofp nneg i32 %.07.i to float
   %166 = fdiv float %165, %155
   %167 = fmul float %166, 0x400921FB60000000
   %168 = tail call float @cosf(float noundef %167) #31
@@ -13963,7 +13963,7 @@ nsvg__buttCap.exit:                               ; preds = %207, %.sink.split.i
   br i1 %215, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %nsvg__buttCap.exit
-  %216 = sitofp i32 %spec.store.select.i to float
+  %216 = uitofp nneg i32 %spec.store.select.i to float
   %217 = getelementptr inbounds i8, ptr %0, i64 24
   %218 = getelementptr inbounds i8, ptr %0, i64 28
   %219 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14027,7 +14027,7 @@ nsvg__buttCap.exit:                               ; preds = %207, %.sink.split.i
   %.05.i = phi i32 [ 0, %230 ], [ %321, %nsvg__addEdge.exit88.i ]
   %256 = phi <2 x float> [ %223, %230 ], [ %268, %nsvg__addEdge.exit88.i ]
   %257 = phi <2 x float> [ %224, %230 ], [ %267, %nsvg__addEdge.exit88.i ]
-  %258 = sitofp i32 %.05.i to float
+  %258 = uitofp nneg i32 %.05.i to float
   %259 = fdiv float %258, %254
   %260 = tail call float @llvm.fmuladd.f32(float %259, float %.1.i130, float %239)
   %261 = tail call float @cosf(float noundef %260) #31
@@ -15379,7 +15379,7 @@ nsvg__addEdge.exit57.i:                           ; preds = %.sink.split.i48.i, 
   %989 = phi <2 x float> [ zeroinitializer, %978 ], [ %1035, %1034 ]
   %990 = phi <2 x float> [ zeroinitializer, %978 ], [ %1036, %1034 ]
   %991 = phi <2 x float> [ zeroinitializer, %978 ], [ %1004, %1034 ]
-  %992 = sitofp i32 %.07.i236 to float
+  %992 = uitofp nneg i32 %.07.i236 to float
   %993 = fdiv float %992, %982
   %994 = fmul float %993, 0x400921FB60000000
   %995 = tail call float @cosf(float noundef %994) #31

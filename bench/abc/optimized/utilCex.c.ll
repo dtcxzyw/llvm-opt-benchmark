@@ -154,7 +154,7 @@ define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %.not30, label %43, label %34
 
 34:                                               ; preds = %29
-  %35 = trunc i64 %indvars.iv to i32
+  %35 = trunc nsw i64 %indvars.iv to i32
   %36 = and i32 %35, 31
   %37 = shl nuw i32 1, %36
   %38 = ashr i32 %35, 5
@@ -181,7 +181,7 @@ define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %.not29, label %59, label %50
 
 50:                                               ; preds = %47
-  %51 = trunc i64 %indvars.iv38 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv38 to i32
   %52 = and i32 %51, 31
   %53 = shl nuw i32 1, %52
   %54 = lshr i64 %indvars.iv38, 5
@@ -318,7 +318,7 @@ define noalias noundef ptr @Abc_CexDeriveFromCombModel(ptr nocapture noundef rea
   br i1 %.not, label %31, label %22
 
 22:                                               ; preds = %19
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = and i32 %23, 31
   %25 = shl nuw i32 1, %24
   %26 = lshr i64 %indvars.iv, 5
@@ -677,7 +677,7 @@ define void @Abc_CexPrintStats(ptr noundef %0) local_unnamed_addr #4 {
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4
-  %25 = sitofp i32 %.0.lcssa to double
+  %25 = uitofp nneg i32 %.0.lcssa to double
   %26 = fmul double %25, 1.000000e+02
   %27 = sub nsw i32 %3, %22
   %28 = sitofp i32 %27 to double
@@ -778,7 +778,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %42 = getelementptr inbounds i8, ptr %0, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = getelementptr inbounds i8, ptr %0, i64 12
-  %45 = sitofp i32 %.041.lcssa to double
+  %45 = uitofp nneg i32 %.041.lcssa to double
   %46 = fmul double %45, 1.000000e+02
   %47 = add nsw i32 %41, 1
   %48 = mul nsw i32 %38, %47
@@ -859,7 +859,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
-  %24 = sitofp i32 %.0.lcssa.i to double
+  %24 = uitofp nneg i32 %.0.lcssa.i to double
   %25 = fmul double %24, 1.000000e+02
   %26 = sub nsw i32 %4, %21
   %27 = sitofp i32 %26 to double
@@ -1327,7 +1327,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr nocapture noundef readonly 
   br i1 %.not62, label %62, label %53
 
 53:                                               ; preds = %39, %42
-  %54 = trunc i64 %indvars.iv85 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv85 to i32
   %55 = and i32 %54, 31
   %56 = shl nuw i32 1, %55
   %57 = lshr i64 %indvars.iv85, 5

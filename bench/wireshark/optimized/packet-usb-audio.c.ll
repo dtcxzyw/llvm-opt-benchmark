@@ -1882,14 +1882,14 @@ define internal fastcc i32 @dissect_ac_if_hdr_body(ptr noundef %0, ptr noundef %
   %7 = mul nuw nsw i16 %6, 10
   %8 = and i16 %5, 15
   %9 = add nuw nsw i16 %7, %8
-  %10 = uitofp i16 %9 to double
+  %10 = uitofp nneg i16 %9 to double
   %11 = and i16 %4, 255
   %12 = zext nneg i16 %11 to i32
   %13 = lshr i32 %12, 4
   %14 = mul nuw nsw i32 %13, 10
   %15 = and i32 %12, 15
   %16 = add nuw nsw i32 %14, %15
-  %17 = sitofp i32 %16 to double
+  %17 = uitofp nneg i32 %16 to double
   %18 = fdiv double %17, 1.000000e+02
   %19 = fadd double %18, %10
   %20 = load i32, ptr @hf_ac_if_hdr_ver, align 4
@@ -2760,14 +2760,14 @@ define internal fastcc void @dissect_ms_if_hdr_body(ptr noundef %0, ptr noundef 
   %6 = mul nuw nsw i16 %5, 10
   %7 = and i16 %4, 15
   %8 = add nuw nsw i16 %6, %7
-  %9 = uitofp i16 %8 to double
+  %9 = uitofp nneg i16 %8 to double
   %10 = and i16 %3, 255
   %11 = zext nneg i16 %10 to i32
   %12 = lshr i32 %11, 4
   %13 = mul nuw nsw i32 %12, 10
   %14 = and i32 %11, 15
   %15 = add nuw nsw i32 %13, %14
-  %16 = sitofp i32 %15 to double
+  %16 = uitofp nneg i32 %15 to double
   %17 = fdiv double %16, 1.000000e+02
   %18 = fadd double %17, %9
   %19 = load i32, ptr @hf_ms_if_hdr_ver, align 4
@@ -2936,7 +2936,7 @@ get_addressed_entity_type.exit:                   ; preds = %4, %13, %20, %23
   store ptr @hf_wvalue_channel_number, ptr %5, align 16
   %43 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @hf_wvalue_fu_cs_v1, ptr %43, align 8
-  %trunc = trunc i16 %37 to i8
+  %trunc = trunc nuw i16 %37 to i8
   switch i8 %trunc, label %.fold.split [
     i8 1, label %45
     i8 2, label %44

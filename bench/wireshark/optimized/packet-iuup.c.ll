@@ -3155,7 +3155,7 @@ default.unreachable:                              ; preds = %86
 
 proto_item_set_generated.exit:                    ; preds = %122, %126, %129
   %133 = load i32, ptr @hf_iuup_delta, align 4
-  %134 = sitofp i32 %124 to float
+  %134 = uitofp nneg i32 %124 to float
   %135 = fdiv float %134, 1.000000e+06
   %136 = tail call ptr @proto_tree_add_float(ptr noundef %120, i32 noundef %133, ptr noundef %.0172, i32 noundef 4, i32 noundef 1, float noundef %135) #8
   %.not.i182 = icmp eq ptr %136, null
@@ -3713,7 +3713,7 @@ define internal fastcc void @dissect_iuup_init(ptr noundef %0, ptr nocapture nou
   %52 = getelementptr [64 x i32], ptr @hf_iuup_init_ipti, i64 0, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %53, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef 0) #8
-  %55 = trunc i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = and i32 %55, 1
   %spec.select = add i32 %51, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3906,7 +3906,7 @@ define internal fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not64, label %8, label %78, !llvm.loop !14
 
 78:                                               ; preds = %._crit_edge
-  %79 = trunc i64 %indvars.iv10 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv10 to i32
   ret i32 %79
 }
 

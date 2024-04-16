@@ -118,7 +118,7 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
   store i32 %21, ptr %5, align 4
   %22 = trunc i64 %indvars.iv80 to i32
   %23 = mul i32 %22, %0
-  %24 = trunc i64 %indvars.iv80 to i32
+  %24 = trunc nuw nsw i64 %indvars.iv80 to i32
   br label %25
 
 25:                                               ; preds = %.lr.ph67, %25
@@ -782,7 +782,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 30:                                               ; preds = %19
   %31 = lshr exact i64 %indvars.iv, 1
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw i64 %31 to i32
   store i32 %32, ptr %27, align 4
   br label %33
 
@@ -793,7 +793,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, -1
   %39 = lshr exact i64 %indvars.iv, 1
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw i64 %39 to i32
   br i1 %38, label %41, label %._crit_edge
 
 41:                                               ; preds = %33
@@ -993,7 +993,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not.i, label %Vec_IntRemove.exit, label %80, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %80
-  %85 = trunc i64 %indvars.iv.i to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %76
@@ -1020,9 +1020,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %94 = getelementptr inbounds i32, ptr %89, i64 %93
   store i32 %92, ptr %94, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %95 = trunc i64 %indvars.iv.next35.i to i32
+  %95 = trunc nuw i64 %indvars.iv.next35.i to i32
   %96 = icmp sgt i32 %77, %95
-  %97 = trunc i64 %indvars.iv34.i to i32
+  %97 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %96, label %90, label %._crit_edge30.i, !llvm.loop !13
 
 ._crit_edge30.i:                                  ; preds = %90, %.preheader.i
@@ -2451,7 +2451,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %88 = or disjoint i64 %85, 1
   %89 = getelementptr inbounds i32, ptr %.val79, i64 %88
   %90 = load i32, ptr %89, align 4
-  %91 = trunc i64 %indvars.iv126 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv126 to i32
   %92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %91, i32 noundef %87, i32 noundef %90)
   %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
   %.val80 = load ptr, ptr %51, align 8
@@ -2497,7 +2497,7 @@ Vec_IntPrint.exit:                                ; preds = %99, %84
   %112 = getelementptr inbounds i8, ptr %54, i64 4
   %.phi.trans.insert.i89 = getelementptr inbounds i8, ptr %54, i64 8
   %wide.trip.count = zext nneg i32 %.069.val.val to i64
-  %113 = trunc i64 %indvars.iv126 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv126 to i32
   br label %114
 
 114:                                              ; preds = %.lr.ph, %163
@@ -2982,7 +2982,7 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %.012.i70 = phi i32 [ 0, %.lr.ph.i67 ], [ %66, %57 ]
   %58 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i69
   %59 = load i32, ptr %58, align 4
-  %60 = trunc i64 %indvars.iv.i69 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv.i69 to i32
   %61 = urem i32 %60, 7
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %62
@@ -3009,7 +3009,7 @@ Hsh_VecManHash.exit:                              ; preds = %57, %43
   %75 = getelementptr inbounds i32, ptr %.val3.i, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 4
   store i32 %71, ptr %76, align 4
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %77, ptr %70, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load ptr, ptr %3, align 8
@@ -3041,7 +3041,7 @@ Hsh_VecManHash.exit:                              ; preds = %57, %43
   %.012.i80 = phi i32 [ 0, %.lr.ph.i76 ], [ %97, %88 ]
   %89 = getelementptr inbounds i32, ptr %.val10.i77, i64 %indvars.iv.i79
   %90 = load i32, ptr %89, align 4
-  %91 = trunc i64 %indvars.iv.i79 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i79 to i32
   %92 = urem i32 %91, 7
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %93
@@ -3602,31 +3602,32 @@ Vec_IntFree.exit13:                               ; preds = %Vec_IntFree.exit, %
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define double @Abc_Word2Double(i64 noundef %0) local_unnamed_addr #5 {
+; Function Attrs: nounwind uwtable
+define double @Abc_Word2Double(i64 noundef %0) local_unnamed_addr #1 {
   br label %2
 
-2:                                                ; preds = %1, %8
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %.067 = phi double [ 0.000000e+00, %1 ], [ %.1, %8 ]
+2:                                                ; preds = %1, %9
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
+  %.067 = phi double [ 0.000000e+00, %1 ], [ %.1, %9 ]
   %3 = shl nuw i64 1, %indvars.iv
   %4 = and i64 %3, %0
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = trunc i64 %indvars.iv to i32
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %6) #23
-  %7 = fadd double %.067, %ldexp
-  br label %8
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
+  %7 = uitofp nneg i32 %6 to double
+  %exp2 = tail call double @exp2(double %7) #23
+  %8 = fadd double %.067, %exp2
+  br label %9
 
-8:                                                ; preds = %2, %5
-  %.1 = phi double [ %7, %5 ], [ %.067, %2 ]
+9:                                                ; preds = %2, %5
+  %.1 = phi double [ %8, %5 ], [ %.067, %2 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %9, label %2, !llvm.loop !56
+  br i1 %exitcond.not, label %10, label %2, !llvm.loop !56
 
-9:                                                ; preds = %8
+10:                                               ; preds = %9
   ret double %.1
 }
 
@@ -3823,7 +3824,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 1
   %.not86 = icmp eq i32 %76, 0
-  %77 = trunc i64 %indvars.iv152 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv152 to i32
   %78 = xor i32 %77, -1
   %79 = add i32 %.val97.val, %78
   %80 = zext nneg i32 %79 to i64
@@ -3848,110 +3849,114 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %85 = sub i64 %.077.lcssa, %.079.lcssa
   br label %86
 
-86:                                               ; preds = %92, %.critedge.thread._crit_edge
-  %indvars.iv.i = phi i64 [ 0, %.critedge.thread._crit_edge ], [ %indvars.iv.next.i, %92 ]
-  %.067.i = phi double [ 0.000000e+00, %.critedge.thread._crit_edge ], [ %.1.i, %92 ]
+86:                                               ; preds = %93, %.critedge.thread._crit_edge
+  %indvars.iv.i = phi i64 [ 0, %.critedge.thread._crit_edge ], [ %indvars.iv.next.i, %93 ]
+  %.067.i = phi double [ 0.000000e+00, %.critedge.thread._crit_edge ], [ %.1.i, %93 ]
   %87 = shl nuw i64 1, %indvars.iv.i
   %88 = and i64 %87, %85
   %.not.i = icmp eq i64 %88, 0
-  br i1 %.not.i, label %92, label %89
+  br i1 %.not.i, label %93, label %89
 
 89:                                               ; preds = %86
-  %90 = trunc i64 %indvars.iv.i to i32
-  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %90) #23
-  %91 = fadd double %.067.i, %ldexp.i
-  br label %92
+  %90 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %91 = uitofp nneg i32 %90 to double
+  %exp2.i = tail call double @exp2(double %91) #23
+  %92 = fadd double %.067.i, %exp2.i
+  br label %93
 
-92:                                               ; preds = %89, %86
-  %.1.i = phi double [ %91, %89 ], [ %.067.i, %86 ]
+93:                                               ; preds = %89, %86
+  %.1.i = phi double [ %92, %89 ], [ %.067.i, %86 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
   br i1 %exitcond.not.i, label %Abc_Word2Double.exit.preheader, label %86, !llvm.loop !56
 
-Abc_Word2Double.exit.preheader:                   ; preds = %92
-  %93 = udiv i64 %85, 1000
+Abc_Word2Double.exit.preheader:                   ; preds = %93
+  %94 = udiv i64 %85, 1000
   br label %Abc_Word2Double.exit
 
-Abc_Word2Double.exit:                             ; preds = %Abc_Word2Double.exit.preheader, %99
-  %indvars.iv.i100 = phi i64 [ %indvars.iv.next.i105, %99 ], [ 0, %Abc_Word2Double.exit.preheader ]
-  %.067.i101 = phi double [ %.1.i104, %99 ], [ 0.000000e+00, %Abc_Word2Double.exit.preheader ]
-  %94 = shl nuw i64 1, %indvars.iv.i100
-  %95 = and i64 %94, %93
-  %.not.i102 = icmp eq i64 %95, 0
-  br i1 %.not.i102, label %99, label %96
+Abc_Word2Double.exit:                             ; preds = %Abc_Word2Double.exit.preheader, %101
+  %indvars.iv.i100 = phi i64 [ %indvars.iv.next.i105, %101 ], [ 0, %Abc_Word2Double.exit.preheader ]
+  %.067.i101 = phi double [ %.1.i104, %101 ], [ 0.000000e+00, %Abc_Word2Double.exit.preheader ]
+  %95 = shl nuw i64 1, %indvars.iv.i100
+  %96 = and i64 %95, %94
+  %.not.i102 = icmp eq i64 %96, 0
+  br i1 %.not.i102, label %101, label %97
 
-96:                                               ; preds = %Abc_Word2Double.exit
-  %97 = trunc i64 %indvars.iv.i100 to i32
-  %ldexp.i103 = tail call double @ldexp(double 1.000000e+00, i32 %97) #23
-  %98 = fadd double %.067.i101, %ldexp.i103
-  br label %99
+97:                                               ; preds = %Abc_Word2Double.exit
+  %98 = trunc nuw nsw i64 %indvars.iv.i100 to i32
+  %99 = uitofp nneg i32 %98 to double
+  %exp2.i103 = tail call double @exp2(double %99) #23
+  %100 = fadd double %.067.i101, %exp2.i103
+  br label %101
 
-99:                                               ; preds = %96, %Abc_Word2Double.exit
-  %.1.i104 = phi double [ %98, %96 ], [ %.067.i101, %Abc_Word2Double.exit ]
+101:                                              ; preds = %97, %Abc_Word2Double.exit
+  %.1.i104 = phi double [ %100, %97 ], [ %.067.i101, %Abc_Word2Double.exit ]
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, 64
   br i1 %exitcond.not.i106, label %Abc_Word2Double.exit107, label %Abc_Word2Double.exit, !llvm.loop !56
 
-Abc_Word2Double.exit107:                          ; preds = %99
-  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %.val97.val, i32 noundef 1000, double noundef %.1.i, double noundef %.1.i104)
+Abc_Word2Double.exit107:                          ; preds = %101
+  %102 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %.val97.val, i32 noundef 1000, double noundef %.1.i, double noundef %.1.i104)
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.val97.val) #23
-  br label %101
+  br label %103
 
-101:                                              ; preds = %107, %Abc_Word2Double.exit107
-  %indvars.iv.i108 = phi i64 [ 0, %Abc_Word2Double.exit107 ], [ %indvars.iv.next.i113, %107 ]
-  %.067.i109 = phi double [ 0.000000e+00, %Abc_Word2Double.exit107 ], [ %.1.i112, %107 ]
-  %102 = shl nuw i64 1, %indvars.iv.i108
-  %103 = and i64 %102, %.079.lcssa
-  %.not.i110 = icmp eq i64 %103, 0
-  br i1 %.not.i110, label %107, label %104
+103:                                              ; preds = %110, %Abc_Word2Double.exit107
+  %indvars.iv.i108 = phi i64 [ 0, %Abc_Word2Double.exit107 ], [ %indvars.iv.next.i113, %110 ]
+  %.067.i109 = phi double [ 0.000000e+00, %Abc_Word2Double.exit107 ], [ %.1.i112, %110 ]
+  %104 = shl nuw i64 1, %indvars.iv.i108
+  %105 = and i64 %104, %.079.lcssa
+  %.not.i110 = icmp eq i64 %105, 0
+  br i1 %.not.i110, label %110, label %106
 
-104:                                              ; preds = %101
-  %105 = trunc i64 %indvars.iv.i108 to i32
-  %ldexp.i111 = tail call double @ldexp(double 1.000000e+00, i32 %105) #23
-  %106 = fadd double %.067.i109, %ldexp.i111
-  br label %107
+106:                                              ; preds = %103
+  %107 = trunc nuw nsw i64 %indvars.iv.i108 to i32
+  %108 = uitofp nneg i32 %107 to double
+  %exp2.i111 = tail call double @exp2(double %108) #23
+  %109 = fadd double %.067.i109, %exp2.i111
+  br label %110
 
-107:                                              ; preds = %104, %101
-  %.1.i112 = phi double [ %106, %104 ], [ %.067.i109, %101 ]
+110:                                              ; preds = %106, %103
+  %.1.i112 = phi double [ %109, %106 ], [ %.067.i109, %103 ]
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, 64
-  br i1 %exitcond.not.i114, label %Abc_Word2Double.exit115, label %101, !llvm.loop !56
+  br i1 %exitcond.not.i114, label %Abc_Word2Double.exit115, label %103, !llvm.loop !56
 
-Abc_Word2Double.exit115:                          ; preds = %107, %113
-  %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i121, %113 ], [ 0, %107 ]
-  %.067.i117 = phi double [ %.1.i120, %113 ], [ 0.000000e+00, %107 ]
-  %108 = shl nuw i64 1, %indvars.iv.i116
-  %109 = and i64 %108, %93
-  %.not.i118 = icmp eq i64 %109, 0
-  br i1 %.not.i118, label %113, label %110
+Abc_Word2Double.exit115:                          ; preds = %110, %117
+  %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i121, %117 ], [ 0, %110 ]
+  %.067.i117 = phi double [ %.1.i120, %117 ], [ 0.000000e+00, %110 ]
+  %111 = shl nuw i64 1, %indvars.iv.i116
+  %112 = and i64 %111, %94
+  %.not.i118 = icmp eq i64 %112, 0
+  br i1 %.not.i118, label %117, label %113
 
-110:                                              ; preds = %Abc_Word2Double.exit115
-  %111 = trunc i64 %indvars.iv.i116 to i32
-  %ldexp.i119 = tail call double @ldexp(double 1.000000e+00, i32 %111) #23
-  %112 = fadd double %.067.i117, %ldexp.i119
-  br label %113
+113:                                              ; preds = %Abc_Word2Double.exit115
+  %114 = trunc nuw nsw i64 %indvars.iv.i116 to i32
+  %115 = uitofp nneg i32 %114 to double
+  %exp2.i119 = tail call double @exp2(double %115) #23
+  %116 = fadd double %.067.i117, %exp2.i119
+  br label %117
 
-113:                                              ; preds = %110, %Abc_Word2Double.exit115
-  %.1.i120 = phi double [ %112, %110 ], [ %.067.i117, %Abc_Word2Double.exit115 ]
+117:                                              ; preds = %113, %Abc_Word2Double.exit115
+  %.1.i120 = phi double [ %116, %113 ], [ %.067.i117, %Abc_Word2Double.exit115 ]
   %indvars.iv.next.i121 = add nuw nsw i64 %indvars.iv.i116, 1
   %exitcond.not.i122 = icmp eq i64 %indvars.iv.next.i121, 64
   br i1 %exitcond.not.i122, label %Abc_Word2Double.exit123, label %Abc_Word2Double.exit115, !llvm.loop !56
 
-Abc_Word2Double.exit123:                          ; preds = %113
-  %114 = fsub double %ldexp, %.1.i112
-  %115 = fdiv double %114, %.1.i120
-  %116 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %115)
+Abc_Word2Double.exit123:                          ; preds = %117
+  %118 = fsub double %ldexp, %.1.i112
+  %119 = fdiv double %118, %.1.i120
+  %120 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %119)
   tail call void @sat_solver_delete(ptr noundef %12) #23
   tail call void @Cnf_DataFree(ptr noundef %2) #23
-  %117 = load ptr, ptr %6, align 8
-  %.not.i124 = icmp eq ptr %117, null
-  br i1 %.not.i124, label %Vec_IntFree.exit, label %118
+  %121 = load ptr, ptr %6, align 8
+  %.not.i124 = icmp eq ptr %121, null
+  br i1 %.not.i124, label %Vec_IntFree.exit, label %122
 
-118:                                              ; preds = %Abc_Word2Double.exit123
-  tail call void @free(ptr noundef nonnull %117) #23
+122:                                              ; preds = %Abc_Word2Double.exit123
+  tail call void @free(ptr noundef nonnull %121) #23
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Abc_Word2Double.exit123, %118
+Vec_IntFree.exit:                                 ; preds = %Abc_Word2Double.exit123, %122
   tail call void @free(ptr noundef nonnull %3) #23
   ret void
 }
@@ -4211,6 +4216,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+
+declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #20

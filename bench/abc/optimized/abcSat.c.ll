@@ -2369,7 +2369,7 @@ define i32 @Abc_NtkNodeFactor(ptr nocapture noundef readonly %0, i32 noundef %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 12
-  %6 = sitofp i32 %5 to double
+  %6 = uitofp nneg i32 %5 to double
   %7 = tail call double @llvm.fmuladd.f64(double %6, double 1.000000e-02, double 1.000000e+00)
   %8 = fmul double %7, 1.000000e+08
   %9 = fptosi double %8 to i32
@@ -4516,7 +4516,7 @@ define void @Abc_NtkWriteSorterCnf(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %64, label %.lr.ph, label %.critedge.preheader, !llvm.loop !25
 
 .critedge2.preheader.loopexit:                    ; preds = %.critedge
-  %65 = trunc i64 %indvars.iv.next142 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next142 to i32
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %.critedge.preheader
@@ -4566,7 +4566,7 @@ define void @Abc_NtkWriteSorterCnf(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %83, label %.critedge2, label %.critedge4.loopexit, !llvm.loop !27
 
 .critedge4.loopexit:                              ; preds = %.critedge2
-  %84 = trunc i64 %indvars.iv.next147 to i32
+  %84 = trunc nuw i64 %indvars.iv.next147 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge2.preheader

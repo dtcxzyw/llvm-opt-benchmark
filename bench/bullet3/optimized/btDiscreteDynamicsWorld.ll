@@ -1976,7 +1976,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP11btRigidBodyE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !16
 
 _ZNK20btAlignedObjectArrayIP11btRigidBodyE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %0, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP11btRigidBodyE6removeERKS1_.exit
 
@@ -2569,7 +2569,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !20
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %0, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit
 
@@ -2717,7 +2717,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayIP17btActionInterfaceE6removeERKS1_.exit, label %for.body.i.i, !llvm.loop !22
 
 _ZNK20btAlignedObjectArrayIP17btActionInterfaceE16findLinearSearchERKS1_.exit.i: ; preds = %for.body.i.i
-  %3 = trunc i64 %indvars.iv.i.i to i32
+  %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i.i = icmp sgt i32 %0, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN20btAlignedObjectArrayIP17btActionInterfaceE6removeERKS1_.exit
 
@@ -5833,7 +5833,7 @@ if.then120:                                       ; preds = %if.end118
 
 for.body:                                         ; preds = %if.then120, %if.end159
   %i.01005 = phi i32 [ 0, %if.then120 ], [ %inc, %if.end159 ]
-  %conv128 = sitofp i32 %i.01005 to float
+  %conv128 = uitofp nneg i32 %i.01005 to float
   %mul129 = fmul float %conv128, 0x401921FB40000000
   %div131 = fmul float %mul129, 3.125000e-02
   %call132 = call { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetPointForAngleEff(ptr noundef nonnull align 8 dereferenceable(632) %constraint, float noundef %div131, float noundef %4)
@@ -7234,7 +7234,7 @@ for.inc:                                          ; preds = %_Z23btGetConstraint
 
 for.end.split.loop.exit:                          ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit
   %arrayidx5.le = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
-  %14 = trunc i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.cond.preheader, %for.end.split.loop.exit
@@ -7274,7 +7274,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit36: ; preds = %for.body15, 
   %inc22 = zext i1 %cmp20 to i32
   %spec.select = add nuw nsw i32 %numCurConstraints.0125, %inc22
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %22 = trunc i64 %indvars.iv.next138 to i32
+  %22 = trunc nuw i64 %indvars.iv.next138 to i32
   %cmp14 = icmp sgt i32 %0, %22
   br i1 %cmp14, label %for.body15, label %for.end26, !llvm.loop !87
 

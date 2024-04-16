@@ -1223,7 +1223,7 @@ _ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit: ; preds = 
   %188 = call float @llvm.fmuladd.f32(float %185, float %185, float %187)
   %sqrt.i.i54 = call noundef float @llvm.sqrt.f32(float %188)
   %189 = fcmp olt float %sqrt.i.i54, %.037118
-  %190 = trunc i64 %indvars.iv to i32
+  %190 = trunc nuw nsw i64 %indvars.iv to i32
   %.139 = select i1 %189, i32 %190, i32 %.038117
   %.1 = select i1 %189, float %sqrt.i.i54, float %.037118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8696,7 +8696,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit95:                  ; preds = %._crit_edge132
   br i1 %exitcond.not.i, label %.critedge.i, label %144, !llvm.loop !113
 
 .critedge.loopexit.split.loop.exit53.i:           ; preds = %144
-  %148 = trunc i64 %indvars.iv.i to i32
+  %148 = trunc nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %147, %.critedge.loopexit.split.loop.exit53.i, %.preheader.i
@@ -8723,7 +8723,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit95:                  ; preds = %._crit_edge132
   br i1 %.not.not.i, label %151, label %.critedge2.i, !llvm.loop !114
 
 .critedge2.loopexit.split.loop.exit55.i:          ; preds = %151
-  %155 = trunc i64 %indvars.iv50.i to i32
+  %155 = trunc nsw i64 %indvars.iv50.i to i32
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %154, %.critedge2.loopexit.split.loop.exit55.i, %.critedge.i
@@ -10085,7 +10085,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %8, %11
   %.039 = phi i32 [ 0, %.lr.ph ], [ %32, %23 ]
   %.pn38 = phi ptr [ %7, %.lr.ph ], [ %.sroa.034.0, %23 ]
   %.sroa.034.0 = getelementptr inbounds i8, ptr %.pn38, i64 48
-  %24 = sitofp i32 %.039 to double
+  %24 = uitofp nneg i32 %.039 to double
   %25 = fmul double %19, %24
   %26 = call double @cos(double noundef %25) #24
   %27 = call double @sin(double noundef %25) #24

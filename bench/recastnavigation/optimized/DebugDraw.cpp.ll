@@ -116,20 +116,20 @@ define void @_Z10duIntToColiPf(i32 noundef %0, ptr nocapture noundef writeonly %
   %15 = or disjoint i32 %12, %14
   %16 = mul nuw nsw i32 %6, 63
   %17 = add nuw nsw i32 %16, 63
-  %18 = uitofp i32 %17 to float
+  %18 = uitofp nneg i32 %17 to float
   %19 = fdiv float %18, 2.550000e+02
   %20 = fsub float 1.000000e+00, %19
   store float %20, ptr %1, align 4
   %21 = mul nuw nsw i32 %11, 63
   %22 = add nuw nsw i32 %21, 63
-  %23 = uitofp i32 %22 to float
+  %23 = uitofp nneg i32 %22 to float
   %24 = fdiv float %23, 2.550000e+02
   %25 = fsub float 1.000000e+00, %24
   %26 = getelementptr inbounds i8, ptr %1, i64 4
   store float %25, ptr %26, align 4
   %27 = mul nuw nsw i32 %15, 63
   %28 = add nuw nsw i32 %27, 63
-  %29 = uitofp i32 %28 to float
+  %29 = uitofp nneg i32 %28 to float
   %30 = fdiv float %29, 2.550000e+02
   %31 = fsub float 1.000000e+00, %30
   %32 = getelementptr inbounds i8, ptr %1, i64 8
@@ -244,8 +244,8 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
 
 11:                                               ; preds = %10, %11
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %11 ]
-  %12 = trunc i64 %indvars.iv to i32
-  %13 = sitofp i32 %12 to float
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = uitofp nneg i32 %12 to float
   %14 = fmul float %13, 6.250000e-02
   %15 = fmul float %14, 0x400921FB60000000
   %16 = fmul float %15, 2.000000e+00
@@ -318,7 +318,7 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %64, float noundef %5, float noundef %66, i32 noundef %7)
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %70 = trunc i64 %indvars.iv84 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv84 to i32
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 16
   br i1 %exitcond87.not, label %.preheader, label %31, !llvm.loop !6
 
@@ -536,7 +536,7 @@ define void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef %0, float nound
   %.sroa.684.087 = phi float [ %30, %16 ], [ %42, %33 ]
   %.sroa.383.086 = phi float [ %32, %16 ], [ %41, %33 ]
   %.sroa.082.085 = phi float [ %31, %16 ], [ %36, %33 ]
-  %34 = sitofp i32 %.088 to float
+  %34 = uitofp nneg i32 %.088 to float
   %35 = tail call float @llvm.fmuladd.f32(float %34, float 0x3FBCCCCCC0000000, float 0x3FA99999A0000000)
   %36 = tail call float @llvm.fmuladd.f32(float %17, float %35, float %1)
   %37 = tail call float @llvm.fmuladd.f32(float %18, float %35, float %2)
@@ -725,8 +725,8 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
 
 13:                                               ; preds = %13, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %13 ]
-  %14 = trunc i64 %indvars.iv.i to i32
-  %15 = sitofp i32 %14 to float
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %15 = uitofp nneg i32 %14 to float
   %16 = fdiv float %15, 4.000000e+01
   %17 = fmul float %16, 0x400921FB60000000
   %18 = fmul float %17, 2.000000e+00
@@ -775,7 +775,7 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %41, float noundef %2, float noundef %45, i32 noundef %5)
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %49 = trunc i64 %indvars.iv36.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv36.i to i32
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 40
   br i1 %exitcond39.not.i, label %_Z14duAppendCircleP11duDebugDrawffffj.exit, label %.loopexit31.i, !llvm.loop !10
 
@@ -805,8 +805,8 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
 
 9:                                                ; preds = %8, %9
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %9 ]
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = sitofp i32 %10 to float
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = uitofp nneg i32 %10 to float
   %12 = fdiv float %11, 4.000000e+01
   %13 = fmul float %12, 0x400921FB60000000
   %14 = fmul float %13, 2.000000e+00
@@ -855,7 +855,7 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %37, float noundef %2, float noundef %41, i32 noundef %5)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %45 = trunc i64 %indvars.iv36 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv36 to i32
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 40
   br i1 %exitcond39.not, label %.loopexit, label %.loopexit31, !llvm.loop !10
 
@@ -1120,8 +1120,8 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
 
 11:                                               ; preds = %10, %11
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %11 ]
-  %12 = trunc i64 %indvars.iv to i32
-  %13 = sitofp i32 %12 to float
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  %13 = uitofp nneg i32 %12 to float
   %14 = fmul float %13, 6.250000e-02
   %15 = fmul float %14, 0x400921FB60000000
   %16 = fmul float %15, 2.000000e+00
@@ -1301,7 +1301,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %156 = load ptr, ptr %155, align 8
   tail call void %156(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %151, float noundef %5, float noundef %153, i32 noundef %7)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %157 = trunc i64 %indvars.iv152 to i32
+  %157 = trunc nuw nsw i64 %indvars.iv152 to i32
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 16
   br i1 %exitcond155.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
@@ -1338,7 +1338,7 @@ define void @_Z17duDebugDrawGridXZP11duDebugDrawfffiifjf(ptr noundef %0, float n
 
 18:                                               ; preds = %.lr.ph, %18
   %.04147 = phi i32 [ 0, %.lr.ph ], [ %27, %18 ]
-  %19 = sitofp i32 %.04147 to float
+  %19 = uitofp nneg i32 %.04147 to float
   %20 = tail call float @llvm.fmuladd.f32(float %19, float %6, float %3)
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 48
@@ -1354,7 +1354,7 @@ define void @_Z17duDebugDrawGridXZP11duDebugDrawfffiifjf(ptr noundef %0, float n
 
 28:                                               ; preds = %.lr.ph50, %28
   %.049 = phi i32 [ 0, %.lr.ph50 ], [ %37, %28 ]
-  %29 = sitofp i32 %.049 to float
+  %29 = uitofp nneg i32 %.049 to float
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %6, float %1)
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 48

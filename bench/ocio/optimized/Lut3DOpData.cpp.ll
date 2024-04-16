@@ -1429,7 +1429,7 @@ for.body.i:                                       ; preds = %call.i.noexc, %for.
   %add.ptr.i23.i = getelementptr i8, ptr %3, i64 4
   store float %mul14.i, ptr %add.ptr.i23.i, align 4
   %rem18.i = srem i64 %idx.026.i, %call.i1
-  %conv19.i = sitofp i64 %rem18.i to float
+  %conv19.i = uitofp nneg i64 %rem18.i to float
   %mul20.i = fmul float %div.i, %conv19.i
   %4 = load ptr, ptr %m_data.i.i, align 8
   %5 = getelementptr float, ptr %4, i64 %mul9.i
@@ -1494,7 +1494,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add.ptr.i23 = getelementptr i8, ptr %3, i64 4
   store float %mul14, ptr %add.ptr.i23, align 4
   %rem18 = srem i64 %idx.026, %call
-  %conv19 = sitofp i64 %rem18 to float
+  %conv19 = uitofp nneg i64 %rem18 to float
   %mul20 = fmul float %div, %conv19
   %4 = load ptr, ptr %m_data.i, align 8
   %5 = getelementptr float, ptr %4, i64 %mul9
@@ -1918,7 +1918,7 @@ for.body.i.i:                                     ; preds = %call.i.noexc.i, %fo
   %add.ptr.i23.i.i = getelementptr i8, ptr %3, i64 4
   store float %mul14.i.i, ptr %add.ptr.i23.i.i, align 4
   %rem18.i.i = srem i64 %idx.026.i.i, %call.i1.i
-  %conv19.i.i = sitofp i64 %rem18.i.i to float
+  %conv19.i.i = uitofp nneg i64 %rem18.i.i to float
   %mul20.i.i = fmul float %div.i.i, %conv19.i.i
   %4 = load ptr, ptr %m_data.i.i.i, align 8
   %5 = getelementptr float, ptr %4, i64 %mul9.i.i
@@ -2007,7 +2007,7 @@ for.body.i.i:                                     ; preds = %call.i.noexc.i, %fo
   %add.ptr.i23.i.i = getelementptr i8, ptr %3, i64 4
   store float %mul14.i.i, ptr %add.ptr.i23.i.i, align 4
   %rem18.i.i = srem i64 %idx.026.i.i, %call.i1.i
-  %conv19.i.i = sitofp i64 %rem18.i.i to float
+  %conv19.i.i = uitofp nneg i64 %rem18.i.i to float
   %mul20.i.i = fmul float %div.i.i, %conv19.i.i
   %4 = load ptr, ptr %m_data.i.i.i, align 8
   %5 = getelementptr float, ptr %4, i64 %mul9.i.i
@@ -2094,7 +2094,7 @@ for.body.i.i:                                     ; preds = %call.i.noexc.i, %fo
   %add.ptr.i23.i.i = getelementptr i8, ptr %3, i64 4
   store float %mul14.i.i, ptr %add.ptr.i23.i.i, align 4
   %rem18.i.i = srem i64 %idx.026.i.i, %call.i1.i
-  %conv19.i.i = sitofp i64 %rem18.i.i to float
+  %conv19.i.i = uitofp nneg i64 %rem18.i.i to float
   %mul20.i.i = fmul float %div.i.i, %conv19.i.i
   %4 = load ptr, ptr %m_data.i.i.i, align 8
   %5 = getelementptr float, ptr %4, i64 %mul9.i.i

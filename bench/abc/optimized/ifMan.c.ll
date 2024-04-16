@@ -598,7 +598,7 @@ Vec_IntPush.exit212.Vec_StrGrow.exit.i_crit_edge: ; preds = %Vec_IntPush.exit212
 298:                                              ; preds = %296, %294
   %299 = phi ptr [ %295, %294 ], [ %297, %296 ]
   store ptr %299, ptr %290, align 8
-  %300 = trunc i64 %292 to i32
+  %300 = trunc nuw i64 %292 to i32
   store i32 %300, ptr %287, align 8
   br label %Vec_StrGrow.exit.i
 
@@ -1467,9 +1467,9 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %100 = sitofp i32 %96 to double
   %101 = fmul double %100, 1.000000e+02
   %102 = tail call noundef i32 @llvm.smax.i32(i32 %99, i32 1)
-  %103 = sitofp i32 %102 to double
+  %103 = uitofp nneg i32 %102 to double
   %104 = fdiv double %101, %103
-  %105 = trunc i64 %indvars.iv370 to i32
+  %105 = trunc nuw nsw i64 %indvars.iv370 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %105, i32 noundef %96, i32 noundef %99, double noundef %104)
   br label %106
 
@@ -1485,7 +1485,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %111 = sitofp i32 %108 to double
   %112 = fmul double %111, 1.000000e+02
   %113 = tail call noundef i32 @llvm.smax.i32(i32 %110, i32 1)
-  %114 = sitofp i32 %113 to double
+  %114 = uitofp nneg i32 %113 to double
   %115 = fdiv double %112, %114
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %108, i32 noundef %110, double noundef %115)
   br label %116
@@ -3209,7 +3209,7 @@ define void @If_ManSetupSet(ptr nocapture noundef readonly %0, ptr noundef %1) l
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load i32, ptr %16, align 4
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = mul nsw i32 %18, %19
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %15, i64 %21
@@ -3607,7 +3607,7 @@ define void @If_ManSetupSetAll(ptr nocapture noundef %0, i32 noundef %1) local_u
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %15 ]
   %28 = load i32, ptr %13, align 4
-  %29 = trunc i64 %indvars.iv.i to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %30 = mul nsw i32 %28, %29
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %27, i64 %31

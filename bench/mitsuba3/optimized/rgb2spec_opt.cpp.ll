@@ -84,7 +84,7 @@ define hidden noundef double @_Z10cie_interpPKdd(ptr nocapture noundef readonly 
   %5 = fptosi double %4 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 93)
-  %6 = sitofp i32 %spec.store.select1 to double
+  %6 = uitofp nneg i32 %spec.store.select1 to double
   %7 = fsub contract double %4, %6
   %8 = fsub contract double 1.000000e+00, %7
   %9 = zext nneg i32 %spec.store.select1 to i64
@@ -121,7 +121,7 @@ define hidden noundef i32 @_Z12LUPDecomposePPdidPi(ptr nocapture noundef %0, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %10, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -135,7 +135,7 @@ define hidden noundef i32 @_Z12LUPDecomposePPdidPi(ptr nocapture noundef %0, i32
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %indvars.iv100 = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next101, %.loopexit ]
   %indvars.iv93 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next94, %.loopexit ]
-  %11 = trunc i64 %indvars.iv93 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv93 to i32
   br label %12
 
 12:                                               ; preds = %.preheader, %12
@@ -148,7 +148,7 @@ define hidden noundef i32 @_Z12LUPDecomposePPdidPi(ptr nocapture noundef %0, i32
   %16 = load double, ptr %15, align 8
   %17 = tail call contract double @llvm.fabs.f64(double %16)
   %18 = fcmp contract ogt double %17, %.06883
-  %19 = trunc i64 %indvars.iv95 to i32
+  %19 = trunc nuw nsw i64 %indvars.iv95 to i32
   %.171 = select i1 %18, i32 %19, i32 %.07082
   %.169 = select i1 %18, double %17, double %.06883
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
@@ -317,7 +317,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr nocapture noundef readonly %0, ptr
   %36 = fsub contract double %29, %35
   store double %36, ptr %27, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %37 = trunc i64 %indvars.iv.next63 to i32
+  %37 = trunc nuw i64 %indvars.iv.next63 to i32
   %38 = icmp slt i32 %37, %3
   br i1 %38, label %28, label %._crit_edge49, !llvm.loop !14
 
@@ -539,8 +539,8 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #7 
 
 17:                                               ; preds = %14, %82
   %indvars.iv62 = phi i64 [ 0, %14 ], [ %indvars.iv.next63, %82 ]
-  %18 = trunc i64 %indvars.iv62 to i32
-  %19 = sitofp i32 %18 to double
+  %18 = trunc nuw nsw i64 %indvars.iv62 to i32
+  %19 = uitofp nneg i32 %18 to double
   %20 = fmul contract double %19, 0x3FFAAAAAAAAAAAAB
   %21 = fadd contract double %20, 3.600000e+02
   %22 = fadd contract double %21, -3.600000e+02
@@ -548,7 +548,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #7 
   %24 = fptosi double %23 to i32
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   %spec.store.select1.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 93)
-  %25 = sitofp i32 %spec.store.select1.i to double
+  %25 = uitofp nneg i32 %spec.store.select1.i to double
   %26 = fsub contract double %23, %25
   %27 = fsub contract double 1.000000e+00, %26
   %28 = zext nneg i32 %spec.store.select1.i to i64
@@ -1034,7 +1034,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_Z13eval_residualPKdS0_Pd.exit
   %indvars.iv.i38 = phi i64 [ 0, %_Z13eval_residualPKdS0_Pd.exit ], [ %indvars.iv.next.i39, %.lr.ph.i ]
   %51 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i38
-  %52 = trunc i64 %indvars.iv.i38 to i32
+  %52 = trunc nuw nsw i64 %indvars.iv.i38 to i32
   store i32 %52, ptr %51, align 4
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 4
@@ -1048,7 +1048,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 .preheader.i:                                     ; preds = %.lr.ph.i, %.loopexit.i
   %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %.loopexit.i ], [ 1, %.lr.ph.i ]
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %.loopexit.i ], [ 0, %.lr.ph.i ]
-  %53 = trunc i64 %indvars.iv93.i to i32
+  %53 = trunc nuw nsw i64 %indvars.iv93.i to i32
   br label %54
 
 54:                                               ; preds = %54, %.preheader.i
@@ -1061,7 +1061,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   %58 = load double, ptr %57, align 8
   %59 = call contract double @llvm.fabs.f64(double %58)
   %60 = fcmp contract ogt double %59, %.06883.i
-  %61 = trunc i64 %indvars.iv95.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv95.i to i32
   %.171.i = select i1 %60, i32 %61, i32 %.07082.i
   %.169.i = select i1 %60, double %59, double %.06883.i
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
@@ -1686,8 +1686,8 @@ select.unfold:                                    ; preds = %22, %9, %10, %14, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %41 = trunc i64 %indvars.iv to i32
-  %42 = sitofp i32 %41 to double
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
+  %42 = uitofp nneg i32 %41 to double
   %43 = fdiv contract double %42, %40
   %44 = fmul contract double %43, %43
   %45 = fmul contract double %43, 2.000000e+00
@@ -1868,7 +1868,7 @@ define internal void @main.omp_outlined(ptr noalias nocapture noundef readonly %
 49:                                               ; preds = %.lr.ph107, %._crit_edge104
   %50 = phi i32 [ %37, %.lr.ph107 ], [ %151, %._crit_edge104 ]
   %.092105 = phi i32 [ 0, %.lr.ph107 ], [ %152, %._crit_edge104 ]
-  %51 = sitofp i32 %.092105 to double
+  %51 = uitofp nneg i32 %.092105 to double
   %52 = add nsw i32 %50, -1
   %53 = sitofp i32 %52 to double
   %54 = fdiv contract double %51, %53
@@ -1901,7 +1901,7 @@ define internal void @main.omp_outlined(ptr noalias nocapture noundef readonly %
   %68 = load double, ptr %21, align 16, !llvm.access.group !31
   %69 = load i32, ptr %2, align 4, !llvm.access.group !31
   %70 = mul nsw i32 %69, %28
-  %71 = trunc i64 %indvars.iv to i32
+  %71 = trunc nsw i64 %indvars.iv to i32
   %72 = add nsw i32 %70, %71
   %73 = mul nsw i32 %72, %69
   %74 = add nsw i32 %73, %30
@@ -1970,7 +1970,7 @@ define internal void @main.omp_outlined(ptr noalias nocapture noundef readonly %
   %117 = load double, ptr %21, align 16, !llvm.access.group !31
   %118 = load i32, ptr %2, align 4, !llvm.access.group !31
   %119 = mul nsw i32 %118, %28
-  %120 = trunc i64 %indvars.iv117 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv117 to i32
   %121 = add nsw i32 %119, %120
   %122 = mul nsw i32 %121, %118
   %123 = add nsw i32 %122, %30

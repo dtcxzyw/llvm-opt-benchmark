@@ -312,7 +312,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 107:                                              ; preds = %Vec_IntPush.exit
   %108 = lshr i64 %.val209, 32
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nuw i64 %108 to i32
   %110 = and i32 %109, 536870911
   %.val4.i = load i32, ptr %3, align 8
   %.val5.i = load ptr, ptr %5, align 8
@@ -608,7 +608,7 @@ Vec_IntPush.exit241:                              ; preds = %.Vec_IntGrow.exit10
 
 274:                                              ; preds = %Vec_IntPush.exit241
   %275 = lshr i64 %.val224, 32
-  %276 = trunc i64 %275 to i32
+  %276 = trunc nuw i64 %275 to i32
   %277 = and i32 %276, 536870911
   %.val4.i243 = load i32, ptr %3, align 8
   %.val5.i244 = load ptr, ptr %17, align 8
@@ -1809,7 +1809,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 107:                                              ; preds = %Vec_IntPush.exit
   %108 = lshr i64 %.val226, 32
-  %109 = trunc i64 %108 to i32
+  %109 = trunc nuw i64 %108 to i32
   %110 = and i32 %109, 536870911
   %.val4.i = load i32, ptr %5, align 8
   %.val5.i = load ptr, ptr %7, align 8
@@ -2174,7 +2174,7 @@ Vec_IntPush.exit260:                              ; preds = %.Vec_IntGrow.exit10
 
 280:                                              ; preds = %Vec_IntPush.exit260
   %281 = lshr i64 %.val240, 32
-  %282 = trunc i64 %281 to i32
+  %282 = trunc nuw i64 %281 to i32
   %283 = and i32 %282, 536870911
   %.val4.i262 = load i32, ptr %5, align 8
   %.val5.i263 = load ptr, ptr %19, align 8
@@ -2721,7 +2721,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %75
-  %.lhs.trunc176 = trunc i32 %69 to i8
+  %.lhs.trunc176 = trunc nuw i32 %69 to i8
   %78 = udiv i8 %.lhs.trunc176, 10
   %79 = zext nneg i8 %78 to i64
   %gep258 = getelementptr i32, ptr %invariant.gep257, i64 %79
@@ -2732,7 +2732,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %80
-  %.lhs.trunc178 = trunc i32 %69 to i16
+  %.lhs.trunc178 = trunc nuw i32 %69 to i16
   %83 = udiv i16 %.lhs.trunc178, 100
   %84 = zext nneg i16 %83 to i64
   %gep256 = getelementptr i32, ptr %invariant.gep255, i64 %84
@@ -2743,7 +2743,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
-  %.lhs.trunc180 = trunc i32 %69 to i16
+  %.lhs.trunc180 = trunc nuw i32 %69 to i16
   %88 = udiv i16 %.lhs.trunc180, 1000
   %89 = zext nneg i16 %88 to i64
   %gep254 = getelementptr i32, ptr %invariant.gep253, i64 %89
@@ -2801,7 +2801,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %113, label %114, label %119
 
 114:                                              ; preds = %112
-  %.lhs.trunc = trunc i32 %.val136 to i8
+  %.lhs.trunc = trunc nuw i32 %.val136 to i8
   %115 = udiv i8 %.lhs.trunc, 10
   %.val145 = load ptr, ptr %60, align 8
   %116 = zext nneg i8 %115 to i64
@@ -2814,7 +2814,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %120, label %121, label %126
 
 121:                                              ; preds = %119
-  %.lhs.trunc172 = trunc i32 %.val136 to i16
+  %.lhs.trunc172 = trunc nuw i32 %.val136 to i16
   %122 = udiv i16 %.lhs.trunc172, 100
   %.val146 = load ptr, ptr %60, align 8
   %123 = zext nneg i16 %122 to i64
@@ -2827,7 +2827,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %126
-  %.lhs.trunc174 = trunc i32 %.val136 to i16
+  %.lhs.trunc174 = trunc nuw i32 %.val136 to i16
   %129 = udiv i16 %.lhs.trunc174, 1000
   %.val147 = load ptr, ptr %60, align 8
   %130 = zext nneg i16 %129 to i64
@@ -2919,7 +2919,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
 
 176:                                              ; preds = %171, %167
   %177 = icmp ult i64 %indvars.iv, 10
-  %178 = trunc i64 %indvars.iv to i32
+  %178 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %177, label %179, label %181
 
 179:                                              ; preds = %176
@@ -2928,7 +2928,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
 
 181:                                              ; preds = %176
   %182 = udiv i32 %178, 10
-  %183 = sitofp i32 %182 to double
+  %183 = uitofp nneg i32 %182 to double
   %184 = call double @pow(double noundef 1.000000e+01, double noundef %183) #26
   %185 = fptosi double %184 to i32
   %186 = urem i32 %178, 10
@@ -3657,7 +3657,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 5:                                                ; preds = %2
   %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #26
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 (...) @Abc_FrameIsBridgeMode() #26
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
@@ -3676,7 +3676,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br label %16
 
 16:                                               ; preds = %14, %8
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %2, %16
@@ -4932,7 +4932,7 @@ Emb_ManMatrAlloc.exit70:                          ; preds = %.lr.ph.i66, %Emb_Ma
   %.val60.us = phi i32 [ %.val60.us113, %._crit_edge88.us ], [ %.val60.us.pre, %.lr.ph90 ]
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %._crit_edge88.us ], [ 0, %.lr.ph90 ]
   %.val61.us = load ptr, ptr %53, align 8
-  %54 = trunc i64 %indvars.iv105 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv105 to i32
   %55 = mul nsw i32 %.val60.us, %54
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds float, ptr %.val61.us, i64 %56
@@ -4945,7 +4945,7 @@ Emb_ManMatrAlloc.exit70:                          ; preds = %.lr.ph.i66, %Emb_Ma
   %.val.us = phi i32 [ %.val60.us, %.lr.ph87.us ], [ %.val60.us113, %._crit_edge84.us ]
   %indvars.iv100 = phi i64 [ 0, %.lr.ph87.us ], [ %indvars.iv.next101, %._crit_edge84.us ]
   %.val59.us = load ptr, ptr %53, align 8
-  %62 = trunc i64 %indvars.iv100 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv100 to i32
   %63 = mul nsw i32 %.val.us, %62
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds float, ptr %.val59.us, i64 %64
@@ -5452,7 +5452,7 @@ define void @Emb_ManComputeSolutions(ptr nocapture noundef %0, i32 noundef %1, i
   %.val.us = phi i32 [ %5, %.lr.ph30.us.preheader ], [ %.val.us52, %._crit_edge31.us ]
   %indvars.iv46 = phi i64 [ 0, %.lr.ph30.us.preheader ], [ %indvars.iv.next47, %._crit_edge31.us ]
   %.val24.us = load ptr, ptr %11, align 8
-  %15 = trunc i64 %indvars.iv46 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv46 to i32
   %16 = mul nsw i32 %.val.us, %15
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds float, ptr %.val24.us, i64 %17
@@ -5463,7 +5463,7 @@ define void @Emb_ManComputeSolutions(ptr nocapture noundef %0, i32 noundef %1, i
   %.val25.us = phi i32 [ %.val25.us57, %._crit_edge.us ], [ %.val25.us54, %.lr.ph30.us ]
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %._crit_edge.us ], [ 0, %.lr.ph30.us ]
   %.val26.us = load ptr, ptr %9, align 8
-  %20 = trunc i64 %indvars.iv43 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv43 to i32
   %21 = mul nsw i32 %.val25.us, %20
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds float, ptr %.val26.us, i64 %22
@@ -5631,8 +5631,8 @@ define void @Emb_ManDerivePlacement(ptr nocapture noundef %0, i32 noundef %1) lo
 .lr.ph107:                                        ; preds = %._crit_edge103, %.lr.ph107
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph107 ], [ 0, %._crit_edge103 ]
   %62 = phi i32 [ %88, %.lr.ph107 ], [ %55, %._crit_edge103 ]
-  %63 = trunc i64 %indvars.iv127 to i32
-  %64 = sitofp i32 %63 to double
+  %63 = trunc nuw nsw i64 %indvars.iv127 to i32
+  %64 = uitofp nneg i32 %63 to double
   %65 = fmul double %64, 3.276700e+04
   %66 = sitofp i32 %62 to double
   %67 = fdiv double %65, %66
@@ -5999,14 +5999,14 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.0123.lcssa = phi float [ %97, %.lr.ph188.split ], [ %112, %103 ]
   %.0122.lcssa = phi float [ %99, %.lr.ph188.split ], [ %115, %103 ]
   %116 = add nuw nsw i32 %101, 1
-  %117 = sitofp i32 %116 to float
+  %117 = uitofp nneg i32 %116 to float
   %118 = fdiv float %.0123.lcssa, %117
   %119 = getelementptr inbounds float, ptr %22, i64 %95
   store float %118, ptr %119, align 4
   %.val151 = load i32, ptr %92, align 4
   %120 = lshr i32 %.val151, 4
   %121 = add nuw nsw i32 %120, 1
-  %122 = sitofp i32 %121 to float
+  %122 = uitofp nneg i32 %121 to float
   %123 = fdiv float %.0122.lcssa, %122
   %124 = load i32, ptr %93, align 4
   %125 = zext i32 %124 to i64
@@ -6035,8 +6035,8 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 .lr.ph191:                                        ; preds = %.critedge4, %.lr.ph191
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %.lr.ph191 ], [ 0, %.critedge4 ]
   %138 = phi i32 [ %164, %.lr.ph191 ], [ %136, %.critedge4 ]
-  %139 = trunc i64 %indvars.iv207 to i32
-  %140 = sitofp i32 %139 to double
+  %139 = trunc nuw nsw i64 %indvars.iv207 to i32
+  %140 = uitofp nneg i32 %139 to double
   %141 = fmul double %140, 3.276700e+04
   %142 = sitofp i32 %138 to double
   %143 = fdiv double %141, %142
@@ -6277,8 +6277,8 @@ define noalias noundef ptr @Emb_ManDumpGnuplotPrepare(ptr nocapture noundef read
 .preheader:                                       ; preds = %.critedge, %174
   %indvars.iv99 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next100, %174 ]
   %47 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv99
-  %48 = trunc i64 %indvars.iv99 to i32
-  %49 = trunc i64 %indvars.iv99 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv99 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv99 to i32
   br label %50
 
 50:                                               ; preds = %.preheader, %173
@@ -6353,7 +6353,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %81, ptr %44, align 4
   %82 = sext i32 %57 to i64
   %83 = getelementptr inbounds i32, ptr %80, i64 %82
-  %84 = trunc i64 %indvars.iv95 to i32
+  %84 = trunc nuw nsw i64 %indvars.iv95 to i32
   store i32 %84, ptr %83, align 4
   %85 = load i32, ptr %44, align 4
   %86 = load i32, ptr %43, align 8
@@ -6774,7 +6774,7 @@ Emb_ManComputeHPWL.exit:                          ; preds = %.critedge2.i, %21, 
   %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.42, i32 noundef %109, i32 noundef %112) #26
   %fputc100 = tail call i32 @fputc(i32 10, ptr %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %115 = trunc i64 %indvars.iv.next to i32
+  %115 = trunc nuw i64 %indvars.iv.next to i32
   %116 = icmp sgt i32 %.val, %115
   br i1 %116, label %.lr.ph, label %.critedge.thread, !llvm.loop !89
 
@@ -7199,7 +7199,7 @@ Abc_Clock.exit83:                                 ; preds = %114, %117
 
 .lr.ph30.split.us38.i.preheader:                  ; preds = %.lr.ph30.us.preheader.i, %._crit_edge31.us.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph30.us.preheader.i ], [ %indvars.iv.next47.i, %._crit_edge31.us.i ]
-  %139 = trunc i64 %indvars.iv46.i to i32
+  %139 = trunc nuw nsw i64 %indvars.iv46.i to i32
   %140 = mul nsw i32 %127, %139
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds float, ptr %.val24.us.i, i64 %141
@@ -7207,7 +7207,7 @@ Abc_Clock.exit83:                                 ; preds = %114, %117
 
 .lr.ph.us.i.preheader:                            ; preds = %._crit_edge.us.i, %.lr.ph30.split.us38.i.preheader
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %._crit_edge.us.i ], [ 0, %.lr.ph30.split.us38.i.preheader ]
-  %143 = trunc i64 %indvars.iv43.i to i32
+  %143 = trunc nuw nsw i64 %indvars.iv43.i to i32
   %144 = mul nsw i32 %127, %143
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds float, ptr %130, i64 %145
@@ -7465,19 +7465,19 @@ declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #21
-
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #21
+declare void @llvm.va_start.p0(ptr) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #22
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #23
@@ -7524,8 +7524,8 @@ attributes #17 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem
 attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #20 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #23 = { nofree nounwind }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

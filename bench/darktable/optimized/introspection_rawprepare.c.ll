@@ -575,7 +575,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %80 = and i1 %79, %66
   %81 = icmp ugt i64 %63, 1
   %82 = or i1 %81, %80
-  %83 = trunc i64 %63 to i32
+  %83 = trunc nuw nsw i64 %63 to i32
   %84 = and i64 %62, 1
   %85 = icmp eq i32 %46, 1
   %86 = and i64 %62, 2147483646
@@ -771,7 +771,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %242 = and i1 %241, %216
   %243 = icmp ugt i64 %213, 1
   %244 = or i1 %243, %242
-  %245 = trunc i64 %213 to i32
+  %245 = trunc nuw nsw i64 %213 to i32
   %246 = icmp ugt ptr %235, %3
   %247 = icmp ult ptr %228, %223
   %248 = and i1 %246, %247
@@ -2513,7 +2513,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   %16 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %15)
   %17 = add i32 %16, 2
   %18 = lshr i32 %17, 2
-  %19 = sitofp i32 %18 to float
+  %19 = uitofp nneg i32 %18 to float
   %20 = load ptr, ptr %3, align 8, !tbaa !12
   tail call void @dt_bauhaus_slider_set(ptr noundef %20, float noundef %19) #22
   %21 = getelementptr inbounds i8, ptr %3, i64 8

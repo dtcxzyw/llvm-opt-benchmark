@@ -2301,7 +2301,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i.i:      ; preds = %156
   %167 = and i64 %.val.i.i, %166
   %168 = trunc i64 %.val.i.i to i32
   %169 = lshr i64 %161, 32
-  %170 = trunc i64 %169 to i32
+  %170 = trunc nuw i64 %169 to i32
   %171 = sitofp i32 %143 to float
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i.i.i.outer
 
@@ -2388,7 +2388,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %207 = load i32, ptr %.047.i.i.i.i, align 4
   %208 = xor i32 %207, %168
   %209 = call noundef i32 @llvm.ctpop.i32(i32 %208), !range !17
-  %210 = sitofp i32 %209 to float
+  %210 = uitofp nneg i32 %209 to float
   %211 = fcmp ogt float %171, %210
   br i1 %211, label %212, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i.i.i
 
@@ -2550,7 +2550,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit74.i.i:    ; preds = %264
   %274 = xor i64 %notmask.i.i75.i.i, -1
   %275 = and i64 %.val71.i.i, %274
   %276 = lshr i64 %269, 32
-  %277 = trunc i64 %276 to i32
+  %277 = trunc nuw i64 %276 to i32
   %278 = sitofp i32 %143 to float
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i90.i.i.outer
 
@@ -2637,8 +2637,8 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %314 = load i64, ptr %.017.i.i.i.i, align 8
   %315 = xor i64 %314, %.val71.i.i
   %316 = call i64 @llvm.ctpop.i64(i64 %315), !range !20
-  %317 = trunc i64 %316 to i32
-  %318 = sitofp i32 %317 to float
+  %317 = trunc nuw nsw i64 %316 to i32
+  %318 = uitofp nneg i32 %317 to float
   %319 = fcmp ogt float %278, %318
   br i1 %319, label %320, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i100.i.i
 
@@ -2801,7 +2801,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit119.i.i:   ; preds = %372
   %384 = extractelement <2 x i64> %378, i64 0
   %385 = and i64 %384, %383
   %386 = lshr i64 %377, 32
-  %387 = trunc i64 %386 to i32
+  %387 = trunc nuw i64 %386 to i32
   %388 = sitofp i32 %143 to float
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i135.i.i.outer
 
@@ -2888,11 +2888,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %424 = load <2 x i64>, ptr %.018.i.i.i.i, align 8
   %425 = xor <2 x i64> %424, %378
   %426 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %425), !range !20
-  %427 = trunc <2 x i64> %426 to <2 x i32>
+  %427 = trunc nuw nsw <2 x i64> %426 to <2 x i32>
   %shift = shufflevector <2 x i32> %427, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %428 = add nuw nsw <2 x i32> %shift, %427
   %429 = extractelement <2 x i32> %428, i64 0
-  %430 = sitofp i32 %429 to float
+  %430 = uitofp nneg i32 %429 to float
   %431 = fcmp ogt float %388, %430
   br i1 %431, label %432, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i145.i.i
 
@@ -3058,7 +3058,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit164.i.i:   ; preds = %484
   %499 = load i64, ptr %498, align 8
   %500 = trunc i64 %499 to i32
   %501 = lshr i64 %489, 32
-  %502 = trunc i64 %501 to i32
+  %502 = trunc nuw i64 %501 to i32
   %503 = sitofp i32 %143 to float
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i180.i.i.outer
 
@@ -3145,7 +3145,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %539 = load <2 x i64>, ptr %.048.i.i.i.i, align 8
   %540 = xor <2 x i64> %539, %495
   %541 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %540), !range !20
-  %542 = trunc <2 x i64> %541 to <2 x i32>
+  %542 = trunc nuw nsw <2 x i64> %541 to <2 x i32>
   %shift138 = shufflevector <2 x i32> %542, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %543 = add nuw nsw <2 x i32> %shift138, %542
   %544 = extractelement <2 x i32> %543, i64 0
@@ -3154,7 +3154,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %547 = xor i32 %546, %500
   %548 = call i32 @llvm.ctpop.i32(i32 %547), !range !17
   %549 = add nuw nsw i32 %544, %548
-  %550 = sitofp i32 %549 to float
+  %550 = uitofp nneg i32 %549 to float
   %551 = fcmp ogt float %503, %550
   br i1 %551, label %552, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i190.i.i
 
@@ -3317,7 +3317,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit209.i.i:   ; preds = %604
   %616 = extractelement <4 x i64> %615, i64 0
   %617 = and i64 %616, %614
   %618 = lshr i64 %609, 32
-  %619 = trunc i64 %618 to i32
+  %619 = trunc nuw i64 %618 to i32
   %620 = sitofp i32 %143 to float
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i225.i.i.outer
 
@@ -3406,7 +3406,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %658 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %657), !range !20
   %659 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %658)
   %660 = trunc i64 %659 to i32
-  %661 = sitofp i32 %660 to float
+  %661 = uitofp nneg i32 %660 to float
   %662 = fcmp ogt float %620, %661
   br i1 %662, label %663, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i237.i.i
 
@@ -3569,7 +3569,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit256.i.i:   ; preds = %715
   %727 = extractelement <8 x i64> %726, i64 0
   %728 = and i64 %727, %725
   %729 = lshr i64 %720, 32
-  %730 = trunc i64 %729 to i32
+  %730 = trunc nuw i64 %729 to i32
   %731 = sitofp i32 %143 to float
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i272.i.i.outer
 
@@ -3826,7 +3826,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit301.i.i:   ; preds = %826
   %840 = srem i32 %832, 8
   store i32 %840, ptr %139, align 4
   %841 = lshr i64 %831, 32
-  %842 = trunc i64 %841 to i32
+  %842 = trunc nuw i64 %841 to i32
   %843 = sitofp i32 %143 to float
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i317.i.i.outer
 
@@ -4292,7 +4292,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, %13
   %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !20
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw nsw i64 %17 to i32
   %19 = add nsw i32 %.0, %18
   %20 = add nsw i32 %.075, 1
   br label %21
@@ -4308,7 +4308,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %26 = load i64, ptr %25, align 8
   %27 = xor i64 %26, %24
   %28 = tail call i64 @llvm.ctpop.i64(i64 %27), !range !20
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = add nsw i32 %.1, %29
   %31 = add nsw i32 %.176, 1
   br label %32
@@ -4324,7 +4324,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, %35
   %39 = tail call i64 @llvm.ctpop.i64(i64 %38), !range !20
-  %40 = trunc i64 %39 to i32
+  %40 = trunc nuw nsw i64 %39 to i32
   %41 = add nsw i32 %.2, %40
   %42 = add nsw i32 %.277, 1
   br label %43
@@ -4340,7 +4340,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %48 = load i64, ptr %47, align 8
   %49 = xor i64 %48, %46
   %50 = tail call i64 @llvm.ctpop.i64(i64 %49), !range !20
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   %52 = add nsw i32 %.3, %51
   %53 = add nsw i32 %.378, 1
   br label %54
@@ -4356,7 +4356,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %59 = load i64, ptr %58, align 8
   %60 = xor i64 %59, %57
   %61 = tail call i64 @llvm.ctpop.i64(i64 %60), !range !20
-  %62 = trunc i64 %61 to i32
+  %62 = trunc nuw nsw i64 %61 to i32
   %63 = add nsw i32 %.4, %62
   %64 = add nsw i32 %.479, 1
   br label %65
@@ -4372,7 +4372,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %70 = load i64, ptr %69, align 8
   %71 = xor i64 %70, %68
   %72 = tail call i64 @llvm.ctpop.i64(i64 %71), !range !20
-  %73 = trunc i64 %72 to i32
+  %73 = trunc nuw nsw i64 %72 to i32
   %74 = add nsw i32 %.5, %73
   %75 = add nsw i32 %.580, 1
   br label %76
@@ -4388,7 +4388,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %81 = load i64, ptr %80, align 8
   %82 = xor i64 %81, %79
   %83 = tail call i64 @llvm.ctpop.i64(i64 %82), !range !20
-  %84 = trunc i64 %83 to i32
+  %84 = trunc nuw nsw i64 %83 to i32
   %85 = add nsw i32 %.6, %84
   %86 = add nsw i32 %.681, 1
   br label %87
@@ -4404,7 +4404,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %92 = load i64, ptr %91, align 8
   %93 = xor i64 %92, %90
   %94 = tail call i64 @llvm.ctpop.i64(i64 %93), !range !20
-  %95 = trunc i64 %94 to i32
+  %95 = trunc nuw nsw i64 %94 to i32
   %96 = add nsw i32 %.7, %95
   %97 = add nsw i32 %.782, 1
   br label %7, !llvm.loop !35
@@ -5139,7 +5139,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit.i.i:      ; preds = %162
   %173 = and i64 %.val.i.i, %172
   %174 = trunc i64 %.val.i.i to i32
   %175 = lshr i64 %167, 32
-  %176 = trunc i64 %175 to i32
+  %176 = trunc nuw i64 %175 to i32
   %177 = getelementptr inbounds i8, ptr %143, i64 -4
   %178 = getelementptr inbounds i8, ptr %145, i64 -8
   %179 = icmp ult i64 %149, 2
@@ -5229,7 +5229,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %215 = load i32, ptr %.046.i.i.i.i, align 4
   %216 = xor i32 %215, %174
   %217 = call noundef i32 @llvm.ctpop.i32(i32 %216), !range !17
-  %218 = sitofp i32 %217 to float
+  %218 = uitofp nneg i32 %217 to float
   %219 = load ptr, ptr %204, align 8
   %220 = getelementptr inbounds i64, ptr %219, i64 %.02845.i.i.i.i
   %221 = load i64, ptr %220, align 8
@@ -5459,7 +5459,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit42.i.i:    ; preds = %309
   %319 = xor i64 %notmask.i.i43.i.i, -1
   %320 = and i64 %.val39.i.i, %319
   %321 = lshr i64 %314, 32
-  %322 = trunc i64 %321 to i32
+  %322 = trunc nuw i64 %321 to i32
   %323 = getelementptr inbounds i8, ptr %143, i64 -4
   %324 = getelementptr inbounds i8, ptr %145, i64 -8
   %325 = icmp ult i64 %149, 2
@@ -5549,8 +5549,8 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %361 = load i64, ptr %.017.i.i.i.i, align 8
   %362 = xor i64 %361, %.val39.i.i
   %363 = call i64 @llvm.ctpop.i64(i64 %362), !range !20
-  %364 = trunc i64 %363 to i32
-  %365 = sitofp i32 %364 to float
+  %364 = trunc nuw nsw i64 %363 to i32
+  %365 = uitofp nneg i32 %364 to float
   %366 = load ptr, ptr %350, align 8
   %367 = getelementptr inbounds i64, ptr %366, i64 %.02816.i.i.i.i
   %368 = load i64, ptr %367, align 8
@@ -5781,7 +5781,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit100.i.i:   ; preds = %456
   %468 = extractelement <2 x i64> %462, i64 0
   %469 = and i64 %468, %467
   %470 = lshr i64 %461, 32
-  %471 = trunc i64 %470 to i32
+  %471 = trunc nuw i64 %470 to i32
   %472 = getelementptr inbounds i8, ptr %143, i64 -4
   %473 = getelementptr inbounds i8, ptr %145, i64 -8
   %474 = icmp ult i64 %149, 2
@@ -5871,11 +5871,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %510 = load <2 x i64>, ptr %.018.i.i.i.i, align 8
   %511 = xor <2 x i64> %510, %462
   %512 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %511), !range !20
-  %513 = trunc <2 x i64> %512 to <2 x i32>
+  %513 = trunc nuw nsw <2 x i64> %512 to <2 x i32>
   %shift = shufflevector <2 x i32> %513, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %514 = add nuw nsw <2 x i32> %shift, %513
   %515 = extractelement <2 x i32> %514, i64 0
-  %516 = sitofp i32 %515 to float
+  %516 = uitofp nneg i32 %515 to float
   %517 = load ptr, ptr %499, align 8
   %518 = getelementptr inbounds i64, ptr %517, i64 %.02817.i.i.i.i
   %519 = load i64, ptr %518, align 8
@@ -6109,7 +6109,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit158.i.i:   ; preds = %607
   %622 = load i64, ptr %621, align 8
   %623 = trunc i64 %622 to i32
   %624 = lshr i64 %612, 32
-  %625 = trunc i64 %624 to i32
+  %625 = trunc nuw i64 %624 to i32
   %626 = getelementptr inbounds i8, ptr %143, i64 -4
   %627 = getelementptr inbounds i8, ptr %145, i64 -8
   %628 = icmp ult i64 %149, 2
@@ -6199,7 +6199,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %664 = load <2 x i64>, ptr %.047.i.i.i.i, align 8
   %665 = xor <2 x i64> %664, %618
   %666 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %665), !range !20
-  %667 = trunc <2 x i64> %666 to <2 x i32>
+  %667 = trunc nuw nsw <2 x i64> %666 to <2 x i32>
   %shift144 = shufflevector <2 x i32> %667, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %668 = add nuw nsw <2 x i32> %shift144, %667
   %669 = extractelement <2 x i32> %668, i64 0
@@ -6208,7 +6208,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %672 = xor i32 %671, %623
   %673 = call i32 @llvm.ctpop.i32(i32 %672), !range !17
   %674 = add nuw nsw i32 %669, %673
-  %675 = sitofp i32 %674 to float
+  %675 = uitofp nneg i32 %674 to float
   %676 = load ptr, ptr %653, align 8
   %677 = getelementptr inbounds i64, ptr %676, i64 %.02846.i.i.i.i
   %678 = load i64, ptr %677, align 8
@@ -6439,7 +6439,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit216.i.i:   ; preds = %766
   %778 = extractelement <4 x i64> %777, i64 0
   %779 = and i64 %778, %776
   %780 = lshr i64 %771, 32
-  %781 = trunc i64 %780 to i32
+  %781 = trunc nuw i64 %780 to i32
   %782 = getelementptr inbounds i8, ptr %143, i64 -4
   %783 = getelementptr inbounds i8, ptr %145, i64 -8
   %784 = icmp ult i64 %149, 2
@@ -6531,7 +6531,7 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
   %822 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %821), !range !20
   %823 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %822)
   %824 = trunc i64 %823 to i32
-  %825 = sitofp i32 %824 to float
+  %825 = uitofp nneg i32 %824 to float
   %826 = load ptr, ptr %809, align 8
   %827 = getelementptr inbounds i64, ptr %826, i64 %.02846.i.i244.i.i
   %828 = load i64, ptr %827, align 8
@@ -6762,7 +6762,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit276.i.i:   ; preds = %916
   %928 = extractelement <8 x i64> %927, i64 0
   %929 = and i64 %928, %926
   %930 = lshr i64 %921, 32
-  %931 = trunc i64 %930 to i32
+  %931 = trunc nuw i64 %930 to i32
   %932 = getelementptr inbounds i8, ptr %143, i64 -4
   %933 = getelementptr inbounds i8, ptr %145, i64 -8
   %934 = icmp ult i64 %149, 2
@@ -7091,7 +7091,7 @@ _ZN5faiss15IndexBinaryHashC2ERKS0_.exit334.i.i:   ; preds = %1067
   %1081 = srem i32 %1073, 8
   store i32 %1081, ptr %138, align 4
   %1082 = lshr i64 %1072, 32
-  %1083 = trunc i64 %1082 to i32
+  %1083 = trunc nuw i64 %1082 to i32
   %1084 = getelementptr inbounds i8, ptr %143, i64 -4
   %1085 = getelementptr inbounds i8, ptr %145, i64 -8
   %1086 = icmp ult i64 %149, 2
@@ -9029,7 +9029,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %311 = load i32, ptr %310, align 4
   %312 = xor i32 %311, %.val45.i.i
   %313 = call noundef i32 @llvm.ctpop.i32(i32 %312), !range !17
-  %314 = sitofp i32 %313 to float
+  %314 = uitofp nneg i32 %313 to float
   %315 = fcmp ogt float %306, %314
   br i1 %315, label %316, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i.i.i
 
@@ -9106,8 +9106,8 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %335 = load i64, ptr %334, align 8
   %336 = xor i64 %335, %.val49.i.i
   %337 = call i64 @llvm.ctpop.i64(i64 %336), !range !20
-  %338 = trunc i64 %337 to i32
-  %339 = sitofp i32 %338 to float
+  %338 = trunc nuw nsw i64 %337 to i32
+  %339 = uitofp nneg i32 %338 to float
   %340 = fcmp ogt float %330, %339
   br i1 %340, label %341, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i72.i.i
 
@@ -9184,11 +9184,11 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %361 = load <2 x i64>, ptr %360, align 8
   %362 = xor <2 x i64> %361, %354
   %363 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %362), !range !20
-  %364 = trunc <2 x i64> %363 to <2 x i32>
+  %364 = trunc nuw nsw <2 x i64> %363 to <2 x i32>
   %shift = shufflevector <2 x i32> %364, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %365 = add nuw nsw <2 x i32> %shift, %364
   %366 = extractelement <2 x i32> %365, i64 0
-  %367 = sitofp i32 %366 to float
+  %367 = uitofp nneg i32 %366 to float
   %368 = fcmp ogt float %356, %367
   br i1 %368, label %369, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i85.i.i
 
@@ -9268,7 +9268,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %392 = load <2 x i64>, ptr %391, align 8
   %393 = xor <2 x i64> %392, %383
   %394 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %393), !range !20
-  %395 = trunc <2 x i64> %394 to <2 x i32>
+  %395 = trunc nuw nsw <2 x i64> %394 to <2 x i32>
   %shift160 = shufflevector <2 x i32> %395, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %396 = add nuw nsw <2 x i32> %shift160, %395
   %397 = extractelement <2 x i32> %396, i64 0
@@ -9277,7 +9277,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %400 = xor i32 %399, %386
   %401 = call i32 @llvm.ctpop.i32(i32 %400), !range !17
   %402 = add nuw nsw i32 %397, %401
-  %403 = sitofp i32 %402 to float
+  %403 = uitofp nneg i32 %402 to float
   %404 = fcmp ogt float %387, %403
   br i1 %404, label %405, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i98.i.i
 
@@ -9356,7 +9356,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %427 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %426), !range !20
   %428 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %427)
   %429 = trunc i64 %428 to i32
-  %430 = sitofp i32 %429 to float
+  %430 = uitofp nneg i32 %429 to float
   %431 = fcmp ogt float %420, %430
   br i1 %431, label %432, label %_ZN5faiss12_GLOBAL__N_118RangeSearchResults3addEfl.exit.i.i111.i.i
 
@@ -10678,7 +10678,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %318 = load i32, ptr %317, align 4
   %319 = xor i32 %318, %.val26.i.i
   %320 = call noundef i32 @llvm.ctpop.i32(i32 %319), !range !17
-  %321 = sitofp i32 %320 to float
+  %321 = uitofp nneg i32 %320 to float
   %322 = load i32, ptr %104, align 4
   %323 = sitofp i32 %322 to float
   %324 = fcmp ogt float %323, %321
@@ -10703,7 +10703,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.us.i.i.i: ; preds = %_ZN
   %330 = load i32, ptr %329, align 4
   %331 = xor i32 %330, %.val26.i.i
   %332 = call noundef i32 @llvm.ctpop.i32(i32 %331), !range !17
-  %333 = sitofp i32 %332 to float
+  %333 = uitofp nneg i32 %332 to float
   %334 = load i32, ptr %104, align 4
   %335 = sitofp i32 %334 to float
   %336 = fcmp ogt float %335, %333
@@ -10852,8 +10852,8 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %394 = load i64, ptr %393, align 8
   %395 = xor i64 %394, %.val30.i.i
   %396 = call i64 @llvm.ctpop.i64(i64 %395), !range !20
-  %397 = trunc i64 %396 to i32
-  %398 = sitofp i32 %397 to float
+  %397 = trunc nuw nsw i64 %396 to i32
+  %398 = uitofp nneg i32 %397 to float
   %399 = load i32, ptr %104, align 4
   %400 = sitofp i32 %399 to float
   %401 = fcmp ogt float %400, %398
@@ -10878,8 +10878,8 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResults3addEfl.exit.i.us.i73.i.i: ; preds = %_
   %407 = load i64, ptr %406, align 8
   %408 = xor i64 %407, %.val30.i.i
   %409 = call i64 @llvm.ctpop.i64(i64 %408), !range !20
-  %410 = trunc i64 %409 to i32
-  %411 = sitofp i32 %410 to float
+  %410 = trunc nuw nsw i64 %409 to i32
+  %411 = uitofp nneg i32 %410 to float
   %412 = load i32, ptr %104, align 4
   %413 = sitofp i32 %412 to float
   %414 = fcmp ogt float %413, %411
@@ -11028,11 +11028,11 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %474 = load <2 x i64>, ptr %473, align 8
   %475 = xor <2 x i64> %474, %464
   %476 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %475), !range !20
-  %477 = trunc <2 x i64> %476 to <2 x i32>
+  %477 = trunc nuw nsw <2 x i64> %476 to <2 x i32>
   %shift = shufflevector <2 x i32> %477, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %478 = add nuw nsw <2 x i32> %shift, %477
   %479 = extractelement <2 x i32> %478, i64 0
-  %480 = sitofp i32 %479 to float
+  %480 = uitofp nneg i32 %479 to float
   %481 = load i32, ptr %104, align 4
   %482 = sitofp i32 %481 to float
   %483 = fcmp ogt float %482, %480
@@ -11187,7 +11187,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %547 = load <2 x i64>, ptr %546, align 8
   %548 = xor <2 x i64> %547, %535
   %549 = call <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %548), !range !20
-  %550 = trunc <2 x i64> %549 to <2 x i32>
+  %550 = trunc nuw nsw <2 x i64> %549 to <2 x i32>
   %shift148 = shufflevector <2 x i32> %550, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %551 = add nuw nsw <2 x i32> %shift148, %550
   %552 = extractelement <2 x i32> %551, i64 0
@@ -11196,7 +11196,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %555 = xor i32 %554, %538
   %556 = call i32 @llvm.ctpop.i32(i32 %555), !range !17
   %557 = add nuw nsw i32 %552, %556
-  %558 = sitofp i32 %557 to float
+  %558 = uitofp nneg i32 %557 to float
   %559 = load i32, ptr %104, align 4
   %560 = sitofp i32 %559 to float
   %561 = fcmp ogt float %560, %558
@@ -11350,7 +11350,7 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   %624 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %623), !range !20
   %625 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %624)
   %626 = trunc i64 %625 to i32
-  %627 = sitofp i32 %626 to float
+  %627 = uitofp nneg i32 %626 to float
   %628 = load i32, ptr %104, align 4
   %629 = sitofp i32 %628 to float
   %630 = fcmp ogt float %629, %627

@@ -9536,7 +9536,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
   %59 = trunc nuw nsw i64 %indvars.iv32 to i32
-  %60 = sitofp i32 %59 to float
+  %60 = uitofp nneg i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -9558,7 +9558,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
   %74 = trunc nuw nsw i64 %indvars.iv to i32
-  %75 = sitofp i32 %74 to float
+  %75 = uitofp nneg i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #22
@@ -92287,7 +92287,7 @@ define linkonce_odr void @_ZN16PatchesOptimizerI8BaseMeshE22FindVarianceLenghtAr
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %31 = icmp ugt i32 %.047.i, 8
-  %32 = sitofp i32 %28 to float
+  %32 = uitofp nneg i32 %28 to float
   %33 = fdiv float %32, 1.000000e+01
   br i1 %31, label %34, label %_Z19EstimateAreaByParamI8BaseFaceENT_10ScalarTypeEPKS1_.exit
 
@@ -92733,7 +92733,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %71, %73
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %99 = icmp ugt i32 %.047.i, 8
-  %100 = sitofp i32 %96 to float
+  %100 = uitofp nneg i32 %96 to float
   %101 = fdiv float %100, 1.000000e+01
   br i1 %99, label %102, label %103
 
@@ -95325,7 +95325,7 @@ _ZNSt6vectorISt4pairIP10BaseVertexN3vcg6Point3IfEEESaIS6_EE9push_backEOS6_.exit:
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %172 = icmp ugt i32 %.047.i, 8
-  %173 = sitofp i32 %169 to float
+  %173 = uitofp nneg i32 %169 to float
   %174 = fdiv float %173, 1.000000e+01
   br i1 %172, label %175, label %176
 
@@ -112802,7 +112802,7 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit:        ; preds = %83, %109, %121
   %149 = getelementptr inbounds i8, ptr %0, i64 44
   %150 = getelementptr inbounds i8, ptr %0, i64 52
   %151 = fsub <2 x float> %146, %147
-  %152 = sitofp i32 %spec.store.select to float
+  %152 = uitofp nneg i32 %spec.store.select to float
   %153 = getelementptr inbounds i8, ptr %0, i64 24
   %154 = getelementptr inbounds i8, ptr %0, i64 32
   %155 = getelementptr inbounds i8, ptr %0, i64 36
@@ -124014,7 +124014,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %23, label %28, label %59
 
 28:                                               ; preds = %27
-  %29 = sitofp i64 %spec.store.select to float
+  %29 = uitofp nneg i64 %spec.store.select to float
   br i1 %26, label %30, label %48
 
 30:                                               ; preds = %28
@@ -124059,7 +124059,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %60, label %72
 
 60:                                               ; preds = %59
-  %61 = sitofp i64 %spec.store.select to float
+  %61 = uitofp nneg i64 %spec.store.select to float
   %62 = fmul float %18, %61
   %63 = fdiv float %62, %24
   %64 = tail call noundef float @sqrtf(float noundef %63) #22
@@ -124085,7 +124085,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %76, label %88
 
 76:                                               ; preds = %75
-  %77 = sitofp i64 %spec.store.select to float
+  %77 = uitofp nneg i64 %spec.store.select to float
   %78 = fmul float %21, %77
   %79 = fdiv float %78, %24
   %80 = tail call noundef float @sqrtf(float noundef %79) #22

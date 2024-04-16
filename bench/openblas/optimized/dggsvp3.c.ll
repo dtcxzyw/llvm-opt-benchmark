@@ -163,7 +163,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %121 = fptosi double %120 to i32
   %122 = tail call i32 @llvm.smax.i32(i32 %119, i32 %121)
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 1)
-  %124 = sitofp i32 %123 to double
+  %124 = uitofp nneg i32 %123 to double
   store double %124, ptr %22, align 8, !tbaa !7
   %.pr26 = load i32, ptr %24, align 4, !tbaa !3
   %125 = icmp eq i32 %.pr26, 0

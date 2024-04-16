@@ -1595,7 +1595,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   %104 = xor i64 %102, %103
   %105 = trunc i64 %104 to i32
   %106 = lshr i64 %.sroa.0102.2127, 59
-  %107 = trunc i64 %106 to i32
+  %107 = trunc nuw nsw i64 %106 to i32
   %108 = call noundef i32 @llvm.fshr.i32(i32 %105, i32 %105, i32 %107)
   %109 = lshr i32 %108, 9
   %110 = or disjoint i32 %109, 1065353216
@@ -1608,7 +1608,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   %117 = xor i64 %115, %116
   %118 = trunc i64 %117 to i32
   %119 = lshr i64 %101, 59
-  %120 = trunc i64 %119 to i32
+  %120 = trunc nuw nsw i64 %119 to i32
   %121 = call noundef i32 @llvm.fshr.i32(i32 %118, i32 %118, i32 %120)
   %122 = lshr i32 %121, 9
   %123 = or disjoint i32 %122, 1065353216
@@ -1624,7 +1624,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   %130 = fpext float %129 to double
   %131 = fsub double %130, %.077130
   %132 = add nuw nsw i32 %.080128, 1
-  %133 = sitofp i32 %132 to double
+  %133 = uitofp nneg i32 %132 to double
   %134 = fdiv double %131, %133
   %135 = fadd double %.077130, %134
   %136 = fsub double %130, %135
@@ -1688,7 +1688,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   br label %316
 
 ._crit_edge141.loopexit:                          ; preds = %161
-  %172 = trunc i64 %indvars.iv.next to i32
+  %172 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge141
 
 ._crit_edge141:                                   ; preds = %._crit_edge141.loopexit, %68
@@ -1872,7 +1872,7 @@ _ZN4nori12PropertyListD2Ev.exit:                  ; preds = %200
   %264 = fpext float %263 to double
   %265 = fsub double %264, %.069155
   %266 = add nuw nsw i32 %.067157, 1
-  %267 = sitofp i32 %266 to double
+  %267 = uitofp nneg i32 %266 to double
   %268 = fdiv double %265, %267
   %269 = fadd double %.069155, %268
   %270 = fsub double %264, %269

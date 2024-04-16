@@ -50,9 +50,9 @@ define noundef i32 @syrk_thread(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %25
-  %35 = sitofp i32 %13 to double
+  %35 = uitofp nneg i32 %13 to double
   %36 = add nuw nsw i32 %13, 1
-  %37 = sitofp i32 %36 to double
+  %37 = uitofp nneg i32 %36 to double
   %38 = zext nneg i32 %36 to i64
   br label %39
 
@@ -141,7 +141,7 @@ define noundef i32 @syrk_thread(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %93, label %94, label %.thread
 
 94:                                               ; preds = %82
-  %95 = sitofp i32 %13 to double
+  %95 = uitofp nneg i32 %13 to double
   %96 = add nuw nsw i32 %13, 1
   %97 = zext nneg i32 %96 to i64
   br label %98

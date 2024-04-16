@@ -475,7 +475,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %140 = fmul reassoc nsz arcp contract afn <2 x float> %139, %137
   %141 = fadd reassoc nsz arcp contract afn <2 x float> %140, <float -1.000000e+00, float -1.000000e+00>
   %142 = fcmp reassoc nsz arcp contract afn olt <2 x float> %141, %134
-  %143 = sitofp <2 x i32> %135 to <2 x float>
+  %143 = uitofp nneg <2 x i32> %135 to <2 x float>
   %144 = select <2 x i1> %142, <2 x float> %141, <2 x float> %143
   %145 = fptosi <2 x float> %144 to <2 x i32>
   store <2 x i32> %145, ptr %3, align 4, !tbaa !34
@@ -485,7 +485,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %149 = fsub reassoc nsz arcp contract afn <2 x float> %140, %148
   %150 = fcmp reassoc nsz arcp contract afn olt <2 x float> %149, %147
   %151 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %146, <2 x i32> <i32 1, i32 1>)
-  %152 = sitofp <2 x i32> %151 to <2 x float>
+  %152 = uitofp nneg <2 x i32> %151 to <2 x float>
   %153 = select <2 x i1> %150, <2 x float> %149, <2 x float> %152
   %154 = fptosi <2 x float> %153 to <2 x i32>
   store <2 x i32> %154, ptr %13, align 4, !tbaa !34
@@ -840,7 +840,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 273:                                              ; preds = %.loopexit45, %262
   %274 = phi i64 [ %270, %262 ], [ %434, %.loopexit45 ]
-  %275 = trunc i64 %274 to i32
+  %275 = trunc nsw i64 %274 to i32
   %276 = icmp slt i64 %274, %271
   br i1 %276, label %.loopexit45, label %277
 
@@ -877,7 +877,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 .preheader44:                                     ; preds = %290, %.loopexit39
   %300 = phi i64 [ %432, %.loopexit39 ], [ %267, %290 ]
-  %301 = trunc i64 %300 to i32
+  %301 = trunc nsw i64 %300 to i32
   %302 = icmp slt i64 %300, %295
   br i1 %302, label %.loopexit39, label %303
 
@@ -1283,7 +1283,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 610:                                              ; preds = %604
   %611 = load i32, ptr %5, align 4, !tbaa !79
-  %612 = trunc i64 %592 to i32
+  %612 = trunc nsw i64 %592 to i32
   %613 = sub i32 %612, %457
   %614 = sitofp i32 %613 to float
   %615 = sub nsw i64 %592, %588
@@ -1324,7 +1324,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %639 = fdiv reassoc nsz arcp contract afn float %614, %638
   %640 = fptosi float %639 to i32
   %641 = mul nsw i32 %580, %640
-  %642 = trunc i64 %620 to i32
+  %642 = trunc nsw i64 %620 to i32
   %643 = sub i32 %642, %463
   %644 = sitofp i32 %643 to float
   %645 = fdiv reassoc nsz arcp contract afn float %644, %638

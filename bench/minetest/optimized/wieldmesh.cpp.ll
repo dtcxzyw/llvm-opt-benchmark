@@ -2686,7 +2686,7 @@ cond.end:                                         ; preds = %cond.false, %if.end
   %Size.i = getelementptr inbounds i8, ptr %call, i64 80
   %3 = load i64, ptr %Size.i, align 4, !tbaa.struct !148
   %dim.sroa.8.0.extract.shift = lshr i64 %3, 32
-  %dim.sroa.8.0.extract.trunc = trunc i64 %dim.sroa.8.0.extract.shift to i32
+  %dim.sroa.8.0.extract.trunc = trunc nuw i64 %dim.sroa.8.0.extract.shift to i32
   %cmp = icmp ugt i8 %num_frames, 1
   br i1 %cmp, label %if.then7, label %if.end9
 
@@ -3034,7 +3034,7 @@ define linkonce_odr dso_local noundef ptr @_ZN18ExtrusionMeshCache6createEN3irr4
 entry:
   %dim.sroa.0.0.extract.trunc = trunc i64 %dim.coerce to i32
   %dim.sroa.5.0.extract.shift = lshr i64 %dim.coerce, 32
-  %dim.sroa.5.0.extract.trunc = trunc i64 %dim.sroa.5.0.extract.shift to i32
+  %dim.sroa.5.0.extract.trunc = trunc nuw i64 %dim.sroa.5.0.extract.shift to i32
   %0 = tail call i32 @llvm.ctpop.i32(i32 %dim.sroa.0.0.extract.trunc), !range !151
   %or.cond = icmp eq i32 %0, 1
   %cmp.not.i38 = icmp ne i32 %dim.sroa.5.0.extract.trunc, 0
@@ -4806,7 +4806,7 @@ entry:
   %gen = alloca %class.MapblockMeshGenerator, align 8
   %n.sroa.0.0.extract.trunc = trunc i32 %n.coerce to i16
   %n.sroa.2228.0.extract.shift = lshr i32 %n.coerce, 24
-  %n.sroa.2228.0.extract.trunc = trunc i32 %n.sroa.2228.0.extract.shift to i8
+  %n.sroa.2228.0.extract.trunc = trunc nuw i32 %n.sroa.2228.0.extract.shift to i8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %mesh_make_data) #26
   %add.ptr = getelementptr inbounds i8, ptr %client, i64 16
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !15
@@ -8501,11 +8501,11 @@ for.body71.lr.ph:                                 ; preds = %for.cond68.preheade
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %i.0403 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %conv24 = sitofp i32 %i.0403 to float
+  %conv24 = uitofp nneg i32 %i.0403 to float
   %mul = fmul nsz float %div, %conv24
   %conv26 = fadd nsz float %mul, -5.000000e-01
   %add = fadd nsz float %div, %conv26
-  %conv27 = sitofp i32 %i.0403 to double
+  %conv27 = uitofp nneg i32 %i.0403 to double
   %add28 = fadd nsz double %conv27, 1.000000e-01
   %mul30 = fmul nsz double %add28, %conv29
   %conv31 = fptrunc double %mul30 to float
@@ -8575,11 +8575,11 @@ for.body:                                         ; preds = %for.body, %for.body
 
 for.body71:                                       ; preds = %for.body71, %for.body71.lr.ph
   %i67.0405 = phi i32 [ 0, %for.body71.lr.ph ], [ %inc122, %for.body71 ]
-  %conv72 = sitofp i32 %i67.0405 to float
+  %conv72 = uitofp nneg i32 %i67.0405 to float
   %mul73 = fmul nsz float %div23, %conv72
   %fneg = fsub nsz float 5.000000e-01, %mul73
   %sub77 = fsub nsz float %fneg, %div23
-  %conv80 = sitofp i32 %i67.0405 to double
+  %conv80 = uitofp nneg i32 %i67.0405 to double
   %add81 = fadd nsz double %conv80, 1.000000e-01
   %mul83 = fmul nsz double %add81, %conv82
   %conv84 = fptrunc double %mul83 to float

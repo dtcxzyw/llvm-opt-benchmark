@@ -1307,7 +1307,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %.not290 = icmp eq i32 %26, 0
   %27 = select i1 %.not290, ptr @.str.32, ptr @.str.31
   %28 = and i32 %25, 8388607
-  %29 = uitofp i32 %28 to double
+  %29 = uitofp nneg i32 %28 to double
   %30 = fdiv double %29, 0x415FFFFFC0000000
   %31 = fmul double %30, 9.000000e+01
   %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %24, ptr noundef nonnull @.str.30, ptr noundef nonnull %27, double noundef %31) #6
@@ -1349,7 +1349,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %52 = and i8 %51, 127
   %53 = load i32, ptr @hf_gsm_a_geo_loc_uncertainty_code, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #6
-  %55 = uitofp i8 %52 to double
+  %55 = uitofp nneg i8 %52 to double
   %56 = call double @pow(double noundef 1.100000e+00, double noundef %55) #6
   %57 = fadd double %56, -1.000000e+00
   %58 = fmul double %57, 1.000000e+01
@@ -1361,7 +1361,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %61 = and i8 %60, 127
   %62 = load i32, ptr @hf_gsm_a_geo_loc_uncertainty_semi_major, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #6
-  %64 = uitofp i8 %61 to double
+  %64 = uitofp nneg i8 %61 to double
   %65 = call double @pow(double noundef 1.100000e+00, double noundef %64) #6
   %66 = fadd double %65, -1.000000e+00
   %67 = fmul double %66, 1.000000e+01
@@ -1370,7 +1370,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %69 = and i8 %68, 127
   %70 = load i32, ptr @hf_gsm_a_geo_loc_uncertainty_semi_minor, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #6
-  %72 = uitofp i8 %69 to double
+  %72 = uitofp nneg i8 %69 to double
   %73 = call double @pow(double noundef 1.100000e+00, double noundef %72) #6
   %74 = fadd double %73, -1.000000e+00
   %75 = fmul double %74, 1.000000e+01
@@ -1397,7 +1397,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %91 = and i8 %90, 127
   %92 = load i32, ptr @hf_gsm_a_geo_loc_uncertainty_semi_major, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #6
-  %94 = uitofp i8 %91 to double
+  %94 = uitofp nneg i8 %91 to double
   %95 = call double @pow(double noundef 1.100000e+00, double noundef %94) #6
   %96 = fadd double %95, -1.000000e+00
   %97 = fmul double %96, 1.000000e+01
@@ -1406,7 +1406,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %99 = and i8 %98, 127
   %100 = load i32, ptr @hf_gsm_a_geo_loc_uncertainty_semi_minor, align 4
   %101 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #6
-  %102 = uitofp i8 %99 to double
+  %102 = uitofp nneg i8 %99 to double
   %103 = call double @pow(double noundef 1.100000e+00, double noundef %102) #6
   %104 = fadd double %103, -1.000000e+00
   %105 = fmul double %104, 1.000000e+01
@@ -1420,7 +1420,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %112 = and i8 %111, 127
   %113 = load i32, ptr @hf_gsm_a_geo_loc_uncertainty_altitude, align 4
   %114 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %113, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #6
-  %115 = uitofp i8 %112 to double
+  %115 = uitofp nneg i8 %112 to double
   %116 = call double @pow(double noundef 1.025000e+00, double noundef %115) #6
   %117 = fadd double %116, -1.000000e+00
   %118 = fmul double %117, 4.500000e+01
@@ -1502,7 +1502,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %.not288 = icmp eq i32 %164, 0
   %165 = select i1 %.not288, ptr @.str.32, ptr @.str.31
   %166 = and i32 %163, 8388607
-  %167 = uitofp i32 %166 to double
+  %167 = uitofp nneg i32 %166 to double
   %168 = fdiv double %167, 0x415FFFFFC0000000
   %169 = fmul double %168, 9.000000e+01
   %170 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %162, ptr noundef nonnull @.str.30, ptr noundef nonnull %165, double noundef %169) #6
@@ -1570,7 +1570,7 @@ proto_item_set_generated.exit299:                 ; preds = %191, %153, %194, %1
   %.not285 = icmp sgt i32 %208, -1
   %209 = select i1 %.not285, ptr @.str.32, ptr @.str.31
   %210 = and i32 %208, 2147483647
-  %211 = sitofp i32 %210 to double
+  %211 = uitofp nneg i32 %210 to double
   %212 = fdiv double %211, 0x41DFFFFFFFC00000
   %213 = fmul double %212, 9.000000e+01
   %214 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %207, ptr noundef nonnull @.str.30, ptr noundef nonnull %209, double noundef %213) #6
@@ -1654,7 +1654,7 @@ proto_item_set_generated.exit299:                 ; preds = %191, %153, %194, %1
   %.not = icmp sgt i32 %268, -1
   %269 = select i1 %.not, ptr @.str.32, ptr @.str.31
   %270 = and i32 %268, 2147483647
-  %271 = sitofp i32 %270 to double
+  %271 = uitofp nneg i32 %270 to double
   %272 = fdiv double %271, 0x41DFFFFFFFC00000
   %273 = fmul double %272, 9.000000e+01
   %274 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %267, ptr noundef nonnull @.str.30, ptr noundef nonnull %269, double noundef %273) #6
@@ -1710,7 +1710,7 @@ proto_item_set_generated.exit299:                 ; preds = %191, %153, %194, %1
   %314 = and i8 %313, 127
   %315 = load i32, ptr @hf_gsm_a_geo_loc_high_acc_uncertainty_alt, align 4
   %316 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %315, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #6
-  %317 = uitofp i8 %314 to double
+  %317 = uitofp nneg i8 %314 to double
   %318 = call double @pow(double noundef 1.025000e+00, double noundef %317) #6
   %319 = fadd double %318, -1.000000e+00
   %320 = fmul double %319, 4.500000e+01
@@ -2433,7 +2433,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 97:                                               ; preds = %83, %95, %87, %switch.lookup
   %.084 = phi i16 [ %.081, %83 ], [ %93, %95 ], [ %93, %87 ], [ 0, %switch.lookup ]
-  %98 = trunc i32 %.083 to i16
+  %98 = trunc nuw nsw i32 %.083 to i16
   %99 = add nuw nsw i16 %98, 1
   %100 = add i16 %99, %.084
   br label %101
@@ -4254,7 +4254,7 @@ define noundef zeroext i16 @de_ms_cm_1(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @de_ms_cm_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define zeroext i16 @de_ms_cm_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_a_b8spare, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %10 = load i32, ptr @hf_gsm_a_MSC_rev, align 4
@@ -4269,7 +4269,7 @@ define noundef zeroext i16 @de_ms_cm_2(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %7
-  %20 = trunc i32 %4 to i16
+  %20 = trunc nuw nsw i32 %4 to i16
   br label %65
 
 21:                                               ; preds = %7
@@ -4395,7 +4395,7 @@ define noundef zeroext i16 @de_ms_cm_3(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %66, label %switch.hole_check, label %73
 
 switch.hole_check:                                ; preds = %7
-  %switch.maskindex = trunc i64 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i64 %switch.tableidx to i8
   %switch.shifted = lshr i8 59, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %73

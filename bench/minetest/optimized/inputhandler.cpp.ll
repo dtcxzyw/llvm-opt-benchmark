@@ -7228,7 +7228,7 @@ if.then47:                                        ; preds = %for.cond.cleanup
   %call.i166 = call noundef i32 @_Z6myrandv()
   %rem.i167 = urem i32 %call.i166, 20
   %add2.i168 = add nuw nsw i32 %rem.i167, 1
-  %conv49 = sitofp i32 %add2.i168 to double
+  %conv49 = uitofp nneg i32 %add2.i168 to double
   %mul50 = fmul nsz double %conv49, 1.000000e-01
   %conv51 = fptrunc double %mul50 to float
   store float %conv51, ptr @_ZZN18RandomInputHandler4stepEfE8counter1, align 4, !tbaa !118
@@ -7290,13 +7290,13 @@ if.then69:                                        ; preds = %if.then65
   %call.i176 = call noundef i32 @_Z6myrandv()
   %rem.i177 = urem i32 %call.i176, 40
   %add2.i178 = add nuw nsw i32 %rem.i177, 1
-  %conv71 = sitofp i32 %add2.i178 to double
+  %conv71 = uitofp nneg i32 %add2.i178 to double
   %mul72 = fmul nsz double %conv71, 1.000000e-01
   %conv73 = fptrunc double %mul72 to float
   store float %conv73, ptr @_ZZN18RandomInputHandler4stepEfE15counterMovement, align 4, !tbaa !118
   %call.i179 = call noundef i32 @_Z6myrandv()
   %rem.i180 = urem i32 %call.i179, 101
-  %conv75 = sitofp i32 %rem.i180 to double
+  %conv75 = uitofp nneg i32 %rem.i180 to double
   %mul76 = fmul nsz double %conv75, 1.000000e-02
   %conv77 = fptrunc double %mul76 to float
   %movementSpeed = getelementptr inbounds i8, ptr %this, i64 3632

@@ -182,7 +182,7 @@ _ZNSt12_Vector_baseIN10VisibleSet11FaceVisInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds
   %.040.i = phi i1 [ true, %31 ], [ false, %42 ]
   %.02339.i = phi i32 [ 0, %31 ], [ %58, %42 ]
   %.zext.i = and i32 %.02339.i, 1
-  %43 = sitofp i32 %.zext.i to float
+  %43 = uitofp nneg i32 %.zext.i to float
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %39, float %.sroa.056.0.copyload)
   %.zext38.i = lshr i32 %.02339.i, 1
   %.urem.i = add nsw i32 %.zext38.i, -2
@@ -846,7 +846,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137: ; preds = %_Z
   %244 = fptosi float %243 to i32
   %245 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %239, i32 noundef %240, i32 noundef %244)
   %246 = lshr i32 %245, 24
-  %247 = sitofp i32 %246 to float
+  %247 = uitofp nneg i32 %246 to float
   br label %248
 
 248:                                              ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137, %223, %230, %237
@@ -1016,7 +1016,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 50:                                               ; preds = %42
   %51 = fptosi float %47 to i32
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp nneg i32 %52 to double
   %54 = tail call noundef double @pow(double noundef %53, double noundef 0x3FD5555560000000) #16
   %55 = fptrunc double %54 to float
   %56 = fneg float %55

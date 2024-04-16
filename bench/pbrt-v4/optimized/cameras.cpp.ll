@@ -1425,7 +1425,7 @@ for.body:                                         ; preds = %invoke.cont3, %for.
   call void @_ZN4pbrt6detail8DispatchIRZNKS_6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsEEUlT_E_N4pstd8optionalINS_9CameraRayEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.26") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %generate.i23, ptr noundef %9, i32 noundef %sub.i.i27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp822)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %generate.i23)
-  %tobool.i.i30 = trunc i8 %rx.sroa.10.0297 to i1
+  %tobool.i.i30 = trunc nuw i8 %rx.sroa.10.0297 to i1
   %spec.select = select i1 %tobool.i.i30, i8 0, i8 %rx.sroa.10.0297
   %10 = load i8, ptr %set.i3.i, align 8
   %tobool.i4.i = trunc i8 %10 to i1
@@ -1448,7 +1448,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i33: ; preds = %invoke.cont1
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
 _ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit:    ; preds = %invoke.cont12, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i33
-  %tobool.i35 = trunc i8 %spec.select to i1
+  %tobool.i35 = trunc nuw i8 %spec.select to i1
   br i1 %tobool.i35, label %invoke.cont53, label %for.cond
 
 invoke.cont53:                                    ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread
@@ -1518,7 +1518,7 @@ for.body72:                                       ; preds = %for.end, %for.cond7
   call void @_ZN4pbrt6detail8DispatchIRZNKS_6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsEEUlT_E_N4pstd8optionalINS_9CameraRayEEENS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEET0_OS6_PKvi(ptr nonnull sret(%"class.pstd::optional.26") align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(16) %generate.i97, ptr noundef %27, i32 noundef %sub.i.i101)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7896)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %generate.i97)
-  %tobool.i.i105 = trunc i8 %ry.sroa.10.0299 to i1
+  %tobool.i.i105 = trunc nuw i8 %ry.sroa.10.0299 to i1
   %spec.select284 = select i1 %tobool.i.i105, i8 0, i8 %ry.sroa.10.0299
   %28 = load i8, ptr %set.i3.i107, align 8
   %tobool.i4.i108 = trunc i8 %28 to i1
@@ -1541,7 +1541,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i120: ; preds = %invoke.cont
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit121
 
 _ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit121: ; preds = %invoke.cont82, %_ZN4pstd8optionalIN4pbrt9CameraRayEE5valueEv.exit.i.i120
-  %tobool.i123 = trunc i8 %spec.select284 to i1
+  %tobool.i123 = trunc nuw i8 %spec.select284 to i1
   br i1 %tobool.i123, label %invoke.cont127, label %for.cond70
 
 invoke.cont127:                                   ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit121, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit121.thread
@@ -1651,8 +1651,8 @@ entry:
 
 for.body.i:                                       ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i ]
-  %0 = trunc i64 %indvars.iv.i to i32
-  %conv.i = sitofp i32 %0 to float
+  %0 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %conv.i = uitofp nneg i32 %0 to float
   %div.i = fmul float %conv.i, 2.500000e-01
   %add.i = fadd float %div.i, 5.000000e-01
   %cmp1.i = fcmp ogt float %add.i, 1.000000e+00
@@ -1713,7 +1713,7 @@ for.cond.preheader:                               ; preds = %_ZN4pbrt21VisibleWa
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN4pstd8optionalIN4pbrt21CameraRayDifferentialEED2Ev.exit314
   %i.0340 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %_ZN4pstd8optionalIN4pbrt21CameraRayDifferentialEED2Ev.exit314 ]
-  %conv = sitofp i32 %i.0340 to float
+  %conv = uitofp nneg i32 %i.0340 to float
   %div = fdiv float %conv, 5.110000e+02
   %1 = load i64, ptr %film, align 8
   %and.i.i.i = and i64 %1, 144115188075855871
@@ -3766,8 +3766,8 @@ for.cond117.preheader:                            ; preds = %invoke.cont93, %for
   br i1 %cmp123288, label %invoke.cont163.lr.ph, label %for.inc166
 
 invoke.cont163.lr.ph:                             ; preds = %for.cond117.preheader
-  %31 = trunc i64 %indvars.iv337 to i32
-  %conv133 = sitofp i32 %31 to float
+  %31 = trunc nuw nsw i64 %indvars.iv337 to i32
+  %conv133 = uitofp nneg i32 %31 to float
   %add134 = fadd float %conv133, 5.000000e-01
   %mul135 = fmul float %add134, 2.000000e+00
   %agg.tmp162.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv337, 32
@@ -3777,8 +3777,8 @@ invoke.cont163:                                   ; preds = %invoke.cont163.lr.p
   %indvars.iv334 = phi i64 [ 0, %invoke.cont163.lr.ph ], [ %indvars.iv.next335, %for.inc ]
   %ref.tmp118.sroa.0.0.extract.trunc291 = phi i32 [ %ref.tmp118.sroa.0.0.extract.trunc287, %invoke.cont163.lr.ph ], [ %ref.tmp118.sroa.0.0.extract.trunc, %for.inc ]
   %retval.sroa.0.0.copyload.i164290 = phi i64 [ %retval.sroa.0.0.copyload.i357, %invoke.cont163.lr.ph ], [ %retval.sroa.0.0.copyload.i164, %for.inc ]
-  %32 = trunc i64 %indvars.iv334 to i32
-  %conv125 = sitofp i32 %32 to float
+  %32 = trunc nuw nsw i64 %indvars.iv334 to i32
+  %conv125 = uitofp nneg i32 %32 to float
   %add = fadd float %conv125, 5.000000e-01
   %mul = fmul float %add, 2.000000e+00
   %ref.tmp136.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i164290, 32
@@ -4049,11 +4049,11 @@ if.then312:                                       ; preds = %if.else309
 
 for.body317:                                      ; preds = %if.then312, %for.body317
   %indvars.iv327 = phi i64 [ 0, %if.then312 ], [ %indvars.iv.next328, %for.body317 ]
-  %61 = trunc i64 %indvars.iv327 to i32
+  %61 = trunc nuw nsw i64 %indvars.iv327 to i32
   %and = and i32 %61, 1
   %tobool.not = icmp eq i32 %and, 0
   %spec.select = select i1 %tobool.not, float 0x3FD8722180000000, float 1.000000e+00
-  %conv328 = sitofp i32 %61 to float
+  %conv328 = uitofp nneg i32 %61 to float
   %mul329 = fmul float %conv328, 0x400921FB60000000
   %div330 = fdiv float %mul329, 5.000000e+00
   %call.i199 = call noundef float @cosf(float noundef %div330) #25
@@ -8841,8 +8841,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %retval.sroa.12.0129 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %entry ], [ %retval.sroa.12.1, %for.inc ]
   %retval.sroa.0.0128 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ], [ %retval.sroa.0.1, %for.inc ]
-  %8 = trunc i64 %indvars.iv to i32
-  %conv = sitofp i32 %8 to float
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %conv = uitofp nneg i32 %8 to float
   %add = fadd float %conv, 5.000000e-01
   %div = fmul float %add, 0x3EB0000000000000
   %sub.i = fsub float 1.000000e+00, %div
@@ -10534,7 +10534,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 
 for.body:                                         ; preds = %invoke.cont11, %for.inc80
   %y.0218 = phi i32 [ 0, %invoke.cont11 ], [ %inc81, %for.inc80 ]
-  %conv = sitofp i32 %y.0218 to float
+  %conv = uitofp nneg i32 %y.0218 to float
   %div = fdiv float %conv, 2.047000e+03
   %1 = load ptr, ptr %ptr.i.i, align 8
   %2 = load i64, ptr %nStored.i.i, align 8
@@ -10551,7 +10551,7 @@ for.body:                                         ; preds = %invoke.cont11, %for
 
 invoke.cont43:                                    ; preds = %for.body, %for.inc
   %x.0216 = phi i32 [ 0, %for.body ], [ %inc, %for.inc ]
-  %conv34 = sitofp i32 %x.0216 to float
+  %conv34 = uitofp nneg i32 %x.0216 to float
   %div35 = fdiv float %conv34, 2.047000e+03
   %6 = load ptr, ptr %ptr.i.i, align 8
   %7 = load i64, ptr %nStored.i.i, align 8
@@ -11611,8 +11611,8 @@ for.inc138.us:                                    ; preds = %for.inc135.us.us, %
   br i1 %cmp.us, label %for.cond28.preheader.us, label %nrvo.skipdtor, !llvm.loop !167
 
 for.body34.lr.ph.us:                              ; preds = %for.cond28.preheader.us
-  %6 = trunc i64 %indvars.iv84 to i32
-  %conv41.us = sitofp i32 %6 to float
+  %6 = trunc nuw nsw i64 %indvars.iv84 to i32
+  %conv41.us = uitofp nneg i32 %6 to float
   %add42.us = fadd float %conv41.us, 5.000000e-01
   %mul43.us = fmul float %add42.us, 2.000000e+00
   %agg.tmp130.sroa.2.0.insert.shift.us = shl nuw nsw i64 %indvars.iv84, 32
@@ -11622,8 +11622,8 @@ for.body34.us.us:                                 ; preds = %for.inc135.us.us, %
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %for.inc135.us.us ], [ 0, %for.body34.lr.ph.us ]
   %ref.tmp29.sroa.0.0.extract.trunc72.us.us = phi i32 [ %ref.tmp29.sroa.0.0.extract.trunc.us.us, %for.inc135.us.us ], [ %ref.tmp29.sroa.0.0.extract.trunc68.us, %for.body34.lr.ph.us ]
   %retval.sroa.0.0.copyload.i2871.us.us = phi i64 [ %retval.sroa.0.0.copyload.i28.us.us, %for.inc135.us.us ], [ %retval.sroa.0.0.copyload.i.us95, %for.body34.lr.ph.us ]
-  %7 = trunc i64 %indvars.iv81 to i32
-  %conv.us.us = sitofp i32 %7 to float
+  %7 = trunc nuw nsw i64 %indvars.iv81 to i32
+  %conv.us.us = uitofp nneg i32 %7 to float
   %add.us.us = fadd float %conv.us.us, 5.000000e-01
   %mul.us.us = fmul float %add.us.us, 2.000000e+00
   %conv39.us.us = sitofp i32 %ref.tmp29.sroa.0.0.extract.trunc72.us.us to float

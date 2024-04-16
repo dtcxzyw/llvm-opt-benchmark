@@ -134,7 +134,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = add nuw nsw i32 %32, 1
-  %34 = sitofp i32 %33 to float
+  %34 = uitofp nneg i32 %33 to float
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %14, float %29)
   %36 = fadd float %35, 0x3FB99999A0000000
   %37 = load float, ptr %20, align 8
@@ -172,7 +172,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
 .lr.ph54.us:                                      ; preds = %.lr.ph54.us.preheader, %._crit_edge55.us
   %indvars.iv65 = phi i64 [ 0, %.lr.ph54.us.preheader ], [ %indvars.iv.next66, %._crit_edge55.us ]
   %54 = load ptr, ptr %51, align 8
-  %55 = trunc i64 %indvars.iv65 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv65 to i32
   %56 = mul i32 %52, %55
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i16, ptr %54, i64 %57
@@ -326,7 +326,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
 
 47:                                               ; preds = %.lr.ph46, %47
   %indvars.iv53 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next54, %47 ]
-  %48 = trunc i64 %indvars.iv53 to i32
+  %48 = trunc nuw i64 %indvars.iv53 to i32
   %49 = shl i32 %48, 2
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %44, i64 %50

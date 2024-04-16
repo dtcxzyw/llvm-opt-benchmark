@@ -568,7 +568,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 .preheader:                                       ; preds = %104, %.preheader
   %405 = phi i32 [ %660, %.preheader ], [ 0, %104 ]
   %406 = phi float [ %659, %.preheader ], [ 0.000000e+00, %104 ]
-  %407 = sitofp i32 %405 to float
+  %407 = uitofp nneg i32 %405 to float
   %408 = fmul reassoc nsz arcp contract afn float %407, 0x3FA8618620000000
   %409 = fmul reassoc nsz arcp contract afn float %407, 0x3FF9E79E80000000
   %410 = fptosi float %409 to i32

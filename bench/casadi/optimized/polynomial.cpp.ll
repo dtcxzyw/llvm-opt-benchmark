@@ -1474,7 +1474,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.020 = phi i64 [ %23, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %19 = sitofp i64 %.020 to double
+  %19 = uitofp nneg i64 %.020 to double
   %20 = getelementptr inbounds double, ptr %5, i64 %.020
   %21 = load double, ptr %20, align 8
   %22 = fmul double %21, %19
@@ -1603,7 +1603,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   %18 = getelementptr inbounds double, ptr %5, i64 %.021
   %19 = load double, ptr %18, align 8
   %20 = add nuw nsw i64 %.021, 1
-  %21 = sitofp i64 %20 to double
+  %21 = uitofp nneg i64 %20 to double
   %22 = fdiv double %19, %21
   %23 = getelementptr inbounds double, ptr %.sroa.0.0, i64 %20
   store double %22, ptr %23, align 8

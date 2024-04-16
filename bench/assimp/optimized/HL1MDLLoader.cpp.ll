@@ -2652,7 +2652,7 @@ invoke.cont38:                                    ; preds = %invoke.cont32
           to label %invoke.cont45 unwind label %lpad31
 
 invoke.cont45:                                    ; preds = %invoke.cont38
-  %12 = trunc i64 %indvars.iv23 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv23 to i32
   %call48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call46, i32 noundef %12)
           to label %invoke.cont47 unwind label %lpad31
 
@@ -3516,7 +3516,7 @@ if.then84:                                        ; preds = %invoke.cont77
   br i1 %cmp.not.i61, label %if.else.i64, label %if.then.i62
 
 if.then.i62:                                      ; preds = %if.then84
-  %80 = trunc i64 %indvars.iv252 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv252 to i32
   store i32 %80, ptr %roots.sroa.8.0237, align 4
   %incdec.ptr.i63 = getelementptr inbounds i8, ptr %roots.sroa.8.0237, i64 4
   br label %if.end115
@@ -3546,7 +3546,7 @@ cond.true.i.i.i75:                                ; preds = %_ZNKSt6vectorIiSaIi
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i75, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i77 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i89, %cond.true.i.i.i75 ]
   %add.ptr.i.i78 = getelementptr inbounds i32, ptr %cond.i10.i.i77, i64 %sub.ptr.div.i.i.i.i69
-  %82 = trunc i64 %indvars.iv252 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv252 to i32
   store i32 %82, ptr %add.ptr.i.i78, align 4
   %cmp.i.i.i.i.i79 = icmp sgt i64 %sub.ptr.sub.i.i.i.i67, 0
   br i1 %cmp.i.i.i.i.i79, label %if.then.i.i.i.i.i85, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
@@ -3625,7 +3625,7 @@ if.else:                                          ; preds = %invoke.cont77
   br i1 %cmp.not.i94, label %if.else.i97, label %if.then.i95
 
 if.then.i95:                                      ; preds = %if.else
-  %90 = trunc i64 %indvars.iv252 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv252 to i32
   store i32 %90, ptr %88, align 4
   %91 = load ptr, ptr %_M_finish.i92, align 8
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %91, i64 4
@@ -3665,7 +3665,7 @@ cond.true.i.i.i109:                               ; preds = %_ZNKSt6vectorIiSaIi
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i111: ; preds = %cond.true.i.i.i109, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i102
   %cond.i10.i.i112 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i102 ], [ %call5.i.i.i.i.i126, %cond.true.i.i.i109 ]
   %add.ptr.i.i113 = getelementptr inbounds i32, ptr %cond.i10.i.i112, i64 %sub.ptr.div.i.i.i.i103
-  %94 = trunc i64 %indvars.iv252 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv252 to i32
   store i32 %94, ptr %add.ptr.i.i113, align 4
   %cmp.i.i.i.i.i114 = icmp sgt i64 %sub.ptr.sub.i.i.i.i100, 0
   br i1 %cmp.i.i.i.i.i114, label %if.then.i.i.i.i.i122, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i115
@@ -8073,7 +8073,7 @@ for.body116:                                      ; preds = %for.body116.lr.ph, 
   %mValue169 = getelementptr inbounds i8, ptr %arrayidx119, i64 8
   %y.i98 = getelementptr inbounds i8, ptr %arrayidx119, i64 12
   %z.i101 = getelementptr inbounds i8, ptr %arrayidx119, i64 16
-  %56 = trunc i64 %indvars.iv182 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv182 to i32
   br label %for.body125
 
 for.body125:                                      ; preds = %for.body116, %_ZN10aiVector3tIfEixEj.exit135
@@ -8085,7 +8085,7 @@ for.body125:                                      ; preds = %for.body116, %_ZN10
   br i1 %cmp130.not, label %for.body125.if.end143_crit_edge, label %if.then131
 
 for.body125.if.end143_crit_edge:                  ; preds = %for.body125
-  %.pre191 = trunc i64 %indvars.iv178 to i32
+  %.pre191 = trunc nuw nsw i64 %indvars.iv178 to i32
   br label %if.end143
 
 if.then131:                                       ; preds = %for.body125
@@ -8093,7 +8093,7 @@ if.then131:                                       ; preds = %for.body125
   %add.ptr138 = getelementptr inbounds i8, ptr %panim.2165, i64 %idx.ext137
   %arrayidx141 = getelementptr inbounds [6 x float], ptr %scale, i64 0, i64 %57
   %59 = load float, ptr %arrayidx141, align 1
-  %60 = trunc i64 %indvars.iv178 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv178 to i32
   switch i32 %60, label %_ZN10aiVector3tIfEixEj.exit [
     i32 2, label %sw.bb3.i
     i32 1, label %sw.bb2.i85
@@ -8259,7 +8259,7 @@ _ZN10aiVector3tIfEixEj.exit135:                   ; preds = %if.end165, %sw.bb2.
 
 for.end174:                                       ; preds = %_ZN10aiVector3tIfEixEj.exit135
   %arrayidx122 = getelementptr inbounds %struct.aiQuatKey, ptr %55, i64 %indvars.iv182
-  %conv175 = sitofp i32 %56 to double
+  %conv175 = uitofp nneg i32 %56 to double
   store double %conv175, ptr %arrayidx122, align 8
   store double %conv175, ptr %arrayidx119, align 8
   %angle1.sroa.4.0.angle1.sroa.4.0.angle1.sroa.4.0.angle1.sroa.4.4. = load float, ptr %angle1.sroa.4, align 4
@@ -11194,7 +11194,7 @@ for.body.preheader:                               ; preds = %arrayctor.loop9.i
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont16
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont16 ]
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp13, i32 noundef %13) #20
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv
   %14 = load i8, ptr %arrayidx, align 1
@@ -17306,7 +17306,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -18747,7 +18747,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

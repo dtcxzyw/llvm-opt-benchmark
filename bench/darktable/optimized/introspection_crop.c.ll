@@ -1498,8 +1498,8 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 .loopexit6:                                       ; preds = %46, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #23
   %51 = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %52 = sitofp i32 %32 to float
-  %53 = sitofp i32 %51 to float
+  %52 = uitofp nneg i32 %32 to float
+  %53 = uitofp nneg i32 %51 to float
   %54 = fdiv reassoc nsz arcp contract afn float %52, %53
   %55 = fpext float %54 to double
   %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %32, i32 noundef %51, double noundef %55) #23
@@ -2208,8 +2208,8 @@ define internal void @_event_aspect_presets_changed(ptr noundef %0, ptr noundef 
   %207 = tail call i32 @llvm.abs.i32(i32 %206, i1 true)
   %208 = load i32, ptr %12, align 4, !tbaa !117
   %209 = tail call i32 @llvm.abs.i32(i32 %208, i1 true)
-  %210 = sitofp i32 %207 to float
-  %211 = sitofp i32 %209 to float
+  %210 = uitofp nneg i32 %207 to float
+  %211 = uitofp nneg i32 %209 to float
   %212 = fdiv reassoc nsz arcp contract afn float %210, %211
   %213 = fpext float %212 to double
   %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.12, i32 noundef %207, i32 noundef %209, double noundef %213) #23
